@@ -1,0 +1,41 @@
+/////////////
+// $MIXINS //
+/////////////
+
+/* Custom mixin to define typographic scale
+    Usage: @include size('l'); 
+*/
+@mixin size($font) {
+  @if $font == 'ginormous' {
+    @include typecsset-font-size(60px);
+  }
+  @if $font == 'xxl' {
+    @include typecsset-font-size(48px);
+  }
+  @if $font == 'xl' {
+    @include typecsset-font-size(36px);
+  }
+  
+  @if $font == 'l' {
+    @include typecsset-font-size(30px);
+  }
+
+  @if $font == 'm' {
+    @include typecsset-font-size(24px);
+  }
+
+  @if $font == 's' {
+    @include typecsset-font-size(21px);
+  }
+
+  @if $font == 'xs' {
+    @include typecsset-font-size(18px);
+  }
+
+  @if $font == 'xxs' {
+    @include typecsset-font-size(16px);
+  }
+  @if $font == 'tiny' {
+    @include typecsset-font-size(14px);
+  }
+}

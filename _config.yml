@@ -1,0 +1,4 @@
+name: "ChatRJr: Graphic Vagabond"
+markdown: redcarpet
+pygments: false
+exclude: ['.*', 'node_modules', '*.json', 'README.md', 'gulpfile.js']

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Component-Driven Web Design: Principles</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <script src="//use.typekit.net/koi3hzo.js"></script>
+        <script type="text/javascript">
+          try{Typekit.load();}catch(e){}
+        </script>
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+        <div class="container">
+          <header class="main-header">
+            <div class="logo hide-text"><a href="/">ChatRJr: Graphic Vagabond</a></div>
+          </header>
+
+          <h2>Component-Driven Web Design: Principles</h2>
+<p class="meta">25 Feb 2013</p>
+
+<div class="post">
+<p>This post begins a series on building component driven websites. In part 1 I lay the foundation and explain why the component driven approach kicks ass. You&#39;ll see how proper folder structure, a reliable boilerplate, and a robust package manager can get you off on the right foot whether you&#39;re building a simple blog or a complex web app.</p>
+
+<h2>Don&#39;t Ignore the Single Broken Window</h2>
+
+<p>Maintainable code is a boon to productivity. A disorganized, cluttered codebase can easily inflate the time it takes to complete a project. Among a team, the longer a codebase remains cluttered, the less likely it will ever be cleaned up. Your best bet to ensure a smooth project is to build from a solid foundation that takes root long before a text editor comes into play. When you let even a few sloppy lines of code sit still, you&#39;re sending the message to anyone who touches it after that they don&#39;t have to care. And at that point the component driven approach becomes impossible. That is, it gets harder to fit the puzzle together as the pieces get warped.</p>
+
+<h2>Build Your Project Not Only for What It Is, but What It Will Become</h2>
+
+<p>Component driven web design needs a solid base. In the planning stages you should already be considering how you want your site or app to grow, even if it&#39;s just a rough estimate. Planning for the lifetime of your project rather than the immediate implementation ensures that you&#39;ll make intelligent decisions on it moving forward. Even if you if don&#39;t have a detailed analysis, you should at the very least be thinking about both short-term and long-term project goals and ensure the short-term goals align with your long-term goals. This will spare you from a lot of pain down the road.</p>
+
+<p>Headscape founder Paul Boag <a href="http://www.netmagazine.com/news/paul-boag-web-designers-must-iterate-more-132564">recently issued a call to action</a> for designers to start iterating their designs more. One especially critical point made in the article regards the boom-bust cycle of client work. To that, Mr. Boag says:</p>
+
+<blockquote>
+<p>They launch a lovely new website and then they leave it. Content decays and becomes out of date. Technology becomes redundant over time. The design begins to look dated.</p>
+</blockquote>
+
+<p>As designers we&#39;re drawn to the idea of redesigning, and very often it occurs in one shot. We don&#39;t usually do minor tweaks over a period of time; we tear everything down and start from scratch. It&#39;s time to rethink our approach. Good iterative design doesn&#39;t occur without a process that accommodates it, so let&#39;s begin.</p>
+
+<h2>Ode to a Build Process</h2>
+
+<p>I know it seems like I have an ax to grind on this subject, but I really can&#39;t understate the importance of an effective build and automation process. The key to speedy development is to avoid writing boilerplate code as much as possible. If you find yourself going through the same setup procedures, you would definitely benefit from one. Maybe you&#39;re extremely fortunate and you have a regularly updated community boilerplate for your dev stack. Take advantage of that.</p>
+
+<p>For JavaScript-based web apps in particular, you really can&#39;t go wrong with <a href="http://gruntjs.com/">Grunt</a>, and there&#39;s also <a href="http://yeoman.io/">Yeoman</a> if you want to take it up to 11. Any project, big or small, can benefit from a great build and automation process. It&#39;s better to get comfortable with one sooner rather than later.</p>
+
+<blockquote>
+<p>If you have a phobia of the command line as I used to, this also presents a great opportunity to face it: increased productivity.</p>
+</blockquote>
+
+<h3>Let&#39;s Get Modular</h3>
+
+<p>Once you start thinking of your project&#39;s assets in terms of components, you may want to use an AMD loader such as <a href="http://requirejs.org">RequireJS</a>. The main benefit of AMD is conditional loading. As projects get more robust, you&#39;re likely to run into the Great Wall of Dependencies. This is when your application becomes so complex as to muddle the order of your scripts, what dependencies you should call, and <em>when</em> to call them. AMD loaders like RequireJS abstract most of these concerns by loading dependencies as modules. The beauty is that <em>anything</em> can be a module. You&#39;ll find out what this means in part 3.</p>
+
+<h2>Here&#39;s the Stinger</h2>
+
+<p>The most vital point of component driven web design is maintainability. A well-kept home is more inviting to visitors. A well-kept codebase is more inviting to a team. This is why top developers recommend a uniform style guide for in-house and open source projects. This is why Grunt may fast become an industry standard. This is why you should never be without a version control system. All of these things contribute to the health of the project and overall sanity of the team.</p>
+
+<p>Equally important is for components to be portable. They have a far greater shelf life than code that&#39;s too tightly coupled to the base. If you find yourself in need of a similar solution later on, having a component to be used across projects can be a lifesaver. For example: if you write an excellent script for a complex problem, and you have any suspicion that you&#39;ll run into that problem again, abstract it from the codebase and define it as a module. Improve it over time and let it find life in other projects.</p>
+
+<h2>That&#39;s Enough, Show Me the Code</h2>
+
+<p>Parts 2, 3, and 4 will be a deep dive into component driven web design. I&#39;ll walk you through a small project, using the principles above, from concept to completion. Naturally, the code will be archived in a Github repo as we go. I&#39;d like to hear your thoughts on this, so don&#39;t be shy. I&#39;m already working on the second part, so stay tuned.</p>
+
+<p>*[AMD]: Asynchronous Module Definition</p>
+
+</div>
+
+
+          <footer class="main-foot">
+            <div class="contact">
+              <p>
+                Your Name<br />
+                What You Are<br />
+                you@example.com
+              </p>
+            </div>
+            <div class="contact">
+              <p>
+                <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+                <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+              </p>
+            </div>
+          </footer>
+        </div>
+      <script src="/js/vendor/prismjs/prism.js"></script>
+    </body>
+</html>

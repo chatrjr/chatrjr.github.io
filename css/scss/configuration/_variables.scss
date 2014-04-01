@@ -1,0 +1,43 @@
+////////////////
+// $VARIABLES //
+////////////////
+
+//////////////
+// $PALETTE //
+//////////////
+
+$color-base: rgb(81, 74, 184);
+$color-bg: rgb(240, 240, 240);
+$color-text: rgb(15, 10, 30);
+$color-text-fill: rgb(240, 240, 255);
+
+$brand-codepen: #000000;
+$brand-github: #999999;
+$brand-twitter: #35CCFF;
+$brand-jsfiddle: #2795EE;
+
+/////////////////
+// $TYPOGRAPHY //
+/////////////////
+
+$typecsset-base-font-size: 21px;
+$typecsset-base-line-height: 31.5px;
+$base-line-height: $typecsset-base-line-height;
+$typecsset-h1-size: 66.305px;
+$typecsset-h2-size: 49.741px;
+$typecsset-h3-size: 37.315px;
+$typecsset-h4-size: 27.933px;
+
+$font-body: 'jubilat';
+$font-headline: 'nimbus-sans-condensed';
+$font-source: 'anonymous-pro';
+
+/////////////
+// Borders //
+/////////////
+
+$border-hairline: 1px;
+$border-med: 3px;
+$border-thick: 8px;
+$border-super: 15px;
+$border-type: solid;

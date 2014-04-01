@@ -1,0 +1,14 @@
+/*------------------*\
+   $LINKS
+\*------------------*/
+
+a {
+  color: $color-base;
+  text-decoration: none;
+  transition: all 0.3s linear;
+  &:hover,
+  &:focus {
+    background: $color-base;
+    color: $color-text-fill;
+  }
+}

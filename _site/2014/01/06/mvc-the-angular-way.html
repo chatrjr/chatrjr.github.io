@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>MVC: The Angular Way</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <script src="//use.typekit.net/koi3hzo.js"></script>
+        <script type="text/javascript">
+          try{Typekit.load();}catch(e){}
+        </script>
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+        <div class="container">
+          <header class="main-header">
+            <div class="logo hide-text"><a href="/">ChatRJr: Graphic Vagabond</a></div>
+          </header>
+
+          <h2>MVC: The Angular Way</h2>
+<p class="meta">06 Jan 2014</p>
+
+<div class="post">
+<ul>
+<li><a href="#mvc-explanation">Obligatory Explanation of MVC</a>
+
+<ul>
+<li><a href="#mvc-philo">MVC Philosophy</a></li>
+</ul></li>
+<li><a href="#sketch-mvc">A Rough Sketch of MVC</a>
+
+<ul>
+<li><a href="#model">Model</a></li>
+<li><a href="#view">View</a></li>
+<li><a href="#control">Controller</a></li>
+</ul></li>
+<li><a href="#angular-js">AngularJS: A Very Different Animal</a></li>
+<li><a href="#angular-view">The Angular View</a></li>
+<li><a href="#augmented-markup">Augmented Markup</a>
+
+<ul>
+<li><a href="#ng-app">ng-app</a></li>
+<li><a href="#ng-controller">ng-controller</a></li>
+<li><a href="#ng-model">ng-model</a></li>
+<li><a href="#ng-event">ng-event</a></li>
+<li><a href="#ng-repeat">ng-repeat</a></li>
+<li><a href="#ng-class">ng-class</a></li>
+</ul></li>
+<li><a href="#routes">The Missing Ingredient: Routes</a></li>
+<li><a href="#result">The Result</a></li>
+</ul>
+
+<div id="mvc-explanation"></div>
+
+<h2>Obligatory Explanation of MVC</h2>
+
+<p>That&#39;s probably the the first thing you&#39;re wondering (if you didn&#39;t know already). <abbr title="Model-View-Controller">MVC</abbr> is a software pattern for building user interfaces that emerged from Smalltalk. It&#39;s a proven architecture for robust UIs that finally found its way to the web in the explosion of application frameworks that embody its principles along with a few offshoots. I&#39;m talking about Backbone, Ember, Knockout, and the star of today&#39;s post: <a href="http://angularjs.org/">AngularJS</a>. Of course, that&#39;s just scratching the surface. Before we dive in with Angular, let&#39;s have a look at the ideas behind MVC and the problems it was intended to solve.</p>
+
+<div id="mvc-philo"></div>
+
+<h3>MVC Philosophy</h3>
+
+<p>MVC is critical for building modern applications because it works on the idea that there should be a separation of concerns between the data the application accepts (Model), how the data is shown (View), and how it&#39;s changed (Controller). This approach would allow apps to easily grow with feature requests and bug fixes in ways that they couldn&#39;t if all those parts were intertwined.</p>
+
+<div id="sketching-mvc"></div>
+
+<h2>A Rough Sketch of MVC</h2>
+
+<p>It&#39;s a bit more complicated than that, so it&#39;s example time! The following code is not representative of any MVC framework out there right now, it&#39;s only meant to illustrate the general structure.</p>
+
+<div id="model"></div>
+
+<h3>Model</h3>
+
+<p>Let&#39;s say we have a database full of people that we want to use for a &quot;Facebook-killer&quot; social network. We don&#39;t need to use all of their data for the model, only the most relevant parts. The following is a model we might use for a profile page.</p>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript">// Let's assume there's an App namespace and that
+// a Person has already been attached as a Model.
+var App = App || {};
+
+App.Model.Person = (function(data) {
+
+  this.id = data.id;
+  this.firstName = data.firstName;
+  this.lastName = data.lastName;
+  this.age = data.age;
+  this.birthday = data.birthday;
+
+  // Parse data somehow
+
+  return data;
+
+})('people.json');
+</code></pre></div>
+<div id="view"></div>
+
+<h3>View</h3>
+
+<p>A view is usually represented through a templating engine (either client or server side). Here is where you plug in your data. For the purpose of our example, let&#39;s say the template is written like this.</p>
+<div class="highlight"><pre><code class="markup language-markup" data-lang="markup">&lt;!&gt; Mock templating language
+&lt;&gt;html
+  &lt;&gt;head
+    &lt;&gt;title Profile of #{getFullName} &amp;bull; FBKiller
+    &lt;name=&quot;description&quot; content=&quot;This is the profile of #{getFullName}&quot;/&gt;meta
+    &lt;name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;/&gt;meta
+    &lt;rel=&quot;stylesheet&quot; href=&quot;style.css&quot;/&gt;link
+    &lt;src=&quot;engine.js&quot;&gt;script
+  &lt;&gt;body
+    &lt;role=&quot;banner&quot;&gt;header.main-head
+      &lt;&gt;h1 Profile of #{getFullName}
+      &lt;role=&quot;navigation&quot;&gt;nav.main-nav
+        &lt;&gt;ul.main-nav-wrap
+          &lt;@for [1..4]&gt;
+            &lt;&gt;li
+              &lt;href=&quot;#&quot;&gt;a
+          &lt;/@for&gt;
+    &lt;&gt;.stats
+      &lt;&gt;ul.stat-wrap
+        &lt;@each $context : prop&gt;
+          &lt;&gt;li.stat-item
+            &lt;&gt;h2 #{prop}
+            &lt;&gt;p #{$context.prop}
+        &lt;/@each&gt;
+    &lt;role=&quot;contentinfo&quot;&gt;footer.main-foot &amp;copy; 2014 FBKiller
+</code></pre></div>
+<p>When the template is parsed, you end up with something like this.</p>
+<div class="highlight"><pre><code class="markup language-markup" data-lang="markup">&lt;!-- Mock templating language --&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt; Profile of Dirk Gently &amp;bull; FBKiller&lt;/title&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;This is the profile of Dirk Gently&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot; /&gt;
+    &lt;script src=&quot;engine.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;header class=&quot;main-head&quot; role=&quot;banner&quot;&gt;
+      &lt;h1&gt;Profile of Dirk Gently&lt;/h1&gt;
+      &lt;nav class=&quot;main-nav&quot; role=&quot;navigation&quot;&gt;
+        &lt;ul class=&quot;main-nav-wrap&quot;&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/nav&gt;
+    &lt;/header&gt;
+    &lt;div class=&quot;stats&quot;&gt;
+      &lt;ul class=&quot;stat-wrap&quot;&gt;
+        &lt;li class=&quot;stat-item&quot;&gt;
+          &lt;h2&gt;First Name&lt;/h2&gt;
+          &lt;p&gt;Dirk&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;stat-item&quot;&gt;
+          &lt;h2&gt;Last Name&lt;/h2&gt;
+          &lt;p&gt;Gently&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;stat-item&quot;&gt;
+          &lt;h2&gt;Age&lt;/h2&gt;
+          &lt;p&gt;Unknown&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;stat-item&quot;&gt;
+          &lt;h2&gt;Birthday&lt;/h2&gt;
+          &lt;p&gt;Unknown&lt;/p&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;footer class=&quot;main-foot&quot; role=&quot;contentinfo&quot;&gt;&amp;copy; 2014 FBKiller&lt;/footer&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div>
+<div id="control"></div>
+
+<h3>Controller</h3>
+
+<p>A controller is responsible for application logic and data manipulation. As such, they are usually bound to the view they affect and are responsible only for that view. In our mock MVC framework, a controller might be written this way.</p>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript">App.Controller.UserProfile = (function(Person, ProfileView) {
+
+  // Let's say App.Controller has a bind() method
+  // to attach views.
+  var $context = App.Controller.bind(this, ProfileView);
+
+  // From this context, we can attach additional manipulators
+  // to be shown in the view.
+  $context.getFullName = function() {
+    return this.firstName + ' ' + this.lastName;
+  }
+
+})(App.Model.Person, App.View.Profile);
+</code></pre></div>
+<p>That&#39;s enough theory. Let&#39;s see how a real framework does it.</p>
+
+<div id="angular-js"></div>
+
+<h2>AngularJS: A Very Different Animal</h2>
+
+<p>Of all that I&#39;ve read about MVC and its derivatives, Angular is quite unique in its approach. It&#39;s a completely different architecture from &quot;traditional&quot; MVC like Backbone. The Angular team marks it as a <abbr title="Model-View-Mapper">MVM</abbr> framework, and it shows. The rest of this post will be about the silly thing I mentioned in the excerpt, as it helps show exactly how different yet <strong>familiar</strong> it is to do things the Angular way.</p>
+
+<div id="angular-view"></div>
+
+<h2>The Angular View</h2>
+
+<p>The first thing I should mention: if you&#39;ve ever written HTML, then you already know how to build an Angular view. The framework extends natural markup with a ton of useful attributes. Angular has grown surprisingly hardy since its creation, trusted to power apps large and small despite its deceptively simple structure. Here&#39;s the view for my <a href="http://jsbin.com/ObijokUR/7/">Multiples Listing experiment</a>.</p>
+<div class="highlight"><pre><code class="markup language-markup" data-lang="markup">&lt;div ng-app=&quot;App&quot;&gt;
+  &lt;div ng-controller=&quot;MainCtrl&quot;&gt;
+    &lt;h1&gt;AngularJS Multiples Experiment.&lt;/h1&gt;
+    &lt;p&gt;This is just something I built while learning AngularJS, so I can prepare to use it on a larger project I'm working on. Feel free to comb through the code, and let me know if I messed up something.&lt;/p&gt;
+    &lt;form&gt;
+      &lt;div class=&quot;field-wrap&quot;&gt;
+        &lt;label for=&quot;mult&quot;&gt;Set your multiple. &lt;small&gt;Change to update table.&lt;/small&gt;&lt;/label&gt;
+        &lt;input id=&quot;mult&quot; class=&quot;field&quot; type=&quot;number&quot; ng-model=&quot;num.multiple&quot;&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;field-wrap&quot;&gt;
+        &lt;label for=&quot;limit&quot;&gt;Set your limit. &lt;small&gt;Number of items to show.&lt;/small&gt;&lt;/label&gt;
+        &lt;input id=&quot;limit&quot; class=&quot;field&quot; type=&quot;number&quot; min=&quot;0&quot; max=&quot;10000&quot; ng-model=&quot;num.limit&quot;&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;controls&quot;&gt;
+        &lt;button ng-click=&quot;populate()&quot;&gt;Create my table&lt;/button&gt;
+        &lt;button ng-click=&quot;flush()&quot;&gt;Reset&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+    &lt;ul&gt;
+      &lt;li class=&quot;boxes&quot; ng-class=&quot;{divisible: (numbers[$index] % num.multiple === 0) ? true : false}&quot; ng-repeat=&quot;number in numbers&quot;&gt;
+
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre></div>
+<p>See? An Angular view is an augmented HTML document. Nothing else. Let&#39;s have a look at some of these augments.</p>
+
+<div id="augmented-markup"></div>
+
+<h2>Augmented Markup</h2>
+
+<div id="ng-app"></div>
+
+<h3>ng-app</h3>
+
+<p>The first notable change is the <code>ng-app</code> attribute. This lets Angular know where the app rests on your page. When you set it as an attribute of <code>&lt;html&gt;</code>, like I am, you&#39;re telling Angular the entire page is your app. Wrapping part of your page with <code>ng-app</code> is ideal if your website or app is managed by something else. This means you can have a dash of Angular with your Rails, for example.</p>
+
+<div id="ng-controller"></div>
+
+<h3>ng-controller</h3>
+
+<p>The <code>&lt;body&gt;</code> element has the <code>ng-controller</code> attribute. Angular uses this to assign a controller&#39;s scope on the page to wrap its logic. My experiment only has one controller, <code>MainCtrl</code>, because it doesn&#39;t need to do too much. Building a controller in Angular isn&#39;t a chore either, especially if you&#39;re well-versed in the module pattern.</p>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript">// Best Practice: Set namespace of your app to
+// avoid pollution of the global scope.
+var App = angular.module('App', []);
+
+// $scope is the current context of MainCtrl,
+// that is, the entire page.
+App.controller('MainCtrl', function($scope) {
+  var i,
+      numArr;
+
+  // An Angular model with defaults set.
+  // Keep in mind that models usually aren't static
+  // and work with persistent data from the server.
+  $scope.num = {
+    multiple: 2,
+    limit: 24
+  };
+
+  $scope.numbers = [];
+
+  numArr = Array($scope.num.limit);
+
+  for (i = 0, len = numArr.length; i &lt;= len; i++) {
+    $scope.numbers.push(i);
+  }
+
+  $scope.populate = function() {
+    $scope.numbers.length = 0;
+
+    var list = $scope.num.limit;
+
+    for(i = 0; i &lt;= list; i++) {
+      $scope.numbers.push(i);
+    }
+  };
+
+
+  $scope.flush = function() {
+    $scope.numbers.length = 0;
+  };
+
+});
+</code></pre></div>
+<div id="ng-model"></div>
+
+<h3>ng-model</h3>
+
+<p>This attribute allows you to bind values to elements in real-time. Angular maintains persistent state through two way binding. The <code>&lt;input&gt;</code> element in our view with <code>ng-model=&quot;num.multiple&quot;</code> will update the list as you change it, while the one with <code>ng-model=&quot;num.limit&quot;</code> attached will modify the size of your list.</p>
+
+<div id="ng-event"></div>
+
+<h3>ng-event</h3>
+
+<p>What&#39;s old is new again. Angular binds events in a way that will look very familiar and worrisome, but there&#39;s nothing to fear. My little experiment has buttons that create and reset the table, respectively. The first button is bound to the <code>populate()</code> method defined in the controller, while the second is bound to <code>flush()</code>.</p>
+
+<p>Here&#39;s the view.</p>
+<div class="highlight"><pre><code class="markup language-markup" data-lang="markup">&lt;button ng-click=&quot;populate()&quot;&gt;Create my table&lt;/button&gt;
+&lt;button ng-click=&quot;flush()&quot;&gt;Reset&lt;/button&gt;
+</code></pre></div>
+<p>And the associated methods.</p>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript">$scope.populate = function() {
+  $scope.numbers.length = 0;
+
+  var list = $scope.num.limit;
+
+  for (i = 0; i &lt;= list; i++) {
+    $scope.numbers.push(i);
+  }
+};
+
+$scope.flush = function() {
+  $scope.numbers.length = 0;
+};
+</code></pre></div>
+<div id="ng-repeat"></div>
+
+<h3>ng-repeat</h3>
+
+<p>This attribute allows Angular to loop through items in the list once it has been populated. And this will update every time we create a new list. It doesn&#39;t just work with arrays, it allows any collection of objects that can be iterated through. And then you can output the value with either <code>ng-bind=value</code> or the double bracket syntax.</p>
+
+<div id="ng-class"></div>
+
+<h3>ng-class</h3>
+
+<p>The final ingredient was to figure out a way to update an item with a special class. Angular supplies the <code>ng-class</code> for conditional application of classes. In this case, I wanted to highlight the numbers that are multiples of the first input, that is, by checking that the modulus of that number equals 0.</p>
+<div class="highlight"><pre><code class="markup language-markup" data-lang="markup">&lt;li class=&quot;boxes&quot; ng-class=&quot;{divisible: (numbers[$index] % num.multiple === 0) ? true : false}&quot; ng-repeat=&quot;number in numbers&quot;&gt;
+
+&lt;/li&gt;
+</code></pre></div>
+<p>When it does, the <code>.divisible</code> class is applied to that item and highlights it as a multiple.</p>
+
+<div id="routes"></div>
+
+<h2>The Missing Ingredient: Routes</h2>
+
+<p>When MVC came to the web, another special ingredient was added to leverage the power of links. As a result, web apps have shareable URLs that preserve state. This routing allows a web app to apply certain functionality across views in a simple, readable way. And this is arguably their biggest advantage over native apps. My experiment was way too simple to need routing, but don&#39;t underestimate the power of this valuable tool.</p>
+
+<div id="result"></div>
+
+<h2>The Result</h2>
+
+<p>This was a really long post, and I might have tried to do too much. Here&#39;s the finished app, if you want to play with it. Also, my understanding of MVC isn&#39;t complete, so I urge you to let me know if I&#39;ve made some mistakes in explaining it. And especially if I got it completely wrong. See ya later, web people!</p>
+
+<iframe width="100%" height="400" src="http://jsfiddle.net/chatrjr/neCH7/embedded/result,html,js/presentation/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+<h2>Bonus</h2>
+
+<p>This is another implementation of the multiples list that live updates from inputs. No buttons necessary. You&#39;re welcome to compare performance.</p>
+
+<iframe width="100%" height="400" src="http://jsfiddle.net/chatrjr/Xz3hp/embedded/result,html,js/presentation/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+</div>
+
+
+          <footer class="main-foot">
+            <div class="contact">
+              <p>
+                Your Name<br />
+                What You Are<br />
+                you@example.com
+              </p>
+            </div>
+            <div class="contact">
+              <p>
+                <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+                <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+              </p>
+            </div>
+          </footer>
+        </div>
+      <script src="/js/vendor/prismjs/prism.js"></script>
+    </body>
+</html>

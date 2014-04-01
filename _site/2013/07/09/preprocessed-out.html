@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Preprocessed Out</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <script src="//use.typekit.net/koi3hzo.js"></script>
+        <script type="text/javascript">
+          try{Typekit.load();}catch(e){}
+        </script>
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+        <div class="container">
+          <header class="main-header">
+            <div class="logo hide-text"><a href="/">ChatRJr: Graphic Vagabond</a></div>
+          </header>
+
+          <h2>Preprocessed Out</h2>
+<p class="meta">09 Jul 2013</p>
+
+<div class="post">
+<p>I recently got into a debate with a developer who doesn&#39;t see the point in using CSS preprocessors. I have to admit I got really defensive. As much as I love Sass, once I cooled down, I did what any conscientious developer would do: research. I came out the other side with a better understanding of both sides of the argument, as well as a deeper understanding of exactly why I use a tool like Sass.</p>
+
+<p>To give credence to both sides of the argument, and what Sass and other preprocessors are aiming to fix, there will be code examples. I&#39;d recommend reading the whole thing, but if you really want to, you can jump down to <a href="#sass-way">The Sass Way</a> for the examples of ways you can use Sass (and some ways you shouldn&#39;t).</p>
+
+<h2>CSS as a Language</h2>
+
+<p>It should be pretty obvious by this point, but CSS is <strong>not</strong> a programming language. It&#39;s a declarative markup language that acts as the skin to its HTML skeleton. CSS is by design supposed to be easy to pick up and understand. However, its loose syntax has some pitfalls to those coming from a traditional programming background (and even some that don&#39;t).</p>
+
+<ul>
+<li>Not very DRY</li>
+<li>Doesn&#39;t scale too well</li>
+<li>Fairly easy to abuse without understanding</li>
+</ul>
+
+<p>The interesting thing about that last bullet is that it can apply equally to handwritten CSS and compiled CSS. This is something both advocates and detractors tend to ignore. CSS is easy to pick up, but can easily take years to use effectively. And it falls on the designer/developer to write good CSS first. Then you can look into ways to write it faster.</p>
+
+<h2>A Bad Workman</h2>
+
+<p>This is an often quoted proverb, but it&#39;s no less true.</p>
+
+<blockquote>
+<p>A bad workman never gets a good tool.</p>
+</blockquote>
+
+<p>The fact is: a CSS preprocessor won&#39;t help you do shit if you don&#39;t have a good grasp of modern CSS authorship practices and haven&#39;t yet grokked the power of your tool. Before even <strong>considering</strong> using one, you should have a good understanding of the following:</p>
+
+<ul>
+<li>specificity</li>
+<li>the cascade</li>
+<li>efficient selectors</li>
+<li>SMACSS &amp; BEM (optional)</li>
+<li>documentation</li>
+</ul>
+
+<p>If you think a CSS preprocessor will cover for the mistakes you already make, you&#39;d be wrong. A tool used this way will only amplify your misunderstanding. No tool is a replacement for knowledge and experience, but they <strong>can</strong> complement them. I realize this is what that developer meant by preprocessors enabling bad code. Used without care, they do make things worse.</p>
+
+<h2>The Elephant in the Room</h2>
+
+<p>One of the biggest arguments made against preprocessors is that they add another layer of abstraction to the development stack. This is absolutely true. However, they also ignore that the popularity of Sass and other CSS preprocessors shows that some devs and teams are <strong>very comfortable</strong> with this extra layer in the face of the perceived gains. <a href="http://blog.kaelig.fr/post/51078221503/apple-is-using-sass-and-theyre-doing-it-wrong">Even Apple</a>, apparently. Here are some other arguments.</p>
+
+<h3>Not Necessary</h3>
+
+<p>I read an article by Amber Weinberg: <a href="http://www.amberweinberg.com/why-im-still-against-sass-less/">Why I&#39;m (Still) Against Sass &amp; LESS</a>. It was written last year, so I&#39;m not sure if her opinions have changed. It&#39;s still paints a good picture of why CSS preprocessors are still &quot;no sale&quot; for some developers. This argument in particular stuck out for me.</p>
+
+<blockquote>
+<p>Let me tell you a secret: CSS is NOT a programming language. The beauty of CSS is that it’s so easy for almost any to pick up quickly and read (though it’s very difficult to actually use it properly for the big stuff). Adding a preprocessor on top just needlessly complicates and adds yet another piece of bloat to an already over bloated workflow.</p>
+</blockquote>
+
+<p><strong>She&#39;s absolutely right</strong>. Nobody needs a CSS preprocessor. Don&#39;t ever make that argument. If you&#39;re going to argue for CSS preprocessors, do it honestly. Everyone has a different way of working. It doesn&#39;t have to be yours. Now, this point is where we differ.</p>
+
+<blockquote>
+<p>Code bloat: nesting, unneeded vendor prefixes, etc etc. Giving up control of the final output means you give up control on cleanliness. Queue Photoshop sliced HTML.</p>
+</blockquote>
+
+<p>This part in particular isn&#39;t on the tool but the developer. Bloated CSS can be written with or without a CSS preprocessor. This is why knowledge of good CSS practices is so crucial. Also, Sass doesn&#39;t output anything close to the nightmare that was Photoshop sliced HTML. Like any other compiler, it only outputs what you input. If you give it garbage, it will spit out garbage.</p>
+
+<h3>Forced to Learn a New Syntax</h3>
+
+<p>This argument would be perfectly valid if Sass still only had one syntax. The Original Sass (.sass) syntax is lifted from its big bro HAML which, structurally, is very similar to Python. Answering this concern, Sass v3.0 introduced the Sassy CSS (.scss) syntax. Put bluntly, valid CSS is valid SCSS. This significantly lowers the barrier to entry, as the only thing you&#39;d have to learn is the new functionality. This in particular is what made me a Sass convert. I could use the power in a way I understood. And in a way that didn&#39;t force me to unlearn what I knew. It&#39;s a superset of CSS, rather than its own language.</p>
+
+<h3>Forced to Setup a New Environment</h3>
+
+<p>This one is tricky. Unless the tool is really going to help out your workflow, there&#39;s really no reason to set up an environment just to use it. However, Sass &amp; LESS&#39; barrier to entry is reduced by the fact that Mac OSX now comes with a host of open-source programming languages and frameworks preinstalled (including Ruby and Rails). Linux distros are much the same. The only developers that would run into the issue of actually setting up are Windows developers. I hop between Windows and Linux, myself. Getting Ruby and Python going on Windows 7 did take some work (Cygwin FTW), but the gains were worth that slight pain.</p>
+
+<p>I understand that in some work environments--and especially with a team, this would be pretty hard to start. I forget sometimes that as a solo act, I have <strong>way</strong> more luxury to explore new technologies and workflows as I want. Many on a team don&#39;t have the time or opportunity to explore alternative approaches without some <strong>serious</strong> overhead in training. To that I say: only try a tool if you think it will have a measurable impact on your workflow. If you try a preprocessor and it doesn&#39;t speed up your turnaround, don&#39;t feel bad about it. Go for what makes you most productive, not the new and shiny just because it&#39;s new and shiny.</p>
+
+<h3>I&#39;m Better for Using/Not Using a Preprocessor</h3>
+
+<p>I&#39;m not going to spend too much time on this argument, because it reeks of the kind of elitism that&#39;s endemic in our field. The reason you can&#39;t have a Rails and Django developer in the same room sometimes. It&#39;s the same reason I didn&#39;t handle the argument with that developer as well as I&#39;d have liked. I read &quot;not real CSS&quot; and just lost my shit. That kind of &quot;enlightened&quot; attitude doesn&#39;t do anything for anyone. Bottom line: don&#39;t call someone an idiot for not working the way you do. We&#39;re all trying to create a better web. The dynamic nature of our industry means the answer to &quot;should I do this?&quot; is usually &quot;It depends.&quot;</p>
+
+<div id="sass-way"></div>
+
+<h2>The Sass Way</h2>
+
+<p>Sass is designed to help you write more efficient CSS with a wealth of tools that, admittedly, seem counterproductive at first. It&#39;s really worth repeating: a CSS preprocessor is <strong>only</strong> as good as your understanding of CSS. And at this point, I&#39;d consider my understanding to be pretty damn good. The rest of this post will be a &quot;put up or shut up&quot; demonstration of using effective Sass, and by extension, outputting leaner CSS. The best advice I can give about using Sass is being mindful how you use it until you&#39;re more comfortable, and monitor your output to ensure it looks the same as you would write your CSS by hand. Never make your output dependent on Sass for updating.</p>
+
+<h3>Duplication vs. Modularity</h3>
+
+<h4>Detractor Argument: CSS Preprocessors promote code bloat and duplication.</h4>
+
+<p>They do when the output isn&#39;t monitored. One of the most misused features of Sass are <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#mixins">mixins</a>, which work much like functions. The duplication problem comes when developers try to use them as glorified copy/paste vehicles. Tell me if this looks familiar:</p>
+
+<p><div>
+    <pre><code class='scss'>@mixin border-main() {
+  border: 3px solid #f90;
+}</p>
+
+<p>.photo {
+  @include border-main;
+}</p>
+
+<p>.block {
+  @include border-main;
+}</p>
+
+<p>form {
+  .field {
+    @include border-main;
+  }
+}</code></pre>
+  </div></p>
+
+<p>Code like this perfectly illustrates the duplication problem. The sinister thing is that within Sass it <strong>appears</strong> DRY. This is not so much the case in the output.</p>
+
+<p><div>
+    <pre><code class='css'>/* line 5, duplication.scss */
+.photo {
+  border: 3px solid #f90;
+}</p>
+
+<p>/* line 10, duplication.scss */
+.block {
+  border: 3px solid #f90;
+}</p>
+
+<p>/* line 15, duplication.scss */
+form .field {
+  border: 3px solid #f90;
+}</code></pre>
+  </div></p>
+
+<p>Contrived as the example may be, consider it on a larger scale, and that would be a TON of bloat. Authoring lightweight CSS is in part a matter of recognizing patterns within your code. The OOCSS method would suggest making a separate class for that border, but then our markup would be polluted with presentational classes. If I knew certain styles of my design would be used across modules, I might group the declaration under multiple selectors and leverage the cascade to define more specific modifications for the individual parts. Here&#39;s the handwritten way and the Sass way.</p>
+
+<p><div>
+    <pre><code class='scss'>/<em>------------------------------------</em>\
+    $MODULARITY
+*------------------------------------*/</p>
+
+<p>// Handwritten CSS. Commented so as to be
+// untouched by the compiler.</p>
+
+<p>// .photo,
+// .block,
+// form .field {
+//     border: 3px solid #f90;
+// }</p>
+
+<p>// .photo {
+//   width: 100%;
+// }</p>
+
+<p>// .block {
+//   float: left;
+// }</p>
+
+<p>// form .field {
+//   color: white;
+// }</code></pre>
+  </div></p>
+
+<p><div>
+    <pre><code class='scss'>// Placeholder selector, the great and powerful.
+// What it does is very similar to a class.
+// You define rules within it, and then it applies
+// those styles without you having to add a class to your
+// markup. Boom. </p>
+
+<p>// In this case, the selectors that @extend it are 
+// grouped together while leaving the unique properties 
+// alone. Just like my handwritten example.
+%border-main {
+    border: 3px solid #f90;
+}</p>
+
+<p>.photo {
+    @extend %border-main;
+    width: 100%;
+}</p>
+
+<p>.block {
+    @extend %border-main;
+    float: left;
+}</p>
+
+<p>form {
+    .field {
+        @extend %border-main;
+        color: white;
+    }
+}</code></pre>
+  </div></p>
+
+<p>Look ma, no bloat!</p>
+
+<p><div>
+    <pre><code class='css'>/<em>------------------------------------</em>\
+    $MODULARITY
+*------------------------------------<em>/
+/</em> line 37, modularity.scss */
+.photo, .block, form .field {
+  border: 3px solid #f90;
+}</p>
+
+<p>/* line 41, modularity.scss */
+.photo {
+  width: 100%;
+}</p>
+
+<p>/* line 46, modularity.scss */
+.block {
+  float: left;
+}</p>
+
+<p>/* line 52, modularity.scss */
+form .field {
+  color: white;
+}</code></pre>
+  </div></p>
+
+<p>My examples show, again, that maintaining duplication and code bloat is the responsibility of the developer whether they write vanilla CSS or not. Also, it should be obvious that you would use the <code>@extend</code> directive sparingly. Otherwise, you can easily end up with a selector dogpile. Let&#39;s move on.</p>
+
+<h4>Detractor Argument: Mixins can ignore the spec and fill stylesheets with unused vendor prefixes.</h4>
+
+<p>Yes and no. Mixins can pollute your stylesheets with unused vendor prefixes if you have no control over them and they&#39;re built incorrectly. However, by curating your own set of mixins to use across projects, you can do some pretty awesome stuff. Especially as mixins can contain other mixins.</p>
+
+<p>UPDATE: If, for some reason you&#39;re still writing mixins to handle vendor prefixes, you&#39;re making it harder on yourself. There are wonderful tools like <a href="http://leaverou.github.io/prefixfree/">Lea Verou&#39;s -prefix-free</a> and <a href="https://github.com/ai/autoprefixer">Andrey Sitnik&#39;s Autoprefixer</a>. They&#39;re both absolutely brilliant for that minefield.</p>
+
+<h3>Nesting Hell</h3>
+
+<p>The key to using the features of any preprocessor is <strong>moderation</strong>. The rule of &quot;just because you can do something&quot; very much applies here. Nesting in particular can quickly snowball with an inexperienced CSS author. Let&#39;s get one thing straight: this is awful.</p>
+
+<p><div>
+    <pre><code class='scss'>/<em>------------------------------------</em>\
+    $NESTING HELL
+*------------------------------------*/</p>
+
+<p>// Don&#39;t do this.
+nav {
+    width: 100%;
+    ul {
+        list-style: none;
+        li {
+            color: #0af;
+            display: inline-block;
+            padding: 0.3em;
+            a {
+                display: block;
+            }
+        }
+    }
+}</p>
+
+<p>// NEVER do this.</p>
+
+<p>section {
+    width: 100%;
+    .blog {
+        width: 50%;
+        .post {
+            background: white;
+            h2 {
+                color: red;
+            }
+            .content {
+                border: 3px solid lighten(#0cf, 30);
+                .quotation {</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">            }
+            .pull-quote {
+                background: #03f;
+                color: white;
+            }
+            .definition-list {
+                list-style: none;
+            }
+        }
+    }
+}
+</code></pre></div>
+<p>}</code></pre>
+  </div></p>
+
+<p>The output is even worse.</p>
+
+<p><div>
+    <pre><code class='css'>/<em>------------------------------------</em>\
+    $NESTING HELL
+*------------------------------------<em>/
+/</em> line 6, nesting-hell.scss <em>/
+nav {
+  width: 100%;
+}
+/</em> line 8, nesting-hell.scss <em>/
+nav ul {
+  list-style: none;
+}
+/</em> line 10, nesting-hell.scss <em>/
+nav ul li {
+  color: #0af;
+  display: inline-block;
+  padding: 0.3em;
+}
+/</em> line 14, nesting-hell.scss */
+nav ul li a {
+  display: block;
+}</p>
+
+<p>/* line 23, nesting-hell.scss <em>/
+section {
+  width: 100%;
+}
+/</em> line 25, nesting-hell.scss <em>/
+section .blog {
+  width: 50%;
+}
+/</em> line 27, nesting-hell.scss <em>/
+section .blog .post {
+  background: white;
+}
+/</em> line 29, nesting-hell.scss <em>/
+section .blog .post h2 {
+  color: red;
+}
+/</em> line 32, nesting-hell.scss <em>/
+section .blog .post .content {
+  border: 3px solid #99ebff;
+}
+/</em> line 37, nesting-hell.scss <em>/
+section .blog .post .content .pull-quote {
+  background: #03f;
+  color: white;
+}
+/</em> line 41, nesting-hell.scss */
+section .blog .post .content .definition-list {
+  list-style: none;
+}</code></pre>
+  </div></p>
+
+<p>If you&#39;re thinking there&#39;s nothing particular wrong with this, it&#39;s a misconception that your CSS should reflect your markup structure. This is a terrible idea because of the way browser engines actually read CSS. Exactly why they read selectors from right to left is beyond the scope of this post, but <a href="http://stackoverflow.com/questions/5797014/why-do-browsers-match-css-selectors-from-right-to-left/5813672#5813672">this is a great explanation</a>. Either way, this is a specificity nuke, and more often than not encourages abuse of IDs and <code>!important</code> in stylesheets. Well-structured CSS, formed with or without a preprocessor, should not require either for styling. My personal rule is to save IDs as general hooks for components I intend to inject with JavaScript behavior and events.</p>
+
+<p>A great rule for Sass (and programming in general), be mindful of your structure. When nesting selectors, try not to go more than one level deep. It&#39;s not as hard as you might think. Efficient classes, use of global styling, and leveraging the cascade will be enough to keep your CSS maintainable and lean.</p>
+
+<h3>On Variables</h3>
+
+<p>Variables are another point of division between preprocessor advocates and detractors. Strictly speaking, most editors do have a find and replace feature and you can keep variable-like references within comments as a guide. The problem, and the reason I find variables useful, is us. For an especially complex design, keeping track of values can be hell. Not only do we have to be mindful of our consistent values, but those working in a team will have to keep the <strong>other members</strong> on track.</p>
+
+<p>The lack of variables in CSS might not be a problem when you&#39;re by yourself (and let&#39;s be honest, they aren&#39;t), but a team would benefit from intelligently named variables. They slightly reduce the potential for human error, especially if you or your team uses an editor with code-hinting. For many capable of well-structured CSS, variables become more of a convenience than the necessity. As I said it would probably be a bad idea to make updating your stylesheets dependent on Sass, I&#39;d recommend something like the following:</p>
+
+<p><div>
+    <pre><code class='scss'>/<em>------------------------------------</em>\
+    $VARIABLES
+*------------------------------------*/</p>
+
+<p>//Colors
+$ocean-blue: rgba(0, 112, 255, 1);
+$ocean-blue-dark: darken($ocean-blue, 13);
+$aqua: rgba(0, 214, 255, 1);
+$sky-blue: rgba(0, 155, 255, 1);
+$sky-blue-dark: darken($sky-blue, 40);
+$lime: rgba(138, 255, 0, 1);
+$lime-light: lighten($lime, 16);
+$lime-dark: darken($lime, 10);
+$white: rgba(255, 255, 255, 1);
+$white-translucent: rgba($white, 0.6);
+$black: rgba(0, 0, 0, 1);</p>
+
+<p>// Borrowed from Pattern Lab
+$error : #f00;
+$valid : #089e00;</p>
+
+<p>$brand-facebook: #03539e;
+$brand-twitter: #35ccff;
+$brand-linkedin: #217bc1;
+// _______________________</p>
+
+<p>//Typography</p>
+
+<p>$base-font-size: 18px;
+$base-line-height: 24px;</p>
+
+<p>$headline-font: &quot;cubano&quot;;
+$heading-font: &quot;cubano&quot;;
+$body-font: &quot;freight-micro-pro&quot;;
+$accent-font: &quot;freight-micro-pro&quot;;
+$ui-font: &quot;cubano&quot;;
+$code-font: &quot;ubuntu-mono&quot;;</p>
+
+<p>//Layout
+$max-width: 82em;</p>
+
+<p>//Borders
+$border-hairline: 1px;
+$border-med: 3px;
+$border-thick: 8px;
+$border-super: 15px;
+$border-type: solid;</p>
+
+<p>/*_______________________________________________</p>
+
+<p>PALETTE
+  $ocean-blue #0070ff;
+  $ocean-blue-dark #0053bd;
+  $aqua #00d6ff;
+  $sky-blue #009bff;
+  $sky-blue-dark #001f33;
+  $lime #8aff00;
+  $lime-light: #afff52;
+  $lime-dark #6ecc00;
+  $white white;
+  $white-translucent rgba(255, 255, 255, 0.6);
+  $black black;</p>
+
+<p>$error : #f00;
+  $valid : #089e00;</p>
+
+<p>$brand-facebook: #03539e;
+  $brand-twitter: #35ccff;
+  $brand-linkedin: #217bc1;</p>
+
+<p>TYPOGRAPHY
+  $base-font-size 18px;
+  $base-line-height 24px;</p>
+
+<p>$headline-font &quot;cubano&quot;;
+  $heading-font &quot;cubano&quot;;
+  $body-font &quot;freight-micro-pro&quot;;
+  $accent-font &quot;freight-micro-pro&quot;;
+  $ui-font &quot;cubano&quot;;
+  $code-font &quot;ubuntu-mono&quot;;</p>
+
+<p>BORDERS
+  $border-hairline 1px;
+  $border-med 3px;
+  $border-thick 8px;
+  $border-super 15px;
+  $border-type solid;
+________________________________________________*/</code></pre>
+  </div></p>
+
+<p>In this way, you have your proper Sass variables and a reference in case you have to abandon Sass and update the compiled CSS directly. Ideally, you&#39;d want to be in a situation where you can work with Sass and never have to touch the compiled CSS (throwing them out of sync), but the ideal situation is not quite reality.</p>
+
+<h2>Final Thoughts</h2>
+
+<p>I think the best way to think of CSS preprocessors are as productivity tools. Writing efficient Sass doesn&#39;t mean neglecting the practices of writing efficient CSS. Don&#39;t be lazy (in the bad way, not the developer way): monitor your output, use your preprocessor&#39;s functionality only if it results in leaner output, and account for the quirks of CSS before wielding the power of your tool. Don&#39;t let your comfort with a tool supplant what you&#39;ve been taught without it. Use a preprocessor, or don&#39;t use one. Just remember that writing good code is your responsibility. Don&#39;t defer it to anyone or anything else.</p>
+
+</div>
+
+
+          <footer class="main-foot">
+            <div class="contact">
+              <p>
+                Your Name<br />
+                What You Are<br />
+                you@example.com
+              </p>
+            </div>
+            <div class="contact">
+              <p>
+                <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+                <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+              </p>
+            </div>
+          </footer>
+        </div>
+      <script src="/js/vendor/prismjs/prism.js"></script>
+    </body>
+</html>

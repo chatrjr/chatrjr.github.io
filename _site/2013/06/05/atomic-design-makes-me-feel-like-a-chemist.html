@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Atomic Design Makes Me Feel Like a Chemist</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <script src="//use.typekit.net/koi3hzo.js"></script>
+        <script type="text/javascript">
+          try{Typekit.load();}catch(e){}
+        </script>
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+        <div class="container">
+          <header class="main-header">
+            <div class="logo hide-text"><a href="/">ChatRJr: Graphic Vagabond</a></div>
+          </header>
+
+          <h2>Atomic Design Makes Me Feel Like a Chemist</h2>
+<p class="meta">05 Jun 2013</p>
+
+<div class="post">
+<p>UPDATE: This post existed on my old site, which I unceremoniously scrapped a few months ago. I&#39;m sorry, I didn&#39;t think it was still in use. Hope you get something from it.</p>
+
+<p>At this year&#39;s Beyond Tellerand conference, Brad Frost unveiled a new design system methodology: <a href="http://www.besquare.me/session/atomic-design/">Atomic Design</a>. You should probably watch that if you haven&#39;t already. Design systems allow us to build through a recurrent process that we can use across projects. They can be customized to fit a client&#39;s, or your own, needs. Design systems represented a shift in workflow as more designers stopped fighting the fluid nature of the web. Before we talk about Atomic Design, we need some background on existing systems.</p>
+
+<h2>Design Systems in the Wild</h2>
+
+<h3>Style Tiles</h3>
+
+<p><a href="http://styletil.es">Style Tiles</a> were proposed by Samantha Warren as a new design deliverable and template that could show design direction without implying layout. It was to be used when moodboards were too vague and mockups too rigid. Of course, I had already embraced designing in the browser and made a very loose approximation of a Style Tile from a template I&#39;ve used across projects. Very bare bones, but through CSS I could get the general look and feel across to those I asked for feedback. The advantage of building them within the browser allowed a direct translation of styles to the final site. I also lost my mind and made them responsive. You can see the one for this brand and my old one below.</p>
+
+<p><img src="/post-images/np-interactive-style-tile.png" alt="N&amp;P Style Tile"></p>
+
+<p><img src="/post-images/otc-v4-interactive-style-tile.png" alt="OTC v4 Style Tile"></p>
+
+<h3>Element Collages</h3>
+
+<p><a href="http://danielmall.com/articles/rif-element-collages/">Element Collages</a> were proposed by Daniel Mall as an expansion of Style Tiles. Rather than an abstraction of design, element collages are more focused. They&#39;re a collection of elements that will actually live on the site that convey the look, feel, and functionality through snapshots of them in use. They&#39;re meant to be a complement to Style Tiles (but they can stand alone), and they emphasize having conversations with clients rather than presenting to them. That is, not just telling them where everything is but why it&#39;s there. Element Collages can be great aids for that.</p>
+
+<h3>Front-End Style Guides</h3>
+
+<p>Anna Debenham, whom I greatly respect, expanded on <a href="http://24ways.org/2011/front-end-style-guides/">the idea of having style guides for front-end developers</a>. This means a hub for developers to work from and test within the context it&#39;s going to be used: the web. The benefits are:</p>
+
+<ul>
+<li>An easy reference to elements as they exist on a template.</li>
+<li>A lovely playground for testing and applying different ideas.</li>
+<li>A shared language among your team while building out the product.</li>
+<li>An emphasis on building from components and reusable styles.</li>
+</ul>
+
+<p>Of course, the client probably won&#39;t be able to make much of it, but it can be a great help to any designers or developers who come in to maintain the project after you.</p>
+
+<h2>Enter Atomic Design</h2>
+
+<p>Atomic Design is a realization of designing from components. The methodology has five distinct parts and combines a few of the design systems we&#39;ve talked about. These parts go from general to the most specific. All under the context of chemistry. We&#39;re going to go through pattern lab, a tool released to complement the Atomic Design methodology. <a href="https://github.com/bradfrost/patternlab">Pattern Lab</a> is an intentionally incomplete hub for your projects. It has a ton of stuff already in it, but Brad wanted it to be easy to extend. It&#39;s not a framework, rather it&#39;s a launchpad for getting started with Atomic Design systems. It&#39;s non-prescriptive and doesn&#39;t come with much preset styling. As Brad said in the talk:</p>
+
+<blockquote>
+<p>&quot;Do that shit yourself.&quot;</p>
+</blockquote>
+
+<p>Now let&#39;s dive into the code.</p>
+
+<h3>Setting Up</h3>
+
+<p>First of all, take note of Pattern Lab&#39;s directory tree. This is rather important.</p>
+
+<p><div>
+    <pre><code class='bash'>/var/www/patternlab
+├── css
+│   ├── scss
+│   │   ├── base
+│   │   │   ├── <em>animation.scss
+│   │   │   ├── _forms.scss
+│   │   │   ├── _global-classes.scss
+│   │   │   ├── _headings.scss
+│   │   │   ├── _links.scss
+│   │   │   ├── _lists.scss
+│   │   │   ├── _main.scss
+│   │   │   ├── _media.scss
+│   │   │   ├── _tables.scss
+│   │   │   └── _text.scss
+│   │   ├── generic
+│   │   │   ├── _mixins.scss
+│   │   │   ├── _reset.scss
+│   │   │   └── _variables.scss
+│   │   └── objects
+│   │       ├── _accordion.scss
+│   │       ├── _ads.scss
+│   │       ├── _article.scss
+│   │       ├── _blocks.scss
+│   │       ├── _buttons.scss
+│   │       ├── _carousels.scss
+│   │       ├── _comments.scss
+│   │       ├── _footer.scss
+│   │       ├── _header.scss
+│   │       ├── _icons.scss
+│   │       ├── _layout.scss
+│   │       ├── _lists.scss
+│   │       ├── _main.scss
+│   │       ├── _nav.scss
+│   │       ├── _sections.scss
+│   │       ├── _tabs.scss
+│   │       ├── _text.scss
+│   │       └── _tooltip.scss
+│   ├── static.css
+│   ├── style.css
+│   └── style.scss
+├── data
+│   ├── annotations-ck.js
+│   └── annotations.js
+├── fonts
+│   ├── icons.dev.svg
+│   ├── icons.eot
+│   ├── icons.svg
+│   ├── icons.ttf
+│   └── icons.woff
+├── functions.php
+├── images
+│   ├── ajax-loader.gif
+│   ├── fpo</em>16x9.png
+│   ├── fpo<em>4x3.png
+│   ├── fpo</em>avatar.png
+│   ├── fpo<em>landscape.png
+│   ├── fpo</em>portrait.png
+│   ├── fpo_square.png
+│   └── logo.png
+├── index.php
+├── js
+│   ├── init-ck.js
+│   ├── init.js
+│   └── responsive-nav.min.js
+├── patterns
+│   ├── 00-Atoms
+│   │   ├── 00-Global
+│   │   │   ├── 00-Colors.php
+│   │   │   ├── 01-Fonts.php
+│   │   │   ├── 02-Animations.php
+│   │   │   └── 03-Visibility.php
+│   │   ├── 00-Text
+│   │   │   ├── 00-Headings.php
+│   │   │   ├── 00-Subheadings.php
+│   │   │   ├── 00-With-Links-Headings.php
+│   │   │   ├── 01-Headings-With-Small-Text.php
+│   │   │   ├── 01-Paragraph.php
+│   │   │   ├── 02-Blockquote.php
+│   │   │   ├── 03-Inline-Text-Elements.php
+│   │   │   ├── 04-Address.php
+│   │   │   ├── 05-Preformatted-Text.php
+│   │   │   ├── 06-Time.php
+│   │   │   └── 07-HR.php
+│   │   ├── 01-Lists
+│   │   │   ├── 04-unordered-list.php
+│   │   │   ├── 05-ordered-list.php
+│   │   │   └── 06-definition-list.php
+│   │   ├── 02-Images
+│   │   │   ├── 00-logo.php
+│   │   │   ├── 01-Landscape-16x9.php
+│   │   │   ├── 02-Landscape-4x3.php
+│   │   │   ├── 03-Square.php
+│   │   │   ├── 07-Avatar.php
+│   │   │   ├── 09-Loading-Icon.php
+│   │   │   └── 10-Social-Icons.php
+│   │   ├── 03-Forms
+│   │   │   ├── 00-Text-Fields.php
+│   │   │   ├── 01-Select-Menu.php
+│   │   │   ├── 02-Checkboxes.php
+│   │   │   ├── 03-Radio-Buttons.php
+│   │   │   └── 04-HTML5-Inputs.php
+│   │   ├── 04-Buttons
+│   │   │   └── 00-Buttons.php
+│   │   ├── 05-Table
+│   │   │   └── 00-Table.php
+│   │   ├── 06-Media
+│   │   │   ├── 01-Video-Embed.php
+│   │   │   └── 02-Audio.php
+│   │   └── 07-Unsed
+│   │       └── 00-Text
+│   ├── 01-Molecules
+│   │   ├── 00-Text
+│   │   │   ├── 01-byline-author-only.php
+│   │   │   ├── 02-byline-author-time.php
+│   │   │   ├── 03-Caption.php
+│   │   │   ├── 04-Blockquote-With-Citation.php
+│   │   │   ├── 04-Pullquote.php
+│   │   │   ├── 05-Heading-Group.php
+│   │   │   ├── 06-Intro-Text.php
+│   │   │   └── 07-Emphasis-Colors.php
+│   │   ├── 01-Layout
+│   │   │   ├── 00-1-up.php
+│   │   │   ├── 01-2-up.php
+│   │   │   ├── 02-3-up.php
+│   │   │   └── 03-4-up.php
+│   │   ├── 02-Blocks
+│   │   │   ├── 00-Block-Hero.php
+│   │   │   ├── 01-Block-Thumb-Headline.php
+│   │   │   ├── 02-Block-Headline-Byline.php
+│   │   │   ├── 04-Block-Inset.php
+│   │   │   ├── 05-Block-Headline-Only.php
+│   │   │   ├── 06-Block-Project.php
+│   │   │   ├── 07-Block-Featured-Project.php
+│   │   │   └── 08-Block-Large-Inset.php
+│   │   ├── 03-Media
+│   │   │   ├── 00-Image-With-Caption.php
+│   │   │   └── 03-Map.php
+│   │   ├── 04-Navigation
+│   │   │   ├── 00-Primary-Nav.php
+│   │   │   ├── 01-Footer-Nav.php
+│   │   │   ├── 02-Pagination.php
+│   │   │   └── 03-Tabs.php
+│   │   ├── 05-Forms
+│   │   │   ├── 00-Search.php
+│   │   │   ├── 01-Newsletter-Form.php
+│   │   │   └── 05-Comment-Form.php
+│   │   └── 06-Components
+│   │       ├── 00-Single-Comment.php
+│   │       ├── 02-Accordion.php
+│   │       └── 03-Social-Share.php
+│   ├── 02-Organisms
+│   │   ├── 00-Global
+│   │   │   ├── 00-Header.php
+│   │   │   └── 01-Footer.php
+│   │   ├── 03-Article
+│   │   │   └── 00-Article-Body.php
+│   │   ├── 03-Comments
+│   │   │   └── 00-Comment-Thread.php
+│   │   ├── 04-Components
+│   │   │   └── 00-Carousel-List.php
+│   │   └── 05-Sections
+│   │       ├── 00-Related-Posts.php
+│   │       ├── 01-Recent-Tweets.php
+│   │       └── 02-Latest-Posts.php
+│   └── 03-Templates
+│       ├── 00-Homepage.php
+│       ├── 01-Blog.php
+│       ├── 02-Article.php
+│       └── 03-Portfolio.php
+├── README.md
+├── styleguide
+│   ├── css
+│   │   ├── annotations.css
+│   │   ├── styleguide.css
+│   │   └── styleguide.scss
+│   └── js
+│       ├── annotations-pattern.js
+│       ├── annotations-viewer-ck.js
+│       ├── annotations-viewer.js
+│       ├── data-saver.js
+│       ├── jquery.js
+│       ├── styleguide-ck.js
+│       └── styleguide.js
+├── styleguide.php
+└── view.php</p>
+
+<p>39 directories, 145 files</code></pre>
+  </div></p>
+
+<p>Now let&#39;s have a look at <code>functions.php</code>. If you&#39;re planning on setting up Pattern Lab in your development environment (and you should play with it at least once), you may need to tweak this a little.</p>
+
+<p>I guess the way my dev environment is configured made <code>$root</code> lack the trailing backslash, which is why I had to include it in the latter two variables before Pattern Lab would work properly. You may not have to do that, just be aware of it. If you don&#39;t know much PHP, don&#39;t worry. The most relevant part is this function:</p>
+
+<p><div>
+    <pre><code class='php'>&lt;?php </p>
+
+<p>$root = $<em>SERVER[&#39;DOCUMENT</em>ROOT&#39;]; </p>
+
+<p>//This changes the root path of the project. It might live at the root or at a subdirectory like /styleguide
+$absolutePath = &#39;/patternlab/&#39;;</p>
+
+<p>$patternsPath = $root.$absolutePath.&#39;patterns/&#39;;</p>
+
+<p>/************** 
+Include Function 
+Make including files easier. Simply declare the type of fragment you&#39;re looking for (atom, molecule, organism, or page) and the name of the file (with no extention)</p>
+
+<p>Takes two variables:
+Type: the type of pattern you&#39;re looking to include. Options are: atom, molecule, organism, or page
+Name: the name of the file</p>
+
+<p>************** */</p>
+
+<p>function inc($type,$name) {
+    global $patternsPath; 
+    global $absolutePath;</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$filePath = $patternsPath;
+
+//Determine which directory to look in based on type: atom, molecule, organism or page
+if($type=='atom') {
+    $filePath = $filePath.'00-Atoms';
+} elseif($type=='molecule') {
+    $filePath = $filePath.'01-Molecules';
+} elseif($type=='organism') {
+    $filePath = $filePath.'02-Organisms';
+} elseif($type=='page') {
+    $filePath = $filePath.'03-Pages';
+} else {
+    $filePath = $filePath;
+}
+
+
+//Iterate over the appropriate path
+$objects = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($filePath));
+foreach($objects as $objName =&amp;gt; $object){
+
+    $pos = stripos($objName, $name);
+
+    if ($pos) {
+        include($objName); //Include the fragment if the file is found
+        break;
+    } 
+}
+</code></pre></div>
+<p>}</code></pre>
+  </div></p>
+
+<p>Lines 22-32 look through the <code>patterns</code> directory for the components called through the <code>inc()</code> function based on type. It&#39;s called like this: <code>inc([type], [component]);</code>. Before we extend Pattern Lab with a few extras, we still have to go through what those parts mean. You know them if you watched Brad&#39;s talk or remember chemistry class, but we&#39;re going to go over them in a practical sense.</p>
+
+<h3>00-Atoms</h3>
+
+<p>Atoms are the building blocks of our universe. On the web they are individual HTML tags like <code>Link</code>. They can&#39;t be broken down any more without losing meaning. In the Atomic Design chain, they are a point of reference as well as the toolbox from which all other parts of the system are built. I suppose you can think of the collection of atoms as the primordial soup from which a webpage begins to grow.</p>
+
+<h3>01-Molecules</h3>
+
+<p>Molecules are essentially bonded atoms that create a new substance. On the web this can be an unordered list that has bonded with a `<code>element to become a menu. In playing around with Pattern Lab, I built two additional molecules. All you have to do is create a file in the category you think is most relevant. In my case that was</code>02-Blocks<code>. This is what&#39;s in</code>06-Block-Project.php`:</p>
+
+<p><div>
+    <pre><code class='html'>&lt;div class=&quot;block block-project&quot;&gt;</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&amp;lt;h2&amp;gt;New Project&amp;lt;/h2&amp;gt;
+&amp;lt;p&amp;gt;A description of the project would go here, of course.&amp;lt;/p&amp;gt;
+</code></pre></div>
+<p>&lt;/div&gt;</code></pre>
+  </div></p>
+
+<p>I&#39;ve bonded an image, a heading, and a paragraph into a project molecule. I also created a featured project molecule from bonding them in a different way, such as this:</p>
+
+<p><div>
+    <pre><code class='html'>&lt;div class=&quot;block block-featured&quot;&gt;</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&amp;lt;div class=&amp;quot;b-text&amp;quot;&amp;gt;
+    &amp;lt;h2 class=&amp;quot;headline&amp;quot;&amp;gt;Featured Project&amp;lt;/h2&amp;gt;
+    &amp;lt;p class=&amp;quot;excerpt&amp;quot;&amp;gt;A description of the project would go here, of course.&amp;lt;/p&amp;gt;
+&amp;lt;/div&amp;gt;
+</code></pre></div>
+<p>&lt;/div&gt;</code></pre>
+  </div></p>
+
+<h3>02-Organisms</h3>
+
+<p>Organisms are created from a complex system of molecules bonding into even more complex structures through a continuous cycle of chemical reactions, such as the human body. In the context of the web, organism are molecules combined into meaningful structure, like a page header. In that case, you have a logo, navigation, and search form in most cases bonding. Other blocks might combine to create a footer, and different blocks combine to make other sections.</p>
+
+<h3>03-Templates</h3>
+
+<p>Notice how the chemistry terms end here. That&#39;s because we&#39;re getting into the parts that the client will see. In the <code>03-Templates</code> folder, I created <code>03-Portfolio.php</code>, and that looks like this:</p>
+
+<p><div>
+    <pre><code class='html'>&lt;div class=&quot;g g-5up&quot;&gt;
+    &lt;div class=&quot;gi&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;g g-3up&quot;&gt;
+    &lt;div class=&quot;gi&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;gi&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;gi&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;gi&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;gi&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;gi&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+  </div></p>
+
+<p><img src="/post-images/pattern-lab-project-template.png" alt="Portfolio Template"></p>
+
+<p>From different components I built that portfolio template. The beauty of Pattern Lab is that you&#39;re not limited to what&#39;s in the box. The box is as large or small as you want to make it. I built this template in about 5 minutes thanks to the flexibility of Atomic Design. It&#39;s not very visually appealing when starting with Pattern Lab, but that&#39;s our job. The templates can be presented to the client for immediate feedback before they become pages.</p>
+
+<h3>04-Pages</h3>
+
+<p>Pages are self-explanatory: they are the templates given context. In other words, they&#39;re the website in all its glory. I had to create the folder myself in Pattern Lab, but that was likely the expectation. There&#39;s still a lot to play with here, and I&#39;m going to dive into it over the weekend. Also, if you&#39;re curious, this is the result of my screwing around.</p>
+
+<p><img src="/post-images/pattern-lab-project-page.jpg" alt="Pattern Lab Page"></p>
+
+<h2>The Potential of Atomic Design</h2>
+
+<p>I wrote <a href="/2013/04/16/component-driven-web-design-part-3.html">in a previous post</a> that building from components was a lot like working with LEGO bricks. The very idea of Atomic Design takes this further than I could have ever thought. Just the little I was able to do with this in an afternoon has me excited about yet another design system. I hope my stupid little experiment with it inspires you to play with Pattern Lab and put it to good use. Brad Frost, Dave Olsen, and everyone involved in its creation are awesome. I can&#39;t wait to see what everyone does with it. What do you think about the potential here? Will you be using it? As always, let me know if I made a mistake.</p>
+
+</div>
+
+
+          <footer class="main-foot">
+            <div class="contact">
+              <p>
+                Your Name<br />
+                What You Are<br />
+                you@example.com
+              </p>
+            </div>
+            <div class="contact">
+              <p>
+                <a href="https://github.com/yourusername">github.com/yourusername</a><br />
+                <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
+              </p>
+            </div>
+          </footer>
+        </div>
+      <script src="/js/vendor/prismjs/prism.js"></script>
+    </body>
+</html>

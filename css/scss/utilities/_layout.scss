@@ -1,0 +1,50 @@
+/*------------------*\
+   $LAYOUT
+\*------------------*/
+
+/* Set box model */
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 80em;
+  padding: 0 0.5em;
+
+}
+
+%clearfix:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.grid {
+  @extend %clearfix;
+  margin-bottom: 1em;
+}
+
+.node {
+  @extend .grid;
+}
+
+.halves {
+  .node {
+  }
+}
+
+.quarters {
+  .node {
+  }
+}
+
+.eighths {
+  .node {
+  }
+}

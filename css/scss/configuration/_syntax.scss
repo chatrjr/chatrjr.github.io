@@ -1,0 +1,116 @@
+/**
+ * Custom theme for chatmanrjr.name
+ * @author chatrjr
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+  color: $color-text;
+  font-family: $font-source;
+  font-weight: 700;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background-image: linear-gradient(transparent 50%, rgba($color-base, 0.04) 50%);
+  background-size: 3em 3em;
+  border-left: $border-thick $border-type $color-base;
+  border-radius: 0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  background: rgba($color-base, 0.15);
+  border: none;
+  border-radius: 0.3em;
+  padding: .25em 0.5em;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: darken($color-bg, 50);
+}
+
+.token.punctuation {
+  color: $color-text;
+}
+
+.namespace {
+  opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol {
+  color: adjust-hue($color-base, 40);
+}
+
+.token.boolean,
+.token.number{
+  color: darken(adjust-hue($color-base, 270), 20);
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.builtin {
+  color: darken(adjust-hue($color-base, 270), 20);
+}
+
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+  color: adjust-hue($color-base, 60);
+}
+
+.token.atrule,
+.token.attr-value
+{
+    color: darken(adjust-hue($color-base, 120), 10);
+}
+
+
+.token.keyword{
+color: $color-base;
+}
+
+.token.regex,
+.token.important {
+  color: darken(adjust-hue($color-base, 120), 10);
+}
+
+.token.important {
+  font-weight: bold;
+}
+
+.token.entity {
+  cursor: help;
+}

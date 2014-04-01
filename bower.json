@@ -1,0 +1,9 @@
+{
+  "name": "chatmanrjr-site",
+  "dependencies": {
+    "FitText.js": "",
+    "Flowtype.js": "",
+    "Lettering.js": "",
+    "modernizr": ""
+  }
+}

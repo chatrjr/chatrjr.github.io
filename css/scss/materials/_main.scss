@@ -1,0 +1,18 @@
+/*------------------*\
+   $MAIN
+\*------------------*/
+
+html, body {
+  background: $color-bg;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  color: $color-text;
+  font-family: $font-body;
+  overflow: hidden;
+  position: relative;
+}
