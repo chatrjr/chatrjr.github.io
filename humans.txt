@@ -9,21 +9,8 @@
 
     Daniel Eden for Animate.css. Huge help. (daneden.me)
 
-    Caleb T. for jQuery Waypoints to make the scrolling
-    animations simple and effective (imakewebthings.com)
-
-    Johan Nordberg for Wintersmith, the static site generator
-    that tied it all together. (johan-nordberg.com)
-
     Everyone out there working to make the web better, for fueling
     my desire to create and share and learn. And the technology for
     giving me an outlet to do that.
 
 # TECHNOLOGY COLOPHON
-
-    HTML5 (Jade), CSS/CSS3 (Sass),
-    JavaScript/jQuery, Animate.css,
-    Lettering.js, FitText, Modernizr,
-    Wintersmith, H5BP, jQuery Waypoint
-    Singularitygs, Typekit, Sublime Text
-    FlowtypeJS
