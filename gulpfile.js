@@ -46,7 +46,7 @@ gulp.task('deps', function() {
 });
 
 gulp.task('images', function() {
-  return gulp.src('images/**/*')
+  return gulp.src(['images/**/*', 'post-images/**/*'])
     .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
     .pipe(gulp.dest('images'))
     .pipe(livereload(server))
@@ -72,7 +72,7 @@ gulp.task('server', function() {
     gulp.watch('js/*.js', ['deps']);
 
     // Watch image files
-    gulp.watch('images/*', ['images']);
+    gulp.watch(['images/**/*', 'post-images/**/*'], ['images']);
 
   });
 
