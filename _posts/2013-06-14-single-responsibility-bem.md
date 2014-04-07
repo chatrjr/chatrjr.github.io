@@ -10,14 +10,14 @@ excerpt: "Modular CSS is making waves in the community (excuse the cliche). I en
 
 You may already be familiar with Yandex's BEM method of authoring CSS. If not, it looks a little like the following code.
 
-{% highlight html %}
+```markup
 <div class="block">
     <div class="block__element"></div>
     <div class="block__element"></div>
     <div class="block__element block__element--modifier"></div>
     <div class="block__element"></div>
 </div>
-{% endhighlight %}
+```
 
 
 
@@ -97,7 +97,7 @@ The block's job, the module, is to encapsulate all of its elements for a single 
 
 
 
-{% highlight scss %}
+```scss
 .block {
     @include transition(all 0.3s linear);
     background: $white-translucent;
@@ -105,7 +105,7 @@ The block's job, the module, is to encapsulate all of its elements for a single 
     padding: 0.8em;
     position: relative;
 }
-{% endhighlight %}
+```
 
 
 
@@ -128,7 +128,7 @@ The elements in your block are what give it form and purpose. They're the conten
 
 
 
-{% highlight scss %}
+```scss
 .block {
     @include transition(all 0.3s linear);
     background: $white-translucent;
@@ -160,7 +160,7 @@ The elements in your block are what give it form and purpose. They're the conten
       left: 0;
     }
 }
-{% endhighlight %}
+```
 
 
 
@@ -170,13 +170,13 @@ You see we have three elements: `.__headline`, `.__image`, and `.__content`. We 
 
 
 
-{% highlight html %}
+```markup
 <section class="block">
   <h2 class="__headline">One Kitten</h2>
   <img src="http://placekitten.com/1200/580" class="__image"></img>
   <div class="__content">One kitten in the snow.</div>
 </section>
-{% endhighlight %}
+```
 
 
 
@@ -206,7 +206,7 @@ The modifier's only responsibility is to augment the block or element we pass to
 
 
     
-{% highlight scss %}
+```scss
 .__headline {
   @include scale('ginormous');
   background: $ocean-blue-dark;
@@ -222,7 +222,7 @@ The modifier's only responsibility is to augment the block or element we pass to
     @extend %_--shrinkHeadline;
   }
 }
-{% endhighlight %}
+```
 
 
 
@@ -233,13 +233,13 @@ As you can see the modifier, `._--shrinkHeadline`, is nested in the `.__headline
 
 
 
-{% highlight html %}
+```markup
 <section class="block">
   <h2 class="__headline _--shrinkHeadline">Three Kittens</h2>
   <img src="http://placekitten.com/500/305" class="__image"></img>
   <div class="__content">Three kittens with a mirror.</div>
 </section>
-{% endhighlight %}
+```
 
 
 
@@ -256,7 +256,7 @@ When I first tried this method, it was almost like wizardry. The `.augment` is a
 
 
 
-{% highlight scss %}
+```scss
 .augment%_--shrinkText {
     /* Referencing %_--shrinkText */
     @include scale('s');
@@ -279,7 +279,7 @@ When I first tried this method, it was almost like wizardry. The `.augment` is a
     /* Referencing %_--imageBorder */
     border: 0.5em solid $sky-blue;
 }
-{% endhighlight %}
+```
 
 
 
@@ -290,7 +290,7 @@ Modifiers are placed near the bottom of our file to leverage the cascade. And th
 
 
 
-{% highlight scss %}
+```scss
 .__image {
   width: 100%;
   & {
@@ -298,7 +298,7 @@ Modifiers are placed near the bottom of our file to leverage the cascade. And th
     @extend %_--imageBorder;
   }
 }
-{% endhighlight %}
+```
 
 
 
@@ -309,13 +309,13 @@ We've attached the modifier by extending the `%_--imageBorder` placeholder to th
 
 
 
-{% highlight css %}
+```css
 /* line 258, style.scss */
 .block .augment.__image {
   /* Referencing %_--imageBorder */
   border: 0.5em solid #009bff;
 }
-{% endhighlight %}
+```
 
 
 
@@ -326,7 +326,7 @@ Our augmenting class in the output is tied to our modifier which is attached to 
 
 
 
-{% highlight scss%}
+```scss
 /* line 258, style.scss */
 .block .augment.__content {
   /* Referencing %_--shrinkText */
@@ -334,7 +334,7 @@ Our augmenting class in the output is tied to our modifier which is attached to 
   line-height: 2em;
   line-height: 1.28625em;
 }
-{% endhighlight %}
+```
 
 
 
@@ -345,13 +345,13 @@ Same class, **completely different behavior**. Now, how simple is it to use with
 
 
 
-{% highlight html %}
+```markup
 <section class="block griddler-slice-by4">
   <h2 class="__headline augment">Four Kittens</h2>
   <img src="http://placekitten.com/400/200" class="__image"></img>
   <div class="__content augment">Four kittens exploring.</div>
 </section>
-{% endhighlight %}
+```
 
 
 

@@ -67,11 +67,11 @@ Crack open your terminal and input the following, waiting for each command to co
 
 
 
-{% highlight bash %}
+```bash
 sudo add-apt-repository ppa:chris-lea/node.js
 sudo apt-get update
 sudo apt-get install nodejs
-{% endhighlight %}
+```
 
 
 
@@ -81,10 +81,10 @@ Once you're done with that, make sure Node installed correctly with the followin
 
 
 
-{% highlight bash %}
+```bash
 which node
 which npm
-{% endhighlight %}
+```
 
 
 
@@ -122,9 +122,9 @@ Your shell should still be open, so let's scaffold out our project. In the shell
 
 
 
-{% highlight bash %}
+```bash
 mkdir src dist
-{% endhighlight %}
+```
 
 
 
@@ -134,9 +134,9 @@ Next, we want to copy the contents of our boilerplate (in this case: H5BP) into 
 
 
 
-{% highlight bash %}
+```bash
 cp -ru ~/Downloads/initializr ./src
-{% endhighlight %}
+```
 
 
 
@@ -147,7 +147,7 @@ When that is done, your directory structure should look something close to this.
 
 
 
-{% highlight bash %}
+```bash
 ├── dist
 └── src
     ├── 404.html
@@ -166,7 +166,7 @@ When that is done, your directory structure should look something close to this.
     │        ├── jquery-1.9.1.min.js
     │        └── modernizr-2.6.2-respond-1.1.0.min.js
     └── robots.txt
-{% endhighlight %}
+```
 
 
 
@@ -176,9 +176,9 @@ Don't worry about the `dist` folder for now, we'll come back to it later. Now we
 
 
 
-{% highlight bash %}
+```bash
 touch package.json Gruntfile.js
-{% endhighlight %}
+```
 
 
 ### The Anatomy of package.json
@@ -188,7 +188,7 @@ The `package.json` file contains most of the metadata for your project if you we
 
 
 
-{% highlight json %}
+```javascript
 {
   "name": "component-driven-web-design-boilerplate",
   "version": "0.1.0",
@@ -213,7 +213,7 @@ The `package.json` file contains most of the metadata for your project if you we
   "devDependencies": {
   }
 }
-{% endhighlight %}
+```
 
 
 
@@ -241,9 +241,9 @@ Alright, we're going to grab Grunt and the most essential plugins for our simple
 
 
 
-{% highlight bash %}
+```bash
 sudo npm install grunt --save-dev
-{% endhighlight %}
+```
 
 
 
@@ -253,15 +253,15 @@ The `--save-dev` flag tells npm to update our `"devDependencies"` with the lates
 
 
 
-{% highlight bash %}
+```bash
 sudo npm search grunt-contrib
-{% endhighlight %}
+```
 
 Then we're gonna install the following essential plugins for a Grunt boilerplate.
 
-{% highlight bash %}
+```bash
 sudo npm install grunt-contrib-htmlmin grunt-contrib-imagemin grunt-contrib-cssmin grunt-contrib-csslint grunt-contrib-watch --save-dev
-{% endhighlight %}
+```
 
 
 
@@ -271,7 +271,7 @@ That done, you'll see that `"devDependencies"` has been updated.
 
 
 
-{% highlight javascript %}
+```javascript
 "devDependencies": {
   "grunt": "~0.4.1",
   "grunt-contrib-csslint": "~0.1.1",
@@ -280,7 +280,7 @@ That done, you'll see that `"devDependencies"` has been updated.
   "grunt-contrib-cssmin": "~0.5.0",
   "grunt-contrib-imagemin": "~0.1.2"
 }
-{% endhighlight %}
+```
 
 
 
@@ -296,11 +296,11 @@ The `Gruntfile.js` file houses the configuration for Grunt… or it will once we
 
 
 
-{% highlight javascript %}
+```javascript
 module.exports = function(grunt) {
 
 };
-{% endhighlight %}
+```
 
 
 
@@ -310,14 +310,14 @@ Now we're going to load in our tasks. All the code from this point on is going t
 
 
 
-{% highlight javascript %}
+```javascript
 // Load our tasks
 grunt.loadNpmTasks('grunt-contrib-htmlmin');
 grunt.loadNpmTasks('grunt-contrib-cssmin');
 grunt.loadNpmTasks('grunt-contrib-csslint');
 grunt.loadNpmTasks('grunt-contrib-watch');
 grunt.loadNpmTasks('grunt-contrib-imagemin');
-{% endhighlight %}
+```
 
 
 
@@ -327,12 +327,12 @@ Excellent. All that's left to do is configure our tasks, and we're going to do t
 
 
 
-{% highlight javascript%}
+```javascript
 // Configure our tasks
 grunt.initConfig({
 
 });
-{% endhighlight %}
+```
 
 
 
@@ -342,7 +342,7 @@ This code should be inserted above our loaded tasks. Now for the actual task…
 
 
 
-{% highlight javascript %}
+```javascript
 pkg: grunt.file.readJSON('package.json'),
 htmlmin: {
   /**
@@ -368,7 +368,7 @@ htmlmin: {
     }
   }
 },
-{% endhighlight %}
+```
 
 
 
@@ -376,7 +376,7 @@ htmlmin: {
 
 It should be noted that the `pkg` object will allow us to dynamically generate things like authorship banners, as you'll see in the `'grunt-contrib-cssmin'` task.
 
-{% highlight javascript %}
+```javascript
 cssmin: {
   /**
    * task identifier (cssmin:build)
@@ -399,7 +399,7 @@ cssmin: {
     }
   }
 },
-{% endhighlight %}
+```
 
 
 
@@ -409,7 +409,7 @@ Before we configure the `'grunt-contrib-csslint'`, we need to make one more file
 
 
 
-{% highlight json %}
+```javascript
 {
   "box-sizing": false,
   "box-model": true,
@@ -428,7 +428,7 @@ Before we configure the `'grunt-contrib-csslint'`, we need to make one more file
   "unqualified-attributes": false,
   "zero-units": true
 }
-{% endhighlight %}
+```
 
 
 
@@ -438,7 +438,7 @@ If you want an explanation of the rules we're using, check out the [csslint wiki
 
 
 
-{% highlight javascript %}
+```javascript
 csslint: {
   build: {
     options: {
@@ -453,7 +453,7 @@ csslint: {
     src: 'src/css/*.css'
   }
 },
-{% endhighlight %}
+```
 
 
 
@@ -461,7 +461,7 @@ csslint: {
 
 You'll notice this time we have two identifiers. They'll be referenced as `csslint:build` and `csslint:dev` in the terminal and when we call them. Now then, let's configure `'grunt-contrib-imagemin'`.
 
-{% highlight javascript %}
+```javascript
 imagemin: {
   build: {
     options: {
@@ -473,7 +473,7 @@ imagemin: {
     }
   }
 },
-{% endhighlight %}
+```
 
 
 
@@ -483,14 +483,14 @@ We're almost at the end. Just one more task to configure, and it's arguably the 
 
 
 
-{% highlight javascript %}
+```javascript
 watch: {
   css: {
     files: '<%= csslint.dev.src %>',
     tasks: ['csslint:dev']
   }
 }
-{% endhighlight %}
+```
 
 
 
@@ -501,7 +501,7 @@ I referenced the source directly so we don't repeat ourselves, and then its set 
 
 
 
-{% highlight javascript %}
+```javascript
 // Load our tasks
 grunt.loadNpmTasks('grunt-contrib-htmlmin');
 grunt.loadNpmTasks('grunt-contrib-cssmin');
@@ -512,7 +512,7 @@ grunt.loadNpmTasks('grunt-contrib-imagemin');
 // Register our tasks for use in the command line.
 grunt.registerTask('default', ['htmlmin', 'csslint', 'cssmin', 'imagemin']);
 grunt.registerTask('monitor', ['watch']);
-{% endhighlight %}
+```
 
 
 

@@ -4,6 +4,7 @@ title: Preprocessed Out
 author: Chatman Richmond Jr.
 id: 006
 date: 2013-07-09
+primary-language: scss
 description: "CSS preprocessors have gained some serious headway among designers, with Sass leading the pack. However, we should remember not everyone uses them or wants to use them. Understanding why they don't is critical in understanding why you do."
 excerpt: "CSS preprocessors have gained some serious headway among designers, with Sass leading the pack. However, we should remember not everyone uses them or wants to use them. Understanding why they don't is critical in understanding why you do."
 ---
@@ -85,7 +86,7 @@ Sass is designed to help you write more efficient CSS with a wealth of tools tha
 They do when the output isn't monitored. One of the most misused features of Sass are [mixins](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#mixins), which work much like functions. The duplication problem comes when developers try to use them as glorified copy/paste vehicles. Tell me if this looks familiar:
 
 
-{% highlight scss %}
+```scss
 @mixin border-main() {
   border: 3px solid #f90;
 }
@@ -104,11 +105,11 @@ form {
     @include border-main;
   }
 }
-{% endhighlight %}
+```
 
 Code like this perfectly illustrates the duplication problem. The sinister thing is that within Sass it **appears** DRY. This is not so much the case in the output.
 
-{% highlight css %}
+```css
 /* line 5, duplication.scss */
 .photo {
   border: 3px solid #f90;
@@ -123,11 +124,11 @@ Code like this perfectly illustrates the duplication problem. The sinister thing
 form .field {
   border: 3px solid #f90;
 }
-{% endhighlight %}
+```
 
 Contrived as the example may be, consider it on a larger scale, and that would be a TON of bloat. Authoring lightweight CSS is in part a matter of recognizing patterns within your code. The OOCSS method would suggest making a separate class for that border, but then our markup would be polluted with presentational classes. If I knew certain styles of my design would be used across modules, I might group the declaration under multiple selectors and leverage the cascade to define more specific modifications for the individual parts. Here's the handwritten way and the Sass way.
 
-{% highlight scss %}
+```scss
 /*------------------------------------*\
     $MODULARITY
 \*------------------------------------*/
@@ -152,9 +153,9 @@ Contrived as the example may be, consider it on a larger scale, and that would b
 // form .field {
 //   color: white;
 // }
-{% endhighlight %}
+```
 
-{% highlight scss %}
+```scss
 // Placeholder selector, the great and powerful.
 // What it does is very similar to a class.
 // You define rules within it, and then it applies
@@ -184,11 +185,11 @@ form {
         color: white;
     }
 }
-{% endhighlight %}
+```
 
 Look ma, no bloat!
 
-{% highlight css %}
+```css
 /*------------------------------------*\
     $MODULARITY
 \*------------------------------------*/
@@ -211,7 +212,7 @@ Look ma, no bloat!
 form .field {
   color: white;
 }
-{% endhighlight %}
+```
 
 My examples show, again, that maintaining duplication and code bloat is the responsibility of the developer whether they write vanilla CSS or not. Also, it should be obvious that you would use the `@extend` directive sparingly. Otherwise, you can easily end up with a selector dogpile. Let's move on.
 
@@ -225,7 +226,7 @@ UPDATE: If, for some reason you're still writing mixins to handle vendor prefixe
 
 The key to using the features of any preprocessor is **moderation**. The rule of "just because you can do something" very much applies here. Nesting in particular can quickly snowball with an inexperienced CSS author. Let's get one thing straight: this is awful.
 
-{% highlight scss %}
+```scss
 /*------------------------------------*\
     $NESTING HELL
 \*------------------------------------*/
@@ -273,11 +274,11 @@ section {
         }
     }
 }
-{% endhighlight %}
+```
 
 The output is even worse.
 
-{% highlight css %}
+```css
 /*------------------------------------*\
     $NESTING HELL
 \*------------------------------------*/
@@ -329,9 +330,11 @@ section .blog .post .content .pull-quote {
 section .blog .post .content .definition-list {
   list-style: none;
 }
-{% endhighlight %}
+```
 
 If you're thinking there's nothing particular wrong with this, it's a misconception that your CSS should reflect your markup structure. This is a terrible idea because of the way browser engines actually read CSS. Exactly why they read selectors from right to left is beyond the scope of this post, but [this is a great explanation](http://stackoverflow.com/questions/5797014/why-do-browsers-match-css-selectors-from-right-to-left/5813672#5813672). Either way, this is a specificity nuke, and more often than not encourages abuse of IDs and `!important` in stylesheets. Well-structured CSS, formed with or without a preprocessor, should not require either for styling. My personal rule is to save IDs as general hooks for components I intend to inject with JavaScript behavior and events.
+
+UPDATE: The performance of modern browser engines is such that optimizing selectors for performance isn't as huge a deal. However, minimal nesting still has a maintenance advantage.
 
 A great rule for Sass (and programming in general), be mindful of your structure. When nesting selectors, try not to go more than one level deep. It's not as hard as you might think. Efficient classes, use of global styling, and leveraging the cascade will be enough to keep your CSS maintainable and lean.
 
@@ -344,7 +347,7 @@ The lack of variables in CSS might not be a problem when you're by yourself (and
 
 
 
-{% highlight scss %}
+```scss
 /*------------------------------------*\
     $VARIABLES
 \*------------------------------------*/
@@ -435,7 +438,7 @@ BORDERS
   $border-super 15px;
   $border-type solid;
 ________________________________________________*/
-{% endhighlight %}
+```
 
 In this way, you have your proper Sass variables and a reference in case you have to abandon Sass and update the compiled CSS directly. Ideally, you'd want to be in a situation where you can work with Sass and never have to touch the compiled CSS (throwing them out of sync), but the ideal situation is not quite reality.
 

@@ -40,7 +40,7 @@ YACSSA is fragmented by design. It's made to let you add and remove parts at wil
 
 As I said, I'm going to explain the idea behind YACSSA through this site's CSS. Let's look at the whole directory tree first, and then break it down.
 
-{% highlight bash %}
+```bash
 ..
 ├── main.css
 ├── post.css
@@ -72,13 +72,13 @@ As I said, I'm going to explain the idea behind YACSSA through this site's CSS. 
         └── _tweaks.scss
 
 6 directories, 22 files
-{% endhighlight %}
+```
 
 The first thing you'll notice is a shitton of partials. These are globbed into Sass files that compile into the CSS that is actually called. Now, let's have a look at those directories.
 
 ### Configuration
 
-{% highlight bash %}
+```bash
 configuration
 ├── _grid.scss
 ├── _mixins.scss
@@ -86,26 +86,26 @@ configuration
 └── _variables.scss
 
 0 directories, 4 files
-{% endhighlight %}
+```
 
 The `configuration` directory contains all of the general properties and third-party styling that your site relies on. You define your variables, mixins, custom syntax for pygments (if you're using Jekyll), Prism.js or whatever. This site also uses the Singularity grid system, so I've also included that. This directory holds the __uniform settings for your project__.
 
 ### Utilities
 
-{% highlight bash %}
+```bash
 utilities
 ├── _layout.scss
 ├── _normalize.scss
 └── _tweaks.scss
 
 0 directories, 3 files
-{% endhighlight %}
+```
 
 The `utilities` directory contains the basic plumbing of your site. That is, layout and structure, resets (though you could put that in configuration, too), other general classes, and hotfixes that come up during a project's lifetime. Unlike configuration, these files aren't likely to be removed or changed across pages.
 
 ### Materials
 
-{% highlight bash %}
+```bash
 materials
 ├── _links.scss
 ├── _main.scss
@@ -113,26 +113,26 @@ materials
 └── _text.scss
 
 0 directories, 4 files
-{% endhighlight %}
+```
 
 The most general styling for your project goes in the `materials` directory. Here's where your defaults for text, media (images and video, __not__ the media object), link styling, etc. would go. Basically, any CSS that __uses tag selectors goes here__.
 
 ### Components
 
-{% highlight bash %}
+```bash
 components
 ├── _blog.scss
 ├── _pagination.scss
 └── _post.scss
 
 0 directories, 3 files
-{% endhighlight %}
+```
 
 Components are the bread and butter of many modern CSS architecture frameworks, and this one is no different (though it also isn't a framework). These are the modules that may be needed across pages. They are your post listings, image galleries, carousels, buttons, and comments. The pieces of __semantic content you mix and match across pages__ are components. It might help to paste the markup in a comment to help new developers.
 
 ### Structures
 
-{% highlight bash %}
+```bash
 structures
 ├── _article.scss
 ├── _blogreel.scss
@@ -140,7 +140,7 @@ structures
 └── _header.scss
 
 0 directories, 4 files
-{% endhighlight %}
+```
 
 The `structures` directory is for styling the sections of your pages that glue your components together and categorize them. That is, your headers, footers, sidebars, and wrapping classes. Basically, if you have a structure that __wraps or groups components__, the CSS would go here.
 
@@ -152,7 +152,7 @@ Missing from this project is the `augments` directory, because I didn't need it.
 
 These are what will be delivered to the browser. They have a table of contents, and then the import statements for all the other parts, going from general to specific. Here are the Sass files for the main and post templates for example.
 
-{% highlight scss %}
+```scss
 /**
  * Expletive Deleted - Main
  * Author: Chatman Richmond Jr.
@@ -221,9 +221,9 @@ These are what will be delivered to the browser. They have a table of contents, 
 @import 'structures/header';
 @import 'structures/blogreel';
 @import 'structures/footer';
-{% endhighlight %}
+```
 
-{% highlight scss %}
+```scss
 /**
  * Expletive Deleted - Post
  * Author: Chatman Richmond Jr.
@@ -292,7 +292,7 @@ These are what will be delivered to the browser. They have a table of contents, 
 @import 'structures/header';
 @import 'structures/article';
 @import 'structures/footer';
-{% endhighlight %}
+```
 
 Notice that they only import the files they actually need which, again, prevents unused CSS and keeps the file size down.
 

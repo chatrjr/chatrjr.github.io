@@ -49,7 +49,7 @@ Now let's dive into the code.
 
 First of all, take note of Pattern Lab's directory tree. This is rather important.
 
-{% highlight bash %}
+```bash
 /var/www/patternlab
 ├── css
 │   ├── scss
@@ -237,13 +237,13 @@ First of all, take note of Pattern Lab's directory tree. This is rather importan
 └── view.php
 
 39 directories, 145 files
-{% endhighlight %}
+```
 
 Now let's have a look at `functions.php`. If you're planning on setting up Pattern Lab in your development environment (and you should play with it at least once), you may need to tweak this a little.
 
 I guess the way my dev environment is configured made `$root` lack the trailing backslash, which is why I had to include it in the latter two variables before Pattern Lab would work properly. You may not have to do that, just be aware of it. If you don't know much PHP, don't worry. The most relevant part is this function:
 
-{% highlight php %}
+```clike
 <?php 
 
 $root = $_SERVER['DOCUMENT_ROOT']; 
@@ -295,7 +295,7 @@ function inc($type,$name) {
         } 
     }
 }
-{% endhighlight %}
+```
 
 Lines 22-32 look through the `patterns` directory for the components called through the `inc()` function based on type. It's called like this: `inc([type], [component]);`. Before we extend Pattern Lab with a few extras, we still have to go through what those parts mean. You know them if you watched Brad's talk or remember chemistry class, but we're going to go over them in a practical sense.
 
@@ -305,19 +305,19 @@ Atoms are the building blocks of our universe. On the web they are individual HT
 
 ### 01-Molecules
 
-Molecules are essentially bonded atoms that create a new substance. On the web this can be an unordered list that has bonded with a `` element to become a menu. In playing around with Pattern Lab, I built two additional molecules. All you have to do is create a file in the category you think is most relevant. In my case that was `02-Blocks`. This is what's in `06-Block-Project.php`:
+Molecules are essentially bonded atoms that create a new substance. On the web this can be an unordered list that has bonded with a element to become a menu. In playing around with Pattern Lab, I built two additional molecules. All you have to do is create a file in the category you think is most relevant. In my case that was `02-Blocks`. This is what's in `06-Block-Project.php`:
 
-{% highlight html %}
+```markup
 <div class="block block-project">
     
     <h2>New Project</h2>
     <p>A description of the project would go here, of course.</p>
 </div>
-{% endhighlight %}
+```
 
 I've bonded an image, a heading, and a paragraph into a project molecule. I also created a featured project molecule from bonding them in a different way, such as this:
 
-{% highlight html %}
+```markup
 <div class="block block-featured">
     
     <div class="b-text">
@@ -325,7 +325,7 @@ I've bonded an image, a heading, and a paragraph into a project molecule. I also
         <p class="excerpt">A description of the project would go here, of course.</p>
     </div>
 </div>
-{% endhighlight %}
+```
 
 ### 02-Organisms
 
@@ -335,7 +335,7 @@ Organisms are created from a complex system of molecules bonding into even more 
 
 Notice how the chemistry terms end here. That's because we're getting into the parts that the client will see. In the `03-Templates` folder, I created `03-Portfolio.php`, and that looks like this:
 
-{% highlight html %}
+```markup
 <div class="g g-5up">
     <div class="gi"></div>
 </div>
@@ -347,7 +347,7 @@ Notice how the chemistry terms end here. That's because we're getting into the p
     <div class="gi"></div>
     <div class="gi"></div>
 </div>
-{% endhighlight %}
+```
 
 ![Portfolio Template](/post-images/pattern-lab-project-template.png)
 

@@ -18,20 +18,20 @@ You might know [Moment.js](http://momentjs.com) as a widely used library for for
 <div id="html"></div>
 ## First Ingredient: Markup
 
-{% highlight html %}
+```markup
 <div class="stopwatch" id="stopwatch">
     <div id="time-container" class="container"></div>
     <button class="button" id="start">Start</button>
     <button class="button" id="stop">Stop</button>
 </div>
-{% endhighlight %}
+```
 
 There's nothing crazy here, so I won't dwell on it. Just wrapping the whole app with a `.stopwatch` class, setting a container for the time, and simple `#start` and `#stop` controls.
 
 <div id="css"></div>
 ## Second Ingredient: Style
 
-{% highlight scss %}
+```css
 *,
 *:before,
 *:after, {
@@ -95,7 +95,7 @@ body {
     color: #E00;
     font-weight: 700;
 }
-{% endhighlight %}
+```
 
 <i>Note: The CSS is unprefixed for convenience. Naturally, you would want to use them where needed, but I recommend checking out [Autoprefixer](https://github.com/ai/autoprefixer) or [-prefix-free](http://leaverou.github.io/prefixfree/) if you'd rather not worry about that. Especially if you use a preprocessor.</i>
 
@@ -104,7 +104,7 @@ Nothing here to write home about. Just a simple layout.
 <div id="js"></div>
 ## Third Ingredient: Behavior
 
-{% highlight js %}
+```javascript
 var AppStopwatch = (function () {
     var counter = 0,
         $stopwatch = {
@@ -139,7 +139,7 @@ var AppStopwatch = (function () {
 AppStopwatch.$start.addEventListener('click', AppStopwatch.startClock, false);
 
 AppStopwatch.$stop.addEventListener('click', AppStopwatch.stopClock, false);
-{% endhighlight %}
+```
 
 There's the whole shebang, now let's dissect it.
 
@@ -147,18 +147,17 @@ There's the whole shebang, now let's dissect it.
 
 The very first thing we do is set one global namespace `AppStopwatch` and assign an IIFE. This will contain configuration for the app.
 
-{% highlight js %}
-
+```javascript
 // Wraps our app and prevents pollution of the 
 // hosting environment. That is, the browser in this case.
 
 var AppStopwatch = (function () {
 })() // Called immediately;
-{% endhighlight %}
+```
 
 ### Set Variables
 
-{% highlight js %}
+```javascript
     var counter = 0, // to be incremented
         // collection of DOM elements
         $stopwatch = {
@@ -169,17 +168,17 @@ var AppStopwatch = (function () {
         };
 
     var runClock; // used as id for setInterval()
-{% endhighlight %}
+```
 
 Now what we want to do is set a `counter` to increment and wrap a collection of the app's selectors in a `$stopwatch` object. The `runClock` variable will be assigned later.
 
 ### displayTime()
 
-{% highlight js %}
+```javascript
     function displayTime() {
         $stopwatch.container.innerHTML = moment().hour(0).minute(0).second(counter++).format('HH : mm : ss');
     }
-{% endhighlight %}
+```
 
 All we really do here is modify the `#time-container` element's contents (currently nothing) to display our stopwatch. The contents are a call to `moment()` which gets Moment.js going, and then we set the `hour()` and `minute()` to zero. The beauty comes from the second to last method in the chain: `second()`. The Moment.js documentation says
 
@@ -193,43 +192,43 @@ Finally, the last method sets the formatting of our display.
 
 ### startWatch()
 
-{% highlight js %}
+```javascript
     function startWatch() {
         runClock = setInterval(displayTime, 1000);
     }
-{% endhighlight %}
+```
 
 All this function does is set our `runClock` variable to set an interval which references displayTime and calls it every second.
 
 ### stopWatch()
 
-{% highlight js %}
+```javascript
     function stopWatch() {
         clearInterval(runClock);
     }
-{% endhighlight %}
+```
 
 Clearing our `runClock` interval stops the watch.
 
 ### return
 
-{% highlight js %}
+```javascript
     return {
         startClock: startWatch,
         stopClock: stopWatch,
         $start: $stopwatch.startControl,
         $stop: $stopwatch.stopControl
     };
-{% endhighlight %}
+```
 
 Now we want to return an object to expose to the environment. The properties are only the functions and elements we need.
 
 ### Events
 
-{% highlight js %}
+```javascript
 AppStopwatch.$start.addEventListener('click', AppStopwatch.startClock, false);
 AppStopwatch.$stop.addEventListener('click', AppStopwatch.stopClock, false);
-{% endhighlight %}
+```
 
 Outside of the IIFE, we set the actual behavior of our app. Our `#start` and `#stop` buttons are tied to event listeners that we execute when clicked.
 

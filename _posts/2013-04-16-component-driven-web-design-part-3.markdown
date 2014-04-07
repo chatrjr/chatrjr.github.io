@@ -4,6 +4,7 @@ title: "Component-Driven Web Design: Markup"
 author: Chatman Richmond Jr.
 id: 003
 date: 2013-04-16
+primary-language: markup
 description: "Part 2 was all about setting up your environment with Node.js and Grunt for a slick front-end workflow. Part 3 is all about the markup."
 excerpt: "Part 2 was all about setting up your environment with Node.js and Grunt for a slick front-end workflow. Part 3 is all about the markup."
 ---
@@ -62,9 +63,9 @@ I'm going to introduce Emmet here, because it has been a key player in helping m
 
 
 
-{% highlight html %}
+```markup
 section.events>.event*2>h2.event__heading+img.event__image+p.event__content+(.event__date>.event__date__mo+.event__date__yr)
-{% endhighlight %}
+```
 
 
 
@@ -74,7 +75,7 @@ And output this markup:
 
 
 
-{% highlight html %}
+```markup
 <section class="events">
     <div class="event">
         <h2 class="event__heading"></h2>
@@ -95,7 +96,7 @@ And output this markup:
         </div>
     </div>
 </section>
-{% endhighlight %}
+```
 
 
 
@@ -117,7 +118,7 @@ The very first thing you might have noticed about Emmet syntax is how similar it
 
 
 
-{% highlight html %}
+```markup
 nav.main-menu>ul.main-menu__wrap>li.main-menu__item$*4>a.main-menu__link[href="#"]
 
 <nav class="main-menu">
@@ -128,7 +129,7 @@ nav.main-menu>ul.main-menu__wrap>li.main-menu__item$*4>a.main-menu__link[href="#
         <li class="main-menu__item4"><a href="#" class="main-menu__link"></a></li>
     </ul>
 </nav>
-{% endhighlight %}
+```
 
 
 

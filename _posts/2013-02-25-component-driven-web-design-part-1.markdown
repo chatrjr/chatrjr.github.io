@@ -81,7 +81,7 @@ For JavaScript-based web apps in particular, you really can't go wrong with [Gru
 
 
 
-Once you start thinking of your project's assets in terms of components, you may want to use an AMD loader such as [RequireJS](http://requirejs.org). The main benefit of AMD is conditional loading. As projects get more robust, you're likely to run into the Great Wall of Dependencies. This is when your application becomes so complex as to muddle the order of your scripts, what dependencies you should call, and _when_ to call them. AMD loaders like RequireJS abstract most of these concerns by loading dependencies as modules. The beauty is that _anything_ can be a module. You'll find out what this means in part 3.
+Once you start thinking of your project's assets in terms of components, you may want to use an <abbr title="Asynchronous Module Definition">AMD</abbr> loader such as [RequireJS](http://requirejs.org). The main benefit of AMD is conditional loading. As projects get more robust, you're likely to run into the Great Wall of Dependencies. This is when your application becomes so complex as to muddle the order of your scripts, what dependencies you should call, and _when_ to call them. AMD loaders like RequireJS abstract most of these concerns by loading dependencies as modules. The beauty is that _anything_ can be a module. You'll find out what this means in part 3.
 
 
 
@@ -110,9 +110,3 @@ Equally important is for components to be portable. They have a far greater shel
 
 
 Parts 2, 3, and 4 will be a deep dive into component driven web design. I'll walk you through a small project, using the principles above, from concept to completion. Naturally, the code will be archived in a Github repo as we go. I'd like to hear your thoughts on this, so don't be shy. I'm already working on the second part, so stay tuned.
-
-
-
-
-
-  *[AMD]: Asynchronous Module Definition
