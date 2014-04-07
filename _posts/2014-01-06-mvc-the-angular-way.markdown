@@ -1,8 +1,7 @@
 ---
 layout: post
 title: "MVC: The Angular Way"
-author: Chatman Richmond Jr.
-id: 011
+id: 008
 date: 2014-01-06
 description: "Happy New Year! I'm diving into MVC frameworks. There are many options available from Backbone to Ember. I'm starting with AngularJS."
 excerpt: "Happy New Year! I'm diving into MVC frameworks. There are many options available from Backbone to Ember. I'm starting with AngularJS. Over the weekend, I learned some basic concepts of MVC and building with Angular. And then I made something silly."

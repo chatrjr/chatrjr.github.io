@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Preprocessed Out
-author: Chatman Richmond Jr.
-id: 006
+id: 003
 date: 2013-07-09
 primary-language: scss
 description: "CSS preprocessors have gained some serious headway among designers, with Sass leading the pack. However, we should remember not everyone uses them or wants to use them. Understanding why they don't is critical in understanding why you do."

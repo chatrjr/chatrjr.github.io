@@ -1,8 +1,7 @@
 ---
 layout: post
 title: "YACSSA (Yet Another CSS Architecture)"
-author: Chatman Richmond Jr.
-id: 010
+id: 007
 date: 2013-12-22
 description: "This time, I'll share the way I've been structuring my CSS. Because we absolutely need another of those articles. :P"
 excerpt: "This time, I'll share the way I've been structuring my CSS. Because we absolutely need another of those articles. :P This is YACSSA. Enjoy."

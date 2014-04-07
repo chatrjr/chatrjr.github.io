@@ -1,8 +1,7 @@
 ---
 layout: post
 title: "Atomic Design Makes Me Feel Like a Chemist"
-author: Chatman Richmond Jr.
-id: 004
+id: 001
 date: 2013-06-05
 description: "Time to brush up on your chemistry with Atomic Design. This post introduces Brad Frost's methodology and Pattern Lab."
 excerpt: "Time to brush up on your chemistry with Atomic Design. This post introduces Brad Frost's methodology and Pattern Lab. I explain why it's an awesome approach going forward."
@@ -363,4 +362,4 @@ Pages are self-explanatory: they are the templates given context. In other words
 
 ## The Potential of Atomic Design
 
-I wrote [in a previous post]({% post_url 2013-04-16-component-driven-web-design-part-3 %}) that building from components was a lot like working with LEGO bricks. The very idea of Atomic Design takes this further than I could have ever thought. Just the little I was able to do with this in an afternoon has me excited about yet another design system. I hope my stupid little experiment with it inspires you to play with Pattern Lab and put it to good use. Brad Frost, Dave Olsen, and everyone involved in its creation are awesome. I can't wait to see what everyone does with it. What do you think about the potential here? Will you be using it? As always, let me know if I made a mistake.
+Building from components is a lot like working with LEGO bricks. The very idea of Atomic Design takes this further than I could have ever thought. Just the little I was able to do with this in an afternoon has me excited about yet another design system. I hope my stupid little experiment with it inspires you to play with Pattern Lab and put it to good use. Brad Frost, Dave Olsen, and everyone involved in its creation are awesome. I can't wait to see what everyone does with it. What do you think about the potential here? Will you be using it? As always, let me know if I made a mistake.

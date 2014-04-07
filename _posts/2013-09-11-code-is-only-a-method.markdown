@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Code is Only a Method
-author: Chatman Richmond Jr.
-id: 007
+id: 004
 date: 2013-09-11
 description: "As much as we love tooling our workflows to be more efficient, it's easy to forget sometimes that they are just tools. This includes the code itself."
 excerpt: "As much as we love tooling our workflows to be more efficient, it's easy to forget sometimes that they are just tools. This includes the code itself."

@@ -49,3 +49,19 @@
     @include typecsset-font-size($typecsset-h6-size - 4);
   }
 }
+
+// media()
+// -------------------------------------
+// Custom mixin to adjust text according
+// to typographic scale.
+//   Usage:
+//     .block {
+//       color: black;
+//       @include media('small') {
+//         color: red;
+//       }
+//     }
+
+@mixin media($query) {
+  
+}
