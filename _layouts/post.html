@@ -11,8 +11,11 @@ layout: default
     Topics: {{ page.categories }}
   </span>
   </div>
-
+  {% if page.primary-language %}
+  <div class="post-body language-{{ page.primary-language }}">
+  {% else %}
   <div class="post-body">
+  {% endif %}
   {{ content }}
   </div>
 </article>
