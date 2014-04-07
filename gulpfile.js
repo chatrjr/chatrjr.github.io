@@ -48,9 +48,15 @@ gulp.task('deps', function() {
 gulp.task('images', function() {
   return gulp.src(['images/**/*', 'post-images/**/*'])
     .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
-    .pipe(gulp.dest('images'))
     .pipe(livereload(server))
     .pipe(notify({ message: 'Images task complete' }));
+});
+
+// Dummy task to watch for html changes
+gulp.task('html', function() {
+  return gulp.src('*.html')
+    .pipe(livereload(server))
+    .pipe(notify({ message: 'Changes logged. Reloading.' }));
 });
 
 gulp.task('default', ['css', 'deps', 'images', 'server'], function() {
@@ -74,6 +80,8 @@ gulp.task('server', function() {
     // Watch image files
     gulp.watch(['images/**/*', 'post-images/**/*'], ['images']);
 
+    // Watch Liquid templates
+    gulp.watch('*.html', ['html']);
   });
 
 });

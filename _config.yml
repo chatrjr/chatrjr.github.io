@@ -5,6 +5,6 @@ markdown: redcarpet
 pygments: false
 exclude: ['.*', 'node_modules', '*.json', 'README.md', 'gulpfile.js', 'css/scss']
 paginate: 4
-permalink: /:year/:month/:category/:title/
+permalink: /:categories/:year/:month/:title/
 production_url: http://chatrjr.name
 excerpt_separator: "d596aa409dbcf4bf9d9d57252304a921bd02e3fc"
