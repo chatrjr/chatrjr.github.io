@@ -1,28 +1,45 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>
+            
+                Moment.js Stopwatch &bull; ChatRJr's Desk
+            
+        </title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="description" content="Here we go. Yet another JavaScript stopwatch. This one has a bit of a twist though." />
+        <meta name="author" content="Chatman Richmond Jr." />
+        <meta name="viewport" content="width=device-width" />
+        <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700|Roboto:400,400italic,700|Roboto+Slab:700,100' rel='stylesheet' type='text/css'>
+        
+            <link rel="stylesheet" href="/css/post.css" />
+        
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Moment.js Stopwatch</title>
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <script src="//use.typekit.net/koi3hzo.js"></script>
-        <script type="text/javascript">
-          try{Typekit.load();}catch(e){}
-        </script>
         <!-- Custom CSS -->
         <link rel="stylesheet" href="/css/main.css">
     </head>
     <body>
         <div class="container">
           <header class="main-header">
-            <div class="logo hide-text"><a href="/">ChatRJr: Graphic Vagabond</a></div>
+            <a href="/" class="logo"><div class="hide-text">ChatRJr's Desk</div></a>
           </header>
 
-          <h2>Moment.js Stopwatch</h2>
-<p class="meta">21 Dec 2013</p>
+          <article class="post">
+  <h1 class="post-title">Moment.js Stopwatch</h1>
+  <div class="post-meta">
+  <span class="post-meta_date">
+    Date: 21 Dec 2013
+  </span>
+  <span class="post-meta_categories">
+    Topics: 
+  </span>
+  </div>
 
-<div class="post">
-<p>You might know <a href="http://momentjs.com">Moment.js</a> as a widely used library for formatting and parsing dates. I found another novel use for its time setting features: a really simple stopwatch. Here&#39;s how I put it together.</p>
+  <div class="post-body">
+  <p>You might know <a href="http://momentjs.com">Moment.js</a> as a widely used library for formatting and parsing dates. I found another novel use for its time setting features: a really simple stopwatch. Here&#39;s how I put it together.</p>
 
 <ul>
 <li><a href="#html">Markup (HTML)</a></li>
@@ -34,52 +51,47 @@
 <div id="html"></div>
 
 <h2>First Ingredient: Markup</h2>
-
-<p><div>
-    <pre><code class='html'>&lt;div class=&quot;stopwatch&quot; id=&quot;stopwatch&quot;&gt;
+<div class="highlight"><pre><code class="markup language-markup" data-lang="markup">&lt;div class=&quot;stopwatch&quot; id=&quot;stopwatch&quot;&gt;
     &lt;div id=&quot;time-container&quot; class=&quot;container&quot;&gt;&lt;/div&gt;
     &lt;button class=&quot;button&quot; id=&quot;start&quot;&gt;Start&lt;/button&gt;
     &lt;button class=&quot;button&quot; id=&quot;stop&quot;&gt;Stop&lt;/button&gt;
-&lt;/div&gt;</code></pre>
-  </div></p>
-
+&lt;/div&gt;
+</code></pre></div>
 <p>There&#39;s nothing crazy here, so I won&#39;t dwell on it. Just wrapping the whole app with a <code>.stopwatch</code> class, setting a container for the time, and simple <code>#start</code> and <code>#stop</code> controls.</p>
 
 <div id="css"></div>
 
 <h2>Second Ingredient: Style</h2>
-
-<p><div>
-    <pre><code class='scss'>*,
+<div class="highlight"><pre><code class="css language-css" data-lang="css">*,
 *:before,
 *:after, {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-}</p>
+}
 
-<p>body {
+body {
     margin: 0 auto;
     width: 20em;
-}</p>
+}
 
-<p>.stopwatch {
+.stopwatch {
     background: #C0FFEE;
     font-family: Helvetica, Arial, sans-serif;
     font-size: 2rem;
     width: 100%;
     height: 2em;
-}</p>
+}
 
-<p>.container {
+.container {
     margin: 0 auto;
     padding: 0.4em;
     width: 60%;
     height: 100%;
     color: #111;
-}</p>
+}
 
-<p>.button {
+.button {
     background: #BADA55;
     border: none;
     cursor: pointer;
@@ -92,29 +104,28 @@
     width: 48%;
     text-align: center;
     transition: all 0.3s ease;
-}</p>
+}
 
-<p>.button:hover,
+.button:hover,
 .button:focus {
     background: #FFF;
     color: #BADA55;
     font-weight: 700;
-}</p>
+}
 
-<p>.button:last-child {
+.button:last-child {
     background: #E00;
     color: #FFF;
     margin-right: 0;
-}</p>
+}
 
-<p>.button:last-child:hover,
+.button:last-child:hover,
 .button:last-child:focus {
     background: #FFF;
     color: #E00;
     font-weight: 700;
-}</code></pre>
-  </div></p>
-
+}
+</code></pre></div>
 <p><i>Note: The CSS is unprefixed for convenience. Naturally, you would want to use them where needed, but I recommend checking out <a href="https://github.com/ai/autoprefixer">Autoprefixer</a> or <a href="http://leaverou.github.io/prefixfree/">-prefix-free</a> if you&#39;d rather not worry about that. Especially if you use a preprocessor.</i></p>
 
 <p>Nothing here to write home about. Just a simple layout.</p>
@@ -122,83 +133,71 @@
 <div id="js"></div>
 
 <h2>Third Ingredient: Behavior</h2>
-
-<p><div>
-    <pre><code class='js'>var AppStopwatch = (function () {
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript">var AppStopwatch = (function () {
     var counter = 0,
         $stopwatch = {
-            el: document.getElementById(&#39;stopwatch&#39;),
-            container: document.getElementById(&#39;time-container&#39;),
-            startControl: document.getElementById(&#39;start&#39;),
-            stopControl: document.getElementById(&#39;stop&#39;)
-        };</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">var runClock;
+            el: document.getElementById('stopwatch'),
+            container: document.getElementById('time-container'),
+            startControl: document.getElementById('start'),
+            stopControl: document.getElementById('stop')
+        };
 
-function displayTime() {
-    $stopwatch.container.innerHTML = moment().hour(0).minute(0).second(counter++).format('HH : mm : ss');
-}
+    var runClock;
 
-function startWatch() {
-    runClock = setInterval(displayTime, 1000);
-}
+    function displayTime() {
+        $stopwatch.container.innerHTML = moment().hour(0).minute(0).second(counter++).format('HH : mm : ss');
+    }
 
-function stopWatch() {
-    clearInterval(runClock);
-}
+    function startWatch() {
+        runClock = setInterval(displayTime, 1000);
+    }
 
-return {
-    startClock: startWatch,
-    stopClock: stopWatch,
-    $start: $stopwatch.startControl,
-    $stop: $stopwatch.stopControl
-};
+    function stopWatch() {
+        clearInterval(runClock);
+    }
+
+    return {
+        startClock: startWatch,
+        stopClock: stopWatch,
+        $start: $stopwatch.startControl,
+        $stop: $stopwatch.stopControl
+    };
+})();
+
+AppStopwatch.$start.addEventListener('click', AppStopwatch.startClock, false);
+
+AppStopwatch.$stop.addEventListener('click', AppStopwatch.stopClock, false);
 </code></pre></div>
-<p>})();</p>
-
-<p>AppStopwatch.$start.addEventListener(&#39;click&#39;, AppStopwatch.startClock, false);</p>
-
-<p>AppStopwatch.$stop.addEventListener(&#39;click&#39;, AppStopwatch.stopClock, false);</code></pre>
-  </div></p>
-
 <p>There&#39;s the whole shebang, now let&#39;s dissect it.</p>
 
 <h3><abbr title="Immediately Invoked Function Expression">IIFE</abbr></h3>
 
 <p>The very first thing we do is set one global namespace <code>AppStopwatch</code> and assign an IIFE. This will contain configuration for the app.</p>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript">// Wraps our app and prevents pollution of the 
+// hosting environment. That is, the browser in this case.
 
-<p><div>
-    <pre><code class='js'>// Wraps our app and prevents pollution of the 
-// hosting environment. That is, the browser in this case.</p>
-
-<p>var AppStopwatch = (function () {
-})() // Called immediately;</code></pre>
-  </div></p>
-
+var AppStopwatch = (function () {
+})() // Called immediately;
+</code></pre></div>
 <h3>Set Variables</h3>
-
-<p><div>
-    <pre><code class='js'>var counter = 0, // to be incremented
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript">    var counter = 0, // to be incremented
         // collection of DOM elements
         $stopwatch = {
-            el: document.getElementById(&#39;stopwatch&#39;),
-            container: document.getElementById(&#39;time-container&#39;),
-            startControl: document.getElementById(&#39;start&#39;),
-            stopControl: document.getElementById(&#39;stop&#39;)
-        };</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">var runClock; // used as id for setInterval()&lt;/code&gt;&lt;/pre&gt;
-</code></pre></div>
-<p></div></p>
+            el: document.getElementById('stopwatch'),
+            container: document.getElementById('time-container'),
+            startControl: document.getElementById('start'),
+            stopControl: document.getElementById('stop')
+        };
 
+    var runClock; // used as id for setInterval()
+</code></pre></div>
 <p>Now what we want to do is set a <code>counter</code> to increment and wrap a collection of the app&#39;s selectors in a <code>$stopwatch</code> object. The <code>runClock</code> variable will be assigned later.</p>
 
 <h3>displayTime()</h3>
-
-<p><div>
-    <pre><code class='js'>function displayTime() {
-        $stopwatch.container.innerHTML = moment().hour(0).minute(0).second(counter++).format(&#39;HH : mm : ss&#39;);
-    }</code></pre>
-  </div></p>
-
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript">    function displayTime() {
+        $stopwatch.container.innerHTML = moment().hour(0).minute(0).second(counter++).format('HH : mm : ss');
+    }
+</code></pre></div>
 <p>All we really do here is modify the <code>#time-container</code> element&#39;s contents (currently nothing) to display our stopwatch. The contents are a call to <code>moment()</code> which gets Moment.js going, and then we set the <code>hour()</code> and <code>minute()</code> to zero. The beauty comes from the second to last method in the chain: <code>second()</code>. The Moment.js documentation says</p>
 
 <blockquote>
@@ -212,45 +211,33 @@ return {
 <p>Finally, the last method sets the formatting of our display.</p>
 
 <h3>startWatch()</h3>
-
-<p><div>
-    <pre><code class='js'>function startWatch() {
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript">    function startWatch() {
         runClock = setInterval(displayTime, 1000);
-    }</code></pre>
-  </div></p>
-
+    }
+</code></pre></div>
 <p>All this function does is set our <code>runClock</code> variable to set an interval which references displayTime and calls it every second.</p>
 
 <h3>stopWatch()</h3>
-
-<p><div>
-    <pre><code class='js'>function stopWatch() {
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript">    function stopWatch() {
         clearInterval(runClock);
-    }</code></pre>
-  </div></p>
-
+    }
+</code></pre></div>
 <p>Clearing our <code>runClock</code> interval stops the watch.</p>
 
 <h3>return</h3>
-
-<p><div>
-    <pre><code class='js'>return {
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript">    return {
         startClock: startWatch,
         stopClock: stopWatch,
         $start: $stopwatch.startControl,
         $stop: $stopwatch.stopControl
-    };</code></pre>
-  </div></p>
-
+    };
+</code></pre></div>
 <p>Now we want to return an object to expose to the environment. The properties are only the functions and elements we need.</p>
 
 <h3>Events</h3>
-
-<p><div>
-    <pre><code class='js'>AppStopwatch.$start.addEventListener(&#39;click&#39;, AppStopwatch.startClock, false);
-AppStopwatch.$stop.addEventListener(&#39;click&#39;, AppStopwatch.stopClock, false);</code></pre>
-  </div></p>
-
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript">AppStopwatch.$start.addEventListener('click', AppStopwatch.startClock, false);
+AppStopwatch.$stop.addEventListener('click', AppStopwatch.stopClock, false);
+</code></pre></div>
 <p>Outside of the IIFE, we set the actual behavior of our app. Our <code>#start</code> and <code>#stop</code> buttons are tied to event listeners that we execute when clicked.</p>
 
 <div id="sample"></div>
@@ -267,7 +254,8 @@ AppStopwatch.$stop.addEventListener(&#39;click&#39;, AppStopwatch.stopClock, fal
 
 <p>That&#39;s all. If you want to follow up, you can <a href="http://twitter.com/ChatRJr">get me on Twitter</a>.</p>
 
-</div>
+  </div>
+</article>
 
 
           <footer class="main-foot">

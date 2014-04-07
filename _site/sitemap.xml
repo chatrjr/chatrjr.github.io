@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://chatrjr.name/2014/01/:category/mvc-the-angular-way/</loc>
+    
+    <lastmod>2014-01-06T00:00:00-05:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>http://chatrjr.name/2013/12/:category/yet-another-css-archicture/</loc>
+    
+    <lastmod>2013-12-22T00:00:00-05:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>http://chatrjr.name/2013/12/:category/moment-js-stopwatch-experiment/</loc>
+    
+    <lastmod>2013-12-21T00:00:00-05:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>http://chatrjr.name/2013/09/:category/new-reality-digital-design/</loc>
+    
+    <lastmod>2013-09-21T00:00:00-04:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>http://chatrjr.name/2013/09/:category/code-is-only-a-method/</loc>
+    
+    <lastmod>2013-09-11T00:00:00-04:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>http://chatrjr.name/2013/07/:category/preprocessed-out/</loc>
+    
+    <lastmod>2013-07-09T00:00:00-04:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>http://chatrjr.name/2013/06/:category/single-responsibility-bem/</loc>
+    
+    <lastmod>2013-06-14T00:00:00-04:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>http://chatrjr.name/2013/06/:category/atomic-design-makes-me-feel-like-a-chemist/</loc>
+    
+    <lastmod>2013-06-05T00:00:00-04:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>http://chatrjr.name/2013/04/:category/component-driven-web-design-part-3/</loc>
+    
+    <lastmod>2013-04-16T00:00:00-04:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>http://chatrjr.name/2013/03/:category/component-driven-web-design-part-2/</loc>
+    
+    <lastmod>2013-03-30T00:00:00-04:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>http://chatrjr.name/2013/02/:category/component-driven-web-design-part-1/</loc>
+    
+    <lastmod>2013-02-25T00:00:00-05:00</lastmod>
+    
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</urlset>

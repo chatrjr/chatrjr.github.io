@@ -1,0 +1,2499 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>ChatRJr's Desk</title>
+ <link href="http://chatrjr.name/atom.xml" rel="self"/>
+ <link href="http://chatrjr.name"/>
+ <updated>2014-04-07T11:55:37-04:00</updated>
+ <id>http://chatrjr.name/</id>
+ <author>
+   <name>Chatman Richmond Jr.</name>
+   <email>theguy@notebookandpenguin.com</email>
+ </author>
+
+ 
+ <entry>
+   <title>MVC: The Angular Way</title>
+   <link href="http://chatrjr.name/2014/01/:category/mvc-the-angular-way/"/>
+   <updated>2014-01-06T00:00:00-05:00</updated>
+   <id>http://chatrjr.name/2014/01/:category/mvc-the-angular-way</id>
+   <content type="html">&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#mvc-explanation&quot;&gt;Obligatory Explanation of MVC&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#mvc-philo&quot;&gt;MVC Philosophy&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#sketch-mvc&quot;&gt;A Rough Sketch of MVC&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#model&quot;&gt;Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#view&quot;&gt;View&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#control&quot;&gt;Controller&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#angular-js&quot;&gt;AngularJS: A Very Different Animal&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#angular-view&quot;&gt;The Angular View&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#augmented-markup&quot;&gt;Augmented Markup&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#ng-app&quot;&gt;ng-app&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#ng-controller&quot;&gt;ng-controller&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#ng-model&quot;&gt;ng-model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#ng-event&quot;&gt;ng-event&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#ng-repeat&quot;&gt;ng-repeat&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#ng-class&quot;&gt;ng-class&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#routes&quot;&gt;The Missing Ingredient: Routes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#result&quot;&gt;The Result&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div id=&quot;mvc-explanation&quot;&gt;&lt;/div&gt;
+
+&lt;h2&gt;Obligatory Explanation of MVC&lt;/h2&gt;
+
+&lt;p&gt;That&amp;#39;s probably the the first thing you&amp;#39;re wondering (if you didn&amp;#39;t know already). &lt;abbr title=&quot;Model-View-Controller&quot;&gt;MVC&lt;/abbr&gt; is a software pattern for building user interfaces that emerged from Smalltalk. It&amp;#39;s a proven architecture for robust UIs that finally found its way to the web in the explosion of application frameworks that embody its principles along with a few offshoots. I&amp;#39;m talking about Backbone, Ember, Knockout, and the star of today&amp;#39;s post: &lt;a href=&quot;http://angularjs.org/&quot;&gt;AngularJS&lt;/a&gt;. Of course, that&amp;#39;s just scratching the surface. Before we dive in with Angular, let&amp;#39;s have a look at the ideas behind MVC and the problems it was intended to solve.&lt;/p&gt;
+
+&lt;div id=&quot;mvc-philo&quot;&gt;&lt;/div&gt;
+
+&lt;h3&gt;MVC Philosophy&lt;/h3&gt;
+
+&lt;p&gt;MVC is critical for building modern applications because it works on the idea that there should be a separation of concerns between the data the application accepts (Model), how the data is shown (View), and how it&amp;#39;s changed (Controller). This approach would allow apps to easily grow with feature requests and bug fixes in ways that they couldn&amp;#39;t if all those parts were intertwined.&lt;/p&gt;
+
+&lt;div id=&quot;sketching-mvc&quot;&gt;&lt;/div&gt;
+
+&lt;h2&gt;A Rough Sketch of MVC&lt;/h2&gt;
+
+&lt;p&gt;It&amp;#39;s a bit more complicated than that, so it&amp;#39;s example time! The following code is not representative of any MVC framework out there right now, it&amp;#39;s only meant to illustrate the general structure.&lt;/p&gt;
+
+&lt;div id=&quot;model&quot;&gt;&lt;/div&gt;
+
+&lt;h3&gt;Model&lt;/h3&gt;
+
+&lt;p&gt;Let&amp;#39;s say we have a database full of people that we want to use for a &amp;quot;Facebook-killer&amp;quot; social network. We don&amp;#39;t need to use all of their data for the model, only the most relevant parts. The following is a model we might use for a profile page.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript language-javascript&quot; data-lang=&quot;javascript&quot;&gt;// Let's assume there's an App namespace and that
+// a Person has already been attached as a Model.
+var App = App || {};
+
+App.Model.Person = (function(data) {
+
+  this.id = data.id;
+  this.firstName = data.firstName;
+  this.lastName = data.lastName;
+  this.age = data.age;
+  this.birthday = data.birthday;
+
+  // Parse data somehow
+
+  return data;
+
+})('people.json');
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div id=&quot;view&quot;&gt;&lt;/div&gt;
+
+&lt;h3&gt;View&lt;/h3&gt;
+
+&lt;p&gt;A view is usually represented through a templating engine (either client or server side). Here is where you plug in your data. For the purpose of our example, let&amp;#39;s say the template is written like this.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;markup language-markup&quot; data-lang=&quot;markup&quot;&gt;&amp;lt;!&amp;gt; Mock templating language
+&amp;lt;&amp;gt;html
+  &amp;lt;&amp;gt;head
+    &amp;lt;&amp;gt;title Profile of #{getFullName} &amp;amp;bull; FBKiller
+    &amp;lt;name=&amp;quot;description&amp;quot; content=&amp;quot;This is the profile of #{getFullName}&amp;quot;/&amp;gt;meta
+    &amp;lt;name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width, initial-scale=1&amp;quot;/&amp;gt;meta
+    &amp;lt;rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;style.css&amp;quot;/&amp;gt;link
+    &amp;lt;src=&amp;quot;engine.js&amp;quot;&amp;gt;script
+  &amp;lt;&amp;gt;body
+    &amp;lt;role=&amp;quot;banner&amp;quot;&amp;gt;header.main-head
+      &amp;lt;&amp;gt;h1 Profile of #{getFullName}
+      &amp;lt;role=&amp;quot;navigation&amp;quot;&amp;gt;nav.main-nav
+        &amp;lt;&amp;gt;ul.main-nav-wrap
+          &amp;lt;@for [1..4]&amp;gt;
+            &amp;lt;&amp;gt;li
+              &amp;lt;href=&amp;quot;#&amp;quot;&amp;gt;a
+          &amp;lt;/@for&amp;gt;
+    &amp;lt;&amp;gt;.stats
+      &amp;lt;&amp;gt;ul.stat-wrap
+        &amp;lt;@each $context : prop&amp;gt;
+          &amp;lt;&amp;gt;li.stat-item
+            &amp;lt;&amp;gt;h2 #{prop}
+            &amp;lt;&amp;gt;p #{$context.prop}
+        &amp;lt;/@each&amp;gt;
+    &amp;lt;role=&amp;quot;contentinfo&amp;quot;&amp;gt;footer.main-foot &amp;amp;copy; 2014 FBKiller
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;When the template is parsed, you end up with something like this.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;markup language-markup&quot; data-lang=&quot;markup&quot;&gt;&amp;lt;!-- Mock templating language --&amp;gt;
+&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    &amp;lt;title&amp;gt; Profile of Dirk Gently &amp;amp;bull; FBKiller&amp;lt;/title&amp;gt;
+    &amp;lt;meta name=&amp;quot;description&amp;quot; content=&amp;quot;This is the profile of Dirk Gently&amp;quot; /&amp;gt;
+    &amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width, initial-scale=1&amp;quot; /&amp;gt;
+    &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;style.css&amp;quot; /&amp;gt;
+    &amp;lt;script src=&amp;quot;engine.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;header class=&amp;quot;main-head&amp;quot; role=&amp;quot;banner&amp;quot;&amp;gt;
+      &amp;lt;h1&amp;gt;Profile of Dirk Gently&amp;lt;/h1&amp;gt;
+      &amp;lt;nav class=&amp;quot;main-nav&amp;quot; role=&amp;quot;navigation&amp;quot;&amp;gt;
+        &amp;lt;ul class=&amp;quot;main-nav-wrap&amp;quot;&amp;gt;
+          &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;#&amp;quot;&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+          &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;#&amp;quot;&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+          &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;#&amp;quot;&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+          &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;#&amp;quot;&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+        &amp;lt;/ul&amp;gt;
+      &amp;lt;/nav&amp;gt;
+    &amp;lt;/header&amp;gt;
+    &amp;lt;div class=&amp;quot;stats&amp;quot;&amp;gt;
+      &amp;lt;ul class=&amp;quot;stat-wrap&amp;quot;&amp;gt;
+        &amp;lt;li class=&amp;quot;stat-item&amp;quot;&amp;gt;
+          &amp;lt;h2&amp;gt;First Name&amp;lt;/h2&amp;gt;
+          &amp;lt;p&amp;gt;Dirk&amp;lt;/p&amp;gt;
+        &amp;lt;/li&amp;gt;
+        &amp;lt;li class=&amp;quot;stat-item&amp;quot;&amp;gt;
+          &amp;lt;h2&amp;gt;Last Name&amp;lt;/h2&amp;gt;
+          &amp;lt;p&amp;gt;Gently&amp;lt;/p&amp;gt;
+        &amp;lt;/li&amp;gt;
+        &amp;lt;li class=&amp;quot;stat-item&amp;quot;&amp;gt;
+          &amp;lt;h2&amp;gt;Age&amp;lt;/h2&amp;gt;
+          &amp;lt;p&amp;gt;Unknown&amp;lt;/p&amp;gt;
+        &amp;lt;/li&amp;gt;
+        &amp;lt;li class=&amp;quot;stat-item&amp;quot;&amp;gt;
+          &amp;lt;h2&amp;gt;Birthday&amp;lt;/h2&amp;gt;
+          &amp;lt;p&amp;gt;Unknown&amp;lt;/p&amp;gt;
+        &amp;lt;/li&amp;gt;
+      &amp;lt;/ul&amp;gt;
+    &amp;lt;/div&amp;gt;
+    &amp;lt;footer class=&amp;quot;main-foot&amp;quot; role=&amp;quot;contentinfo&amp;quot;&amp;gt;&amp;amp;copy; 2014 FBKiller&amp;lt;/footer&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div id=&quot;control&quot;&gt;&lt;/div&gt;
+
+&lt;h3&gt;Controller&lt;/h3&gt;
+
+&lt;p&gt;A controller is responsible for application logic and data manipulation. As such, they are usually bound to the view they affect and are responsible only for that view. In our mock MVC framework, a controller might be written this way.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript language-javascript&quot; data-lang=&quot;javascript&quot;&gt;App.Controller.UserProfile = (function(Person, ProfileView) {
+
+  // Let's say App.Controller has a bind() method
+  // to attach views.
+  var $context = App.Controller.bind(this, ProfileView);
+
+  // From this context, we can attach additional manipulators
+  // to be shown in the view.
+  $context.getFullName = function() {
+    return this.firstName + ' ' + this.lastName;
+  }
+
+})(App.Model.Person, App.View.Profile);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;That&amp;#39;s enough theory. Let&amp;#39;s see how a real framework does it.&lt;/p&gt;
+
+&lt;div id=&quot;angular-js&quot;&gt;&lt;/div&gt;
+
+&lt;h2&gt;AngularJS: A Very Different Animal&lt;/h2&gt;
+
+&lt;p&gt;Of all that I&amp;#39;ve read about MVC and its derivatives, Angular is quite unique in its approach. It&amp;#39;s a completely different architecture from &amp;quot;traditional&amp;quot; MVC like Backbone. The Angular team marks it as a &lt;abbr title=&quot;Model-View-Mapper&quot;&gt;MVM&lt;/abbr&gt; framework, and it shows. The rest of this post will be about the silly thing I mentioned in the excerpt, as it helps show exactly how different yet &lt;strong&gt;familiar&lt;/strong&gt; it is to do things the Angular way.&lt;/p&gt;
+
+&lt;div id=&quot;angular-view&quot;&gt;&lt;/div&gt;
+
+&lt;h2&gt;The Angular View&lt;/h2&gt;
+
+&lt;p&gt;The first thing I should mention: if you&amp;#39;ve ever written HTML, then you already know how to build an Angular view. The framework extends natural markup with a ton of useful attributes. Angular has grown surprisingly hardy since its creation, trusted to power apps large and small despite its deceptively simple structure. Here&amp;#39;s the view for my &lt;a href=&quot;http://jsbin.com/ObijokUR/7/&quot;&gt;Multiples Listing experiment&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;markup language-markup&quot; data-lang=&quot;markup&quot;&gt;&amp;lt;div ng-app=&amp;quot;App&amp;quot;&amp;gt;
+  &amp;lt;div ng-controller=&amp;quot;MainCtrl&amp;quot;&amp;gt;
+    &amp;lt;h1&amp;gt;AngularJS Multiples Experiment.&amp;lt;/h1&amp;gt;
+    &amp;lt;p&amp;gt;This is just something I built while learning AngularJS, so I can prepare to use it on a larger project I'm working on. Feel free to comb through the code, and let me know if I messed up something.&amp;lt;/p&amp;gt;
+    &amp;lt;form&amp;gt;
+      &amp;lt;div class=&amp;quot;field-wrap&amp;quot;&amp;gt;
+        &amp;lt;label for=&amp;quot;mult&amp;quot;&amp;gt;Set your multiple. &amp;lt;small&amp;gt;Change to update table.&amp;lt;/small&amp;gt;&amp;lt;/label&amp;gt;
+        &amp;lt;input id=&amp;quot;mult&amp;quot; class=&amp;quot;field&amp;quot; type=&amp;quot;number&amp;quot; ng-model=&amp;quot;num.multiple&amp;quot;&amp;gt;
+      &amp;lt;/div&amp;gt;
+      &amp;lt;div class=&amp;quot;field-wrap&amp;quot;&amp;gt;
+        &amp;lt;label for=&amp;quot;limit&amp;quot;&amp;gt;Set your limit. &amp;lt;small&amp;gt;Number of items to show.&amp;lt;/small&amp;gt;&amp;lt;/label&amp;gt;
+        &amp;lt;input id=&amp;quot;limit&amp;quot; class=&amp;quot;field&amp;quot; type=&amp;quot;number&amp;quot; min=&amp;quot;0&amp;quot; max=&amp;quot;10000&amp;quot; ng-model=&amp;quot;num.limit&amp;quot;&amp;gt;
+      &amp;lt;/div&amp;gt;
+      &amp;lt;div class=&amp;quot;controls&amp;quot;&amp;gt;
+        &amp;lt;button ng-click=&amp;quot;populate()&amp;quot;&amp;gt;Create my table&amp;lt;/button&amp;gt;
+        &amp;lt;button ng-click=&amp;quot;flush()&amp;quot;&amp;gt;Reset&amp;lt;/button&amp;gt;
+      &amp;lt;/div&amp;gt;
+    &amp;lt;/form&amp;gt;
+    &amp;lt;ul&amp;gt;
+      &amp;lt;li class=&amp;quot;boxes&amp;quot; ng-class=&amp;quot;{divisible: (numbers[$index] % num.multiple === 0) ? true : false}&amp;quot; ng-repeat=&amp;quot;number in numbers&amp;quot;&amp;gt;
+
+      &amp;lt;/li&amp;gt;
+    &amp;lt;/ul&amp;gt;
+  &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;See? An Angular view is an augmented HTML document. Nothing else. Let&amp;#39;s have a look at some of these augments.&lt;/p&gt;
+
+&lt;div id=&quot;augmented-markup&quot;&gt;&lt;/div&gt;
+
+&lt;h2&gt;Augmented Markup&lt;/h2&gt;
+
+&lt;div id=&quot;ng-app&quot;&gt;&lt;/div&gt;
+
+&lt;h3&gt;ng-app&lt;/h3&gt;
+
+&lt;p&gt;The first notable change is the &lt;code&gt;ng-app&lt;/code&gt; attribute. This lets Angular know where the app rests on your page. When you set it as an attribute of &lt;code&gt;&amp;lt;html&amp;gt;&lt;/code&gt;, like I am, you&amp;#39;re telling Angular the entire page is your app. Wrapping part of your page with &lt;code&gt;ng-app&lt;/code&gt; is ideal if your website or app is managed by something else. This means you can have a dash of Angular with your Rails, for example.&lt;/p&gt;
+
+&lt;div id=&quot;ng-controller&quot;&gt;&lt;/div&gt;
+
+&lt;h3&gt;ng-controller&lt;/h3&gt;
+
+&lt;p&gt;The &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt; element has the &lt;code&gt;ng-controller&lt;/code&gt; attribute. Angular uses this to assign a controller&amp;#39;s scope on the page to wrap its logic. My experiment only has one controller, &lt;code&gt;MainCtrl&lt;/code&gt;, because it doesn&amp;#39;t need to do too much. Building a controller in Angular isn&amp;#39;t a chore either, especially if you&amp;#39;re well-versed in the module pattern.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript language-javascript&quot; data-lang=&quot;javascript&quot;&gt;// Best Practice: Set namespace of your app to
+// avoid pollution of the global scope.
+var App = angular.module('App', []);
+
+// $scope is the current context of MainCtrl,
+// that is, the entire page.
+App.controller('MainCtrl', function($scope) {
+  var i,
+      numArr;
+
+  // An Angular model with defaults set.
+  // Keep in mind that models usually aren't static
+  // and work with persistent data from the server.
+  $scope.num = {
+    multiple: 2,
+    limit: 24
+  };
+
+  $scope.numbers = [];
+
+  numArr = Array($scope.num.limit);
+
+  for (i = 0, len = numArr.length; i &amp;lt;= len; i++) {
+    $scope.numbers.push(i);
+  }
+
+  $scope.populate = function() {
+    $scope.numbers.length = 0;
+
+    var list = $scope.num.limit;
+
+    for(i = 0; i &amp;lt;= list; i++) {
+      $scope.numbers.push(i);
+    }
+  };
+
+
+  $scope.flush = function() {
+    $scope.numbers.length = 0;
+  };
+
+});
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div id=&quot;ng-model&quot;&gt;&lt;/div&gt;
+
+&lt;h3&gt;ng-model&lt;/h3&gt;
+
+&lt;p&gt;This attribute allows you to bind values to elements in real-time. Angular maintains persistent state through two way binding. The &lt;code&gt;&amp;lt;input&amp;gt;&lt;/code&gt; element in our view with &lt;code&gt;ng-model=&amp;quot;num.multiple&amp;quot;&lt;/code&gt; will update the list as you change it, while the one with &lt;code&gt;ng-model=&amp;quot;num.limit&amp;quot;&lt;/code&gt; attached will modify the size of your list.&lt;/p&gt;
+
+&lt;div id=&quot;ng-event&quot;&gt;&lt;/div&gt;
+
+&lt;h3&gt;ng-event&lt;/h3&gt;
+
+&lt;p&gt;What&amp;#39;s old is new again. Angular binds events in a way that will look very familiar and worrisome, but there&amp;#39;s nothing to fear. My little experiment has buttons that create and reset the table, respectively. The first button is bound to the &lt;code&gt;populate()&lt;/code&gt; method defined in the controller, while the second is bound to &lt;code&gt;flush()&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;#39;s the view.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;markup language-markup&quot; data-lang=&quot;markup&quot;&gt;&amp;lt;button ng-click=&amp;quot;populate()&amp;quot;&amp;gt;Create my table&amp;lt;/button&amp;gt;
+&amp;lt;button ng-click=&amp;quot;flush()&amp;quot;&amp;gt;Reset&amp;lt;/button&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And the associated methods.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript language-javascript&quot; data-lang=&quot;javascript&quot;&gt;$scope.populate = function() {
+  $scope.numbers.length = 0;
+
+  var list = $scope.num.limit;
+
+  for (i = 0; i &amp;lt;= list; i++) {
+    $scope.numbers.push(i);
+  }
+};
+
+$scope.flush = function() {
+  $scope.numbers.length = 0;
+};
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div id=&quot;ng-repeat&quot;&gt;&lt;/div&gt;
+
+&lt;h3&gt;ng-repeat&lt;/h3&gt;
+
+&lt;p&gt;This attribute allows Angular to loop through items in the list once it has been populated. And this will update every time we create a new list. It doesn&amp;#39;t just work with arrays, it allows any collection of objects that can be iterated through. And then you can output the value with either &lt;code&gt;ng-bind=value&lt;/code&gt; or the double bracket syntax.&lt;/p&gt;
+
+&lt;div id=&quot;ng-class&quot;&gt;&lt;/div&gt;
+
+&lt;h3&gt;ng-class&lt;/h3&gt;
+
+&lt;p&gt;The final ingredient was to figure out a way to update an item with a special class. Angular supplies the &lt;code&gt;ng-class&lt;/code&gt; for conditional application of classes. In this case, I wanted to highlight the numbers that are multiples of the first input, that is, by checking that the modulus of that number equals 0.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;markup language-markup&quot; data-lang=&quot;markup&quot;&gt;&amp;lt;li class=&amp;quot;boxes&amp;quot; ng-class=&amp;quot;{divisible: (numbers[$index] % num.multiple === 0) ? true : false}&amp;quot; ng-repeat=&amp;quot;number in numbers&amp;quot;&amp;gt;
+
+&amp;lt;/li&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;When it does, the &lt;code&gt;.divisible&lt;/code&gt; class is applied to that item and highlights it as a multiple.&lt;/p&gt;
+
+&lt;div id=&quot;routes&quot;&gt;&lt;/div&gt;
+
+&lt;h2&gt;The Missing Ingredient: Routes&lt;/h2&gt;
+
+&lt;p&gt;When MVC came to the web, another special ingredient was added to leverage the power of links. As a result, web apps have shareable URLs that preserve state. This routing allows a web app to apply certain functionality across views in a simple, readable way. And this is arguably their biggest advantage over native apps. My experiment was way too simple to need routing, but don&amp;#39;t underestimate the power of this valuable tool.&lt;/p&gt;
+
+&lt;div id=&quot;result&quot;&gt;&lt;/div&gt;
+
+&lt;h2&gt;The Result&lt;/h2&gt;
+
+&lt;p&gt;This was a really long post, and I might have tried to do too much. Here&amp;#39;s the finished app, if you want to play with it. Also, my understanding of MVC isn&amp;#39;t complete, so I urge you to let me know if I&amp;#39;ve made some mistakes in explaining it. And especially if I got it completely wrong. See ya later, web people!&lt;/p&gt;
+
+&lt;iframe width=&quot;100%&quot; height=&quot;400&quot; src=&quot;http://jsfiddle.net/chatrjr/neCH7/embedded/result,html,js/presentation/&quot; allowfullscreen=&quot;allowfullscreen&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+
+&lt;h2&gt;Bonus&lt;/h2&gt;
+
+&lt;p&gt;This is another implementation of the multiples list that live updates from inputs. No buttons necessary. You&amp;#39;re welcome to compare performance.&lt;/p&gt;
+
+&lt;iframe width=&quot;100%&quot; height=&quot;400&quot; src=&quot;http://jsfiddle.net/chatrjr/Xz3hp/embedded/result,html,js/presentation/&quot; allowfullscreen=&quot;allowfullscreen&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>YACSSA (Yet Another CSS Architecture)</title>
+   <link href="http://chatrjr.name/2013/12/:category/yet-another-css-archicture/"/>
+   <updated>2013-12-22T00:00:00-05:00</updated>
+   <id>http://chatrjr.name/2013/12/:category/yet-another-css-archicture</id>
+   <content type="html">&lt;h2&gt;Credit Where Credit is Due&lt;/h2&gt;
+
+&lt;p&gt;First off, I wouldn&amp;#39;t have thought of this without &lt;a href=&quot;http://coding.smashingmagazine.com/2013/08/02/other-interface-atomic-design-sass/&quot;&gt;Robin Rendle&amp;#39;s article on Smashing Magazine&lt;/a&gt;. Additionally, I have to credit &lt;a href=&quot;http://bradfrostweb.com/blog/post/atomic-web-design/&quot;&gt;Brad Frost&amp;#39;s Atomic Design methodology&lt;/a&gt;, Yandex&amp;#39;s BEM class syntax as well as Harry Roberts for &lt;a href=&quot;http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/&quot;&gt;making it digestible&lt;/a&gt;, and &lt;a href=&quot;https://github.com/stubbornella/oocss/wiki&quot;&gt;Nicole Sullivan&amp;#39;s OOCSS&lt;/a&gt; along with &lt;a href=&quot;http://smacss.com/&quot;&gt;Jonathan Snook&amp;#39;s SMACSS&lt;/a&gt;. They made me think differently about structure, CSS, and transformed the way I build on the web. You should definitely check out those links.&lt;/p&gt;
+
+&lt;h2&gt;What is YACSSA?&lt;/h2&gt;
+
+&lt;p&gt;&lt;abbr title=&quot;Yet Another CSS Architecture&quot;&gt;YACSSA&lt;/abbr&gt; is a mashup of the lessons I took from the above approaches. I call it YACSSA because there are already a lot of ways to structure CSS, and I&amp;#39;m just adding to the pool. There&amp;#39;s nothing especially new here, the core of YACSSA is in its file structure. It&amp;#39;s made of a few set directories with their own job. To illustrate how YACSSA works, I&amp;#39;m going to use this very blog&amp;#39;s CSS.&lt;/p&gt;
+
+&lt;h2&gt;Benefits of YACSSA&lt;/h2&gt;
+
+&lt;p&gt;This architecture has a few benefits that apply no matter the size of your site, and a few that would mostly help larger ones.&lt;/p&gt;
+
+&lt;h3&gt;Reusable&lt;/h3&gt;
+
+&lt;p&gt;Like most developers, I&amp;#39;m pretty lazy. Since YACSSA works by defining general to specific styling à la SMACSS with Atomic Design&amp;#39;s file structure, there are quite a few constructs you can use across projects.&lt;/p&gt;
+
+&lt;h3&gt;Scalable&lt;/h3&gt;
+
+&lt;p&gt;YACSSA is designed to help inform a site&amp;#39;s growth from small to large, if need be. Styling can be added at the same pace as new components and sections of your site. The architecture is made to be used long term. It&amp;#39;s way too much to set up for one-off projects.&lt;/p&gt;
+
+&lt;h3&gt;Adaptive&lt;/h3&gt;
+
+&lt;p&gt;YACSSA should be made your own. The parts of its anatomy are optional. Even the directory names are optional. Just be wary of getting too clever. Like Atomic Design, it isn&amp;#39;t meant to prescribe a single way to do things.&lt;/p&gt;
+
+&lt;h3&gt;Modular&lt;/h3&gt;
+
+&lt;p&gt;YACSSA is fragmented by design. It&amp;#39;s made to let you add and remove parts at will. This means you can add the styles that apply to a certain template and &lt;strong&gt;only&lt;/strong&gt; that template. This will cut the size of your CSS tremendously and prevent unused styling.&lt;/p&gt;
+
+&lt;h2&gt;Anatomy of YACSSA&lt;/h2&gt;
+
+&lt;p&gt;As I said, I&amp;#39;m going to explain the idea behind YACSSA through this site&amp;#39;s CSS. Let&amp;#39;s look at the whole directory tree first, and then break it down.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;..
+├── main.css
+├── post.css
+└── scss
+    ├── components
+    │   ├── _blog.scss
+    │   ├── _pagination.scss
+    │   └── _post.scss
+    ├── configuration
+    │   ├── _grid.scss
+    │   ├── _mixins.scss
+    │   ├── _syntax.scss
+    │   └── _variables.scss
+    ├── main.scss
+    ├── materials
+    │   ├── _links.scss
+    │   ├── _main.scss
+    │   ├── _media.scss
+    │   └── _text.scss
+    ├── post.scss
+    ├── structures
+    │   ├── _article.scss
+    │   ├── _blogreel.scss
+    │   ├── _footer.scss
+    │   └── _header.scss
+    └── utilities
+        ├── _layout.scss
+        ├── _normalize.scss
+        └── _tweaks.scss
+
+6 directories, 22 files
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The first thing you&amp;#39;ll notice is a shitton of partials. These are globbed into Sass files that compile into the CSS that is actually called. Now, let&amp;#39;s have a look at those directories.&lt;/p&gt;
+
+&lt;h3&gt;Configuration&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;configuration
+├── _grid.scss
+├── _mixins.scss
+├── _syntax.scss
+└── _variables.scss
+
+0 directories, 4 files
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The &lt;code&gt;configuration&lt;/code&gt; directory contains all of the general properties and third-party styling that your site relies on. You define your variables, mixins, custom syntax for pygments (if you&amp;#39;re using Jekyll), Prism.js or whatever. This site also uses the Singularity grid system, so I&amp;#39;ve also included that. This directory holds the &lt;strong&gt;uniform settings for your project&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Utilities&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;utilities
+├── _layout.scss
+├── _normalize.scss
+└── _tweaks.scss
+
+0 directories, 3 files
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The &lt;code&gt;utilities&lt;/code&gt; directory contains the basic plumbing of your site. That is, layout and structure, resets (though you could put that in configuration, too), other general classes, and hotfixes that come up during a project&amp;#39;s lifetime. Unlike configuration, these files aren&amp;#39;t likely to be removed or changed across pages.&lt;/p&gt;
+
+&lt;h3&gt;Materials&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;materials
+├── _links.scss
+├── _main.scss
+├── _media.scss
+└── _text.scss
+
+0 directories, 4 files
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The most general styling for your project goes in the &lt;code&gt;materials&lt;/code&gt; directory. Here&amp;#39;s where your defaults for text, media (images and video, &lt;strong&gt;not&lt;/strong&gt; the media object), link styling, etc. would go. Basically, any CSS that &lt;strong&gt;uses tag selectors goes here&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Components&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;components
+├── _blog.scss
+├── _pagination.scss
+└── _post.scss
+
+0 directories, 3 files
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Components are the bread and butter of many modern CSS architecture frameworks, and this one is no different (though it also isn&amp;#39;t a framework). These are the modules that may be needed across pages. They are your post listings, image galleries, carousels, buttons, and comments. The pieces of &lt;strong&gt;semantic content you mix and match across pages&lt;/strong&gt; are components. It might help to paste the markup in a comment to help new developers.&lt;/p&gt;
+
+&lt;h3&gt;Structures&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash language-bash&quot; data-lang=&quot;bash&quot;&gt;structures
+├── _article.scss
+├── _blogreel.scss
+├── _footer.scss
+└── _header.scss
+
+0 directories, 4 files
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The &lt;code&gt;structures&lt;/code&gt; directory is for styling the sections of your pages that glue your components together and categorize them. That is, your headers, footers, sidebars, and wrapping classes. Basically, if you have a structure that &lt;strong&gt;wraps or groups components&lt;/strong&gt;, the CSS would go here.&lt;/p&gt;
+
+&lt;h3&gt;Augments?&lt;/h3&gt;
+
+&lt;p&gt;Missing from this project is the &lt;code&gt;augments&lt;/code&gt; directory, because I didn&amp;#39;t need it. This directory is responsible for all of your JavaScript specific classes, states, and animations: &lt;strong&gt;enhancements that you apply programmatically&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Page Files&lt;/h2&gt;
+
+&lt;p&gt;These are what will be delivered to the browser. They have a table of contents, and then the import statements for all the other parts, going from general to specific. Here are the Sass files for the main and post templates for example.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;scss language-scss&quot; data-lang=&quot;scss&quot;&gt;/**
+ * Expletive Deleted - Main
+ * Author: Chatman Richmond Jr.
+ * Copyright: 2013
+ * Version: 2.0.0
+ *--------------------------------------------------------------
+ *
+ * TABLE OF CONTENTS
+ *    CONFIGURATION ===================== Configurable guidelines
+ *      VARIABLES
+ *      MIXINS
+ *      GRID........................Singularity
+ *    UTILITIES ========================= Basic plumbing
+ *      NORMALIZE...................Consistent default styling
+ *      TWEAKS......................Clearfixes, hidden text, etc.
+ *      LAYOUT......................Grid structure
+ *    MATERIALS ========================= Global styling
+ *      MAIN
+ *      TEXT
+ *      LINKS
+ *      MEDIA
+ *    COMPONENTS ======================== Modules, unique
+ *      BLOG
+ *      PAGINATION
+ *    STRUCTURES ======================== Main site fixtures
+ *      HEADER
+ *      BLOGREEL
+ *      FOOTER
+ **/
+
+////////////////////
+// $CONFIGURATION //
+////////////////////
+
+@import 'configuration/variables';
+@import 'configuration/mixins';
+@import 'configuration/grid';
+
+/*==================*\
+   $UTILITIES
+\*==================*/
+
+@import 'utilities/normalize';
+@import 'utilities/layout';
+
+/*==================*\
+   $MATERIALS
+\*==================*/
+
+@import 'materials/main';
+@import 'materials/text';
+@import 'materials/links';
+@import 'materials/media';
+
+/*==================*\
+   $COMPONENTS
+\*==================*/
+
+@import 'components/blog';
+@import 'components/pagination';
+
+/*==================*\
+   $STRUCTURES
+\*==================*/
+
+@import 'structures/header';
+@import 'structures/blogreel';
+@import 'structures/footer';
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;scss language-scss&quot; data-lang=&quot;scss&quot;&gt;/**
+ * Expletive Deleted - Post
+ * Author: Chatman Richmond Jr.
+ * Copyright: 2013
+ * Version: 2.0.0
+ *--------------------------------------------------------------
+ *
+ * TABLE OF CONTENTS
+ *    CONFIGURATION ===================== Configurable guidelines
+ *      VARIABLES
+ *      MIXINS
+ *      GRID........................Singularity
+ *      SYNTAX......................Pygments syntax highlighter
+ *    UTILITIES ========================= Basic plumbing
+ *      NORMALIZE...................Consistent default styling
+ *      TWEAKS......................Clearfixes, hidden text, etc.
+ *      LAYOUT......................Grid structure
+ *    MATERIALS ========================= Global styling
+ *      MAIN
+ *      TEXT
+ *      LINKS
+ *      MEDIA
+ *    COMPONENTS ======================== Modules, unique
+ *      POST
+ *    STRUCTURES ======================== Main site fixtures
+ *      HEADER
+ *      ARTICLE
+ *      FOOTER
+ **/
+
+////////////////////
+// $CONFIGURATION //
+////////////////////
+
+@import 'configuration/variables';
+@import 'configuration/mixins';
+@import 'configuration/grid';
+@import 'configuration/syntax';
+
+/*==================*\
+   $UTILITIES
+\*==================*/
+
+@import 'utilities/normalize';
+@import 'utilities/layout';
+
+/*==================*\
+   $MATERIALS
+\*==================*/
+
+@import 'materials/main';
+@import 'materials/text';
+@import 'materials/links';
+@import 'materials/media';
+
+/*==================*\
+   $COMPONENTS
+\*==================*/
+
+@import 'components/post';
+
+/*==================*\
+   $STRUCTURES
+\*==================*/
+
+@import 'structures/header';
+@import 'structures/article';
+@import 'structures/footer';
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Notice that they only import the files they actually need which, again, prevents unused CSS and keeps the file size down.&lt;/p&gt;
+
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;The way YACSSA is designed means that it will benefit those who use content management systems, or otherwise conditionally load stylesheets the most. The architecture is made to grow with your project and make it easy for others and yourself to maintain it. I hope you got something from reading this, whether you decide to use it or not.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://twitter.com/ChatRJr&quot;&gt;Hit me up on Twitter&lt;/a&gt; if you want to talk about it some more, especially if you noticed an oversight on my part.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Moment.js Stopwatch</title>
+   <link href="http://chatrjr.name/2013/12/:category/moment-js-stopwatch-experiment/"/>
+   <updated>2013-12-21T00:00:00-05:00</updated>
+   <id>http://chatrjr.name/2013/12/:category/moment-js-stopwatch-experiment</id>
+   <content type="html">&lt;p&gt;You might know &lt;a href=&quot;http://momentjs.com&quot;&gt;Moment.js&lt;/a&gt; as a widely used library for formatting and parsing dates. I found another novel use for its time setting features: a really simple stopwatch. Here&amp;#39;s how I put it together.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#html&quot;&gt;Markup (HTML)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#css&quot;&gt;Style (CSS)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#js&quot;&gt;Behavior (JS)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#sample&quot;&gt;Example&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div id=&quot;html&quot;&gt;&lt;/div&gt;
+
+&lt;h2&gt;First Ingredient: Markup&lt;/h2&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;markup language-markup&quot; data-lang=&quot;markup&quot;&gt;&amp;lt;div class=&amp;quot;stopwatch&amp;quot; id=&amp;quot;stopwatch&amp;quot;&amp;gt;
+    &amp;lt;div id=&amp;quot;time-container&amp;quot; class=&amp;quot;container&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;button class=&amp;quot;button&amp;quot; id=&amp;quot;start&amp;quot;&amp;gt;Start&amp;lt;/button&amp;gt;
+    &amp;lt;button class=&amp;quot;button&amp;quot; id=&amp;quot;stop&amp;quot;&amp;gt;Stop&amp;lt;/button&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;There&amp;#39;s nothing crazy here, so I won&amp;#39;t dwell on it. Just wrapping the whole app with a &lt;code&gt;.stopwatch&lt;/code&gt; class, setting a container for the time, and simple &lt;code&gt;#start&lt;/code&gt; and &lt;code&gt;#stop&lt;/code&gt; controls.&lt;/p&gt;
+
+&lt;div id=&quot;css&quot;&gt;&lt;/div&gt;
+
+&lt;h2&gt;Second Ingredient: Style&lt;/h2&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css language-css&quot; data-lang=&quot;css&quot;&gt;*,
+*:before,
+*:after, {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 auto;
+    width: 20em;
+}
+
+.stopwatch {
+    background: #C0FFEE;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 2rem;
+    width: 100%;
+    height: 2em;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0.4em;
+    width: 60%;
+    height: 100%;
+    color: #111;
+}
+
+.button {
+    background: #BADA55;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    margin-top: 0.2em;
+    margin-right: 1%;
+    padding: 0.3em;
+    width: 48%;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.button:hover,
+.button:focus {
+    background: #FFF;
+    color: #BADA55;
+    font-weight: 700;
+}
+
+.button:last-child {
+    background: #E00;
+    color: #FFF;
+    margin-right: 0;
+}
+
+.button:last-child:hover,
+.button:last-child:focus {
+    background: #FFF;
+    color: #E00;
+    font-weight: 700;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;i&gt;Note: The CSS is unprefixed for convenience. Naturally, you would want to use them where needed, but I recommend checking out &lt;a href=&quot;https://github.com/ai/autoprefixer&quot;&gt;Autoprefixer&lt;/a&gt; or &lt;a href=&quot;http://leaverou.github.io/prefixfree/&quot;&gt;-prefix-free&lt;/a&gt; if you&amp;#39;d rather not worry about that. Especially if you use a preprocessor.&lt;/i&gt;&lt;/p&gt;
+
+&lt;p&gt;Nothing here to write home about. Just a simple layout.&lt;/p&gt;
+
+&lt;div id=&quot;js&quot;&gt;&lt;/div&gt;
+
+&lt;h2&gt;Third Ingredient: Behavior&lt;/h2&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript language-javascript&quot; data-lang=&quot;javascript&quot;&gt;var AppStopwatch = (function () {
+    var counter = 0,
+        $stopwatch = {
+            el: document.getElementById('stopwatch'),
+            container: document.getElementById('time-container'),
+            startControl: document.getElementById('start'),
+            stopControl: document.getElementById('stop')
+        };
+
+    var runClock;
+
+    function displayTime() {
+        $stopwatch.container.innerHTML = moment().hour(0).minute(0).second(counter++).format('HH : mm : ss');
+    }
+
+    function startWatch() {
+        runClock = setInterval(displayTime, 1000);
+    }
+
+    function stopWatch() {
+        clearInterval(runClock);
+    }
+
+    return {
+        startClock: startWatch,
+        stopClock: stopWatch,
+        $start: $stopwatch.startControl,
+        $stop: $stopwatch.stopControl
+    };
+})();
+
+AppStopwatch.$start.addEventListener('click', AppStopwatch.startClock, false);
+
+AppStopwatch.$stop.addEventListener('click', AppStopwatch.stopClock, false);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;There&amp;#39;s the whole shebang, now let&amp;#39;s dissect it.&lt;/p&gt;
+
+&lt;h3&gt;&lt;abbr title=&quot;Immediately Invoked Function Expression&quot;&gt;IIFE&lt;/abbr&gt;&lt;/h3&gt;
+
+&lt;p&gt;The very first thing we do is set one global namespace &lt;code&gt;AppStopwatch&lt;/code&gt; and assign an IIFE. This will contain configuration for the app.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript language-javascript&quot; data-lang=&quot;javascript&quot;&gt;// Wraps our app and prevents pollution of the 
+// hosting environment. That is, the browser in this case.
+
+var AppStopwatch = (function () {
+})() // Called immediately;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Set Variables&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript language-javascript&quot; data-lang=&quot;javascript&quot;&gt;    var counter = 0, // to be incremented
+        // collection of DOM elements
+        $stopwatch = {
+            el: document.getElementById('stopwatch'),
+            container: document.getElementById('time-container'),
+            startControl: document.getElementById('start'),
+            stopControl: document.getElementById('stop')
+        };
+
+    var runClock; // used as id for setInterval()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now what we want to do is set a &lt;code&gt;counter&lt;/code&gt; to increment and wrap a collection of the app&amp;#39;s selectors in a &lt;code&gt;$stopwatch&lt;/code&gt; object. The &lt;code&gt;runClock&lt;/code&gt; variable will be assigned later.&lt;/p&gt;
+
+&lt;h3&gt;displayTime()&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript language-javascript&quot; data-lang=&quot;javascript&quot;&gt;    function displayTime() {
+        $stopwatch.container.innerHTML = moment().hour(0).minute(0).second(counter++).format('HH : mm : ss');
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;All we really do here is modify the &lt;code&gt;#time-container&lt;/code&gt; element&amp;#39;s contents (currently nothing) to display our stopwatch. The contents are a call to &lt;code&gt;moment()&lt;/code&gt; which gets Moment.js going, and then we set the &lt;code&gt;hour()&lt;/code&gt; and &lt;code&gt;minute()&lt;/code&gt; to zero. The beauty comes from the second to last method in the chain: &lt;code&gt;second()&lt;/code&gt;. The Moment.js documentation says&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Gets or sets the seconds.&lt;/p&gt;
+
+&lt;p&gt;Accepts numbers from 0 to 59. If the range is exceeded, it will bubble up to the minutes.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;That bubbling is what makes the stopwatch work and applies to the other chained methods as well. On every call, &lt;code&gt;counter&lt;/code&gt; is incremented. It means when the counter is at 60, our stop watch will display 00:01:00. When the counter is at 3600, our display will show 01:00:00. &lt;code&gt;second()&lt;/code&gt; will bubble up to &lt;code&gt;minute()&lt;/code&gt;, which bubbles into &lt;code&gt;hour()&lt;/code&gt;. It&amp;#39;s that simple.&lt;/p&gt;
+
+&lt;p&gt;Finally, the last method sets the formatting of our display.&lt;/p&gt;
+
+&lt;h3&gt;startWatch()&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript language-javascript&quot; data-lang=&quot;javascript&quot;&gt;    function startWatch() {
+        runClock = setInterval(displayTime, 1000);
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;All this function does is set our &lt;code&gt;runClock&lt;/code&gt; variable to set an interval which references displayTime and calls it every second.&lt;/p&gt;
+
+&lt;h3&gt;stopWatch()&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript language-javascript&quot; data-lang=&quot;javascript&quot;&gt;    function stopWatch() {
+        clearInterval(runClock);
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Clearing our &lt;code&gt;runClock&lt;/code&gt; interval stops the watch.&lt;/p&gt;
+
+&lt;h3&gt;return&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript language-javascript&quot; data-lang=&quot;javascript&quot;&gt;    return {
+        startClock: startWatch,
+        stopClock: stopWatch,
+        $start: $stopwatch.startControl,
+        $stop: $stopwatch.stopControl
+    };
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now we want to return an object to expose to the environment. The properties are only the functions and elements we need.&lt;/p&gt;
+
+&lt;h3&gt;Events&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript language-javascript&quot; data-lang=&quot;javascript&quot;&gt;AppStopwatch.$start.addEventListener('click', AppStopwatch.startClock, false);
+AppStopwatch.$stop.addEventListener('click', AppStopwatch.stopClock, false);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Outside of the IIFE, we set the actual behavior of our app. Our &lt;code&gt;#start&lt;/code&gt; and &lt;code&gt;#stop&lt;/code&gt; buttons are tied to event listeners that we execute when clicked.&lt;/p&gt;
+
+&lt;div id=&quot;sample&quot;&gt;&lt;/div&gt;
+
+&lt;h2&gt;Result&lt;/h2&gt;
+
+&lt;p&gt;All that done, we get the finished app.&lt;/p&gt;
+
+&lt;iframe width=&quot;100%&quot; height=&quot;300&quot; src=&quot;http://jsfiddle.net/chatrjr/LaAzg/embedded/result/&quot; allowfullscreen=&quot;allowfullscreen&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+
+&lt;h2&gt;Extra&lt;/h2&gt;
+
+&lt;p&gt;One thing you&amp;#39;ll notice I haven&amp;#39;t done is create a way to reset the clock. That&amp;#39;s definitely something I&amp;#39;ll do in the larger app, but you&amp;#39;re welcome to fork that fiddle and do it yourself.&lt;/p&gt;
+
+&lt;p&gt;That&amp;#39;s all. If you want to follow up, you can &lt;a href=&quot;http://twitter.com/ChatRJr&quot;&gt;get me on Twitter&lt;/a&gt;.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>The New Reality of Digital Design</title>
+   <link href="http://chatrjr.name/2013/09/:category/new-reality-digital-design/"/>
+   <updated>2013-09-21T00:00:00-04:00</updated>
+   <id>http://chatrjr.name/2013/09/:category/new-reality-digital-design</id>
+   <content type="html">&lt;p&gt;&lt;a href=&quot;http://csswizardry.com&quot;&gt;Harry Roberts of CSS Wizardry&lt;/a&gt; gave a talk at CSSConf.eu. You really should &lt;a href=&quot;http://www.youtube.com/watch?v=ldx4ZFxMEeo&quot;&gt;give that a look&lt;/a&gt; first. It&amp;#39;s about normalizing designs for better CSS. As someone who straddles the line between design &amp;amp; development, I can identify with both perspectives. I ended up agreeing more with him.&lt;/p&gt;
+
+&lt;h2&gt;The Fastest Code is Unwritten Code&lt;/h2&gt;
+
+&lt;p&gt;The first step to maintainable CSS is an obvious one: write &lt;strong&gt;less&lt;/strong&gt; of it. If there&amp;#39;s less of it, there&amp;#39;s less to maintain. However, this can conflict with a designer&amp;#39;s natural commitment to perfection. And depending on their experience, this attitude may be especially entrenched. It&amp;#39;s true that a bit more CSS won&amp;#39;t be a problem for smaller projects, or projects that may have a short shelf life, so Harry doesn&amp;#39;t advise making this a rule.&lt;/p&gt;
+
+&lt;p&gt;That said, pixel perfection as a principle slowly erodes as you work more closely with the medium. It took us some time to figure out, but Photoshop was never meant to be the hub of a complete design. Our PSD to HTML direct translations rarely considered the constraints of the web and what was possible. In those days, the badass developer was one who could deliver a design, mocked up in a PSD, in its entirety. Of course a perfect translation of PSD to the web meant grossly inflated codebases. If you didn&amp;#39;t know before, &lt;strong&gt;this is why your web developer hated you&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Designer/Developer Symbiosis&lt;/h2&gt;
+
+&lt;p&gt;I&amp;#39;m going to bring up that old saw again. Designer, open a text editor. You don&amp;#39;t have to add &amp;quot;Front-end Engineer&amp;quot; to your r&amp;eacute;sum&amp;eacute;, but you should know something about how your designs are implemented. You should understand that performance is a &lt;strong&gt;design feature&lt;/strong&gt;. The more complex you make your designs, the more you eat into that critical metric. For every extra HTTP request or costly paint reflow, you impact the experience.&lt;/p&gt;
+
+&lt;p&gt;Harry says the solution to this is &lt;strong&gt;compromise&lt;/strong&gt;. And let&amp;#39;s not treat compromise like a dirty word. If designers and developers agree that the ultimate goal is a stellar project, then it shouldn&amp;#39;t be hard to sideline our egos and come up with a solution that adopts the best ideas of both parties. That is compromise.&lt;/p&gt;
+
+&lt;h3&gt;Beware of Absolutes&lt;/h3&gt;
+
+&lt;p&gt;At the same time, a wholesale abandonment of Photoshop is not the answer either. On today&amp;#39;s web, Photoshop is a horrible design tool because PSDs are fixed canvases. Your real canvas is very fluid, and that&amp;#39;s not a bug but a feature of the web. I think &lt;a href=&quot;https://medium.com/design-ux/10489d3cc430&quot;&gt;Leigh Taylor said it best&lt;/a&gt; in this article. You should definitely read it later.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The harsh reality is that anything you &amp;#39;design&amp;#39; in Photoshop is throw-away. A talking point. A reference for discussion. A platform to build from. It is never a definitive piece.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;While I&amp;#39;m an advocate of designing in the browser, using it as your only tool is throwing out the baby with the bathwater. The browser is our real canvas, designer and developer alike. Our ideas are ultimately given form on the web. Treat it as a space to play with your &lt;strong&gt;tangible&lt;/strong&gt; ideas. Those ideas that have found life beyond your sketchpad. The ideas that you can see as product. &lt;a href=&quot;http://superfriend.ly&quot;&gt;Dan Mall of Superfriendly&lt;/a&gt; puts it a bit more eloquently.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Don&amp;#39;t design in the browser. Decide in the browser.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;If you work on the web, consider your PSDs transient. Consider them incubators for your ideas, but don&amp;#39;t confuse them with the result. Harry notes in his talk &amp;quot;&lt;strong&gt;a PSD is a clue, not a contract&lt;/strong&gt;.&amp;quot;&lt;/p&gt;
+
+&lt;h2&gt;The Developer&amp;#39;s Dilemma&lt;/h2&gt;
+
+&lt;p&gt;Harry also pointed out a not-so-curious truth about being a developer: we&amp;#39;re inherently lazy. The better we get at writing code, the less we actually want to write. I think it&amp;#39;s because we begin to recognize that &lt;a href=&quot;/2013/09/:category/code-is-only-a-method/&quot;&gt;code is a means&lt;/a&gt;, not an end. We start to care more about rationale over methods, and we emphasize reusability over bespoke hacking. Particularly with CSS, developers embrace the 80:20 Rule. Given the choice to achieve 80 percent of the design with 20 percent of the code, we&amp;#39;re gonna do that.&lt;/p&gt;
+
+&lt;p&gt;That&amp;#39;s why CSS authoring and organization techniques exist. If you&amp;#39;re not familiar with those, check these out:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://coding.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/&quot;&gt;OOCSS (Object Oriented CSS) from Nicole Sullivan&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/&quot;&gt;BEM Syntax from Yandex (explained by Harry Roberts)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.vanseodesign.com/css/dry-principles/&quot;&gt;DRY CSS from Jeremy Clarke (explained by Steven Bradley)&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://eng.wealthfront.com/2013/08/functional-css-fcss.html&quot;&gt;FCSS (Functional CSS) from Wealthfront&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://github.com/chatrjr/single-responsibility-bem&quot;&gt;My experimental offshoot of BEM&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This is also why preprocessors like Sass and LESS gained headway. It&amp;#39;s partially because we&amp;#39;re lazy, and partially because they encourage maintainable CSS without much guesswork. Having reusable and context-specific styling honors the 80:20 Rule.&lt;/p&gt;
+
+&lt;h3&gt;The New (Old) Context&lt;/h3&gt;
+
+&lt;p&gt;The web has always been fluid. Long before Ethan Marcotte had the glimmer of responsive design in his eye, John Allsop wrote what could be considered a &lt;a href=&quot;http://alistapart.com/article/dao&quot;&gt;seminal text in web design&lt;/a&gt;. A Dao of Web Design acknowledged that while the web borrowed heavily from print design, it was its own inherently flexible medium. Building websites wasn&amp;#39;t even a thought in my mind in 2000, but his article was one of the first I read in the field.&lt;/p&gt;
+
+&lt;p&gt;The biggest thing I took from Harry&amp;#39;s talk is that a new context brings new methods and new ideas. Responsive Design can at this point be called web design---without any qualifiers. We moved away from PSDs as deliverables to living style guides and design systems. We moved from slicing and spacer.gif to HTML/CSS prototyping. As our context shifted, so did our priorities.&lt;/p&gt;
+
+&lt;h2&gt;Beauty in Simplicity&lt;/h2&gt;
+
+&lt;p&gt;The flat UI trend is not a fluke. Whether you agree with it or not, it represents a new reality of digital design. You can certainly call the removal of embellishments uninspired, but the result is blazing fast. You can call consistency too predictable, but as Harry says, a consistent UI is more beneficial to your visitors. What it represents, most of all, is the complete transition of the digital context into its own. And the new digital context is one that emphasizes performance and adaptability. Those are the new measuring sticks.&lt;/p&gt;
+
+&lt;p&gt;That is what both &lt;strong&gt;designers and developers&lt;/strong&gt; should take from this. Given the choice between a 1:1 translation of aesthetics and performance, performance will win on the modern web. Designers, this is not to limit our ideas. In fact, these constraints in the interest of performance and flexibility can force us to be more clever. Developers, we know a maintainable codebase is often more enjoyable to work on. Taking a little extra time to create a space that allows experimentation without much hassle can encourage it. And this can have a measurable impact on the success and growth of a project.&lt;/p&gt;
+
+&lt;p&gt;Well, those are my thoughts. Let me know what you think.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Code is Only a Method</title>
+   <link href="http://chatrjr.name/2013/09/:category/code-is-only-a-method/"/>
+   <updated>2013-09-11T00:00:00-04:00</updated>
+   <id>http://chatrjr.name/2013/09/:category/code-is-only-a-method</id>
+   <content type="html">&lt;p&gt;I know it has been said hundreds of times already by people much smarter than me, but it&amp;#39;s still weird to see posts about vanilla JS vs. CoffeeScript vs. Dart. It&amp;#39;s equally strange to see holy wars over pure CSS vs. LESS vs. Sass vs. whatever. It feels a bit petty. Though, I&amp;#39;ve been petty about that myself.&lt;/p&gt;
+
+&lt;p&gt;I completely understand that we can get attached to our tools. I know we can forget that the majority of them are more convenient than essential. It needs to be said again. Over and over until it dissolves in our heads: code is the means, not an end. Whether your app uses Backbone, Angular, or Ember is irrelevant to the majority of its users. &lt;strong&gt;They only care that it works&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Never Say Never&lt;/h2&gt;
+
+&lt;p&gt;One thing I notice as I continue my self-education is that it&amp;#39;s pretty damn dangerous to overspecialize. I know I keep repeating it throughout my posts, but there is no One True Way. When it comes to the web---amorphous beast that it is---the answer to &amp;quot;what should I use&amp;quot; is nearly always &amp;quot;it depends&amp;quot;. It&amp;#39;s incredibly short-sighted to dismiss what you don&amp;#39;t use, and programming will march on without you if you get comfortable.&lt;/p&gt;
+
+&lt;p&gt;The one thing I&amp;#39;ve taken from building things on the web is to never say never. Steer clear of statements like:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;I will &lt;strong&gt;never&lt;/strong&gt; use [insert framework/language/library/tool], because [insert opinion or anecdote].&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Dismissing opportunities to learn because of some personal bias can only hurt you in a field that literally changes every day. Good programmers are not set in their ways. They may specialize, but they never ignore new developments or old lessons.&lt;/p&gt;
+
+&lt;h2&gt;Screw Your Job Title&lt;/h2&gt;
+
+&lt;p&gt;When you tell people what you do, it&amp;#39;s okay to use a title like PHP Developer or Rails Developer. Just don&amp;#39;t identify with your title too strongly. If you regard yourself as &lt;strong&gt;only&lt;/strong&gt; a developer of a certain language or framework, you could be restricting your growth.&lt;/p&gt;
+
+&lt;p&gt;Even if they never become a part of your regular workflow, continue learning other methods. Keep your mind fresh with knowledge of new frameworks and languages, and see how they can enhance your work. If you need to, reframe an old problem. You built an app with Rails? Take a weekend and see how far you get with building a similar app with Sinatra. Sass addict? Try building something with Stylus or CSS-Crush. This isn&amp;#39;t to replace the way you work, but it does help you to think about your work in new ways.&lt;/p&gt;
+
+&lt;h2&gt;Generalist Isn&amp;#39;t a Dirty Word&lt;/h2&gt;
+
+&lt;p&gt;I&amp;#39;ll admit my bias is showing a little: I&amp;#39;m a generalist myself. I&amp;#39;ve never really locked into a niche or specialization with my development. I&amp;#39;ve dabbled in all sorts of styles and approaches to my design. You could say I&amp;#39;m restless about what I know: I always need to learn more. It&amp;#39;s this personality trait that led me down the road of designer to developer. My growth has been circumstantial; escalated by whatever I needed to learn at the time.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#39;ve built on WordPress, but I&amp;#39;ve never called myself a WordPress developer. I learned shell scripting to speed up my workflow. I build regular experiments, and I never throw out anything I even suspect may be useful later. I constantly reuse snippets and entire scripts, refactoring along the way. The web stack is my focus (HTML/CSS/JS), but I&amp;#39;ve experimented with PHP, Ruby, Python, Haskell, Assembly, and other languages for the hell of it. I&amp;#39;m a consummate jack-of-all-trades, and that doesn&amp;#39;t bother me.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#39;m rather happy to play the field with programming. I can&amp;#39;t see myself committing to just a few languages or frameworks. I constantly change up my tools until I find the best fit. It seems to me that great programmers are rather fickle about their code and remain skeptical of anything with the word &amp;quot;best&amp;quot; attached.&lt;/p&gt;
+
+&lt;h2&gt;What the Market Wants&lt;/h2&gt;
+
+&lt;p&gt;That said, if employers are demanding certain skills, there&amp;#39;s no way around it. You have to learn those skills. Unless you work independently, you are beholden to what your team uses. If you want to work with a company who primarily builds projects with Rails, you&amp;#39;d better learn Rails. Continually keep an eye on the market so you keep a leg up on value, but direct your own education. Just because your employer swears by Node doesn&amp;#39;t mean you can never touch a PHP framework.&lt;/p&gt;
+
+&lt;p&gt;As a rule: &lt;strong&gt;prioritize that which helps you do your job better&lt;/strong&gt;. Most other things are secondary. Just note that secondary doesn&amp;#39;t mean irrelevant. Expose yourself to different things and don&amp;#39;t sit still. Use some of your free time to pursue personal projects with unfamiliar requirements. Let yourself feel a little uneasy, but don&amp;#39;t overwhelm yourself.&lt;/p&gt;
+
+&lt;h3&gt;What the User Wants&lt;/h3&gt;
+
+&lt;p&gt;The user&amp;#39;s needs are simple. They just want things to work. The average person isn&amp;#39;t going to be able to tell, or even care, whether your photosharing web application is built on Sinatra or Flask, Rails or Django, or even hacked together through judicious use of JavaScript libraries. Only we care about that shit. Only your team cares about that. Only the people who will maintain your app after you&amp;#39;re gone care about that.&lt;/p&gt;
+
+&lt;p&gt;The average person just cares that your creation &lt;strong&gt;works and works well&lt;/strong&gt;. They care that it isn&amp;#39;t frustrating to use for themselves and friends. They care that it doesn&amp;#39;t take forever to respond. They care if it has a good interface, but that&amp;#39;s all they care about. Nothing informs application design and structure more than the needs of your user, and by extension, your interface. Even if that user is you.&lt;/p&gt;
+
+&lt;h2&gt;Code is Only One Part of Programming&lt;/h2&gt;
+
+&lt;p&gt;And hell, it&amp;#39;s not even the most important part. Unless you&amp;#39;re a hobbyist content with building things for yourself, what you build will be used. Beautiful code, to me, is code that does its job. It&amp;#39;s not about clever algorithms and being wily with syntax. It&amp;#39;s about giving ideas form. It&amp;#39;s about building a codebase that is easy to pick up and extend, so our ideas can continue to grow. It&amp;#39;s about understanding the audience and serving their needs. It&amp;#39;s about communicating effectively with your team and making awesome shit. Code is only a method.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Preprocessed Out</title>
+   <link href="http://chatrjr.name/2013/07/:category/preprocessed-out/"/>
+   <updated>2013-07-09T00:00:00-04:00</updated>
+   <id>http://chatrjr.name/2013/07/:category/preprocessed-out</id>
+   <content type="html">&lt;p&gt;I recently got into a debate with a developer who doesn&amp;#39;t see the point in using CSS preprocessors. I have to admit I got really defensive. As much as I love Sass, once I cooled down, I did what any conscientious developer would do: research. I came out the other side with a better understanding of both sides of the argument, as well as a deeper understanding of exactly why I use a tool like Sass.&lt;/p&gt;
+
+&lt;p&gt;To give credence to both sides of the argument, and what Sass and other preprocessors are aiming to fix, there will be code examples. I&amp;#39;d recommend reading the whole thing, but if you really want to, you can jump down to &lt;a href=&quot;#sass-way&quot;&gt;The Sass Way&lt;/a&gt; for the examples of ways you can use Sass (and some ways you shouldn&amp;#39;t).&lt;/p&gt;
+
+&lt;h2&gt;CSS as a Language&lt;/h2&gt;
+
+&lt;p&gt;It should be pretty obvious by this point, but CSS is &lt;strong&gt;not&lt;/strong&gt; a programming language. It&amp;#39;s a declarative markup language that acts as the skin to its HTML skeleton. CSS is by design supposed to be easy to pick up and understand. However, its loose syntax has some pitfalls to those coming from a traditional programming background (and even some that don&amp;#39;t).&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Not very DRY&lt;/li&gt;
+&lt;li&gt;Doesn&amp;#39;t scale too well&lt;/li&gt;
+&lt;li&gt;Fairly easy to abuse without understanding&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The interesting thing about that last bullet is that it can apply equally to handwritten CSS and compiled CSS. This is something both advocates and detractors tend to ignore. CSS is easy to pick up, but can easily take years to use effectively. And it falls on the designer/developer to write good CSS first. Then you can look into ways to write it faster.&lt;/p&gt;
+
+&lt;h2&gt;A Bad Workman&lt;/h2&gt;
+
+&lt;p&gt;This is an often quoted proverb, but it&amp;#39;s no less true.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;A bad workman never gets a good tool.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The fact is: a CSS preprocessor won&amp;#39;t help you do shit if you don&amp;#39;t have a good grasp of modern CSS authorship practices and haven&amp;#39;t yet grokked the power of your tool. Before even &lt;strong&gt;considering&lt;/strong&gt; using one, you should have a good understanding of the following:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;specificity&lt;/li&gt;
+&lt;li&gt;the cascade&lt;/li&gt;
+&lt;li&gt;efficient selectors&lt;/li&gt;
+&lt;li&gt;SMACSS &amp;amp; BEM (optional)&lt;/li&gt;
+&lt;li&gt;documentation&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If you think a CSS preprocessor will cover for the mistakes you already make, you&amp;#39;d be wrong. A tool used this way will only amplify your misunderstanding. No tool is a replacement for knowledge and experience, but they &lt;strong&gt;can&lt;/strong&gt; complement them. I realize this is what that developer meant by preprocessors enabling bad code. Used without care, they do make things worse.&lt;/p&gt;
+
+&lt;h2&gt;The Elephant in the Room&lt;/h2&gt;
+
+&lt;p&gt;One of the biggest arguments made against preprocessors is that they add another layer of abstraction to the development stack. This is absolutely true. However, they also ignore that the popularity of Sass and other CSS preprocessors shows that some devs and teams are &lt;strong&gt;very comfortable&lt;/strong&gt; with this extra layer in the face of the perceived gains. &lt;a href=&quot;http://blog.kaelig.fr/post/51078221503/apple-is-using-sass-and-theyre-doing-it-wrong&quot;&gt;Even Apple&lt;/a&gt;, apparently. Here are some other arguments.&lt;/p&gt;
+
+&lt;h3&gt;Not Necessary&lt;/h3&gt;
+
+&lt;p&gt;I read an article by Amber Weinberg: &lt;a href=&quot;http://www.amberweinberg.com/why-im-still-against-sass-less/&quot;&gt;Why I&amp;#39;m (Still) Against Sass &amp;amp; LESS&lt;/a&gt;. It was written last year, so I&amp;#39;m not sure if her opinions have changed. It&amp;#39;s still paints a good picture of why CSS preprocessors are still &amp;quot;no sale&amp;quot; for some developers. This argument in particular stuck out for me.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Let me tell you a secret: CSS is NOT a programming language. The beauty of CSS is that it’s so easy for almost any to pick up quickly and read (though it’s very difficult to actually use it properly for the big stuff). Adding a preprocessor on top just needlessly complicates and adds yet another piece of bloat to an already over bloated workflow.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;She&amp;#39;s absolutely right&lt;/strong&gt;. Nobody needs a CSS preprocessor. Don&amp;#39;t ever make that argument. If you&amp;#39;re going to argue for CSS preprocessors, do it honestly. Everyone has a different way of working. It doesn&amp;#39;t have to be yours. Now, this point is where we differ.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Code bloat: nesting, unneeded vendor prefixes, etc etc. Giving up control of the final output means you give up control on cleanliness. Queue Photoshop sliced HTML.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This part in particular isn&amp;#39;t on the tool but the developer. Bloated CSS can be written with or without a CSS preprocessor. This is why knowledge of good CSS practices is so crucial. Also, Sass doesn&amp;#39;t output anything close to the nightmare that was Photoshop sliced HTML. Like any other compiler, it only outputs what you input. If you give it garbage, it will spit out garbage.&lt;/p&gt;
+
+&lt;h3&gt;Forced to Learn a New Syntax&lt;/h3&gt;
+
+&lt;p&gt;This argument would be perfectly valid if Sass still only had one syntax. The Original Sass (.sass) syntax is lifted from its big bro HAML which, structurally, is very similar to Python. Answering this concern, Sass v3.0 introduced the Sassy CSS (.scss) syntax. Put bluntly, valid CSS is valid SCSS. This significantly lowers the barrier to entry, as the only thing you&amp;#39;d have to learn is the new functionality. This in particular is what made me a Sass convert. I could use the power in a way I understood. And in a way that didn&amp;#39;t force me to unlearn what I knew. It&amp;#39;s a superset of CSS, rather than its own language.&lt;/p&gt;
+
+&lt;h3&gt;Forced to Setup a New Environment&lt;/h3&gt;
+
+&lt;p&gt;This one is tricky. Unless the tool is really going to help out your workflow, there&amp;#39;s really no reason to set up an environment just to use it. However, Sass &amp;amp; LESS&amp;#39; barrier to entry is reduced by the fact that Mac OSX now comes with a host of open-source programming languages and frameworks preinstalled (including Ruby and Rails). Linux distros are much the same. The only developers that would run into the issue of actually setting up are Windows developers. I hop between Windows and Linux, myself. Getting Ruby and Python going on Windows 7 did take some work (Cygwin FTW), but the gains were worth that slight pain.&lt;/p&gt;
+
+&lt;p&gt;I understand that in some work environments--and especially with a team, this would be pretty hard to start. I forget sometimes that as a solo act, I have &lt;strong&gt;way&lt;/strong&gt; more luxury to explore new technologies and workflows as I want. Many on a team don&amp;#39;t have the time or opportunity to explore alternative approaches without some &lt;strong&gt;serious&lt;/strong&gt; overhead in training. To that I say: only try a tool if you think it will have a measurable impact on your workflow. If you try a preprocessor and it doesn&amp;#39;t speed up your turnaround, don&amp;#39;t feel bad about it. Go for what makes you most productive, not the new and shiny just because it&amp;#39;s new and shiny.&lt;/p&gt;
+
+&lt;h3&gt;I&amp;#39;m Better for Using/Not Using a Preprocessor&lt;/h3&gt;
+
+&lt;p&gt;I&amp;#39;m not going to spend too much time on this argument, because it reeks of the kind of elitism that&amp;#39;s endemic in our field. The reason you can&amp;#39;t have a Rails and Django developer in the same room sometimes. It&amp;#39;s the same reason I didn&amp;#39;t handle the argument with that developer as well as I&amp;#39;d have liked. I read &amp;quot;not real CSS&amp;quot; and just lost my shit. That kind of &amp;quot;enlightened&amp;quot; attitude doesn&amp;#39;t do anything for anyone. Bottom line: don&amp;#39;t call someone an idiot for not working the way you do. We&amp;#39;re all trying to create a better web. The dynamic nature of our industry means the answer to &amp;quot;should I do this?&amp;quot; is usually &amp;quot;It depends.&amp;quot;&lt;/p&gt;
+
+&lt;div id=&quot;sass-way&quot;&gt;&lt;/div&gt;
+
+&lt;h2&gt;The Sass Way&lt;/h2&gt;
+
+&lt;p&gt;Sass is designed to help you write more efficient CSS with a wealth of tools that, admittedly, seem counterproductive at first. It&amp;#39;s really worth repeating: a CSS preprocessor is &lt;strong&gt;only&lt;/strong&gt; as good as your understanding of CSS. And at this point, I&amp;#39;d consider my understanding to be pretty damn good. The rest of this post will be a &amp;quot;put up or shut up&amp;quot; demonstration of using effective Sass, and by extension, outputting leaner CSS. The best advice I can give about using Sass is being mindful how you use it until you&amp;#39;re more comfortable, and monitor your output to ensure it looks the same as you would write your CSS by hand. Never make your output dependent on Sass for updating.&lt;/p&gt;
+
+&lt;h3&gt;Duplication vs. Modularity&lt;/h3&gt;
+
+&lt;h4&gt;Detractor Argument: CSS Preprocessors promote code bloat and duplication.&lt;/h4&gt;
+
+&lt;p&gt;They do when the output isn&amp;#39;t monitored. One of the most misused features of Sass are &lt;a href=&quot;http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#mixins&quot;&gt;mixins&lt;/a&gt;, which work much like functions. The duplication problem comes when developers try to use them as glorified copy/paste vehicles. Tell me if this looks familiar:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;scss language-scss&quot; data-lang=&quot;scss&quot;&gt;@mixin border-main() {
+  border: 3px solid #f90;
+}
+
+.photo {
+  @include border-main;
+}
+
+
+.block {
+  @include border-main;
+}
+
+form {
+  .field {
+    @include border-main;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Code like this perfectly illustrates the duplication problem. The sinister thing is that within Sass it &lt;strong&gt;appears&lt;/strong&gt; DRY. This is not so much the case in the output.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css language-css&quot; data-lang=&quot;css&quot;&gt;/* line 5, duplication.scss */
+.photo {
+  border: 3px solid #f90;
+}
+
+/* line 10, duplication.scss */
+.block {
+  border: 3px solid #f90;
+}
+
+/* line 15, duplication.scss */
+form .field {
+  border: 3px solid #f90;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Contrived as the example may be, consider it on a larger scale, and that would be a TON of bloat. Authoring lightweight CSS is in part a matter of recognizing patterns within your code. The OOCSS method would suggest making a separate class for that border, but then our markup would be polluted with presentational classes. If I knew certain styles of my design would be used across modules, I might group the declaration under multiple selectors and leverage the cascade to define more specific modifications for the individual parts. Here&amp;#39;s the handwritten way and the Sass way.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;scss language-scss&quot; data-lang=&quot;scss&quot;&gt;/*------------------------------------*\
+    $MODULARITY
+\*------------------------------------*/
+
+// Handwritten CSS. Commented so as to be
+// untouched by the compiler.
+
+// .photo,
+// .block,
+// form .field {
+//     border: 3px solid #f90;
+// }
+
+// .photo {
+//   width: 100%;
+// }
+
+// .block {
+//   float: left;
+// }
+
+// form .field {
+//   color: white;
+// }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;scss language-scss&quot; data-lang=&quot;scss&quot;&gt;// Placeholder selector, the great and powerful.
+// What it does is very similar to a class.
+// You define rules within it, and then it applies
+// those styles without you having to add a class to your
+// markup. Boom. 
+
+// In this case, the selectors that @extend it are 
+// grouped together while leaving the unique properties 
+// alone. Just like my handwritten example.
+%border-main {
+    border: 3px solid #f90;
+}
+
+.photo {
+    @extend %border-main;
+    width: 100%;
+}
+
+.block {
+    @extend %border-main;
+    float: left;
+}
+
+form {
+    .field {
+        @extend %border-main;
+        color: white;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Look ma, no bloat!&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css language-css&quot; data-lang=&quot;css&quot;&gt;/*------------------------------------*\
+    $MODULARITY
+\*------------------------------------*/
+/* line 37, modularity.scss */
+.photo, .block, form .field {
+  border: 3px solid #f90;
+}
+
+/* line 41, modularity.scss */
+.photo {
+  width: 100%;
+}
+
+/* line 46, modularity.scss */
+.block {
+  float: left;
+}
+
+/* line 52, modularity.scss */
+form .field {
+  color: white;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;My examples show, again, that maintaining duplication and code bloat is the responsibility of the developer whether they write vanilla CSS or not. Also, it should be obvious that you would use the &lt;code&gt;@extend&lt;/code&gt; directive sparingly. Otherwise, you can easily end up with a selector dogpile. Let&amp;#39;s move on.&lt;/p&gt;
+
+&lt;h4&gt;Detractor Argument: Mixins can ignore the spec and fill stylesheets with unused vendor prefixes.&lt;/h4&gt;
+
+&lt;p&gt;Yes and no. Mixins can pollute your stylesheets with unused vendor prefixes if you have no control over them and they&amp;#39;re built incorrectly. However, by curating your own set of mixins to use across projects, you can do some pretty awesome stuff. Especially as mixins can contain other mixins.&lt;/p&gt;
+
+&lt;p&gt;UPDATE: If, for some reason you&amp;#39;re still writing mixins to handle vendor prefixes, you&amp;#39;re making it harder on yourself. There are wonderful tools like &lt;a href=&quot;http://leaverou.github.io/prefixfree/&quot;&gt;Lea Verou&amp;#39;s -prefix-free&lt;/a&gt; and &lt;a href=&quot;https://github.com/ai/autoprefixer&quot;&gt;Andrey Sitnik&amp;#39;s Autoprefixer&lt;/a&gt;. They&amp;#39;re both absolutely brilliant for that minefield.&lt;/p&gt;
+
+&lt;h3&gt;Nesting Hell&lt;/h3&gt;
+
+&lt;p&gt;The key to using the features of any preprocessor is &lt;strong&gt;moderation&lt;/strong&gt;. The rule of &amp;quot;just because you can do something&amp;quot; very much applies here. Nesting in particular can quickly snowball with an inexperienced CSS author. Let&amp;#39;s get one thing straight: this is awful.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;scss language-scss&quot; data-lang=&quot;scss&quot;&gt;/*------------------------------------*\
+    $NESTING HELL
+\*------------------------------------*/
+
+// Don't do this.
+nav {
+    width: 100%;
+    ul {
+        list-style: none;
+        li {
+            color: #0af;
+            display: inline-block;
+            padding: 0.3em;
+            a {
+                display: block;
+            }
+        }
+    }
+}
+
+// NEVER do this.
+
+section {
+    width: 100%;
+    .blog {
+        width: 50%;
+        .post {
+            background: white;
+            h2 {
+                color: red;
+            }
+            .content {
+                border: 3px solid lighten(#0cf, 30);
+                .quotation {
+
+                }
+                .pull-quote {
+                    background: #03f;
+                    color: white;
+                }
+                .definition-list {
+                    list-style: none;
+                }
+            }
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The output is even worse.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;css language-css&quot; data-lang=&quot;css&quot;&gt;/*------------------------------------*\
+    $NESTING HELL
+\*------------------------------------*/
+/* line 6, nesting-hell.scss */
+nav {
+  width: 100%;
+}
+/* line 8, nesting-hell.scss */
+nav ul {
+  list-style: none;
+}
+/* line 10, nesting-hell.scss */
+nav ul li {
+  color: #0af;
+  display: inline-block;
+  padding: 0.3em;
+}
+/* line 14, nesting-hell.scss */
+nav ul li a {
+  display: block;
+}
+
+/* line 23, nesting-hell.scss */
+section {
+  width: 100%;
+}
+/* line 25, nesting-hell.scss */
+section .blog {
+  width: 50%;
+}
+/* line 27, nesting-hell.scss */
+section .blog .post {
+  background: white;
+}
+/* line 29, nesting-hell.scss */
+section .blog .post h2 {
+  color: red;
+}
+/* line 32, nesting-hell.scss */
+section .blog .post .content {
+  border: 3px solid #99ebff;
+}
+/* line 37, nesting-hell.scss */
+section .blog .post .content .pull-quote {
+  background: #03f;
+  color: white;
+}
+/* line 41, nesting-hell.scss */
+section .blog .post .content .definition-list {
+  list-style: none;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If you&amp;#39;re thinking there&amp;#39;s nothing particular wrong with this, it&amp;#39;s a misconception that your CSS should reflect your markup structure. This is a terrible idea because of the way browser engines actually read CSS. Exactly why they read selectors from right to left is beyond the scope of this post, but &lt;a href=&quot;http://stackoverflow.com/questions/5797014/why-do-browsers-match-css-selectors-from-right-to-left/5813672#5813672&quot;&gt;this is a great explanation&lt;/a&gt;. Either way, this is a specificity nuke, and more often than not encourages abuse of IDs and &lt;code&gt;!important&lt;/code&gt; in stylesheets. Well-structured CSS, formed with or without a preprocessor, should not require either for styling. My personal rule is to save IDs as general hooks for components I intend to inject with JavaScript behavior and events.&lt;/p&gt;
+
+&lt;p&gt;UPDATE: The performance of modern browser engines is such that optimizing selectors for performance isn&amp;#39;t as huge a deal. However, minimal nesting still has a maintenance advantage.&lt;/p&gt;
+
+&lt;p&gt;A great rule for Sass (and programming in general), be mindful of your structure. When nesting selectors, try not to go more than one level deep. It&amp;#39;s not as hard as you might think. Efficient classes, use of global styling, and leveraging the cascade will be enough to keep your CSS maintainable and lean.&lt;/p&gt;
+
+&lt;h3&gt;On Variables&lt;/h3&gt;
+
+&lt;p&gt;Variables are another point of division between preprocessor advocates and detractors. Strictly speaking, most editors do have a find and replace feature and you can keep variable-like references within comments as a guide. The problem, and the reason I find variables useful, is us. For an especially complex design, keeping track of values can be hell. Not only do we have to be mindful of our consistent values, but those working in a team will have to keep the &lt;strong&gt;other members&lt;/strong&gt; on track.&lt;/p&gt;
+
+&lt;p&gt;The lack of variables in CSS might not be a problem when you&amp;#39;re by yourself (and let&amp;#39;s be honest, they aren&amp;#39;t), but a team would benefit from intelligently named variables. They slightly reduce the potential for human error, especially if you or your team uses an editor with code-hinting. For many capable of well-structured CSS, variables become more of a convenience than the necessity. As I said it would probably be a bad idea to make updating your stylesheets dependent on Sass, I&amp;#39;d recommend something like the following:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;scss language-scss&quot; data-lang=&quot;scss&quot;&gt;/*------------------------------------*\
+    $VARIABLES
+\*------------------------------------*/
+
+//Colors
+$ocean-blue: rgba(0, 112, 255, 1);
+$ocean-blue-dark: darken($ocean-blue, 13);
+$aqua: rgba(0, 214, 255, 1);
+$sky-blue: rgba(0, 155, 255, 1);
+$sky-blue-dark: darken($sky-blue, 40);
+$lime: rgba(138, 255, 0, 1);
+$lime-light: lighten($lime, 16);
+$lime-dark: darken($lime, 10);
+$white: rgba(255, 255, 255, 1);
+$white-translucent: rgba($white, 0.6);
+$black: rgba(0, 0, 0, 1);
+
+
+// Borrowed from Pattern Lab
+$error : #f00;
+$valid : #089e00;
+
+$brand-facebook: #03539e;
+$brand-twitter: #35ccff;
+$brand-linkedin: #217bc1;
+// _______________________
+
+//Typography
+
+$base-font-size: 18px;
+$base-line-height: 24px;
+
+$headline-font: &amp;quot;cubano&amp;quot;;
+$heading-font: &amp;quot;cubano&amp;quot;;
+$body-font: &amp;quot;freight-micro-pro&amp;quot;;
+$accent-font: &amp;quot;freight-micro-pro&amp;quot;;
+$ui-font: &amp;quot;cubano&amp;quot;;
+$code-font: &amp;quot;ubuntu-mono&amp;quot;;
+
+//Layout
+$max-width: 82em;
+
+//Borders
+$border-hairline: 1px;
+$border-med: 3px;
+$border-thick: 8px;
+$border-super: 15px;
+$border-type: solid;
+
+/*_______________________________________________
+
+PALETTE
+  $ocean-blue #0070ff;
+  $ocean-blue-dark #0053bd;
+  $aqua #00d6ff;
+  $sky-blue #009bff;
+  $sky-blue-dark #001f33;
+  $lime #8aff00;
+  $lime-light: #afff52;
+  $lime-dark #6ecc00;
+  $white white;
+  $white-translucent rgba(255, 255, 255, 0.6);
+  $black black;
+
+  $error : #f00;
+  $valid : #089e00;
+
+  $brand-facebook: #03539e;
+  $brand-twitter: #35ccff;
+  $brand-linkedin: #217bc1;
+
+TYPOGRAPHY
+  $base-font-size 18px;
+  $base-line-height 24px;
+
+  $headline-font &amp;quot;cubano&amp;quot;;
+  $heading-font &amp;quot;cubano&amp;quot;;
+  $body-font &amp;quot;freight-micro-pro&amp;quot;;
+  $accent-font &amp;quot;freight-micro-pro&amp;quot;;
+  $ui-font &amp;quot;cubano&amp;quot;;
+  $code-font &amp;quot;ubuntu-mono&amp;quot;;
+
+
+BORDERS
+  $border-hairline 1px;
+  $border-med 3px;
+  $border-thick 8px;
+  $border-super 15px;
+  $border-type solid;
+________________________________________________*/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In this way, you have your proper Sass variables and a reference in case you have to abandon Sass and update the compiled CSS directly. Ideally, you&amp;#39;d want to be in a situation where you can work with Sass and never have to touch the compiled CSS (throwing them out of sync), but the ideal situation is not quite reality.&lt;/p&gt;
+
+&lt;h2&gt;Final Thoughts&lt;/h2&gt;
+
+&lt;p&gt;I think the best way to think of CSS preprocessors are as productivity tools. Writing efficient Sass doesn&amp;#39;t mean neglecting the practices of writing efficient CSS. Don&amp;#39;t be lazy (in the bad way, not the developer way): monitor your output, use your preprocessor&amp;#39;s functionality only if it results in leaner output, and account for the quirks of CSS before wielding the power of your tool. Don&amp;#39;t let your comfort with a tool supplant what you&amp;#39;ve been taught without it. Use a preprocessor, or don&amp;#39;t use one. Just remember that writing good code is your responsibility. Don&amp;#39;t defer it to anyone or anything else.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Single Responsibility BEM</title>
+   <link href="http://chatrjr.name/2013/06/:category/single-responsibility-bem/"/>
+   <updated>2013-06-14T00:00:00-04:00</updated>
+   <id>http://chatrjr.name/2013/06/:category/single-responsibility-bem</id>
+   <content type="html">&lt;p&gt;You may already be familiar with Yandex&amp;#39;s BEM method of authoring CSS. If not, it looks a little like the following code.&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='html'&gt;&amp;lt;div class=&amp;quot;block&amp;quot;&amp;gt;
+    &amp;lt;div class=&amp;quot;block&lt;strong&gt;element&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;block&lt;/strong&gt;element&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;block&lt;strong&gt;element block&lt;/strong&gt;element--modifier&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;block__element&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;h2&gt;Breaking BEM&lt;/h2&gt;
+
+&lt;p&gt;BEM-style CSS has three major parts:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;The &lt;code&gt;.block&lt;/code&gt; is your containing element, your module. It&amp;#39;s a component with its own structure and purpose. Within the context of Atomic Design, it would be your molecule.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Elements are the internal parts of your block, responsible for holding the structure together and defining its purpose. An example would be &lt;code&gt;.widget&lt;/code&gt; as your block and &lt;code&gt;.widget__content&lt;/code&gt; as an element. In the context of Atomic Design, they&amp;#39;re your atoms.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Modifiers are special classes that you add when you want to modify your block. Let&amp;#39;s say you want to make your &lt;code&gt;.widget__title&lt;/code&gt; bigger. You could do that through a modifier. Example: &lt;code&gt;.widget__title--emphasize&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;As you can see, there is quite a lot of repeating involved, and that drives me nuts. Even with a tool like Emmet, it can extremely tedious to repeat the block when using BEM-style CSS. However, I think I&amp;#39;ve found a fix that I will demonstrate through the always awesome Codepen. I think it will be rather effective in reducing the redundancy in BEM-style CSS. Also, it&amp;#39;s pretty sweet.&lt;/p&gt;
+
+&lt;h2&gt;Single Responsibility BEM&lt;/h2&gt;
+
+&lt;p&gt;If you&amp;#39;re a developer of any kind--software or web, you&amp;#39;ll have heard of the Single Responsibility Principle. For those who don&amp;#39;t know:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;In object-oriented programming, the single responsibility principle states that every class should have a single responsibility, and that responsibility should be entirely encapsulated by the class. All its services should be narrowly aligned with that responsibility. -- &lt;a href=&quot;http://en.wikipedia.org/wiki/Single_responsibility_principle&quot;&gt;Wikipedia&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It&amp;#39;s also called Curly&amp;#39;s Law. It just means that each class should do one thing and not interfere with anything outside of its purpose. I think you can see where we&amp;#39;re going with this. The pen is below. The rest of the post will break it down under Single Responsibility BEM. This will take a while to explain, but I hope it will spark something as it did for me. Also note, that Sass makes this much easier to pull off, so that&amp;#39;s what I&amp;#39;ll be using.&lt;/p&gt;
+
+&lt;p data-height=&quot;268&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;GJIxr&quot; data-user=&quot;chatrjr&quot; data-default-tab=&quot;result&quot; class='codepen'&gt;See the Pen &lt;a href='http://codepen.io/chatrjr/pen/GJIxr'&gt;Single Responsibility BEM&lt;/a&gt; by Chatman Richmond Jr. (&lt;a href='http://codepen.io/chatrjr'&gt;@chatrjr&lt;/a&gt;) on &lt;a href='http://codepen.io'&gt;CodePen&lt;/a&gt;&lt;/p&gt;
+
+&lt;script async src=&quot;//codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;h3&gt;Responsibility of the Block&lt;/h3&gt;
+
+&lt;p&gt;The block&amp;#39;s job, the module, is to encapsulate all of its elements for a single role. All of the elements are tied to a block, so there&amp;#39;s no reason to make that explicit by repeating the block when there&amp;#39;s a better way.&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='scss'&gt;.block {
+    @include transition(all 0.3s linear);
+    background: $white-translucent;
+    display: inline-block;
+    padding: 0.8em;
+    position: relative;
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;As you can see, the block is only referenced once and given some base styles. Our elements will live inside the block and have their own &lt;strong&gt;contained&lt;/strong&gt; styling. The block will encapsulate its element and not expose them to anything outside of the block, which means you can move the module around as you want. The block basically gives your module its own scope.&lt;/p&gt;
+
+&lt;h3&gt;Responsibility of the Element&lt;/h3&gt;
+
+&lt;p&gt;The elements in your block are what give it form and purpose. They&amp;#39;re the content of your module, and that&amp;#39;s all they need to be, so we&amp;#39;re going to nest them within our block like so:&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='scss'&gt;.block {
+    @include transition(all 0.3s linear);
+    background: $white-translucent;
+    display: inline-block;
+    padding: 0.8em;
+    position: relative;
+    .__headline {
+      @include scale(&amp;#39;ginormous&amp;#39;);
+      background: $ocean-blue-dark;
+      border-radius: 0;
+      color: $white;
+      padding: 0.2em;
+      text-align: center;
+      width: 100%;
+    }&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;.__image {
+  width: 100%;
+}
+
+.__content {
+  @include scale('xl');
+  @include adjust-leading-to(0.95);
+  background: rgba($ocean-blue-dark, 0.8);
+  color: $white;
+  padding: 0.4em;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;You see we have three elements: &lt;code&gt;.__headline&lt;/code&gt;, &lt;code&gt;.__image&lt;/code&gt;, and &lt;code&gt;.__content&lt;/code&gt;. We know they&amp;#39;re contained by our block, and they have their own styling. We don&amp;#39;t have to repeat &lt;code&gt;.block&lt;/code&gt; as a prefix to recognize this within our Sass. Now it gets a little interesting. Before that, here&amp;#39;s what our unmodified module looks like:&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='html'&gt;&amp;lt;section class=&amp;quot;block&amp;quot;&amp;gt;
+  &amp;lt;h2 class=&amp;quot;&lt;strong&gt;headline&amp;quot;&amp;gt;One Kitten&amp;lt;/h2&amp;gt;
+  &amp;lt;img src=&amp;quot;http://placekitten.com/1200/580&amp;quot; class=&amp;quot;&lt;/strong&gt;image&amp;quot;&amp;gt;&amp;lt;/img&amp;gt;
+  &amp;lt;div class=&amp;quot;__content&amp;quot;&amp;gt;One kitten in the snow.&amp;lt;/div&amp;gt;
+&amp;lt;/section&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;Very simple, eh?&lt;/p&gt;
+
+&lt;h3&gt;Responsibility of the Modifier&lt;/h3&gt;
+
+&lt;p&gt;The modifier&amp;#39;s only responsibility is to augment the block or element we pass to it. It doesn&amp;#39;t need to do anything else. We&amp;#39;re taking advantage of the cascade, so our modifiers will be nested inside its context. As for defining modifiers, I came up with two different methods.&lt;/p&gt;
+
+&lt;h4&gt;Method #1: Class Chaining to Tie the Modifier Directly to the Element&lt;/h4&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='scss'&gt;._&lt;em&gt;headline {
+  @include scale(&amp;#39;ginormous&amp;#39;);
+  background: $ocean-blue-dark;
+  border-radius: 0;
+  color: $white;
+  padding: 0.2em;
+  text-align: center;
+  width: 100%;
+  &amp;amp;.&lt;/em&gt;--shrinkHeadline {
+    @include scale(&amp;#39;xl&amp;#39;);
+  }
+  &amp;amp; {
+    @extend %_--shrinkHeadline;
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;As you can see the modifier, &lt;code&gt;._--shrinkHeadline&lt;/code&gt;, is nested in the &lt;code&gt;.__headline&lt;/code&gt; element. The modifier is chained to the element is via Sass&amp;#39; &lt;a href=&quot;http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#referencing_parent_selectors&quot;&gt;parent reference selector&lt;/a&gt;. This means it will only affect elements with &lt;strong&gt;both&lt;/strong&gt; classes. As the markup shows:&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='html'&gt;&amp;lt;section class=&amp;quot;block&amp;quot;&amp;gt;
+  &amp;lt;h2 class=&amp;quot;&lt;strong&gt;headline _--shrinkHeadline&amp;quot;&amp;gt;Three Kittens&amp;lt;/h2&amp;gt;
+  &amp;lt;img src=&amp;quot;http://placekitten.com/500/305&amp;quot; class=&amp;quot;&lt;/strong&gt;image&amp;quot;&amp;gt;&amp;lt;/img&amp;gt;
+  &amp;lt;div class=&amp;quot;__content&amp;quot;&amp;gt;Three kittens with a mirror.&amp;lt;/div&amp;gt;
+&amp;lt;/section&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;h4&gt;Method #2: The &lt;code&gt;.augment&lt;/code&gt; Class&lt;/h4&gt;
+
+&lt;p&gt;When I first tried this method, it was almost like wizardry. The &lt;code&gt;.augment&lt;/code&gt; is an umbrella class for our modifiers, and we use &lt;a href=&quot;http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#placeholders&quot;&gt;placeholder selectors&lt;/a&gt; to modify its behavior before attaching it to a block or element. Here&amp;#39;s how it works:&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='scss'&gt;.augment%&lt;em&gt;--shrinkText {
+    /* Referencing %&lt;/em&gt;--shrinkText */
+    @include scale(&amp;#39;s&amp;#39;);
+    @include adjust-leading-to(0.98);
+}&lt;/p&gt;
+
+&lt;p&gt;.augment%&lt;em&gt;--shrinkHeadline {
+    /* Referencing %&lt;/em&gt;--shrinkHeadline */
+    @include scale(&amp;#39;xl&amp;#39;);
+}&lt;/p&gt;
+
+&lt;p&gt;.augment%&lt;em&gt;--shiftHeadline {
+  /* Referencing %&lt;/em&gt;--shiftHeadline */
+  @include scale(&amp;#39;m&amp;#39;);
+  @include transition(all 0.3s linear);
+  border-radius: 2em;
+}&lt;/p&gt;
+
+&lt;p&gt;.augment%&lt;em&gt;--imageBorder {
+    /* Referencing %&lt;/em&gt;--imageBorder */
+    border: 0.5em solid $sky-blue;
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;Modifiers are placed near the bottom of our file to leverage the cascade. And then we prefix every modifier with our &lt;code&gt;.augment&lt;/code&gt; class. The way placeholder selectors work is that you give them an identifier like &lt;code&gt;%_--imageBorder&lt;/code&gt;. They&amp;#39;re like a class, except the CSS within the brackets is &lt;strong&gt;the only thing compiled by Sass&lt;/strong&gt;. The identifier never shows up in the output, but our &lt;code&gt;.augment&lt;/code&gt; class does. In the context of Object-Oriented Programming, this method is a lot like the Facade Pattern: it exposes a simple hook for not so simple actions, masking the underlying complexity for easy use through a single class. Now let&amp;#39;s use one.&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='scss'&gt;._&lt;em&gt;image {
+  width: 100%;
+  &amp;amp; {
+    /* Referencing %&lt;/em&gt;--imageBorder */
+    @extend %_--imageBorder;
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;We&amp;#39;ve attached the modifier by extending the &lt;code&gt;%_--imageBorder&lt;/code&gt; placeholder to the parent selector. What this will do is expose the CSS of our placeholder and attach it to our element under the &lt;code&gt;.augment&lt;/code&gt; class. Here&amp;#39;s the output:&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='css'&gt;/* line 258, style.scss &lt;em&gt;/
+.block .augment.__image {
+  /&lt;/em&gt; Referencing %_--imageBorder */
+  border: 0.5em solid #009bff;
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;Our augmenting class in the output is tied to our modifier which is attached to the element it references. &lt;code&gt;.augment&lt;/code&gt; exposes the modifier to its element and &lt;strong&gt;only&lt;/strong&gt; its element. This means we can have its behavior change when it references a different modifier. Check it:&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='scss'&gt;/* line 258, style.scss &lt;em&gt;/
+.block .augment.__content {
+  /&lt;/em&gt; Referencing %_--shrinkText */
+  font-size: 1.3125em;
+  line-height: 2em;
+  line-height: 1.28625em;
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;Same class, &lt;strong&gt;completely different behavior&lt;/strong&gt;. Now, how simple is it to use within our markup? This simple.&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='html'&gt;&amp;lt;section class=&amp;quot;block griddler-slice-by4&amp;quot;&amp;gt;
+  &amp;lt;h2 class=&amp;quot;&lt;strong&gt;headline augment&amp;quot;&amp;gt;Four Kittens&amp;lt;/h2&amp;gt;
+  &amp;lt;img src=&amp;quot;http://placekitten.com/400/200&amp;quot; class=&amp;quot;&lt;/strong&gt;image&amp;quot;&amp;gt;&amp;lt;/img&amp;gt;
+  &amp;lt;div class=&amp;quot;__content augment&amp;quot;&amp;gt;Four kittens exploring.&amp;lt;/div&amp;gt;
+&amp;lt;/section&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;I had to lift my jaw from the floor.&lt;/p&gt;
+
+&lt;h2&gt;Caveats&lt;/h2&gt;
+
+&lt;p&gt;As always, no method is perfect. Here are some roadblocks associated with this one which may or may not be a problem depending on your work environment.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;All of this can be hard to pull off easily without Sass.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Both modifier methods rely on adjoining classes, which aren&amp;#39;t exactly supported in IE6.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;They may require some degree of education within your team&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The &lt;code&gt;@extend&lt;/code&gt; directive can&amp;#39;t be used within media queries, last I checked.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Let me know what you think of this approach below. And as always, let me know if I missed something.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Atomic Design Makes Me Feel Like a Chemist</title>
+   <link href="http://chatrjr.name/2013/06/:category/atomic-design-makes-me-feel-like-a-chemist/"/>
+   <updated>2013-06-05T00:00:00-04:00</updated>
+   <id>http://chatrjr.name/2013/06/:category/atomic-design-makes-me-feel-like-a-chemist</id>
+   <content type="html">&lt;p&gt;UPDATE: This post existed on my old site, which I unceremoniously scrapped a few months ago. I&amp;#39;m sorry, I didn&amp;#39;t think it was still in use. Hope you get something from it.&lt;/p&gt;
+
+&lt;p&gt;At this year&amp;#39;s Beyond Tellerand conference, Brad Frost unveiled a new design system methodology: &lt;a href=&quot;http://www.besquare.me/session/atomic-design/&quot;&gt;Atomic Design&lt;/a&gt;. You should probably watch that if you haven&amp;#39;t already. Design systems allow us to build through a recurrent process that we can use across projects. They can be customized to fit a client&amp;#39;s, or your own, needs. Design systems represented a shift in workflow as more designers stopped fighting the fluid nature of the web. Before we talk about Atomic Design, we need some background on existing systems.&lt;/p&gt;
+
+&lt;h2&gt;Design Systems in the Wild&lt;/h2&gt;
+
+&lt;h3&gt;Style Tiles&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://styletil.es&quot;&gt;Style Tiles&lt;/a&gt; were proposed by Samantha Warren as a new design deliverable and template that could show design direction without implying layout. It was to be used when moodboards were too vague and mockups too rigid. Of course, I had already embraced designing in the browser and made a very loose approximation of a Style Tile from a template I&amp;#39;ve used across projects. Very bare bones, but through CSS I could get the general look and feel across to those I asked for feedback. The advantage of building them within the browser allowed a direct translation of styles to the final site. I also lost my mind and made them responsive. You can see the one for this brand and my old one below.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/post-images/np-interactive-style-tile.png&quot; alt=&quot;N&amp;amp;P Style Tile&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/post-images/otc-v4-interactive-style-tile.png&quot; alt=&quot;OTC v4 Style Tile&quot;&gt;&lt;/p&gt;
+
+&lt;h3&gt;Element Collages&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://danielmall.com/articles/rif-element-collages/&quot;&gt;Element Collages&lt;/a&gt; were proposed by Daniel Mall as an expansion of Style Tiles. Rather than an abstraction of design, element collages are more focused. They&amp;#39;re a collection of elements that will actually live on the site that convey the look, feel, and functionality through snapshots of them in use. They&amp;#39;re meant to be a complement to Style Tiles (but they can stand alone), and they emphasize having conversations with clients rather than presenting to them. That is, not just telling them where everything is but why it&amp;#39;s there. Element Collages can be great aids for that.&lt;/p&gt;
+
+&lt;h3&gt;Front-End Style Guides&lt;/h3&gt;
+
+&lt;p&gt;Anna Debenham, whom I greatly respect, expanded on &lt;a href=&quot;http://24ways.org/2011/front-end-style-guides/&quot;&gt;the idea of having style guides for front-end developers&lt;/a&gt;. This means a hub for developers to work from and test within the context it&amp;#39;s going to be used: the web. The benefits are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;An easy reference to elements as they exist on a template.&lt;/li&gt;
+&lt;li&gt;A lovely playground for testing and applying different ideas.&lt;/li&gt;
+&lt;li&gt;A shared language among your team while building out the product.&lt;/li&gt;
+&lt;li&gt;An emphasis on building from components and reusable styles.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Of course, the client probably won&amp;#39;t be able to make much of it, but it can be a great help to any designers or developers who come in to maintain the project after you.&lt;/p&gt;
+
+&lt;h2&gt;Enter Atomic Design&lt;/h2&gt;
+
+&lt;p&gt;Atomic Design is a realization of designing from components. The methodology has five distinct parts and combines a few of the design systems we&amp;#39;ve talked about. These parts go from general to the most specific. All under the context of chemistry. We&amp;#39;re going to go through pattern lab, a tool released to complement the Atomic Design methodology. &lt;a href=&quot;https://github.com/bradfrost/patternlab&quot;&gt;Pattern Lab&lt;/a&gt; is an intentionally incomplete hub for your projects. It has a ton of stuff already in it, but Brad wanted it to be easy to extend. It&amp;#39;s not a framework, rather it&amp;#39;s a launchpad for getting started with Atomic Design systems. It&amp;#39;s non-prescriptive and doesn&amp;#39;t come with much preset styling. As Brad said in the talk:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&amp;quot;Do that shit yourself.&amp;quot;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Now let&amp;#39;s dive into the code.&lt;/p&gt;
+
+&lt;h3&gt;Setting Up&lt;/h3&gt;
+
+&lt;p&gt;First of all, take note of Pattern Lab&amp;#39;s directory tree. This is rather important.&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='bash'&gt;/var/www/patternlab
+├── css
+│   ├── scss
+│   │   ├── base
+│   │   │   ├── &lt;em&gt;animation.scss
+│   │   │   ├── _forms.scss
+│   │   │   ├── _global-classes.scss
+│   │   │   ├── _headings.scss
+│   │   │   ├── _links.scss
+│   │   │   ├── _lists.scss
+│   │   │   ├── _main.scss
+│   │   │   ├── _media.scss
+│   │   │   ├── _tables.scss
+│   │   │   └── _text.scss
+│   │   ├── generic
+│   │   │   ├── _mixins.scss
+│   │   │   ├── _reset.scss
+│   │   │   └── _variables.scss
+│   │   └── objects
+│   │       ├── _accordion.scss
+│   │       ├── _ads.scss
+│   │       ├── _article.scss
+│   │       ├── _blocks.scss
+│   │       ├── _buttons.scss
+│   │       ├── _carousels.scss
+│   │       ├── _comments.scss
+│   │       ├── _footer.scss
+│   │       ├── _header.scss
+│   │       ├── _icons.scss
+│   │       ├── _layout.scss
+│   │       ├── _lists.scss
+│   │       ├── _main.scss
+│   │       ├── _nav.scss
+│   │       ├── _sections.scss
+│   │       ├── _tabs.scss
+│   │       ├── _text.scss
+│   │       └── _tooltip.scss
+│   ├── static.css
+│   ├── style.css
+│   └── style.scss
+├── data
+│   ├── annotations-ck.js
+│   └── annotations.js
+├── fonts
+│   ├── icons.dev.svg
+│   ├── icons.eot
+│   ├── icons.svg
+│   ├── icons.ttf
+│   └── icons.woff
+├── functions.php
+├── images
+│   ├── ajax-loader.gif
+│   ├── fpo&lt;/em&gt;16x9.png
+│   ├── fpo&lt;em&gt;4x3.png
+│   ├── fpo&lt;/em&gt;avatar.png
+│   ├── fpo&lt;em&gt;landscape.png
+│   ├── fpo&lt;/em&gt;portrait.png
+│   ├── fpo_square.png
+│   └── logo.png
+├── index.php
+├── js
+│   ├── init-ck.js
+│   ├── init.js
+│   └── responsive-nav.min.js
+├── patterns
+│   ├── 00-Atoms
+│   │   ├── 00-Global
+│   │   │   ├── 00-Colors.php
+│   │   │   ├── 01-Fonts.php
+│   │   │   ├── 02-Animations.php
+│   │   │   └── 03-Visibility.php
+│   │   ├── 00-Text
+│   │   │   ├── 00-Headings.php
+│   │   │   ├── 00-Subheadings.php
+│   │   │   ├── 00-With-Links-Headings.php
+│   │   │   ├── 01-Headings-With-Small-Text.php
+│   │   │   ├── 01-Paragraph.php
+│   │   │   ├── 02-Blockquote.php
+│   │   │   ├── 03-Inline-Text-Elements.php
+│   │   │   ├── 04-Address.php
+│   │   │   ├── 05-Preformatted-Text.php
+│   │   │   ├── 06-Time.php
+│   │   │   └── 07-HR.php
+│   │   ├── 01-Lists
+│   │   │   ├── 04-unordered-list.php
+│   │   │   ├── 05-ordered-list.php
+│   │   │   └── 06-definition-list.php
+│   │   ├── 02-Images
+│   │   │   ├── 00-logo.php
+│   │   │   ├── 01-Landscape-16x9.php
+│   │   │   ├── 02-Landscape-4x3.php
+│   │   │   ├── 03-Square.php
+│   │   │   ├── 07-Avatar.php
+│   │   │   ├── 09-Loading-Icon.php
+│   │   │   └── 10-Social-Icons.php
+│   │   ├── 03-Forms
+│   │   │   ├── 00-Text-Fields.php
+│   │   │   ├── 01-Select-Menu.php
+│   │   │   ├── 02-Checkboxes.php
+│   │   │   ├── 03-Radio-Buttons.php
+│   │   │   └── 04-HTML5-Inputs.php
+│   │   ├── 04-Buttons
+│   │   │   └── 00-Buttons.php
+│   │   ├── 05-Table
+│   │   │   └── 00-Table.php
+│   │   ├── 06-Media
+│   │   │   ├── 01-Video-Embed.php
+│   │   │   └── 02-Audio.php
+│   │   └── 07-Unsed
+│   │       └── 00-Text
+│   ├── 01-Molecules
+│   │   ├── 00-Text
+│   │   │   ├── 01-byline-author-only.php
+│   │   │   ├── 02-byline-author-time.php
+│   │   │   ├── 03-Caption.php
+│   │   │   ├── 04-Blockquote-With-Citation.php
+│   │   │   ├── 04-Pullquote.php
+│   │   │   ├── 05-Heading-Group.php
+│   │   │   ├── 06-Intro-Text.php
+│   │   │   └── 07-Emphasis-Colors.php
+│   │   ├── 01-Layout
+│   │   │   ├── 00-1-up.php
+│   │   │   ├── 01-2-up.php
+│   │   │   ├── 02-3-up.php
+│   │   │   └── 03-4-up.php
+│   │   ├── 02-Blocks
+│   │   │   ├── 00-Block-Hero.php
+│   │   │   ├── 01-Block-Thumb-Headline.php
+│   │   │   ├── 02-Block-Headline-Byline.php
+│   │   │   ├── 04-Block-Inset.php
+│   │   │   ├── 05-Block-Headline-Only.php
+│   │   │   ├── 06-Block-Project.php
+│   │   │   ├── 07-Block-Featured-Project.php
+│   │   │   └── 08-Block-Large-Inset.php
+│   │   ├── 03-Media
+│   │   │   ├── 00-Image-With-Caption.php
+│   │   │   └── 03-Map.php
+│   │   ├── 04-Navigation
+│   │   │   ├── 00-Primary-Nav.php
+│   │   │   ├── 01-Footer-Nav.php
+│   │   │   ├── 02-Pagination.php
+│   │   │   └── 03-Tabs.php
+│   │   ├── 05-Forms
+│   │   │   ├── 00-Search.php
+│   │   │   ├── 01-Newsletter-Form.php
+│   │   │   └── 05-Comment-Form.php
+│   │   └── 06-Components
+│   │       ├── 00-Single-Comment.php
+│   │       ├── 02-Accordion.php
+│   │       └── 03-Social-Share.php
+│   ├── 02-Organisms
+│   │   ├── 00-Global
+│   │   │   ├── 00-Header.php
+│   │   │   └── 01-Footer.php
+│   │   ├── 03-Article
+│   │   │   └── 00-Article-Body.php
+│   │   ├── 03-Comments
+│   │   │   └── 00-Comment-Thread.php
+│   │   ├── 04-Components
+│   │   │   └── 00-Carousel-List.php
+│   │   └── 05-Sections
+│   │       ├── 00-Related-Posts.php
+│   │       ├── 01-Recent-Tweets.php
+│   │       └── 02-Latest-Posts.php
+│   └── 03-Templates
+│       ├── 00-Homepage.php
+│       ├── 01-Blog.php
+│       ├── 02-Article.php
+│       └── 03-Portfolio.php
+├── README.md
+├── styleguide
+│   ├── css
+│   │   ├── annotations.css
+│   │   ├── styleguide.css
+│   │   └── styleguide.scss
+│   └── js
+│       ├── annotations-pattern.js
+│       ├── annotations-viewer-ck.js
+│       ├── annotations-viewer.js
+│       ├── data-saver.js
+│       ├── jquery.js
+│       ├── styleguide-ck.js
+│       └── styleguide.js
+├── styleguide.php
+└── view.php&lt;/p&gt;
+
+&lt;p&gt;39 directories, 145 files&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;Now let&amp;#39;s have a look at &lt;code&gt;functions.php&lt;/code&gt;. If you&amp;#39;re planning on setting up Pattern Lab in your development environment (and you should play with it at least once), you may need to tweak this a little.&lt;/p&gt;
+
+&lt;p&gt;I guess the way my dev environment is configured made &lt;code&gt;$root&lt;/code&gt; lack the trailing backslash, which is why I had to include it in the latter two variables before Pattern Lab would work properly. You may not have to do that, just be aware of it. If you don&amp;#39;t know much PHP, don&amp;#39;t worry. The most relevant part is this function:&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='php'&gt;&amp;lt;?php &lt;/p&gt;
+
+&lt;p&gt;$root = $&lt;em&gt;SERVER[&amp;#39;DOCUMENT&lt;/em&gt;ROOT&amp;#39;]; &lt;/p&gt;
+
+&lt;p&gt;//This changes the root path of the project. It might live at the root or at a subdirectory like /styleguide
+$absolutePath = &amp;#39;/patternlab/&amp;#39;;&lt;/p&gt;
+
+&lt;p&gt;$patternsPath = $root.$absolutePath.&amp;#39;patterns/&amp;#39;;&lt;/p&gt;
+
+&lt;p&gt;/************** 
+Include Function 
+Make including files easier. Simply declare the type of fragment you&amp;#39;re looking for (atom, molecule, organism, or page) and the name of the file (with no extention)&lt;/p&gt;
+
+&lt;p&gt;Takes two variables:
+Type: the type of pattern you&amp;#39;re looking to include. Options are: atom, molecule, organism, or page
+Name: the name of the file&lt;/p&gt;
+
+&lt;p&gt;************** */&lt;/p&gt;
+
+&lt;p&gt;function inc($type,$name) {
+    global $patternsPath; 
+    global $absolutePath;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$filePath = $patternsPath;
+
+//Determine which directory to look in based on type: atom, molecule, organism or page
+if($type=='atom') {
+    $filePath = $filePath.'00-Atoms';
+} elseif($type=='molecule') {
+    $filePath = $filePath.'01-Molecules';
+} elseif($type=='organism') {
+    $filePath = $filePath.'02-Organisms';
+} elseif($type=='page') {
+    $filePath = $filePath.'03-Pages';
+} else {
+    $filePath = $filePath;
+}
+
+
+//Iterate over the appropriate path
+$objects = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($filePath));
+foreach($objects as $objName =&amp;amp;gt; $object){
+
+    $pos = stripos($objName, $name);
+
+    if ($pos) {
+        include($objName); //Include the fragment if the file is found
+        break;
+    } 
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;Lines 22-32 look through the &lt;code&gt;patterns&lt;/code&gt; directory for the components called through the &lt;code&gt;inc()&lt;/code&gt; function based on type. It&amp;#39;s called like this: &lt;code&gt;inc([type], [component]);&lt;/code&gt;. Before we extend Pattern Lab with a few extras, we still have to go through what those parts mean. You know them if you watched Brad&amp;#39;s talk or remember chemistry class, but we&amp;#39;re going to go over them in a practical sense.&lt;/p&gt;
+
+&lt;h3&gt;00-Atoms&lt;/h3&gt;
+
+&lt;p&gt;Atoms are the building blocks of our universe. On the web they are individual HTML tags like &lt;code&gt;Link&lt;/code&gt;. They can&amp;#39;t be broken down any more without losing meaning. In the Atomic Design chain, they are a point of reference as well as the toolbox from which all other parts of the system are built. I suppose you can think of the collection of atoms as the primordial soup from which a webpage begins to grow.&lt;/p&gt;
+
+&lt;h3&gt;01-Molecules&lt;/h3&gt;
+
+&lt;p&gt;Molecules are essentially bonded atoms that create a new substance. On the web this can be an unordered list that has bonded with a `&lt;code&gt;element to become a menu. In playing around with Pattern Lab, I built two additional molecules. All you have to do is create a file in the category you think is most relevant. In my case that was&lt;/code&gt;02-Blocks&lt;code&gt;. This is what&amp;#39;s in&lt;/code&gt;06-Block-Project.php`:&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='html'&gt;&amp;lt;div class=&amp;quot;block block-project&amp;quot;&amp;gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;&amp;amp;lt;h2&amp;amp;gt;New Project&amp;amp;lt;/h2&amp;amp;gt;
+&amp;amp;lt;p&amp;amp;gt;A description of the project would go here, of course.&amp;amp;lt;/p&amp;amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;I&amp;#39;ve bonded an image, a heading, and a paragraph into a project molecule. I also created a featured project molecule from bonding them in a different way, such as this:&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='html'&gt;&amp;lt;div class=&amp;quot;block block-featured&amp;quot;&amp;gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;&amp;amp;lt;div class=&amp;amp;quot;b-text&amp;amp;quot;&amp;amp;gt;
+    &amp;amp;lt;h2 class=&amp;amp;quot;headline&amp;amp;quot;&amp;amp;gt;Featured Project&amp;amp;lt;/h2&amp;amp;gt;
+    &amp;amp;lt;p class=&amp;amp;quot;excerpt&amp;amp;quot;&amp;amp;gt;A description of the project would go here, of course.&amp;amp;lt;/p&amp;amp;gt;
+&amp;amp;lt;/div&amp;amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;h3&gt;02-Organisms&lt;/h3&gt;
+
+&lt;p&gt;Organisms are created from a complex system of molecules bonding into even more complex structures through a continuous cycle of chemical reactions, such as the human body. In the context of the web, organism are molecules combined into meaningful structure, like a page header. In that case, you have a logo, navigation, and search form in most cases bonding. Other blocks might combine to create a footer, and different blocks combine to make other sections.&lt;/p&gt;
+
+&lt;h3&gt;03-Templates&lt;/h3&gt;
+
+&lt;p&gt;Notice how the chemistry terms end here. That&amp;#39;s because we&amp;#39;re getting into the parts that the client will see. In the &lt;code&gt;03-Templates&lt;/code&gt; folder, I created &lt;code&gt;03-Portfolio.php&lt;/code&gt;, and that looks like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='html'&gt;&amp;lt;div class=&amp;quot;g g-5up&amp;quot;&amp;gt;
+    &amp;lt;div class=&amp;quot;gi&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;quot;g g-3up&amp;quot;&amp;gt;
+    &amp;lt;div class=&amp;quot;gi&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;gi&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;gi&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;gi&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;gi&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;gi&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/post-images/pattern-lab-project-template.png&quot; alt=&quot;Portfolio Template&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;From different components I built that portfolio template. The beauty of Pattern Lab is that you&amp;#39;re not limited to what&amp;#39;s in the box. The box is as large or small as you want to make it. I built this template in about 5 minutes thanks to the flexibility of Atomic Design. It&amp;#39;s not very visually appealing when starting with Pattern Lab, but that&amp;#39;s our job. The templates can be presented to the client for immediate feedback before they become pages.&lt;/p&gt;
+
+&lt;h3&gt;04-Pages&lt;/h3&gt;
+
+&lt;p&gt;Pages are self-explanatory: they are the templates given context. In other words, they&amp;#39;re the website in all its glory. I had to create the folder myself in Pattern Lab, but that was likely the expectation. There&amp;#39;s still a lot to play with here, and I&amp;#39;m going to dive into it over the weekend. Also, if you&amp;#39;re curious, this is the result of my screwing around.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/post-images/pattern-lab-project-page.jpg&quot; alt=&quot;Pattern Lab Page&quot;&gt;&lt;/p&gt;
+
+&lt;h2&gt;The Potential of Atomic Design&lt;/h2&gt;
+
+&lt;p&gt;I wrote &lt;a href=&quot;/2013/04/:category/component-driven-web-design-part-3/&quot;&gt;in a previous post&lt;/a&gt; that building from components was a lot like working with LEGO bricks. The very idea of Atomic Design takes this further than I could have ever thought. Just the little I was able to do with this in an afternoon has me excited about yet another design system. I hope my stupid little experiment with it inspires you to play with Pattern Lab and put it to good use. Brad Frost, Dave Olsen, and everyone involved in its creation are awesome. I can&amp;#39;t wait to see what everyone does with it. What do you think about the potential here? Will you be using it? As always, let me know if I made a mistake.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Component-Driven Web Design: Markup</title>
+   <link href="http://chatrjr.name/2013/04/:category/component-driven-web-design-part-3/"/>
+   <updated>2013-04-16T00:00:00-04:00</updated>
+   <id>http://chatrjr.name/2013/04/:category/component-driven-web-design-part-3</id>
+   <content type="html">&lt;p&gt;Where we last left off in &lt;a href=&quot;/2013/03/:category/component-driven-web-design-part-2/&quot;&gt;Part 2&lt;/a&gt;, I showed you how to set up a dev environment and boilerplate with Node.js and Grunt. Part 3 focuses on writing markup and style that can live beyond a single project. Also, rather than building from the boilerplate, I&amp;#39;ll be making judicious use of &lt;a href=&quot;http://codepen.io&quot;&gt;Codepen&lt;/a&gt;. I will be adding to the boilerplate&amp;#39;s repo, however.&lt;/p&gt;
+
+&lt;p&gt;Also, please don&amp;#39;t mind the kittens in some examples.&lt;/p&gt;
+
+&lt;p&gt;What you&amp;#39;ll learn and/or review:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;OOCSS&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;BEM class syntax&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://emmet.io&quot;&gt;Emmet&lt;/a&gt; (because it rocks)&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Markup Without Borders&lt;/h2&gt;
+
+&lt;p&gt;The boon of a component-driven web approach is portability. Built properly, you can use any of its parts in different projects. In terms of LEGO®, think of the components as the blocks themselves: seemingly unremarkable on their own, they can be used for stunning creations, but they also exist independently of the finished product. You can take them apart easily and fit them somewhere else. That is how your components should work. That said, they should also be a little more flexible in that you can modify the block itself. Using the markup as a foundation, you want to be able to do this easily with styling.&lt;/p&gt;
+
+&lt;h2&gt;Meet Emmet&lt;/h2&gt;
+
+&lt;p&gt;I&amp;#39;m going to introduce Emmet here, because it has been a key player in helping me write portable HTML &amp;amp; CSS. It works as a plugin for most popular text editors and IDEs (Sublime Text is my preferred editor, for the record). I&amp;#39;m pretty confident that when you install this plugin, you will never willingly write vanilla markup again. I say that by the virtue of Emmet being able to take this syntax:&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='html'&gt;section.events&amp;gt;.event*2&amp;gt;h2.event&lt;strong&gt;heading+img.event&lt;/strong&gt;image+p.event&lt;strong&gt;content+(.event&lt;/strong&gt;date&amp;gt;.event&lt;strong&gt;date&lt;/strong&gt;mo+.event&lt;strong&gt;date&lt;/strong&gt;yr)&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;And output this markup:&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='html'&gt;&amp;lt;section class=&amp;quot;events&amp;quot;&amp;gt;
+    &amp;lt;div class=&amp;quot;event&amp;quot;&amp;gt;
+        &amp;lt;h2 class=&amp;quot;event&lt;strong&gt;heading&amp;quot;&amp;gt;&amp;lt;/h2&amp;gt;
+        &amp;lt;img src=&amp;quot;&amp;quot; alt=&amp;quot;&amp;quot; class=&amp;quot;event&lt;/strong&gt;image&amp;quot;&amp;gt;
+        &amp;lt;p class=&amp;quot;event&lt;strong&gt;content&amp;quot;&amp;gt;&amp;lt;/p&amp;gt;
+        &amp;lt;div class=&amp;quot;event&lt;/strong&gt;date&amp;quot;&amp;gt;
+            &amp;lt;div class=&amp;quot;event&lt;strong&gt;date&lt;/strong&gt;mo&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+            &amp;lt;div class=&amp;quot;event&lt;strong&gt;date&lt;/strong&gt;yr&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+        &amp;lt;/div&amp;gt;
+    &amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;event&amp;quot;&amp;gt;
+        &amp;lt;h2 class=&amp;quot;event&lt;strong&gt;heading&amp;quot;&amp;gt;&amp;lt;/h2&amp;gt;
+        &amp;lt;img src=&amp;quot;&amp;quot; alt=&amp;quot;&amp;quot; class=&amp;quot;event&lt;/strong&gt;image&amp;quot;&amp;gt;
+        &amp;lt;p class=&amp;quot;event&lt;strong&gt;content&amp;quot;&amp;gt;&amp;lt;/p&amp;gt;
+        &amp;lt;div class=&amp;quot;event&lt;/strong&gt;date&amp;quot;&amp;gt;
+            &amp;lt;div class=&amp;quot;event&lt;strong&gt;date&lt;/strong&gt;mo&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+            &amp;lt;div class=&amp;quot;event&lt;strong&gt;date&lt;/strong&gt;yr&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+        &amp;lt;/div&amp;gt;
+    &amp;lt;/div&amp;gt;
+&amp;lt;/section&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;Of course, we&amp;#39;re just scratching the surface. I&amp;#39;m going to introduce the basic Emmet syntax, and then we&amp;#39;re going to keep moving with our components. If this all feels like déjà vu, it&amp;#39;s because Emmet was formerly known as Zen Coding. If you&amp;#39;re familiar with the syntax, or otherwise would rather not learn Emmet, you can jump directly to Portable HTML &amp;amp; CSS by Example and keep reading from there. For the rest of you, it&amp;#39;s time to learn a bit about this wonderful tool.&lt;/p&gt;
+
+&lt;h3&gt;Old Syntax, New Context&lt;/h3&gt;
+
+&lt;p&gt;The very first thing you might have noticed about Emmet syntax is how similar it is to the CSS we all know and occasionally swear loudly over. Well, it &lt;strong&gt;does&lt;/strong&gt; use CSS selector syntax with a few modifications. Thus the following abbreviation and output.&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='html'&gt;nav.main-menu&amp;gt;ul.main-menu&lt;strong&gt;wrap&amp;gt;li.main-menu&lt;/strong&gt;item$*4&amp;gt;a.main-menu__link[href=&amp;quot;#&amp;quot;]&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;nav class=&amp;quot;main-menu&amp;quot;&amp;gt;
+    &amp;lt;ul class=&amp;quot;main-menu&lt;strong&gt;wrap&amp;quot;&amp;gt;
+        &amp;lt;li class=&amp;quot;main-menu&lt;/strong&gt;item1&amp;quot;&amp;gt;&amp;lt;a href=&amp;quot;#&amp;quot; class=&amp;quot;main-menu&lt;strong&gt;link&amp;quot;&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+        &amp;lt;li class=&amp;quot;main-menu&lt;/strong&gt;item2&amp;quot;&amp;gt;&amp;lt;a href=&amp;quot;#&amp;quot; class=&amp;quot;main-menu&lt;strong&gt;link&amp;quot;&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+        &amp;lt;li class=&amp;quot;main-menu&lt;/strong&gt;item3&amp;quot;&amp;gt;&amp;lt;a href=&amp;quot;#&amp;quot; class=&amp;quot;main-menu&lt;strong&gt;link&amp;quot;&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+        &amp;lt;li class=&amp;quot;main-menu&lt;/strong&gt;item4&amp;quot;&amp;gt;&amp;lt;a href=&amp;quot;#&amp;quot; class=&amp;quot;main-menu__link&amp;quot;&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+    &amp;lt;/ul&amp;gt;
+&amp;lt;/nav&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;Emmet makes writing markup and CSS even easier. Granted, it won&amp;#39;t save you if you have no grasp of the basics, but it will help your productivity in ways I can&amp;#39;t even begin to scratch. Check out &lt;a href=&quot;http://docs.emmet.io&quot;&gt;the documentation&lt;/a&gt; if you want to unlock the real power of Emmet. It&amp;#39;s not the focus of this post, but I wanted to make you aware of it and how it can help you. Maybe in a future post, we&amp;#39;ll dive into it.&lt;/p&gt;
+
+&lt;h2&gt;Portable HTML &amp;amp; CSS by Example&lt;/h2&gt;
+
+&lt;p&gt;The advantages of having markup you can apply to more than one project is that it keeps you from repeatedly writing (and screwing up) frequently implemented functionality. When you build and label components to exist &lt;strong&gt;independent of any context besides its own&lt;/strong&gt;, you can safely maintain and apply updates from one project to the next. Like LEGO® blocks, they&amp;#39;re interchangeable. This principle of portable HTML &amp;amp; CSS has several names, but the most recognizable is &lt;abbr title=&quot;Object-Oriented CSS&quot;&gt;OOCSS&lt;/abbr&gt; introduced by Nicole Sullivan, which was expanded upon by Jonathan Snook as &lt;abbr title=&quot;Scalable and Modular CSS&quot;&gt;SMACSS&lt;/abbr&gt;.&lt;/p&gt;
+
+&lt;h3&gt;How I Got SMACSS&amp;#39;d&lt;/h3&gt;
+
+&lt;p&gt;From this point on, Codepen will be dominating the post, because it&amp;#39;s better to show than tell. We do need some background before diving in though. Alright, so let&amp;#39;s start simple with what Nicole and Jonathan call the media object. The media object, in the context of LEGO®, is the general brick. You can then optionally have an additional class or id to serve as an identifier for that media object. The internal elements of your media object could be likened to the connectors and shape of the block, determining its context. That is, it may or may not work within a portfolio vs. a landing page depending on what surrounds it. We all know the frustration as a kid that came from trying to make a brick fit where it didn&amp;#39;t belong. At best, it got stuck, and at worst we damaged the brick.&lt;/p&gt;
+
+&lt;h2&gt;The Media Object&lt;/h2&gt;
+
+&lt;p&gt;Time to look at our example.&lt;/p&gt;
+
+&lt;p data-height=&quot;268&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;ocIpz&quot; data-user=&quot;chatrjr&quot; data-default-tab=&quot;result&quot; class='codepen'&gt;See the Pen &lt;a href='http://codepen.io/chatrjr/pen/ocIpz'&gt;Media Object Example&lt;/a&gt; by Chatman Richmond Jr. (&lt;a href='http://codepen.io/chatrjr'&gt;@chatrjr&lt;/a&gt;) on &lt;a href='http://codepen.io'&gt;CodePen&lt;/a&gt;&lt;/p&gt;
+
+&lt;script async src=&quot;//codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;The media object has a class of &lt;code&gt;.media&lt;/code&gt; and also has a class of &lt;code&gt;.blog&lt;/code&gt; as an identifier. The &lt;code&gt;.post&lt;/code&gt; class indicates the context where the connectors fit best and the block&amp;#39;s internals. The elements in the block follow the BEM naming convention of &lt;code&gt;.block__element&lt;/code&gt;. This would be fine by itself, but we can transcend the humble LEGO® brick.&lt;/p&gt;
+
+&lt;h3&gt;Modifying Components&lt;/h3&gt;
+
+&lt;p&gt;Now we&amp;#39;re going to take our same media object, but we&amp;#39;re going to make some changes without, and this is important, &lt;strong&gt;without making significant changes&lt;/strong&gt; to the markup. Check it.&lt;/p&gt;
+
+&lt;p data-height=&quot;268&quot; data-theme-id=&quot;0&quot; data-slug-hash=&quot;BjJrf&quot; data-user=&quot;chatrjr&quot; data-default-tab=&quot;result&quot; class='codepen'&gt;See the Pen &lt;a href='http://codepen.io/chatrjr/pen/BjJrf'&gt;Modifying a Component&lt;/a&gt; by Chatman Richmond Jr. (&lt;a href='http://codepen.io/chatrjr'&gt;@chatrjr&lt;/a&gt;) on &lt;a href='http://codepen.io'&gt;CodePen&lt;/a&gt;&lt;/p&gt;
+
+&lt;script async src=&quot;//codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;The changes are somewhat trivial, but the point they illustrate is far from it. We modified our block significantly with just a few more lines of CSS and modifier class additions. We didn&amp;#39;t have to touch the markup beyond that. The oddity of OOCSS and similar methodologies is that while they appear to tightly couple markup with style, in truth your style has probably never been more &lt;strong&gt;abstracted&lt;/strong&gt; from your markup. That was my &amp;quot;Eureka moment&amp;quot; for this entire approach.&lt;/p&gt;
+
+&lt;h2&gt;Of Modules and Layout&lt;/h2&gt;
+
+&lt;p&gt;Within the guidelines of OOCSS and SMACSS this entire post has been focused on the module layer. That&amp;#39;s because modules, or I should say content, is the linchpin of writing portable HTML &amp;amp; CSS. My LEGO® analogies were deliberate, not convenient. My process, and indeed the way I think about web design as a whole were transformed by the ideas of some amazing people. Though I have inverted the methodical cascade.&lt;/p&gt;
+
+&lt;p&gt;OOCSS is built on the idea of starting with the general and building to the specific. I start with a typographic base, but then my focus immediately shifts to the components. The question I try to answer first isn&amp;#39;t how the page will look, it&amp;#39;s &lt;strong&gt;what will go on the page&lt;/strong&gt;. Following that, it&amp;#39;s what personality the project intends to show. On a web that can fit just about anywhere, content will inform layout far more than layout will inform content. The component-based approach is preparing myself, and perhaps you, for that eventuality.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Component-Driven Web Design: Environment</title>
+   <link href="http://chatrjr.name/2013/03/:category/component-driven-web-design-part-2/"/>
+   <updated>2013-03-30T00:00:00-04:00</updated>
+   <id>http://chatrjr.name/2013/03/:category/component-driven-web-design-part-2</id>
+   <content type="html">&lt;p&gt;In &lt;a href=&quot;/2013/02/:category/component-driven-web-design-part-1/&quot;&gt;Part 1&lt;/a&gt; we looked at the concept and merits of a component driven web design approach. We looked at how  planning ahead keeps you sane, no matter the size of your project. Now with Part 2, we&amp;#39;ll look at some tools that can streamline the component-based approach and enable a consistent environment for yourself or your team. I should also mention that the &lt;code&gt;sudo&lt;/code&gt; command may be needed by Mac and Linux users. Let&amp;#39;s get started.&lt;/p&gt;
+
+&lt;p&gt;Also, I&amp;#39;m warning you now: this post is long. I hope you&amp;#39;ll get a lot from it though.&lt;/p&gt;
+
+&lt;p&gt;What you&amp;#39;ll need:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://nodejs.org/&quot;&gt;Node.js&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://gruntjs.com/&quot;&gt;Grunt&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Your shell of choice (though I&amp;#39;ll be using Bash)&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Getting Set Up&lt;/h2&gt;
+
+&lt;p&gt;First, we have to prepare our development environment. If you&amp;#39;re already set and have these tools above, then you can jump directly to the &lt;a href=&quot;#boilerplate&quot;&gt;Preparing Your Boilerplate&lt;/a&gt; section of this post. For the rest of you, let&amp;#39;s get up and running.&lt;/p&gt;
+
+&lt;h3&gt;Installing Node&lt;/h3&gt;
+
+&lt;p&gt;Now I&amp;#39;m going to show you how to install Node. Unfortunately, I don&amp;#39;t have much experience with Mac OSX, so &lt;a href=&quot;http://shapeshed.com/setting-up-nodejs-and-npm-on-mac-osx/&quot;&gt;I&amp;#39;ll leave that explanation to someone who knows better&lt;/a&gt;. Recently, the Node.js download page added .msi and .exe packages for Windows and .pkg for Mac to make installation relatively painless. Linux users can install it from source if they want, but Chris Lea has &lt;a href=&quot;https://launchpad.net/%7Echris-lea/+archive/node.js&quot;&gt;graciously released a PPA with the latest version&lt;/a&gt; of Node as it releases, so we&amp;#39;ll do it that way.&lt;/p&gt;
+
+&lt;p&gt;Crack open your terminal and input the following, waiting for each command to complete:&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='bash'&gt;sudo add-apt-repository ppa:chris-lea/node.js
+sudo apt-get update
+sudo apt-get install nodejs&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;Once you&amp;#39;re done with that, make sure Node installed correctly with the following commands:&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='bash'&gt;which node
+which npm&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;If they both return a directory, then you&amp;#39;re all set.&lt;/p&gt;
+
+&lt;h3&gt;Installing Grunt&lt;/h3&gt;
+
+&lt;p&gt;Having installed Node, the rest is simple. Simply input &lt;code&gt;sudo npm install -g grunt-cli&lt;/code&gt; and wait for the command to finish. The &lt;code&gt;-g&lt;/code&gt; flag tells npm to install the package globally. After that we&amp;#39;re done and ready to move to the actual project.&lt;/p&gt;
+
+&lt;div id=&quot;boilerplate&quot;&gt;&lt;/div&gt;
+
+&lt;h2&gt;Preparing Your Boilerplate&lt;/h2&gt;
+
+&lt;p&gt;I mentioned it in a previous post, but if you&amp;#39;re fortunate enough to have a community-curated boilerplate available to you, &lt;strong&gt;use it&lt;/strong&gt;. Don&amp;#39;t be afraid to stand on the shoulders of giants and let them help you make your work even better. That said, the base of my boilerplate for web projects is unsurprisingly the &lt;a href=&quot;http://html5boilerplate.com&quot;&gt;HTML5 Boilerplate&lt;/a&gt; modified for my needs. The &lt;a href=&quot;http://www.initializr.com/&quot;&gt;Initializr&lt;/a&gt; is a great place to start for a customized H5BP.&lt;/p&gt;
+
+&lt;p&gt;Your shell should still be open, so let&amp;#39;s scaffold out our project. In the shell, input:&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='bash'&gt;mkdir src dist&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;Next, we want to copy the contents of our boilerplate (in this case: H5BP) into &lt;code&gt;src&lt;/code&gt;. The directory you downloaded to may be different from mine, so adjust the command as you need.&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='bash'&gt;cp -ru ~/Downloads/initializr ./src&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;When that is done, your directory structure should look something close to this.&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='bash'&gt;├── dist
+└── src
+    ├── 404.html
+    ├── crossdomain.xml
+    ├── css
+    │    ├── main.css
+    │    ├── normalize.css
+    │    └── normalize.min.css
+    ├── humans.txt
+    ├── img
+    ├── index.html
+    ├── js
+    │    ├── main.js
+    │    ├── plugins.js
+    │    └── vendor
+    │        ├── jquery-1.9.1.min.js
+    │        └── modernizr-2.6.2-respond-1.1.0.min.js
+    └── robots.txt&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;Don&amp;#39;t worry about the &lt;code&gt;dist&lt;/code&gt; folder for now, we&amp;#39;ll come back to it later. Now we&amp;#39;re going to create two critical files so, in your terminal, enter:&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='bash'&gt;touch package.json Gruntfile.js&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;h3&gt;The Anatomy of package.json&lt;/h3&gt;
+
+&lt;p&gt;The &lt;code&gt;package.json&lt;/code&gt; file contains most of the metadata for your project if you were building your own npm package. It&amp;#39;s also the key to a predictable Node development environment for teams of any size. First off, you should definitely check out &lt;a href=&quot;http://package.json.nodejitsu.com/&quot;&gt;Nodejitsu&amp;#39;s interactive package.json page&lt;/a&gt; if you want a deep dive into how exactly npm uses it. For our boilerplate, we&amp;#39;re only going to use a few options. I&amp;#39;m going to show you the config, which is rather self-explanatory.&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='json'&gt;{
+  &amp;quot;name&amp;quot;: &amp;quot;component-driven-web-design-boilerplate&amp;quot;,
+  &amp;quot;version&amp;quot;: &amp;quot;0.1.0&amp;quot;,
+  &amp;quot;author&amp;quot;: &amp;quot;Joe Everyman &amp;lt;joe@somemail.com&amp;gt;&amp;quot;,
+  &amp;quot;description&amp;quot;: &amp;quot;a simple boilerplate for a component-based approach to web design&amp;quot;,
+  &amp;quot;contributors&amp;quot;: [
+    {
+      &amp;quot;name&amp;quot;: &amp;quot;Tom Peters&amp;quot;,
+      &amp;quot;email&amp;quot;: &amp;quot;tpeters@somemail.com&amp;quot;
+    },&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;{
+  &amp;amp;quot;name&amp;amp;quot;: &amp;amp;quot;Harry Dresden&amp;amp;quot;,
+  &amp;amp;quot;email&amp;amp;quot;: &amp;amp;quot;damnpc@somemail.com&amp;amp;quot;
+},
+
+{
+  &amp;amp;quot;name&amp;amp;quot;: &amp;amp;quot;Dick Grayson&amp;amp;quot;,
+  &amp;amp;quot;email&amp;amp;quot;: &amp;amp;quot;nightwing@somemail.com&amp;amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;],
+  &amp;quot;devDependencies&amp;quot;: {
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;You&amp;#39;ll notice we left the &lt;code&gt;&amp;quot;devDependencies&amp;quot;&lt;/code&gt; value empty. Don&amp;#39;t fret, we&amp;#39;re about to handle that.&lt;/p&gt;
+
+&lt;h3&gt;Preparing Grunt&lt;/h3&gt;
+
+&lt;p&gt;Grunt is a JavaScript-based task manager for web projects. If you&amp;#39;ve used Apache Ant or Make, it&amp;#39;s similar to those. Since version 0.4, Grunt has decoupled its command line interface from Grunt itself. That&amp;#39;s what we installed way up there with &lt;code&gt;grunt-cli&lt;/code&gt;. In addition to the command line separation, Grunt has a bevy of plugins we can adapt to any web project under the &lt;code&gt;grunt-contrib&lt;/code&gt; namespace, but there are also several other plugins written by the open source community, and the API makes it a breeze to roll your own.&lt;/p&gt;
+
+&lt;p&gt;Alright, we&amp;#39;re going to grab Grunt and the most essential plugins for our simple boilerplate for now, and we&amp;#39;ll only call in more as the project demands. In your terminal, input:&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='bash'&gt;sudo npm install grunt --save-dev&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;--save-dev&lt;/code&gt; flag tells npm to update our &lt;code&gt;&amp;quot;devDependencies&amp;quot;&lt;/code&gt; with the latest stable version of the package we specify. In this case, that&amp;#39;s Grunt. Now we&amp;#39;re going to search npm for grunt plugins under the &lt;code&gt;grunt-contrib&lt;/code&gt; namespace.&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='bash'&gt;sudo npm search grunt-contrib&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;Then we&amp;#39;re gonna install the following essential plugins for a Grunt boilerplate.&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='bash'&gt;sudo npm install grunt-contrib-htmlmin grunt-contrib-imagemin grunt-contrib-cssmin grunt-contrib-csslint grunt-contrib-watch --save-dev&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;That done, you&amp;#39;ll see that &lt;code&gt;&amp;quot;devDependencies&amp;quot;&lt;/code&gt; has been updated.&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='javascript'&gt;&amp;quot;devDependencies&amp;quot;: {
+  &amp;quot;grunt&amp;quot;: &amp;quot;~0.4.1&amp;quot;,
+  &amp;quot;grunt-contrib-csslint&amp;quot;: &amp;quot;~0.1.1&amp;quot;,
+  &amp;quot;grunt-contrib-htmlmin&amp;quot;: &amp;quot;~0.1.1&amp;quot;,
+  &amp;quot;grunt-contrib-watch&amp;quot;: &amp;quot;~0.3.1&amp;quot;,
+  &amp;quot;grunt-contrib-cssmin&amp;quot;: &amp;quot;~0.5.0&amp;quot;,
+  &amp;quot;grunt-contrib-imagemin&amp;quot;: &amp;quot;~0.1.2&amp;quot;
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;h3&gt;Configuring Gruntfile.js&lt;/h3&gt;
+
+&lt;p&gt;The &lt;code&gt;Gruntfile.js&lt;/code&gt; file houses the configuration for Grunt… or it will once we build it out. So let&amp;#39;s get on that. First, every Grunt configuration requires this wrapper.&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='javascript'&gt;module.exports = function(grunt) {&lt;/p&gt;
+
+&lt;p&gt;};&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;Now we&amp;#39;re going to load in our tasks. All the code from this point on is going to assume the wrapper function. They don&amp;#39;t have to be in any particular order.&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='javascript'&gt;// Load our tasks
+grunt.loadNpmTasks(&amp;#39;grunt-contrib-htmlmin&amp;#39;);
+grunt.loadNpmTasks(&amp;#39;grunt-contrib-cssmin&amp;#39;);
+grunt.loadNpmTasks(&amp;#39;grunt-contrib-csslint&amp;#39;);
+grunt.loadNpmTasks(&amp;#39;grunt-contrib-watch&amp;#39;);
+grunt.loadNpmTasks(&amp;#39;grunt-contrib-imagemin&amp;#39;);&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;Excellent. All that&amp;#39;s left to do is configure our tasks, and we&amp;#39;re going to do that in stages. First we&amp;#39;ll configure &lt;code&gt;&amp;#39;grunt-contrib-htmlmin&amp;#39;&lt;/code&gt;. Task configuration has its own wrapper:&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='javascript'&gt;// Configure our tasks
+grunt.initConfig({&lt;/p&gt;
+
+&lt;p&gt;});&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;This code should be inserted above our loaded tasks. Now for the actual task…&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='javascript'&gt;pkg: grunt.file.readJSON(&amp;#39;package.json&amp;#39;),
+htmlmin: {
+  /**
+   * task identifier (htmlmin:build)
+   * @type {Object}
+   &lt;em&gt;/
+  build: {
+    /&lt;/em&gt;*
+     * task options
+     * @type {Object}
+     &lt;em&gt;/
+    options: {
+      removeComments: true,
+      collapseWhitespace: true
+    },
+    /&lt;/em&gt;*
+     * files to be minified (path/to/dist: path/to/source)
+     * @type {Object}
+     */
+    files: {
+      &amp;#39;dist/index.html&amp;#39;: &amp;#39;src/index.html&amp;#39;,
+      &amp;#39;dist/404.html&amp;#39;: &amp;#39;src/404.html&amp;#39;
+    }
+  }
+},&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;It should be noted that the &lt;code&gt;pkg&lt;/code&gt; object will allow us to dynamically generate things like authorship banners, as you&amp;#39;ll see in the &lt;code&gt;&amp;#39;grunt-contrib-cssmin&amp;#39;&lt;/code&gt; task.&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='javascript'&gt;cssmin: {
+  /**
+   * task identifier (cssmin:build)
+   * @type {Object}
+   &lt;em&gt;/
+  build: {
+    options: {
+      banner: &amp;#39;/&lt;/em&gt; &amp;lt;%= pkg.name %&amp;gt; - &amp;lt;%= pkg.version %&amp;gt;&amp;#39; + &amp;#39;\n&amp;#39; +
+              &amp;#39; * &amp;lt;%= pkg.author %&amp;gt; &lt;em&gt;/&amp;#39;,
+      report: &amp;#39;min&amp;#39;
+    },
+    /&lt;/em&gt;*
+     * files to be minfied 
+     * (path/to/dist: path/to/src || 
+     * [path/to/src1, path/to/src2])
+     * @type {Object}
+     */
+    files: {
+      &amp;#39;dist/css/style.css&amp;#39;: [&amp;#39;src/css/normalize.css&amp;#39;, &amp;#39;src/css/main.css&amp;#39;]
+    }
+  }
+},&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;Before we configure the &lt;code&gt;&amp;#39;grunt-contrib-csslint&amp;#39;&lt;/code&gt;, we need to make one more file. The task does allow you to define rules to lint directly in the config, but that isn&amp;#39;t very portable, is it? So we&amp;#39;re going to create &lt;code&gt;.csslintrc&lt;/code&gt; to contain the rules, and then for our purposes it will hold the following:&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='json'&gt;{
+  &amp;quot;box-sizing&amp;quot;: false,
+  &amp;quot;box-model&amp;quot;: true,
+  &amp;quot;compatible-vendor-prefixes&amp;quot;: false,
+  &amp;quot;display-property-grouping&amp;quot;: true,
+  &amp;quot;duplicate-properties&amp;quot;: true,
+  &amp;quot;empty-rules&amp;quot;: true,
+  &amp;quot;font-sizes&amp;quot;: false,
+  &amp;quot;ids&amp;quot;: true,
+  &amp;quot;important&amp;quot;: true,
+  &amp;quot;outline-none&amp;quot;: false,
+  &amp;quot;overqualified-elements&amp;quot;: true,
+  &amp;quot;star-property-hack&amp;quot;: false,
+  &amp;quot;text-indent&amp;quot;: true,
+  &amp;quot;underscore-property-hack&amp;quot;: false,
+  &amp;quot;unqualified-attributes&amp;quot;: false,
+  &amp;quot;zero-units&amp;quot;: true
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;If you want an explanation of the rules we&amp;#39;re using, check out the &lt;a href=&quot;https://github.com/stubbornella/csslint/wiki/Rules&quot;&gt;csslint wiki&lt;/a&gt;. For now, let&amp;#39;s configure our task.&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='javascript'&gt;csslint: {
+  build: {
+    options: {
+      csslintrc: &amp;#39;.csslintrc&amp;#39;
+    },
+    src: &amp;#39;dist/css/&lt;em&gt;.css&amp;#39;
+  },
+  dev: {
+    options: {
+      csslintrc: &amp;#39;.csslintrc&amp;#39;
+    },
+    src: &amp;#39;src/css/&lt;/em&gt;.css&amp;#39;
+  }
+},&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;You&amp;#39;ll notice this time we have two identifiers. They&amp;#39;ll be referenced as &lt;code&gt;csslint:build&lt;/code&gt; and &lt;code&gt;csslint:dev&lt;/code&gt; in the terminal and when we call them. Now then, let&amp;#39;s configure &lt;code&gt;&amp;#39;grunt-contrib-imagemin&amp;#39;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='javascript'&gt;imagemin: {
+  build: {
+    options: {
+      optimizationLevel: 3,
+      progressive: true
+    },
+    files: {
+      &amp;#39;dist/img&amp;#39;: [&amp;#39;src/img/&lt;em&gt;.jpg&amp;#39;, &amp;#39;src/img/&lt;/em&gt;.png&amp;#39;]
+    }
+  }
+},&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;We&amp;#39;re almost at the end. Just one more task to configure, and it&amp;#39;s arguably the most valuable one. Imagine how tedious manually tracking every change to your files would be. The good news: with &lt;code&gt;&amp;#39;grunt-contrib-watch&amp;#39;&lt;/code&gt; you don&amp;#39;t have to do so. Check it.&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='javascript'&gt;watch: {
+  css: {
+    files: &amp;#39;&amp;lt;%= csslint.dev.src %&amp;gt;&amp;#39;,
+    tasks: [&amp;#39;csslint:dev&amp;#39;]
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;I referenced the source directly so we don&amp;#39;t repeat ourselves, and then its set to run the defined tasks when those files change. I hope you&amp;#39;re not tired, because we&amp;#39;re almost done. Now we just have to actually register our tasks so they&amp;#39;ll be accessible from the command line. Alright then, the following code should go below where we loaded our tasks. I&amp;#39;ve pasted it again for reference.&lt;/p&gt;
+
+&lt;p&gt;&lt;div&gt;
+    &lt;pre&gt;&lt;code class='javascript'&gt;// Load our tasks
+grunt.loadNpmTasks(&amp;#39;grunt-contrib-htmlmin&amp;#39;);
+grunt.loadNpmTasks(&amp;#39;grunt-contrib-cssmin&amp;#39;);
+grunt.loadNpmTasks(&amp;#39;grunt-contrib-csslint&amp;#39;);
+grunt.loadNpmTasks(&amp;#39;grunt-contrib-watch&amp;#39;);
+grunt.loadNpmTasks(&amp;#39;grunt-contrib-imagemin&amp;#39;);&lt;/p&gt;
+
+&lt;p&gt;// Register our tasks for use in the command line.
+grunt.registerTask(&amp;#39;default&amp;#39;, [&amp;#39;htmlmin&amp;#39;, &amp;#39;csslint&amp;#39;, &amp;#39;cssmin&amp;#39;, &amp;#39;imagemin&amp;#39;]);
+grunt.registerTask(&amp;#39;monitor&amp;#39;, [&amp;#39;watch&amp;#39;]);&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;The default task can be explicitly run in the command line with &lt;code&gt;grunt&lt;/code&gt;. When you have more than one task, as we do here, then grunt recognizes it by its name in the terminal. So to run our &lt;code&gt;&amp;#39;monitor&amp;#39;&lt;/code&gt; task we would input &lt;code&gt;grunt monitor&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2&gt;We&amp;#39;re not Done Yet&lt;/h2&gt;
+
+&lt;p&gt;Though we are done with this post. The reason I ape a build process and a well-maintained codebase is because it really can make the difference in a team. And hopefully through building this boilerplate (or, just observing it), you&amp;#39;re starting to see the potential gains. The beauty of Grunt is that it&amp;#39;s written in a language that we as web devs already know, and this means it&amp;#39;s piss easy to make it our own. I hope you understand that this is just one way of doing things, and I&amp;#39;d never advocate it as &lt;strong&gt;the&lt;/strong&gt; way.&lt;/p&gt;
+
+&lt;p&gt;As always, the best process is one that complements your workflow and feels natural. I&amp;#39;m just presenting yet another option for the way we maintain our projects. This component driven web design boilerplate is only a stepping stone toward a more unified team, and I hope you&amp;#39;ll stick around for Part 3 where we start working on a small web project using that philosophy. See you soon, web people.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Component-Driven Web Design: Principles</title>
+   <link href="http://chatrjr.name/2013/02/:category/component-driven-web-design-part-1/"/>
+   <updated>2013-02-25T00:00:00-05:00</updated>
+   <id>http://chatrjr.name/2013/02/:category/component-driven-web-design-part-1</id>
+   <content type="html">&lt;p&gt;This post begins a series on building component driven websites. In part 1 I lay the foundation and explain why the component driven approach kicks ass. You&amp;#39;ll see how proper folder structure, a reliable boilerplate, and a robust package manager can get you off on the right foot whether you&amp;#39;re building a simple blog or a complex web app.&lt;/p&gt;
+
+&lt;h2&gt;Don&amp;#39;t Ignore the Single Broken Window&lt;/h2&gt;
+
+&lt;p&gt;Maintainable code is a boon to productivity. A disorganized, cluttered codebase can easily inflate the time it takes to complete a project. Among a team, the longer a codebase remains cluttered, the less likely it will ever be cleaned up. Your best bet to ensure a smooth project is to build from a solid foundation that takes root long before a text editor comes into play. When you let even a few sloppy lines of code sit still, you&amp;#39;re sending the message to anyone who touches it after that they don&amp;#39;t have to care. And at that point the component driven approach becomes impossible. That is, it gets harder to fit the puzzle together as the pieces get warped.&lt;/p&gt;
+
+&lt;h2&gt;Build Your Project Not Only for What It Is, but What It Will Become&lt;/h2&gt;
+
+&lt;p&gt;Component driven web design needs a solid base. In the planning stages you should already be considering how you want your site or app to grow, even if it&amp;#39;s just a rough estimate. Planning for the lifetime of your project rather than the immediate implementation ensures that you&amp;#39;ll make intelligent decisions on it moving forward. Even if you if don&amp;#39;t have a detailed analysis, you should at the very least be thinking about both short-term and long-term project goals and ensure the short-term goals align with your long-term goals. This will spare you from a lot of pain down the road.&lt;/p&gt;
+
+&lt;p&gt;Headscape founder Paul Boag &lt;a href=&quot;http://www.netmagazine.com/news/paul-boag-web-designers-must-iterate-more-132564&quot;&gt;recently issued a call to action&lt;/a&gt; for designers to start iterating their designs more. One especially critical point made in the article regards the boom-bust cycle of client work. To that, Mr. Boag says:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;They launch a lovely new website and then they leave it. Content decays and becomes out of date. Technology becomes redundant over time. The design begins to look dated.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;As designers we&amp;#39;re drawn to the idea of redesigning, and very often it occurs in one shot. We don&amp;#39;t usually do minor tweaks over a period of time; we tear everything down and start from scratch. It&amp;#39;s time to rethink our approach. Good iterative design doesn&amp;#39;t occur without a process that accommodates it, so let&amp;#39;s begin.&lt;/p&gt;
+
+&lt;h2&gt;Ode to a Build Process&lt;/h2&gt;
+
+&lt;p&gt;I know it seems like I have an ax to grind on this subject, but I really can&amp;#39;t understate the importance of an effective build and automation process. The key to speedy development is to avoid writing boilerplate code as much as possible. If you find yourself going through the same setup procedures, you would definitely benefit from one. Maybe you&amp;#39;re extremely fortunate and you have a regularly updated community boilerplate for your dev stack. Take advantage of that.&lt;/p&gt;
+
+&lt;p&gt;For JavaScript-based web apps in particular, you really can&amp;#39;t go wrong with &lt;a href=&quot;http://gruntjs.com/&quot;&gt;Grunt&lt;/a&gt;, and there&amp;#39;s also &lt;a href=&quot;http://yeoman.io/&quot;&gt;Yeoman&lt;/a&gt; if you want to take it up to 11. Any project, big or small, can benefit from a great build and automation process. It&amp;#39;s better to get comfortable with one sooner rather than later.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;If you have a phobia of the command line as I used to, this also presents a great opportunity to face it: increased productivity.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3&gt;Let&amp;#39;s Get Modular&lt;/h3&gt;
+
+&lt;p&gt;Once you start thinking of your project&amp;#39;s assets in terms of components, you may want to use an AMD loader such as &lt;a href=&quot;http://requirejs.org&quot;&gt;RequireJS&lt;/a&gt;. The main benefit of AMD is conditional loading. As projects get more robust, you&amp;#39;re likely to run into the Great Wall of Dependencies. This is when your application becomes so complex as to muddle the order of your scripts, what dependencies you should call, and &lt;em&gt;when&lt;/em&gt; to call them. AMD loaders like RequireJS abstract most of these concerns by loading dependencies as modules. The beauty is that &lt;em&gt;anything&lt;/em&gt; can be a module. You&amp;#39;ll find out what this means in part 3.&lt;/p&gt;
+
+&lt;h2&gt;Here&amp;#39;s the Stinger&lt;/h2&gt;
+
+&lt;p&gt;The most vital point of component driven web design is maintainability. A well-kept home is more inviting to visitors. A well-kept codebase is more inviting to a team. This is why top developers recommend a uniform style guide for in-house and open source projects. This is why Grunt may fast become an industry standard. This is why you should never be without a version control system. All of these things contribute to the health of the project and overall sanity of the team.&lt;/p&gt;
+
+&lt;p&gt;Equally important is for components to be portable. They have a far greater shelf life than code that&amp;#39;s too tightly coupled to the base. If you find yourself in need of a similar solution later on, having a component to be used across projects can be a lifesaver. For example: if you write an excellent script for a complex problem, and you have any suspicion that you&amp;#39;ll run into that problem again, abstract it from the codebase and define it as a module. Improve it over time and let it find life in other projects.&lt;/p&gt;
+
+&lt;h2&gt;That&amp;#39;s Enough, Show Me the Code&lt;/h2&gt;
+
+&lt;p&gt;Parts 2, 3, and 4 will be a deep dive into component driven web design. I&amp;#39;ll walk you through a small project, using the principles above, from concept to completion. Naturally, the code will be archived in a Github repo as we go. I&amp;#39;d like to hear your thoughts on this, so don&amp;#39;t be shy. I&amp;#39;m already working on the second part, so stay tuned.&lt;/p&gt;
+
+&lt;p&gt;*[AMD]: Asynchronous Module Definition&lt;/p&gt;
+</content>
+ </entry>
+ 
+ 
+</feed>

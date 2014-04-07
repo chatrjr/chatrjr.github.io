@@ -1,28 +1,45 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>
+            
+                YACSSA (Yet Another CSS Architecture) &bull; ChatRJr's Desk
+            
+        </title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="description" content="This time, I'll share the way I've been structuring my CSS. Because we absolutely need another of those articles. :P" />
+        <meta name="author" content="Chatman Richmond Jr." />
+        <meta name="viewport" content="width=device-width" />
+        <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700|Roboto:400,400italic,700|Roboto+Slab:700,100' rel='stylesheet' type='text/css'>
+        
+            <link rel="stylesheet" href="/css/post.css" />
+        
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>YACSSA (Yet Another CSS Architecture)</title>
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <script src="//use.typekit.net/koi3hzo.js"></script>
-        <script type="text/javascript">
-          try{Typekit.load();}catch(e){}
-        </script>
         <!-- Custom CSS -->
         <link rel="stylesheet" href="/css/main.css">
     </head>
     <body>
         <div class="container">
           <header class="main-header">
-            <div class="logo hide-text"><a href="/">ChatRJr: Graphic Vagabond</a></div>
+            <a href="/" class="logo"><div class="hide-text">ChatRJr's Desk</div></a>
           </header>
 
-          <h2>YACSSA (Yet Another CSS Architecture)</h2>
-<p class="meta">22 Dec 2013</p>
+          <article class="post">
+  <h1 class="post-title">YACSSA (Yet Another CSS Architecture)</h1>
+  <div class="post-meta">
+  <span class="post-meta_date">
+    Date: 22 Dec 2013
+  </span>
+  <span class="post-meta_categories">
+    Topics: 
+  </span>
+  </div>
 
-<div class="post">
-<h2>Credit Where Credit is Due</h2>
+  <div class="post-body">
+  <h2>Credit Where Credit is Due</h2>
 
 <p>First off, I wouldn&#39;t have thought of this without <a href="http://coding.smashingmagazine.com/2013/08/02/other-interface-atomic-design-sass/">Robin Rendle&#39;s article on Smashing Magazine</a>. Additionally, I have to credit <a href="http://bradfrostweb.com/blog/post/atomic-web-design/">Brad Frost&#39;s Atomic Design methodology</a>, Yandex&#39;s BEM class syntax as well as Harry Roberts for <a href="http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/">making it digestible</a>, and <a href="https://github.com/stubbornella/oocss/wiki">Nicole Sullivan&#39;s OOCSS</a> along with <a href="http://smacss.com/">Jonathan Snook&#39;s SMACSS</a>. They made me think differently about structure, CSS, and transformed the way I build on the web. You should definitely check out those links.</p>
 
@@ -53,9 +70,7 @@
 <h2>Anatomy of YACSSA</h2>
 
 <p>As I said, I&#39;m going to explain the idea behind YACSSA through this site&#39;s CSS. Let&#39;s look at the whole directory tree first, and then break it down.</p>
-
-<p><div>
-    <pre><code class='bash'>..
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">..
 ├── main.css
 ├── post.css
 └── scss
@@ -83,79 +98,63 @@
     └── utilities
         ├── _layout.scss
         ├── _normalize.scss
-        └── _tweaks.scss</p>
+        └── _tweaks.scss
 
-<p>6 directories, 22 files</code></pre>
-  </div></p>
-
+6 directories, 22 files
+</code></pre></div>
 <p>The first thing you&#39;ll notice is a shitton of partials. These are globbed into Sass files that compile into the CSS that is actually called. Now, let&#39;s have a look at those directories.</p>
 
 <h3>Configuration</h3>
-
-<p><div>
-    <pre><code class='bash'>configuration
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">configuration
 ├── _grid.scss
 ├── _mixins.scss
 ├── _syntax.scss
-└── _variables.scss</p>
+└── _variables.scss
 
-<p>0 directories, 4 files</code></pre>
-  </div></p>
-
+0 directories, 4 files
+</code></pre></div>
 <p>The <code>configuration</code> directory contains all of the general properties and third-party styling that your site relies on. You define your variables, mixins, custom syntax for pygments (if you&#39;re using Jekyll), Prism.js or whatever. This site also uses the Singularity grid system, so I&#39;ve also included that. This directory holds the <strong>uniform settings for your project</strong>.</p>
 
 <h3>Utilities</h3>
-
-<p><div>
-    <pre><code class='bash'>utilities
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">utilities
 ├── _layout.scss
 ├── _normalize.scss
-└── _tweaks.scss</p>
+└── _tweaks.scss
 
-<p>0 directories, 3 files</code></pre>
-  </div></p>
-
+0 directories, 3 files
+</code></pre></div>
 <p>The <code>utilities</code> directory contains the basic plumbing of your site. That is, layout and structure, resets (though you could put that in configuration, too), other general classes, and hotfixes that come up during a project&#39;s lifetime. Unlike configuration, these files aren&#39;t likely to be removed or changed across pages.</p>
 
 <h3>Materials</h3>
-
-<p><div>
-    <pre><code class='bash'>materials
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">materials
 ├── _links.scss
 ├── _main.scss
 ├── _media.scss
-└── _text.scss</p>
+└── _text.scss
 
-<p>0 directories, 4 files</code></pre>
-  </div></p>
-
+0 directories, 4 files
+</code></pre></div>
 <p>The most general styling for your project goes in the <code>materials</code> directory. Here&#39;s where your defaults for text, media (images and video, <strong>not</strong> the media object), link styling, etc. would go. Basically, any CSS that <strong>uses tag selectors goes here</strong>.</p>
 
 <h3>Components</h3>
-
-<p><div>
-    <pre><code class='bash'>components
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">components
 ├── _blog.scss
 ├── _pagination.scss
-└── _post.scss</p>
+└── _post.scss
 
-<p>0 directories, 3 files</code></pre>
-  </div></p>
-
+0 directories, 3 files
+</code></pre></div>
 <p>Components are the bread and butter of many modern CSS architecture frameworks, and this one is no different (though it also isn&#39;t a framework). These are the modules that may be needed across pages. They are your post listings, image galleries, carousels, buttons, and comments. The pieces of <strong>semantic content you mix and match across pages</strong> are components. It might help to paste the markup in a comment to help new developers.</p>
 
 <h3>Structures</h3>
-
-<p><div>
-    <pre><code class='bash'>structures
+<div class="highlight"><pre><code class="bash language-bash" data-lang="bash">structures
 ├── _article.scss
 ├── _blogreel.scss
 ├── _footer.scss
-└── _header.scss</p>
+└── _header.scss
 
-<p>0 directories, 4 files</code></pre>
-  </div></p>
-
+0 directories, 4 files
+</code></pre></div>
 <p>The <code>structures</code> directory is for styling the sections of your pages that glue your components together and categorize them. That is, your headers, footers, sidebars, and wrapping classes. Basically, if you have a structure that <strong>wraps or groups components</strong>, the CSS would go here.</p>
 
 <h3>Augments?</h3>
@@ -165,14 +164,12 @@
 <h2>Page Files</h2>
 
 <p>These are what will be delivered to the browser. They have a table of contents, and then the import statements for all the other parts, going from general to specific. Here are the Sass files for the main and post templates for example.</p>
-
-<p><div>
-    <pre><code class='scss'>/**
+<div class="highlight"><pre><code class="scss language-scss" data-lang="scss">/**
  * Expletive Deleted - Main
  * Author: Chatman Richmond Jr.
  * Copyright: 2013
  * Version: 2.0.0
- <em>--------------------------------------------------------------
+ *--------------------------------------------------------------
  *
  * TABLE OF CONTENTS
  *    CONFIGURATION ===================== Configurable guidelines
@@ -195,55 +192,52 @@
  *      HEADER
  *      BLOGREEL
  *      FOOTER
- *</em>/</p>
+ **/
 
-<p>////////////////////
+////////////////////
 // $CONFIGURATION //
-////////////////////</p>
+////////////////////
 
-<p>@import &#39;configuration/variables&#39;;
-@import &#39;configuration/mixins&#39;;
-@import &#39;configuration/grid&#39;;</p>
+@import 'configuration/variables';
+@import 'configuration/mixins';
+@import 'configuration/grid';
 
-<p>/<em>==================</em>\
+/*==================*\
    $UTILITIES
-*==================*/</p>
+\*==================*/
 
-<p>@import &#39;utilities/normalize&#39;;
-@import &#39;utilities/layout&#39;;</p>
+@import 'utilities/normalize';
+@import 'utilities/layout';
 
-<p>/<em>==================</em>\
+/*==================*\
    $MATERIALS
-*==================*/</p>
+\*==================*/
 
-<p>@import &#39;materials/main&#39;;
-@import &#39;materials/text&#39;;
-@import &#39;materials/links&#39;;
-@import &#39;materials/media&#39;;</p>
+@import 'materials/main';
+@import 'materials/text';
+@import 'materials/links';
+@import 'materials/media';
 
-<p>/<em>==================</em>\
+/*==================*\
    $COMPONENTS
-*==================*/</p>
+\*==================*/
 
-<p>@import &#39;components/blog&#39;;
-@import &#39;components/pagination&#39;;</p>
+@import 'components/blog';
+@import 'components/pagination';
 
-<p>/<em>==================</em>\
+/*==================*\
    $STRUCTURES
-*==================*/</p>
+\*==================*/
 
-<p>@import &#39;structures/header&#39;;
-@import &#39;structures/blogreel&#39;;
-@import &#39;structures/footer&#39;;</code></pre>
-  </div></p>
-
-<p><div>
-    <pre><code class='scss'>/**
+@import 'structures/header';
+@import 'structures/blogreel';
+@import 'structures/footer';
+</code></pre></div><div class="highlight"><pre><code class="scss language-scss" data-lang="scss">/**
  * Expletive Deleted - Post
  * Author: Chatman Richmond Jr.
  * Copyright: 2013
  * Version: 2.0.0
- <em>--------------------------------------------------------------
+ *--------------------------------------------------------------
  *
  * TABLE OF CONTENTS
  *    CONFIGURATION ===================== Configurable guidelines
@@ -266,48 +260,47 @@
  *      HEADER
  *      ARTICLE
  *      FOOTER
- *</em>/</p>
+ **/
 
-<p>////////////////////
+////////////////////
 // $CONFIGURATION //
-////////////////////</p>
+////////////////////
 
-<p>@import &#39;configuration/variables&#39;;
-@import &#39;configuration/mixins&#39;;
-@import &#39;configuration/grid&#39;;
-@import &#39;configuration/syntax&#39;;</p>
+@import 'configuration/variables';
+@import 'configuration/mixins';
+@import 'configuration/grid';
+@import 'configuration/syntax';
 
-<p>/<em>==================</em>\
+/*==================*\
    $UTILITIES
-*==================*/</p>
+\*==================*/
 
-<p>@import &#39;utilities/normalize&#39;;
-@import &#39;utilities/layout&#39;;</p>
+@import 'utilities/normalize';
+@import 'utilities/layout';
 
-<p>/<em>==================</em>\
+/*==================*\
    $MATERIALS
-*==================*/</p>
+\*==================*/
 
-<p>@import &#39;materials/main&#39;;
-@import &#39;materials/text&#39;;
-@import &#39;materials/links&#39;;
-@import &#39;materials/media&#39;;</p>
+@import 'materials/main';
+@import 'materials/text';
+@import 'materials/links';
+@import 'materials/media';
 
-<p>/<em>==================</em>\
+/*==================*\
    $COMPONENTS
-*==================*/</p>
+\*==================*/
 
-<p>@import &#39;components/post&#39;;</p>
+@import 'components/post';
 
-<p>/<em>==================</em>\
+/*==================*\
    $STRUCTURES
-*==================*/</p>
+\*==================*/
 
-<p>@import &#39;structures/header&#39;;
-@import &#39;structures/article&#39;;
-@import &#39;structures/footer&#39;;</code></pre>
-  </div></p>
-
+@import 'structures/header';
+@import 'structures/article';
+@import 'structures/footer';
+</code></pre></div>
 <p>Notice that they only import the files they actually need which, again, prevents unused CSS and keeps the file size down.</p>
 
 <h2>Conclusion</h2>
@@ -316,7 +309,8 @@
 
 <p><a href="http://twitter.com/ChatRJr">Hit me up on Twitter</a> if you want to talk about it some more, especially if you noticed an oversight on my part.</p>
 
-</div>
+  </div>
+</article>
 
 
           <footer class="main-foot">
