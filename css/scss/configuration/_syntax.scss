@@ -41,7 +41,8 @@ pre[class*="language-"] {
 }
 
 /* Inline code */
-:not(pre) > code[class*="language-"] {
+:not(pre) > code[class*="language-"],
+:not(pre) > code {
   background: rgba($color-base, 0.15);
   border: none;
   border-radius: 0.3em;

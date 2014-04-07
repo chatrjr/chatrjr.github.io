@@ -3,17 +3,21 @@
 \*------------------*/
 
 h1, 
-h2 {
+h2,
+h3, {
   font-family: $font-headline;
-  font-weight: 900;
 }
 
+h1,
 h2 {
-  text-transform: none;
+  font-weight: 700;
 }
 
-h3,
+h3 {
+  color: $color-base;
+  font-weight: 100;
+}
 h4 {
   font-family: $font-body;
-  font-weight: 200;
+  font-weight: 400;
 }

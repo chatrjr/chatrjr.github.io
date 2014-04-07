@@ -4,11 +4,13 @@
 
 a {
   color: $color-base;
+  padding: 0.1em;
   text-decoration: none;
   transition: all 0.3s linear;
   &:hover,
   &:focus {
-    background: $color-base;
+    background-color: $color-base;
+    border-radius: 0.15em;
     color: $color-text-fill;
   }
 }

@@ -1,5 +1,11 @@
 .logo {
   background: url("../images/logo.png") no-repeat;
   background-size: contain;
+  display: block;
+  width: 20%;
   height: 3em;
+  &:hover,
+  &:focus {
+    background-color: transparent;
+  }
 }
