@@ -22,15 +22,16 @@ $brand-jsfiddle: #2795EE;
 
 $typecsset-base-font-size: 21px;
 $typecsset-base-line-height: 31.5px;
-$base-line-height: $typecsset-base-line-height;
-$typecsset-h1-size: 66.305px;
-$typecsset-h2-size: 49.741px;
-$typecsset-h3-size: 37.315px;
-$typecsset-h4-size: 27.933px;
+$typecsset-h1-size: 60px;
+$typecsset-h2-size: 48px;
+$typecsset-h3-size: 36px;
+$typecsset-h4-size: 24px;
+$typecsset-h5-size: 18px;
+$typecsset-h6-size: 16px;
 
-$font-body: 'jubilat';
-$font-headline: 'nimbus-sans-condensed';
-$font-source: 'anonymous-pro';
+$font-body: 'Roboto', sans-serif;
+$font-headline: 'Roboto Slab', serif;
+$font-source: 'Source Code Pro', monospace;
 
 /////////////
 // Borders //

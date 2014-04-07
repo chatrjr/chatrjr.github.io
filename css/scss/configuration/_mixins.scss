@@ -2,40 +2,50 @@
 // $MIXINS //
 /////////////
 
-/* Custom mixin to define typographic scale
-    Usage: @include size('l'); 
-*/
-@mixin size($font) {
-  @if $font == 'ginormous' {
-    @include typecsset-font-size(60px);
-  }
-  @if $font == 'xxl' {
-    @include typecsset-font-size(48px);
-  }
-  @if $font == 'xl' {
-    @include typecsset-font-size(36px);
-  }
-  
-  @if $font == 'l' {
-    @include typecsset-font-size(30px);
+// scale-to()
+// -------------------------------------
+// Custom mixin to adjust text according
+// to typographic scale.
+//   Usage: @include scale-to('h2'); 
+
+@mixin scale-to($font) {
+  @if $font == 'body' {
+    @include typecsset-font-size($typecsset-base-font-size);
   }
 
-  @if $font == 'm' {
-    @include typecsset-font-size(24px);
+  @if $font == 'hero' {
+    @include typecsset-font-size($typecsset-h1-size + 12);
   }
 
-  @if $font == 's' {
-    @include typecsset-font-size(21px);
+  @if $font == 'h1' {
+    @include typecsset-font-size($typecsset-h1-size);
   }
 
-  @if $font == 'xs' {
-    @include typecsset-font-size(18px);
+  @if $font == 'h2' {
+    @include typecsset-font-size($typecsset-h2-size);
   }
 
-  @if $font == 'xxs' {
-    @include typecsset-font-size(16px);
+  @if $font == 'h3' {
+    @include typecsset-font-size($typecsset-h3-size);
   }
-  @if $font == 'tiny' {
-    @include typecsset-font-size(14px);
+
+  @if $font == 'h4' {
+    @include typecsset-font-size($typecsset-h4-size);
+  }
+
+  @if $font == 'h5' {
+    @include typecsset-font-size($typecsset-h5-size);
+  }
+
+  @if $font == 'h6' {
+    @include typecsset-font-size($typecsset-h6-size);
+  }
+
+  @if $font == 'footnote' {
+    @include typecsset-font-size($typecsset-h6-size - 2);
+  }
+
+  @if $font == 'info' {
+    @include typecsset-font-size($typecsset-h6-size - 4);
   }
 }
