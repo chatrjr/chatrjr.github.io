@@ -1,3 +1,112 @@
 /*------------------*\
    $POST
 \*------------------*/
+
+.post {
+  margin: 0 auto;
+  width: 90%;
+  @include media(tiny) {
+    width: 100%;
+  }
+  @include media(small) {
+    width: 100%;
+  }
+  @include media(medium) {
+    width: 100%;
+  }
+}
+
+.post-title {
+  @include typecsset-font-size($typecsset-h1-size * 1.3);
+  background: $color-base;
+  color: $color-text-fill;
+  font-weight: 100;
+  margin-bottom: 0;
+  padding: 1em 0.5em;
+  text-align: center;
+  @include media(tiny) {
+    @include typecsset-font-size($typecsset-h1-size / 1.3);
+  }
+  @include media(small) {
+    @include typecsset-font-size($typecsset-h1-size / 1.3);
+  }
+}
+
+.post-meta {
+  text-align: right;
+}
+
+.post-meta_date {
+  @include typecsset-font-size($typecsset-h2-size / 1.5);
+  border-radius: 0 27px 20px 0;
+  font-family: $font-headline;
+  padding: 0.1em 0.3em;
+}
+
+.post-meta_topics {
+  background: $color-base;
+  color: $color-text-fill;
+  padding: 0.5em;
+}
+
+.post-body {
+  @include typecsset-font-size($typecsset-base-font-size / 1.05);
+  @include media(tiny) {
+    @include typecsset-font-size($typecsset-base-font-size * 1.05);
+  }
+  @include media(small) {
+    @include typecsset-font-size($typecsset-base-font-size * 1.05);
+  }
+  @include media(medium) {
+    @include typecsset-font-size($typecsset-base-font-size * 1.05);
+  }
+  margin-top: 1em;
+  h3 {
+    line-height: 1.5;
+  }
+
+  h4,
+  p {
+    line-height: 1.6;
+  }
+
+  h4 {
+    @include typecsset-font-size($typecsset-h4-size / 1.3);
+  }
+  // Heavy nesting ahead, avoid if possible.
+  ul:first-child {
+    border-left: $border-med $border-type $color-base;
+    list-style: none;
+    margin: 2em 0;
+    li {
+      margin: 0.5em 0;
+      a {
+        background: $color-base;
+        border-radius: 0 5px 5px 0;
+        color: $color-text-fill;
+        padding: 0.2em;
+      }
+      & > ul {
+        margin: 0.25em 0 0 1em;
+      }
+      & > ul li {
+        list-style: none;
+        a {
+          background: transparent;
+          color: $color-base;
+        }
+      }
+    }
+  }
+  blockquote {
+    background: lighten($color-base, 40);
+    font-family: $font-headline;
+    padding: 1em;
+    @include media(tiny) {
+      margin-left: 0;
+    }
+    & > p {
+      margin: 0;
+    }
+  }
+}
