@@ -7,10 +7,15 @@ description: "This is the online scratchpad of designer/developer: Chatman Richm
 
 <ul class="blogreel grid">
   {% for post in paginator.posts %}
-    <li class="articles node">
-      <span class="articles-date">{{ post.date | date_to_string }}</span>
-      <h1 class="articles-title"><a href="{{ post.url }}">{{ post.title }}</a></h1>
-      <p class="articles-excerpt">{{ post.excerpt }}</p>
+    <li class="articles grid golden">
+      <div class="articles-meta node">
+        <span class="articles-meta_date">{{ post.date | date_to_string }}</span>
+        <span class="articles-meta_tags">Topics: {{ post.tags | array_to_sentence_string }}</span>
+      </div>
+      <div class="articles-content node">
+        <h1 class="articles-content_title"><a href="{{ post.url }}" class="hover-reset">{{ post.title }}</a></h1>
+        <p class="articles-content_excerpt">{{ post.excerpt }}</p>
+      </div>
     </li>
   {% endfor %}
 </ul>

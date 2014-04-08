@@ -3,6 +3,10 @@ layout: post
 title: Single Responsibility BEM
 id: 002
 date: 2013-06-14
+tags:
+    - BEM
+    - OOCSS
+    - CSS architecture
 description: "Modular CSS is making waves in the community (excuse the cliche). I ended up gravitating toward the BEM class syntax for Object-Oriented CSS. In this post, I attempt to make it more complicated."
 excerpt: "Modular CSS is making waves in the community (excuse the cliche). I ended up gravitating toward the BEM class syntax for Object-Oriented CSS. In this post, I attempt to make it more complicated."
 ---

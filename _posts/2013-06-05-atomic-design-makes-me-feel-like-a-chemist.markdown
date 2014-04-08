@@ -3,6 +3,10 @@ layout: post
 title: "Atomic Design Makes Me Feel Like a Chemist"
 id: 001
 date: 2013-06-05
+tags:
+  - atomic design
+  - style tiles
+  - front-end architecture
 description: "Time to brush up on your chemistry with Atomic Design. This post introduces Brad Frost's methodology and Pattern Lab."
 excerpt: "Time to brush up on your chemistry with Atomic Design. This post introduces Brad Frost's methodology and Pattern Lab. I explain why it's an awesome approach going forward."
 ---

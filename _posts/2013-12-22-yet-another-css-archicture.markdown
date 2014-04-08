@@ -3,6 +3,10 @@ layout: post
 title: "YACSSA (Yet Another CSS Architecture)"
 id: 007
 date: 2013-12-22
+tags:
+    - CSS architecture
+    - workflow
+    - Sass
 description: "This time, I'll share the way I've been structuring my CSS. Because we absolutely need another of those articles. :P"
 excerpt: "This time, I'll share the way I've been structuring my CSS. Because we absolutely need another of those articles. :P This is YACSSA. Enjoy."
 ---

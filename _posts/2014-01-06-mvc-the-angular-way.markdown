@@ -3,6 +3,11 @@ layout: post
 title: "MVC: The Angular Way"
 id: 008
 date: 2014-01-06
+tags:
+    - AngularJS
+    - MVC
+    - experiments
+    - learning
 description: "Happy New Year! I'm diving into MVC frameworks. There are many options available from Backbone to Ember. I'm starting with AngularJS."
 excerpt: "Happy New Year! I'm diving into MVC frameworks. There are many options available from Backbone to Ember. I'm starting with AngularJS. Over the weekend, I learned some basic concepts of MVC and building with Angular. And then I made something silly."
 ---

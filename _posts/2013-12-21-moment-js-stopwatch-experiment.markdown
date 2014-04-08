@@ -3,6 +3,10 @@ layout: post
 title: "Moment.js Stopwatch"
 id: 006
 date: 2013-12-21
+tags:
+    - Moment.js
+    - JavaScript
+    - experiments
 description: "Here we go. Yet another JavaScript stopwatch. This one has a bit of a twist though."
 excerpt: "Here we go. Yet another JavaScript stopwatch. This one has a bit of a twist though. It's a very quick and dirty app that I made to possibly use within a larger one."
 ---

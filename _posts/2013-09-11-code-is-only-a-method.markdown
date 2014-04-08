@@ -3,6 +3,10 @@ layout: post
 title: Code is Only a Method
 id: 004
 date: 2013-09-11
+tags:
+    - philosophy
+    - growth
+    - reminders
 description: "As much as we love tooling our workflows to be more efficient, it's easy to forget sometimes that they are just tools. This includes the code itself."
 excerpt: "As much as we love tooling our workflows to be more efficient, it's easy to forget sometimes that they are just tools. This includes the code itself."
 ---

@@ -3,6 +3,9 @@ layout: post
 title: "$ clear"
 id: 009
 date: 2014-04-07
+tags:
+    - opinion
+    - personal shit
 description: "Dialing back the cleverness to get back to the problem solving."
 excerpt: "Dialing back the cleverness to get back to the problem solving. This is the end of my excuses, and the beginning of paying my dues. No more bullshit."
 ---

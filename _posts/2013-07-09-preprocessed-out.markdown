@@ -3,6 +3,10 @@ layout: post
 title: Preprocessed Out
 id: 003
 date: 2013-07-09
+tags:
+    - Sass
+    - tooling
+    - methodologies
 primary-language: scss
 description: "CSS preprocessors have gained some serious headway among designers, with Sass leading the pack. However, we should remember not everyone uses them or wants to use them. Understanding why they don't is critical in understanding why you do."
 excerpt: "CSS preprocessors have gained some serious headway among designers, with Sass leading the pack. However, we should remember not everyone uses them or wants to use them. Understanding why they don't is critical in understanding why you do."
