@@ -1,8 +1,8 @@
 /**
- * Chatman R. Jr Web - Main
+ * ChatRJr's Desk
  * Author: Chatman Richmond Jr.
  * Copyright: 2014
- * Version: 1.0.0
+ * Version: 1.0.0 (Seed)
  * --------------------------------------------------------------
  *
  * TABLE OF CONTENTS
@@ -20,14 +20,12 @@
  *      TEXT
  *      LINKS
  *      MEDIA
- *      FORMS
  *    COMPONENTS ======================== Modules, unique
+ *      ARTICLES
+ *      POST
  *    STRUCTURES ======================== Main site fixtures
  *      HEADER
- *      NAV
- *      SECTIONS
- *      FOOTER
- *    AUGMENTS ========================== States, JS-specific
+ *      BLOGREEL
  **/
 
 ////////////////////
@@ -55,55 +53,17 @@
 @import 'materials/text';
 @import 'materials/links';
 @import 'materials/media';
-@import 'materials/form';
 
 /*==================*\
    $COMPONENTS
 \*==================*/
 
-
+@import 'components/articles';
+@import 'components/post';
 
 /*==================*\
    $STRUCTURES
 \*==================*/
 
 @import 'structures/header';
-@import 'structures/nav';
-@import 'structures/sections';
-@import 'structures/footer';
-
-/*==================*\
-   $AUGMENTS
-\*==================*/
-
-// Form validation
-
-.is-Valid,
-.is-notValid {
-  border-left-width: $border-thick;
-}
-
-.is-Valid {
-  border-left-color: tint(lighten(green, 20), 50);
-}
-
-.is-notValid {
-  border-left-color: lighten(red, 20);
-}
-
-.js-feedback {
-  display: block;
-  font-weight: 400;
-  margin: 0.2em 0;
-  padding: 0.5em;
-}
-
-.js-error-message {
-  background: lighten(red, 20);
-}
-
-.js-processed {
-  @extend .js-feedback;
-  animation-duration: 3s;
-  clear: both;
-}
+@import 'structures/blogreel';
