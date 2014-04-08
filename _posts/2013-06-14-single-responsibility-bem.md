@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Single Responsibility BEM
+title: SRBEM (Single Responsibility BEM)
 id: 002
 date: 2013-06-14
 tags:

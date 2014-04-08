@@ -4,12 +4,12 @@ layout: default
 <article class="post">
   <h1 class="post-title">{{ page.title }}</h1>
   <div class="post-meta">
-  <span class="post-meta_date">
-    Date: {{ page.date | date_to_string }}
-  </span>
-  <span class="post-meta_topics">
-    Topics: {{ page.tags }}
-  </span>
+    <span class="post-meta_date span-block">
+      {{ page.date | date: '%m/%d/%Y' }}
+    </span>
+    <span class="post-meta_topics span-block">
+      {{ page.tags | array_to_sentence_string }}
+    </span>
   </div>
   {% if page.primary-language %}
   <div class="post-body language-{{ page.primary-language }}">

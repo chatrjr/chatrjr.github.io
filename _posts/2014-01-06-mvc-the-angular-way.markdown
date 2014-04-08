@@ -40,7 +40,7 @@ That's probably the the first thing you're wondering (if you didn't know already
 
 MVC is critical for building modern applications because it works on the idea that there should be a separation of concerns between the data the application accepts (Model), how the data is shown (View), and how it's changed (Controller). This approach would allow apps to easily grow with feature requests and bug fixes in ways that they couldn't if all those parts were intertwined.
 
-<div id="sketching-mvc"></div>
+<div id="sketch-mvc"></div>
 ## A Rough Sketch of MVC
 
 It's a bit more complicated than that, so it's example time! The following code is not representative of any MVC framework out there right now, it's only meant to illustrate the general structure.

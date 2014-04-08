@@ -11,12 +11,12 @@ description: "Here we go. Yet another JavaScript stopwatch. This one has a bit o
 excerpt: "Here we go. Yet another JavaScript stopwatch. This one has a bit of a twist though. It's a very quick and dirty app that I made to possibly use within a larger one."
 ---
 
-You might know [Moment.js](http://momentjs.com) as a widely used library for formatting and parsing dates. I found another novel use for its time setting features: a really simple stopwatch. Here's how I put it together.
-
 + [Markup (HTML)](#html)
 + [Style (CSS)](#css)
 + [Behavior (JS)](#js)
 + [Example](#sample)
+
+You might know [Moment.js](http://momentjs.com) as a widely used library for formatting and parsing dates. I found another novel use for its time setting features: a really simple stopwatch. Here's how I put it together.
 
 <div id="html"></div>
 ## First Ingredient: Markup
