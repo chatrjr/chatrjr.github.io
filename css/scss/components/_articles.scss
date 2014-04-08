@@ -1,3 +1,30 @@
 /*------------------*\
    $ARTICLES
 \*------------------*/
+
+.articles {
+  // background: lighten($color-base, 40);
+  // border-bottom: $border-thick $border-type $color-base;
+}
+
+.articles-meta_date {
+  @include scale-to(h3);
+  font-family: $font-headline;
+}
+
+.articles-meta_tags {
+  @include scale-to(h5);
+  background: $color-base;
+  color: $color-text-fill;
+  line-height: 1.5;
+  padding: 0.5em;
+}
+
+.articles-content {
+  border-left: $border-thick $border-type $color-base;
+  padding: 0 0.5em 0.5em 0.8em;
+}
+
+.articles-content_excerpt {
+  margin-bottom: 0;
+}

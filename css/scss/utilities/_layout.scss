@@ -14,7 +14,7 @@
 
 .container {
   margin: 0 auto;
-  max-width: 60em;
+  max-width: 50em;
   padding: 0 0.5em;
 
 }
@@ -32,19 +32,16 @@
 
 .node {
   @extend .grid;
+  margin-bottom: 0;
 }
 
-.halves {
-  .node {
+.golden {
+  .node:nth-child(1) {
+    float: left;
+    width: 100% - 61.804697157%;
   }
-}
-
-.quarters {
-  .node {
-  }
-}
-
-.eighths {
-  .node {
+  .node:nth-child(2) {
+    float: left;
+    width: 61.804697157%;
   }
 }
