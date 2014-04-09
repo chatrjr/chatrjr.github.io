@@ -7,10 +7,11 @@
 
 # THANKS
 
-    Daniel Eden for Animate.css. Huge help. (daneden.me)
-
     Everyone out there working to make the web better, for fueling
     my desire to create and share and learn. And the technology for
     giving me an outlet to do that.
 
 # TECHNOLOGY COLOPHON
+Jekyll, Sass, Normalize.css,
+Prism.js, Typecsset, Sublime Text
+GulpJS
