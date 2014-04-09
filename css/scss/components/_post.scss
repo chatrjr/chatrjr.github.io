@@ -93,7 +93,8 @@
 }
 
 .post-body_src {
-  background: rgba($color-base, 0.4);
+  background: lighten($color-base, 40);;
+  margin: $typecsset-base-line-height 0;
   padding: 0.5em;
   p {
     margin: 0;
