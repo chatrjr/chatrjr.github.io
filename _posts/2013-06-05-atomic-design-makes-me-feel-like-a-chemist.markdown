@@ -312,7 +312,6 @@ Molecules are essentially bonded atoms that create a new substance. On the web t
 
 ```markup
 <div class="block block-project">
-    
     <h2>New Project</h2>
     <p>A description of the project would go here, of course.</p>
 </div>
@@ -322,7 +321,6 @@ I've bonded an image, a heading, and a paragraph into a project molecule. I also
 
 ```markup
 <div class="block block-featured">
-    
     <div class="b-text">
         <h2 class="headline">Featured Project</h2>
         <p class="excerpt">A description of the project would go here, of course.</p>
