@@ -3,7 +3,8 @@ tagline: "Words, technology, and occasional breaks from reality."
 author: "Chatman Richmond Jr."
 markdown: redcarpet
 redcarpet:
-  extensions: ['smart']
+    extensions: 
+      - smart
 pygments: false
 exclude: ['.*', 'node_modules', '*.json', 'README.md', 'gulpfile.js', 'css/scss']
 paginate: 10
