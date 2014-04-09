@@ -8,10 +8,13 @@ tags:
     - MVC
     - experiments
     - learning
+src1: "http://jsfiddle.net/chatrjr/neCH7/"
+src2: "http://jsfiddle.net/chatrjr/Xz3hp/"
 description: "Happy New Year! I'm diving into MVC frameworks. There are many options available from Backbone to Ember. I'm starting with AngularJS."
 excerpt: "Happy New Year! I'm diving into MVC frameworks. There are many options available from Backbone to Ember. I'm starting with AngularJS. Over the weekend, I learned some basic concepts of MVC and building with Angular. And then I made something silly."
 ---
 
+> %post-body_toc%
 + [Obligatory Explanation of MVC](#mvc-explanation)
   + [MVC Philosophy](#mvc-philo)
 + [A Rough Sketch of MVC](#sketch-mvc)
@@ -30,27 +33,23 @@ excerpt: "Happy New Year! I'm diving into MVC frameworks. There are many options
 + [The Missing Ingredient: Routes](#routes)
 + [The Result](#result)
 
-<div id="mvc-explanation"></div>
-## Obligatory Explanation of MVC
+## [Obligatory Explanation of MVC](id:mvc-explanation)
 
-That's probably the the first thing you're wondering (if you didn't know already). <abbr title="Model-View-Controller">MVC</abbr> is a software pattern for building user interfaces that emerged from Smalltalk. It's a proven architecture for robust UIs that finally found its way to the web in the explosion of application frameworks that embody its principles along with a few offshoots. I'm talking about Backbone, Ember, Knockout, and the star of today's post: [AngularJS](http://angularjs.org/). Of course, that's just scratching the surface. Before we dive in with Angular, let's have a look at the ideas behind MVC and the problems it was intended to solve.
+That's probably the the first thing you're wondering (if you didn't know already). [MVC](abbr:Model-View-Controller) is a software pattern for building user interfaces that emerged from Smalltalk. It's a proven architecture for robust UIs that finally found its way to the web in the explosion of application frameworks that embody its principles along with a few offshoots. I'm talking about Backbone, Ember, Knockout, and the star of today's post: [AngularJS](http://angularjs.org/). Of course, that's just scratching the surface. Before we dive in with Angular, let's have a look at the ideas behind MVC and the problems it was intended to solve.
 
-<div id="mvc-philo"></div>
-### MVC Philosophy
+### [MVC Philosophy](id:mvc-philo)
 
 MVC is critical for building modern applications because it works on the idea that there should be a separation of concerns between the data the application accepts (Model), how the data is shown (View), and how it's changed (Controller). This approach would allow apps to easily grow with feature requests and bug fixes in ways that they couldn't if all those parts were intertwined.
 
-<div id="sketch-mvc"></div>
-## A Rough Sketch of MVC
+## [A Rough Sketch of MVC](id:sketch-mvc)
 
 It's a bit more complicated than that, so it's example time! The following code is not representative of any MVC framework out there right now, it's only meant to illustrate the general structure.
 
-<div id="model"></div>
-### Model
+### [Model](id:model)
 
 Let's say we have a database full of people that we want to use for a "Facebook-killer" social network. We don't need to use all of their data for the model, only the most relevant parts. The following is a model we might use for a profile page.
 
-```javascript
+```language-javascript
 // Let's assume there's an App namespace and that
 // a Person has already been attached as a Model.
 var App = App || {};
@@ -69,13 +68,11 @@ App.Model.Person = (function(data) {
 
 })('people.json');
 ```
-
-<div id="view"></div>
-### View
+### [View](id:view)
 
 A view is usually represented through a templating engine (either client or server side). Here is where you plug in your data. For the purpose of our example, let's say the template is written like this.
 
-```markup
+```language-markup
 <!> Mock templating language
 <>html
   <>head
@@ -105,7 +102,7 @@ A view is usually represented through a templating engine (either client or serv
 
 When the template is parsed, you end up with something like this.
 
-```markup
+```language-markup
 <!-- Mock templating language -->
 <html>
   <head>
@@ -157,7 +154,7 @@ When the template is parsed, you end up with something like this.
 
 A controller is responsible for application logic and data manipulation. As such, they are usually bound to the view they affect and are responsible only for that view. In our mock MVC framework, a controller might be written this way.
 
-```javascript
+```language-javascript
 App.Controller.UserProfile = (function(Person, ProfileView) {
 
   // Let's say App.Controller has a bind() method
@@ -175,17 +172,15 @@ App.Controller.UserProfile = (function(Person, ProfileView) {
 
 That's enough theory. Let's see how a real framework does it.
 
-<div id="angular-js"></div>
-## AngularJS: A Very Different Animal
+## [AngularJS: A Very Different Animal](id:angular-js)
 
-Of all that I've read about MVC and its derivatives, Angular is quite unique in its approach. It's a completely different architecture from "traditional" MVC like Backbone. The Angular team marks it as a <abbr title="Model-View-Mapper">MVM</abbr> framework, and it shows. The rest of this post will be about the silly thing I mentioned in the excerpt, as it helps show exactly how different yet __familiar__ it is to do things the Angular way.
+Of all that I've read about MVC and its derivatives, Angular is quite unique in its approach. It's a completely different architecture from "traditional" MVC like Backbone. The Angular team marks it as a [MVM](abbr:Model-View-Mapper) framework, and it shows. The rest of this post will be about the silly thing I mentioned in the excerpt, as it helps show exactly how different yet __familiar__ it is to do things the Angular way.
 
-<div id="angular-view"></div>
-## The Angular View
+## [The Angular View](id:angular-view)
 
-The first thing I should mention: if you've ever written HTML, then you already know how to build an Angular view. The framework extends natural markup with a ton of useful attributes. Angular has grown surprisingly hardy since its creation, trusted to power apps large and small despite its deceptively simple structure. Here's the view for my [Multiples Listing experiment](http://jsbin.com/ObijokUR/7/).
+The first thing I should mention: if you've ever written HTML, then you already know how to build an Angular view. The framework extends natural markup with a ton of useful attributes. Angular has grown surprisingly hardy since its creation, trusted to power apps large and small despite its deceptively simple structure. Here's the view for my [Multiples Listing experiment](http://jsfiddle.net/chatrjr/neCH7/).
 
-```markup
+```language-markup
 <div ng-app="App">
   <div ng-controller="MainCtrl">
     <h1>AngularJS Multiples Experiment.</h1>
@@ -206,7 +201,7 @@ The first thing I should mention: if you've ever written HTML, then you already 
     </form>
     <ul>
       <li class="boxes" ng-class="{divisible: (numbers[$index] % num.multiple === 0) ? true : false}" ng-repeat="number in numbers">
-        {{number}}
+        {% raw %}{{ number }}{% endraw %}
       </li>
     </ul>
   </div>
@@ -215,21 +210,17 @@ The first thing I should mention: if you've ever written HTML, then you already 
 
 See? An Angular view is an augmented HTML document. Nothing else. Let's have a look at some of these augments.
 
+## [Augmented Markup](id:augmented-markup)
 
-<div id="augmented-markup"></div>
-## Augmented Markup
-
-<div id="ng-app"></div>
-### ng-app
+### [ng-app](id:ng-app)
 
 The first notable change is the `ng-app` attribute. This lets Angular know where the app rests on your page. When you set it as an attribute of `<html>`, like I am, you're telling Angular the entire page is your app. Wrapping part of your page with `ng-app` is ideal if your website or app is managed by something else. This means you can have a dash of Angular with your Rails, for example.
 
-<div id="ng-controller"></div>
-### ng-controller
+### [ng-controller](id:ng-controller)
 
 The `<body>` element has the `ng-controller` attribute. Angular uses this to assign a controller's scope on the page to wrap its logic. My experiment only has one controller, `MainCtrl`, because it doesn't need to do too much. Building a controller in Angular isn't a chore either, especially if you're well-versed in the module pattern.
 
-```javascript
+```language-javascript
 // Best Practice: Set namespace of your app to
 // avoid pollution of the global scope.
 var App = angular.module('App', []);
@@ -274,26 +265,24 @@ App.controller('MainCtrl', function($scope) {
 });
 ```
 
-<div id="ng-model"></div>
-### ng-model
+### [ng-model](id:ng-model)
 
 This attribute allows you to bind values to elements in real-time. Angular maintains persistent state through two way binding. The `<input>` element in our view with `ng-model="num.multiple"` will update the list as you change it, while the one with `ng-model="num.limit"` attached will modify the size of your list.
 
-<div id="ng-event"></div>
-### ng-event
+### [ng-event](id:ng-event)
 
 What's old is new again. Angular binds events in a way that will look very familiar and worrisome, but there's nothing to fear. My little experiment has buttons that create and reset the table, respectively. The first button is bound to the `populate()` method defined in the controller, while the second is bound to `flush()`.
 
 Here's the view.
 
-```markup
+```language-markup
 <button ng-click="populate()">Create my table</button>
 <button ng-click="flush()">Reset</button>
 ```
 
 And the associated methods.
 
-```javascript
+```language-javascript
 $scope.populate = function() {
   $scope.numbers.length = 0;
   
@@ -309,38 +298,36 @@ $scope.flush = function() {
 };
 ```
 
-<div id="ng-repeat"></div>
-### ng-repeat
+### [ng-repeat](id:ng-repeat)
 
 This attribute allows Angular to loop through items in the list once it has been populated. And this will update every time we create a new list. It doesn't just work with arrays, it allows any collection of objects that can be iterated through. And then you can output the value with either `ng-bind=value` or the double bracket syntax.
 
-<div id="ng-class"></div>
-### ng-class 
+### [ng-class](id:ng-class)
 
 The final ingredient was to figure out a way to update an item with a special class. Angular supplies the `ng-class` for conditional application of classes. In this case, I wanted to highlight the numbers that are multiples of the first input, that is, by checking that the modulus of that number equals 0.
 
-```markup
+```language-markup
 <li class="boxes" ng-class="{divisible: (numbers[$index] % num.multiple === 0) ? true : false}" ng-repeat="number in numbers">
-  {{number}}
+  {% raw %}{{number}}{% endraw %}
 </li>
 ```
 
 When it does, the `.divisible` class is applied to that item and highlights it as a multiple.
 
-<div id="routes"></div>
-## The Missing Ingredient: Routes
+## [The Missing Ingredient: Routes](id:routes)
 
 When MVC came to the web, another special ingredient was added to leverage the power of links. As a result, web apps have shareable URLs that preserve state. This routing allows a web app to apply certain functionality across views in a simple, readable way. And this is arguably their biggest advantage over native apps. My experiment was way too simple to need routing, but don't underestimate the power of this valuable tool.
 
-<div id="result"></div>
-## The Result 
+## [The Result](id:result)
 
 This was a really long post, and I might have tried to do too much. Here's the finished app, if you want to play with it. Also, my understanding of MVC isn't complete, so I urge you to let me know if I've made some mistakes in explaining it. And especially if I got it completely wrong. See ya later, web people!
 
-<iframe width="100%" height="400" src="http://jsfiddle.net/chatrjr/neCH7/embedded/result,html,js/presentation/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+> %post-body_src%
+Multiples Experiment: [{{ page.src1 }}]({{ post.src1 }})
 
 ## Bonus
 
 This is another implementation of the multiples list that live updates from inputs. No buttons necessary. You're welcome to compare performance.
 
-<iframe width="100%" height="400" src="http://jsfiddle.net/chatrjr/Xz3hp/embedded/result,html,js/presentation/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+> %post-body_src%
+Multiples Experiment (Live Updating): [{{ page.src2 }}]({{ page.src2 }})

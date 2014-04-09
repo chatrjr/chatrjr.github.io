@@ -32,20 +32,28 @@
 
 .node {
   @extend .grid;
+  float: left;
   margin-bottom: 0;
 }
 
 .golden {
   .node:nth-child(1) {
-    float: left;
     width: 100% - 61.804697157%;
     @include media(tiny) {
       width: 100%;
     }
   }
   .node:nth-child(2) {
-    float: left;
     width: 61.804697157%;
+    @include media(tiny) {
+      width: 100%;
+    }
+  }
+}
+
+.halves {
+  .node {
+    width: 50%;
     @include media(tiny) {
       width: 100%;
     }

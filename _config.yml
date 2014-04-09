@@ -5,9 +5,10 @@ markdown: rdiscount
 rdiscount:
     extensions:
         - smart
+        - filter_html
 pygments: false
 exclude: ['.*', 'node_modules', '*.json', 'README.md', 'gulpfile.js', 'css/scss']
 paginate: 10
 permalink: /:year/:month/:title/
-production_url: http://www.chatrjr.name
+production_url: http://chatrjr.name
 excerpt_separator: "d596aa409dbcf4bf9d9d57252304a921bd02e3fc"

@@ -7,10 +7,12 @@ tags:
     - Moment.js
     - JavaScript
     - experiments
+primary-language: css
+src: "http://jsfiddle.net/chatrjr/LaAzg/embedded/result/"
 description: "Here we go. Yet another JavaScript stopwatch. This one has a bit of a twist though."
 excerpt: "Here we go. Yet another JavaScript stopwatch. This one has a bit of a twist though. It's a very quick and dirty app that I made to possibly use within a larger one."
 ---
-
+> %post-body_toc%
 + [Markup (HTML)](#html)
 + [Style (CSS)](#css)
 + [Behavior (JS)](#js)
@@ -18,10 +20,9 @@ excerpt: "Here we go. Yet another JavaScript stopwatch. This one has a bit of a 
 
 You might know [Moment.js](http://momentjs.com) as a widely used library for formatting and parsing dates. I found another novel use for its time setting features: a really simple stopwatch. Here's how I put it together.
 
-<div id="html"></div>
-## First Ingredient: Markup
+## [First Ingredient: Markup](id:html)
 
-```markup
+```language-markup
 <div class="stopwatch" id="stopwatch">
     <div id="time-container" class="container"></div>
     <button class="button" id="start">Start</button>
@@ -31,10 +32,9 @@ You might know [Moment.js](http://momentjs.com) as a widely used library for for
 
 There's nothing crazy here, so I won't dwell on it. Just wrapping the whole app with a `.stopwatch` class, setting a container for the time, and simple `#start` and `#stop` controls.
 
-<div id="css"></div>
-## Second Ingredient: Style
+## [Second Ingredient: Style](id:css)
 
-```css
+```language-css
 *,
 *:before,
 *:after, {
@@ -104,10 +104,9 @@ body {
 
 Nothing here to write home about. Just a simple layout.
 
-<div id="js"></div>
-## Third Ingredient: Behavior
+## [Third Ingredient: Behavior](id:js)
 
-```javascript
+```language-javascript
 var AppStopwatch = (function () {
     var counter = 0,
         $stopwatch = {
@@ -146,11 +145,11 @@ AppStopwatch.$stop.addEventListener('click', AppStopwatch.stopClock, false);
 
 There's the whole shebang, now let's dissect it.
 
-### <abbr title="Immediately Invoked Function Expression">IIFE</abbr>
+### [IIFE](abbr:Immediately Invoked Function Expression)
 
 The very first thing we do is set one global namespace `AppStopwatch` and assign an IIFE. This will contain configuration for the app.
 
-```javascript
+```language-javascript
 // Wraps our app and prevents pollution of the 
 // hosting environment. That is, the browser in this case.
 
@@ -160,7 +159,7 @@ var AppStopwatch = (function () {
 
 ### Set Variables
 
-```javascript
+```language-javascript
     var counter = 0, // to be incremented
         // collection of DOM elements
         $stopwatch = {
@@ -177,7 +176,7 @@ Now what we want to do is set a `counter` to increment and wrap a collection of 
 
 ### displayTime()
 
-```javascript
+```language-javascript
     function displayTime() {
         $stopwatch.container.innerHTML = moment().hour(0).minute(0).second(counter++).format('HH : mm : ss');
     }
@@ -195,7 +194,7 @@ Finally, the last method sets the formatting of our display.
 
 ### startWatch()
 
-```javascript
+```language-javascript
     function startWatch() {
         runClock = setInterval(displayTime, 1000);
     }
@@ -205,7 +204,7 @@ All this function does is set our `runClock` variable to set an interval which r
 
 ### stopWatch()
 
-```javascript
+```language-javascript
     function stopWatch() {
         clearInterval(runClock);
     }
@@ -215,7 +214,7 @@ Clearing our `runClock` interval stops the watch.
 
 ### return
 
-```javascript
+```language-javascript
     return {
         startClock: startWatch,
         stopClock: stopWatch,
@@ -228,19 +227,19 @@ Now we want to return an object to expose to the environment. The properties are
 
 ### Events
 
-```javascript
+```language-javascript
 AppStopwatch.$start.addEventListener('click', AppStopwatch.startClock, false);
 AppStopwatch.$stop.addEventListener('click', AppStopwatch.stopClock, false);
 ```
 
 Outside of the IIFE, we set the actual behavior of our app. Our `#start` and `#stop` buttons are tied to event listeners that we execute when clicked.
 
-<div id="sample"></div>
-## Result
+## [Result](id:sample)
 
 All that done, we get the finished app.
 
-<iframe width="100%" height="300" src="http://jsfiddle.net/chatrjr/LaAzg/embedded/result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+> %post-body_src%
+Moment.js Stopwatch: [{{ page.src }}]({{ post.src }})
 
 ## Extra
 

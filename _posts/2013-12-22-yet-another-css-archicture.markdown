@@ -7,6 +7,7 @@ tags:
     - CSS architecture
     - workflow
     - Sass
+primary-language: bash
 description: "This time, I'll share the way I've been structuring my CSS. Because we absolutely need another of those articles. :P"
 excerpt: "This time, I'll share the way I've been structuring my CSS. Because we absolutely need another of those articles. :P This is YACSSA. Enjoy."
 ---
@@ -17,7 +18,7 @@ First off, I wouldn't have thought of this without [Robin Rendle's article on Sm
 
 ## What is YACSSA?
 
-<abbr title="Yet Another CSS Architecture">YACSSA</abbr> is a mashup of the lessons I took from the above approaches. I call it YACSSA because there are already a lot of ways to structure CSS, and I'm just adding to the pool. There's nothing especially new here, the core of YACSSA is in its file structure. It's made of a few set directories with their own job. To illustrate how YACSSA works, I'm going to use this very blog's CSS.
+<[YACSSA](abbr:Yet Another CSS Architecture) is a mashup of the lessons I took from the above approaches. I call it YACSSA because there are already a lot of ways to structure CSS, and I'm just adding to the pool. There's nothing especially new here, the core of YACSSA is in its file structure. It's made of a few set directories with their own job. To illustrate how YACSSA works, I'm going to use this very blog's CSS.
 
 ## Benefits of YACSSA
 
@@ -43,7 +44,7 @@ YACSSA is fragmented by design. It's made to let you add and remove parts at wil
 
 As I said, I'm going to explain the idea behind YACSSA through this site's CSS. Let's look at the whole directory tree first, and then break it down.
 
-```bash
+```language-bash
 ..
 ├── main.css
 ├── post.css
@@ -81,7 +82,7 @@ The first thing you'll notice is a shitton of partials. These are globbed into S
 
 ### Configuration
 
-```bash
+```language-bash
 configuration
 ├── _grid.scss
 ├── _mixins.scss
@@ -95,7 +96,7 @@ The `configuration` directory contains all of the general properties and third-p
 
 ### Utilities
 
-```bash
+```language-bash
 utilities
 ├── _layout.scss
 ├── _normalize.scss
@@ -108,7 +109,7 @@ The `utilities` directory contains the basic plumbing of your site. That is, lay
 
 ### Materials
 
-```bash
+```language-bash
 materials
 ├── _links.scss
 ├── _main.scss
@@ -122,7 +123,7 @@ The most general styling for your project goes in the `materials` directory. Her
 
 ### Components
 
-```bash
+```language-bash
 components
 ├── _blog.scss
 ├── _pagination.scss
@@ -135,7 +136,7 @@ Components are the bread and butter of many modern CSS architecture frameworks, 
 
 ### Structures
 
-```bash
+```language-bash
 structures
 ├── _article.scss
 ├── _blogreel.scss
@@ -155,7 +156,7 @@ Missing from this project is the `augments` directory, because I didn't need it.
 
 These are what will be delivered to the browser. They have a table of contents, and then the import statements for all the other parts, going from general to specific. Here are the Sass files for the main and post templates for example.
 
-```scss
+```language-scss
 /**
  * Expletive Deleted - Main
  * Author: Chatman Richmond Jr.
@@ -226,7 +227,7 @@ These are what will be delivered to the browser. They have a table of contents, 
 @import 'structures/footer';
 ```
 
-```scss
+```language-scss
 /**
  * Expletive Deleted - Post
  * Author: Chatman Richmond Jr.

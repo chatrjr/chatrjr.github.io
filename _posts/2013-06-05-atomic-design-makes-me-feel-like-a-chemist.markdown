@@ -44,7 +44,7 @@ Of course, the client probably won't be able to make much of it, but it can be a
 
 Atomic Design is a realization of designing from components. The methodology has five distinct parts and combines a few of the design systems we've talked about. These parts go from general to the most specific. All under the context of chemistry. We're going to go through pattern lab, a tool released to complement the Atomic Design methodology. [Pattern Lab](https://github.com/bradfrost/patternlab) is an intentionally incomplete hub for your projects. It has a ton of stuff already in it, but Brad wanted it to be easy to extend. It's not a framework, rather it's a launchpad for getting started with Atomic Design systems. It's non-prescriptive and doesn't come with much preset styling. As Brad said in the talk:
 
-> "Do that shit yourself."
+> Do that shit yourself.
 
 Now let's dive into the code.
 
@@ -52,7 +52,7 @@ Now let's dive into the code.
 
 First of all, take note of Pattern Lab's directory tree. This is rather important.
 
-```bash
+```language-bash
 /var/www/patternlab
 ├── css
 │   ├── scss
@@ -246,7 +246,7 @@ Now let's have a look at `functions.php`. If you're planning on setting up Patte
 
 I guess the way my dev environment is configured made `$root` lack the trailing backslash, which is why I had to include it in the latter two variables before Pattern Lab would work properly. You may not have to do that, just be aware of it. If you don't know much PHP, don't worry. The most relevant part is this function:
 
-```clike
+```language-clike
 <?php 
 
 $root = $_SERVER['DOCUMENT_ROOT']; 
@@ -310,16 +310,16 @@ Atoms are the building blocks of our universe. On the web they are individual HT
 
 Molecules are essentially bonded atoms that create a new substance. On the web this can be an unordered list that has bonded with a element to become a menu. In playing around with Pattern Lab, I built two additional molecules. All you have to do is create a file in the category you think is most relevant. In my case that was `02-Blocks`. This is what's in `06-Block-Project.php`:
 
-```markup
+```language-markup
 <div class="block block-project">
     <h2>New Project</h2>
     <p>A description of the project would go here, of course.</p>
 </div>
 ```
 
-I've bonded an image, a heading, and a paragraph into a project molecule. I also created a featured project molecule from bonding them in a different way, such as this:
+I've bound an image, a heading, and a paragraph to a project molecule. I also created a featured project molecule from bonding them in a different way, such as this:
 
-```markup
+```languge-markup
 <div class="block block-featured">
     <div class="b-text">
         <h2 class="headline">Featured Project</h2>
@@ -336,7 +336,7 @@ Organisms are created from a complex system of molecules bonding into even more 
 
 Notice how the chemistry terms end here. That's because we're getting into the parts that the client will see. In the `03-Templates` folder, I created `03-Portfolio.php`, and that looks like this:
 
-```markup
+```language-markup
 <div class="g g-5up">
     <div class="gi"></div>
 </div>
@@ -357,8 +357,6 @@ From different components I built that portfolio template. The beauty of Pattern
 ### 04-Pages
 
 Pages are self-explanatory: they are the templates given context. In other words, they're the website in all its glory. I had to create the folder myself in Pattern Lab, but that was likely the expectation. There's still a lot to play with here, and I'm going to dive into it over the weekend. Also, if you're curious, this is the result of my screwing around.
-
-
 
 ![Pattern Lab Page](/post-images/pattern-lab-project-page.jpg)
 
