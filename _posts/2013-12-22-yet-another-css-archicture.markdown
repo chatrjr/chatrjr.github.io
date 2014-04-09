@@ -18,7 +18,7 @@ First off, I wouldn't have thought of this without [Robin Rendle's article on Sm
 
 ## What is YACSSA?
 
-<[YACSSA](abbr:Yet Another CSS Architecture) is a mashup of the lessons I took from the above approaches. I call it YACSSA because there are already a lot of ways to structure CSS, and I'm just adding to the pool. There's nothing especially new here, the core of YACSSA is in its file structure. It's made of a few set directories with their own job. To illustrate how YACSSA works, I'm going to use this very blog's CSS.
+[YACSSA](abbr:Yet Another CSS Architecture) is a mashup of the lessons I took from the above approaches. I call it YACSSA because there are already a lot of ways to structure CSS, and I'm just adding to the pool. There's nothing especially new here, the core of YACSSA is in its file structure. It's made of a few set directories with their own job. To illustrate how YACSSA works, I'm going to use this very blog's CSS.
 
 ## Benefits of YACSSA
 
