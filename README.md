@@ -9,3 +9,4 @@ My personal site. Version 1 is called Seed as I've planted the foundation to all
 + [Gulp](http://gulpjs.com)
 + [Grumpicon](http://grumpicon.com)
 + [Typecsset](https://github.com/csswizardry/typecsset)
++ [Prism.js](http://prismjs.com)
