@@ -4,8 +4,8 @@ My personal site. Version 1 is called Seed as I've planted the foundation to all
 
 ## Built with:
 
-[Jekyll](http://jekyllrb.com)
-[Sass](http://sass-lang.com)
-[Gulp](http://gulpjs.com)
-[Grumpicon](http://grumpicon.com)
-[Typecsset](https://github.com/csswizardry/typecsset)
++ [Jekyll](http://jekyllrb.com)
++ [Sass](http://sass-lang.com)
++ [Gulp](http://gulpjs.com)
++ [Grumpicon](http://grumpicon.com)
++ [Typecsset](https://github.com/csswizardry/typecsset)
