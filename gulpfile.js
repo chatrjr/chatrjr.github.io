@@ -29,22 +29,6 @@ gulp.task('css', function() {
     .pipe(notify({ message: 'CSS has been compiled' }));
 });
 
-gulp.task('deps', function() {
-  var scripts_dir = gulp.dest('js/');
-  return gulp.src([
-    'js/vendor/FitText.js/*.js',
-    'js/vendor/Lettering.js/*.js',
-    'js/vendor/Flowtype.js/*.js'
-    ])
-    .pipe(concat('typography.js'))
-    .pipe(scripts_dir)
-    .pipe(uglify())
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(scripts_dir)
-    .pipe(livereload(server))
-    .pipe(notify({ message: 'Typography tools ready' }))
-});
-
 gulp.task('images', function() {
   return gulp.src(['images/**/*', 'post-images/**/*'])
     .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
@@ -73,9 +57,6 @@ gulp.task('server', function() {
 
     // Watch .scss files
     gulp.watch('css/scss/**/*.scss', ['css']);
-
-    // Watch .js files
-    gulp.watch('js/*.js', ['deps']);
 
     // Watch image files
     gulp.watch(['images/**/*', 'post-images/**/*'], ['images']);

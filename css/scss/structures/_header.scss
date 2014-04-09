@@ -1,7 +1,24 @@
+.main-head {
+  margin:0 0 1em 0;
+}
+
 .logo {
-  background: url("../images/logo.png") no-repeat;
   background-size: contain;
   display: block;
-  width: 20%;
+  float: left;
+  width: 6em;
   height: 3em;
+}
+
+.comm-info {
+  background: lighten($color-base, 40);
+  float: right;
+}
+
+.icon {
+  background-size: contain;
+  display: inline-block;
+  margin: 0.5em;
+  width: 2em;
+  height: 2em;
 }

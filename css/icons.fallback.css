@@ -1,0 +1,24 @@
+.icon-codepen {
+	background-image: url('png/codepen.png');
+	background-repeat: no-repeat;
+}
+.icon-feed {
+	background-image: url('png/feed.png');
+	background-repeat: no-repeat;
+}
+.icon-github {
+	background-image: url('png/github.png');
+	background-repeat: no-repeat;
+}
+.icon-jsfiddle {
+	background-image: url('png/jsfiddle.png');
+	background-repeat: no-repeat;
+}
+.icon-logo {
+	background-image: url('png/logo.png');
+	background-repeat: no-repeat;
+}
+.icon-twitter {
+	background-image: url('png/twitter.png');
+	background-repeat: no-repeat;
+}
