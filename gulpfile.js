@@ -43,7 +43,7 @@ gulp.task('html', function() {
     .pipe(notify({ message: 'Changes logged. Reloading.' }));
 });
 
-gulp.task('default', ['css', 'deps', 'images', 'server'], function() {
+gulp.task('default', ['css', 'images', 'server'], function() {
 });
 
 // Watch
