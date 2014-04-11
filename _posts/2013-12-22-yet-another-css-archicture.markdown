@@ -14,6 +14,8 @@ excerpt: "This time, I'll share the way I've been structuring my CSS. Because we
 
 ## Credit Where Credit is Due
 
+UPDATE: The code in this post actually references my old blog's source, which I've archived. You can check out [Expletive Deleted's source on GitHub](http://github.com/chatrjr/expletive-deleted).
+
 First off, I wouldn't have thought of this without [Robin Rendle's article on Smashing Magazine](http://coding.smashingmagazine.com/2013/08/02/other-interface-atomic-design-sass/). Additionally, I have to credit [Brad Frost's Atomic Design methodology](http://bradfrostweb.com/blog/post/atomic-web-design/), Yandex's BEM class syntax as well as Harry Roberts for [making it digestible](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/), and [Nicole Sullivan's OOCSS](https://github.com/stubbornella/oocss/wiki) along with [Jonathan Snook's SMACSS](http://smacss.com/). They made me think differently about structure, CSS, and transformed the way I build on the web. You should definitely check out those links.
 
 ## What is YACSSA?
