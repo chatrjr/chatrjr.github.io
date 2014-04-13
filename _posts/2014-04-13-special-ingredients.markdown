@@ -53,7 +53,7 @@ My dad makes this baked mac & cheese from scratch that will knock you off your f
 
 > I guess I’m begging you, dear reader, to try something more bespoke next time. Put away the boxed food, break out the fry pans and make something a little unique… even overcooked or a little burnt there’s flavor in the character.
 
-My dad insists on a certain type of macaroni; he insists on a certain cheeses. And he's very particular about the way it's cooked. Hovers over it, even. And it takes an hour or two to bake. You can tell when he cares about what he's cooking. The smoke detector will let you know when he doesn't.
+My dad insists on a certain type of macaroni; he insists on certain cheeses. And he's very particular about the way it's cooked. Hovers over it, even. And it takes an hour or two to bake. You can tell when he cares about what he's cooking. The smoke detector will let you know when he doesn't.
 
 Differences in personalities mean that nothing we cook will taste the same when someone else cooks it. Even if it's the same dish. Our taste lives in homemade meals. 
 
