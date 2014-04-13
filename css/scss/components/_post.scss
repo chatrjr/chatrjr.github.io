@@ -79,7 +79,8 @@
     @include typecsset-font-size($typecsset-h4-size / 1.3);
   }
   blockquote {
-    background: lighten($color-base, 40);
+    background: lighten($color-base, 41);
+    color: black;
     font-family: $font-headline;
     font-weight: 100;
     padding: 1em;
