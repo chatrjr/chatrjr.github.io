@@ -23,20 +23,6 @@ sitemap:
   {% endfor %}
 </ul>
 </main>
-<ul class="blogreel grid">
-  {% for post in paginator.posts %}
-    <li class="articles grid golden">
-      <div class="articles-meta node">
-        <span class="articles-meta_date span-block">{{ post.date | date: '%m/%d/%Y' }}</span>
-        <span class="articles-meta_tags span-block"><span class="articles-meta_accent">Topics:</span> {{ post.tags | array_to_sentence_string }}</span>
-      </div>
-      <div class="articles-content node">
-        <h1 class="articles-content_title"><a href="{{ post.url }}" class="hover-reset">{{ post.title }}</a></h1>
-        <p class="articles-content_excerpt">{{ post.excerpt | markdownify }}</p>
-      </div>
-    </li>
-  {% endfor %}
-</ul>
 
 {% if paginator.total_pages > 1 %}
 <div class="pagination">
