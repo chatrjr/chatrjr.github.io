@@ -323,7 +323,7 @@ When MVC came to the web, another special ingredient was added to leverage the p
 This was a really long post, and I might have tried to do too much. Here's the finished app, if you want to play with it. Also, my understanding of MVC isn't complete, so I urge you to let me know if I've made some mistakes in explaining it. And especially if I got it completely wrong. See ya later, web people!
 
 > %post-body_src%
-Multiples Experiment: [{{ page.src1 }}]({{ post.src1 }})
+Multiples Experiment: [{{ page.src1 }}]({{ page.src1 }})
 
 ## Bonus
 
