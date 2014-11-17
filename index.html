@@ -17,7 +17,7 @@ sitemap:
       </div>
       <div class="articles-content node">
         <h1 class="articles-content_title"><a href="{{ post.url }}" class="hover-reset">{{ post.title }}</a></h1>
-        <p class="articles-content_excerpt">{{ post.excerpt | markdownify }}</p>
+        <div class="articles-content_excerpt">{{ post.excerpt | markdownify }}</div>
       </div>
     </li>
   {% endfor %}

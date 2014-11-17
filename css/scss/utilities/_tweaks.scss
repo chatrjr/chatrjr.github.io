@@ -8,10 +8,11 @@
   overflow: hidden;
 }
 
+.hover-reset,
 .hover-reset:hover,
 .hover-reset:focus {
   background-color: transparent;
-  color: $color-base;
+  color: $color-text-fill;
 }
 
 .span-block {
