@@ -31,6 +31,9 @@
     @include scale-to(h3);
     line-height: 1.3;
   }
+  a {
+    color: $color-text-fill;
+  }
 }
 
 .articles-content_excerpt {

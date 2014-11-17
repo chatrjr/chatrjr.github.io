@@ -8,11 +8,9 @@
   overflow: hidden;
 }
 
-.hover-reset,
 .hover-reset:hover,
 .hover-reset:focus {
-  background-color: transparent;
-  color: $color-text-fill;
+  font-weight: inherit;
 }
 
 .span-block {

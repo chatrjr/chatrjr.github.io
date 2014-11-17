@@ -4,13 +4,14 @@
 
 a {
   color: $color-base;
-  padding: 0.1em;
+  padding: 0 0 0.05em 0;
   text-decoration: none;
-  transition: all 0.3s linear;
+  &:visited {
+    border-bottom: $border-hairline $border-type $color-base;
+    color: $color-text;
+  }
   &:hover,
   &:focus {
-    background-color: $color-base;
-    border-radius: 0.15em;
-    color: $color-text-fill;
+    font-weight: 900;
   }
 }

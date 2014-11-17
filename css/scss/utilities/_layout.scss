@@ -37,13 +37,13 @@
 }
 
 .golden {
-  .node:nth-child(1) {
+  .node.sec-col {
     width: 100% - 61.804697157%;
     @include media(tiny) {
       width: 100%;
     }
   }
-  .node:nth-child(2) {
+  .node.prime-col {
     width: 61.804697157%;
     @include media(tiny) {
       width: 100%;

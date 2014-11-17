@@ -102,6 +102,7 @@
 // Heavy nesting ahead, avoid if possible.
 .post-body_toc ul:first-child {
   border-left: $border-med $border-type $color-base;
+  font-weight: 400;
   list-style: none;
   margin: 2em 0;
   li {
@@ -110,6 +111,10 @@
       background: $color-base;
       color: $color-text-fill;
       padding: 0.2em 0.3em;
+      &:hover,
+      &:focus {
+        @extend .hover-reset;
+      }
     }
     & > ul {
       margin: 0.25em 0 0 1em;
@@ -136,11 +141,6 @@
   p {
     margin: 0;
   }
-  a:hover,
-  a:focus {
-    @extend .hover-reset;
-    color: $color-base;
-  }
 }
 
 .post-body-cap {
@@ -160,6 +160,7 @@
 
 .post-nav {
   border-top: $border-hairline $border-type $color-base;
+  font-weight: 700;
   margin-top: 1em;
   padding-top: 0.5em;
 }
@@ -173,8 +174,10 @@
 
 .post-nav_link {
   @include typecsset-font-size($typecsset-h5-size * 1.5);
-  @extend .hover-reset;
   display: block;
-  font-weight: 700;
   padding: 0.5em;
+  &:hover,
+  &:focus {
+    @extend .hover-reset;
+  }
 }
