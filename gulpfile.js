@@ -25,15 +25,13 @@ gulp.task('css', function() {
     .pipe(autoprefix())
     .pipe(minify(opts))
     .pipe(css_dir)
-    .pipe(livereload(server))
-    .pipe(notify({ message: 'CSS has been compiled' }));
+    .pipe(livereload(server));
 });
 
 gulp.task('images', function() {
   return gulp.src(['images/**/*', 'post-images/**/*'])
     .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
-    .pipe(livereload(server))
-    .pipe(notify({ message: 'Images task complete' }));
+    .pipe(livereload(server));
 });
 
 // Dummy task to watch for Liquid template changes
