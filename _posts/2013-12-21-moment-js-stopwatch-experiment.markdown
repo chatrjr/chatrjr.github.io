@@ -100,7 +100,7 @@ body {
 }
 ```
 
-<i>Note: The CSS is unprefixed for convenience. Naturally, you would want to use them where needed, but I recommend checking out [Autoprefixer](https://github.com/ai/autoprefixer) or [-prefix-free](http://leaverou.github.io/prefixfree/) if you'd rather not worry about that. Especially if you use a preprocessor.</i>
+_Note: The CSS is unprefixed for convenience. Naturally, you would want to use them where needed, but I recommend checking out [Autoprefixer](https://github.com/ai/autoprefixer) or [-prefix-free](http://leaverou.github.io/prefixfree/) if you'd rather not worry about that. Especially if you use a preprocessor._
 
 Nothing here to write home about. Just a simple layout.
 
