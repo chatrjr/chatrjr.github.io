@@ -5,6 +5,7 @@
 .articles-meta_date {
   @include scale-to(h3);
   font-family: $font-headline;
+  font-weight: 300;
 }
 
 .articles-meta_tags {
