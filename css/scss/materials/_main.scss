@@ -20,9 +20,9 @@ html {
 }
 
 body {
-  border-top: $border-super $border-type $color-base;
+  border-top: $border-thick $border-type $color-base;
+  border-bottom: $border-super $border-type $color-base;
   color: $color-text;
   font-family: $font-body;
-  margin: 0 0 0.5em 0;
   position: relative;
 }

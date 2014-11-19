@@ -11,13 +11,13 @@ sitemap:
 <ul class="blogreel grid">
   {% for post in paginator.posts %}
     <li class="articles grid full">
-      <div class="articles-content grid sliced node">
-        <h1 class="articles-content_title node col-5"><a href="{{ post.url }}" class="hover-reset">{{ post.title }}</a></h1>
-        <div class="articles-meta node col-2">
+      <div class="articles-content grid golden node">
+        <h1 class="articles-content_title node"><a href="{{ post.url }}" class="hover-reset">{{ post.title }}</a></h1>
+        <div class="articles-meta node sec-col">
           <span class="articles-meta_date span-block">{{ post.date | date: '%m/%d/%Y' }}</span>
           <span class="articles-meta_tags span-block"><span class="articles-meta_accent">Topics:</span> {{ post.tags | array_to_sentence_string }}</span>
         </div>
-        <div class="articles-content_excerpt node col-3">{{ post.excerpt | markdownify }}</div>
+        <div class="articles-content_excerpt node prime-col">{{ post.excerpt | markdownify }}</div>
       </div>
     </li>
   {% endfor %}

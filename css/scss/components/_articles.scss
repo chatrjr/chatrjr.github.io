@@ -8,9 +8,10 @@
 
 .articles-meta_date {
   @include scale-to(h3);
+  color: $color-text;
   font-family: $font-headline;
   font-weight: 300;
-  padding: 0.2em 0 0 0.35em;
+  padding: 0 0.2em;
 }
 
 .articles-meta_tags {
@@ -21,9 +22,6 @@
   color: $color-text;
   line-height: 1.5;
   padding: 0.5em;
-  @include media(tiny) {
-    border-radius: 0;
-  }
 }
 
 .articles-content_title {
@@ -44,5 +42,9 @@
 .articles-content_excerpt {
   border-left: $border-thick $border-type $color-base;
   margin-bottom: 0;
-  padding: 0.5em 0.5em 0.5em 0.8em;
+  padding: 0.5em 0.5em 0 0.8em;
+  @include media(tiny) {
+    border: none;
+    padding: 0;
+  }
 }
