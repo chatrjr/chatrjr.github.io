@@ -2,9 +2,9 @@
 // $VARIABLES //
 ////////////////
 
-//////////////
-// $PALETTE //
-//////////////
+/////////////
+// Palette //
+/////////////
 
 $color-base: rgb(81, 74, 184);
 $color-bg: rgb(255, 255, 255);
@@ -16,9 +16,9 @@ $brand-github: #999999;
 $brand-twitter: #35CCFF;
 $brand-jsfiddle: #2795EE;
 
-/////////////////
-// $TYPOGRAPHY //
-/////////////////
+////////////////
+// Typography //
+////////////////
 
 $typecsset-base-font-size: 21px;
 $typecsset-base-line-height: 33px;
@@ -33,12 +33,20 @@ $font-body: 'Roboto', sans-serif;
 $font-headline: 'Oswald', serif;
 $font-source: 'Source Code Pro', monospace;
 
+//////////
+// Grid //
+//////////
+
+$layout-container-width: 50em;
+$layout-columns: 5;
+$layout-slice: 100% / $layout-columns;
+
 /////////////
 // Borders //
 /////////////
 
-$border-hairline: 1px;
-$border-med: 3px;
-$border-thick: 8px;
-$border-super: 15px;
+$border-hairline: 0.1em;
+$border-med: 0.3em;
+$border-thick: 0.4em;
+$border-super: 0.8em;
 $border-type: solid;

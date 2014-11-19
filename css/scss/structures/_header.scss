@@ -1,23 +1,11 @@
 .main-head {
   margin:0 0 1em 0;
+  position: relative;
 }
 
 .logo {
   background-size: contain;
   display: block;
-  float: left;
-  width: 6em;
-  height: 3em;
-}
-
-.comm-info {
-  float: right;
-}
-
-.icon {
-  background-size: contain;
-  display: inline-block;
-  margin: 0.5em;
-  vertical-align: middle;
-  width: 2em;
+  width: 7em;
+  height: 4em;
 }

@@ -13,10 +13,9 @@
 }
 
 .container {
+  max-width: $layout-container-width;
   margin: 0 auto;
-  max-width: 50em;
   padding: 0.5em;
-
 }
 
 %clearfix:after {
@@ -34,6 +33,12 @@
   @extend .grid;
   float: left;
   margin-bottom: 0;
+}
+
+.full {
+  .node {
+    width: 100%;
+  }
 }
 
 .golden {
@@ -57,5 +62,33 @@
     @include media(tiny) {
       width: 100%;
     }
+  }
+}
+
+.quarters {
+  .node {
+    width: 25%;
+    @include media(tiny) {
+      width: 100%;
+    }
+  }
+}
+
+// 5 column slices
+.sliced {
+  .node.col-1 {
+    width: $layout-slice;
+  }
+  .node.col-2 {
+    width: $layout-slice * 2;
+  }
+  .node.col-3 {
+    width: $layout-slice * 3;
+  }
+  .node.col-4 {
+    width: $layout-slice * 4;
+  }
+  .node.col-5 {
+    width: $layout-slice * 5;
   }
 }
