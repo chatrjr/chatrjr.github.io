@@ -77,6 +77,10 @@
     line-height: 1.6;
   }
 
+  a {
+    border-bottom: $border-hairline $border-type;
+  }
+
   img {
     width: 100%;
   }

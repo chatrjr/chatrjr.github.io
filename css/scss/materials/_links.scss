@@ -3,12 +3,11 @@
 \*------------------*/
 
 a {
-  color: $color-base;
+  color: desaturate(lighten($color-text, 40), 20);
   padding: 0 0 0.05em 0;
   text-decoration: none;
   &:visited {
-    border-bottom: $border-hairline $border-type $color-base;
-    color: $color-text;
+    color: desaturate(lighten($color-text, 50), 40);
   }
   &:hover,
   &:focus {
