@@ -16,7 +16,7 @@ html, body {
 }
 
 html {
-  overflow-y: scroll;
+  height: 100%;
 }
 
 body {
@@ -24,5 +24,6 @@ body {
   border-bottom: $border-super $border-type $color-base;
   color: $color-text;
   font-family: $font-body;
+  min-height: 100%;
   position: relative;
 }
