@@ -1,0 +1,12 @@
+////////////////
+// $FUNCTIONS //
+////////////////
+
+@function multiple-shadow ($x, $y, $depth, $color, $shade) {
+  $layer: '#{$color} #{$x} #{$y}';
+  @for $i from 1 through $depth {
+    $layer: '#{$layer}, ' + darken($color, $shade) + ' #{$x * $i} #{$y * $i} ';
+  }
+
+  @return unquote($layer);
+}

@@ -1,0 +1,37 @@
+/*------------------*\
+   $GLYPH 404
+\*------------------*/
+
+.line-1,
+.line-2 {
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.line-1 {
+  @include typecsset-font-size($typecsset-h1-size * 7);
+  color: $color-base;
+  text-shadow: multiple-shadow(0.002em, 0.002em, 20, $color-base, 25);
+  text-align: center;
+  @include media(tiny) {
+    @include typecsset-font-size($typecsset-h1-size * 4);
+  }
+  @include media(small) {
+    @include typecsset-font-size($typecsset-h1-size * 6);
+  }
+  @include media(medium) {
+    @include typecsset-font-size($typecsset-h1-size * 6);
+  }
+}
+
+.line-2 {
+  @include typecsset-font-size($typecsset-h1-size * 0.95);
+  background: $color-base;
+  box-shadow: multiple-shadow(0.005em, 0.005em, 50, $color-base, 20);
+  color: $color-text-fill;
+  padding: 0.5em;
+  text-shadow: multiple-shadow(0.002em, 0.002em, 25, $color-text-fill, 16);
+  @include media(tiny) {
+    @include typecsset-font-size($typecsset-h1-size * 0.85);
+  }
+}
