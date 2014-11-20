@@ -34,18 +34,6 @@ gulp.task('images', function() {
     .pipe(livereload(server));
 });
 
-// Dummy task to watch for Liquid template changes
-gulp.task('html', function() {
-  return gulp.src('*/**/*.html')
-    .pipe(livereload(server));
-});
-
-// Dummy task to watch for Liquid template changes
-gulp.task('markdown', function() {
-  return gulp.src(['_posts/**/*.markdown', '*_posts/**/*.md'])
-    .pipe(livereload(server));
-});
-
 gulp.task('default', ['css', 'images', 'server'], function() {
 });
 
@@ -63,13 +51,6 @@ gulp.task('server', function() {
 
     // Watch image files
     gulp.watch(['images/**/*', 'post-images/**/*'], ['images']);
-
-    // Watch Liquid templates
-    gulp.watch('*.html', ['html']);
-
-    // Watch posts
-    gulp.watch(['_posts/*.markdown', '*_posts/*.md'], ['markdown']);
-
   });
 
 });
