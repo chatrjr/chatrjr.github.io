@@ -8,10 +8,10 @@
  * TABLE OF CONTENTS
  *    CONFIGURATION ===================== Settings
  *      VARIABLES
+ *      TYPECSSET...................Typography
  *      FUNCTIONS
  *      MIXINS
  *      SYNTAX......................Prism.js
- *      TYPECSSET...................Typography
  *    UTILITIES ========================= Basic plumbing
  *      NORMALIZE...................Consistent default styling
  *      TWEAKS......................Clearfixes, hidden text, etc.
@@ -24,6 +24,7 @@
  *    COMPONENTS ======================== Modules, unique
  *      ARTICLES
  *      POST
+ *      GLYPH 404
  *    STRUCTURES ======================== Main site fixtures
  *      HEADER
  *      BLOGREEL
@@ -35,6 +36,7 @@
 
 @import 'configuration/variables';
 @import 'configuration/typecsset';
+@import 'configuration/functions';
 @import 'configuration/mixins';
 @import 'configuration/syntax';
 
@@ -61,6 +63,7 @@
 
 @import 'components/articles';
 @import 'components/post';
+@import 'components/glyph-404';
 
 /*==================*\
    $STRUCTURES

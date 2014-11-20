@@ -77,7 +77,7 @@
     line-height: 1.6;
   }
 
-  a {
+  a :not(.post-body_toc) {
     border-bottom: $border-hairline $border-type;
   }
 
@@ -115,10 +115,6 @@
       background: $color-base;
       color: $color-text-fill;
       padding: 0.2em 0.3em;
-      &:hover,
-      &:focus {
-        @extend .hover-reset;
-      }
     }
     & > ul {
       margin: 0.25em 0 0 1em;

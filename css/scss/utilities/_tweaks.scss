@@ -8,8 +8,10 @@
   overflow: hidden;
 }
 
+.hover-reset,
 .hover-reset:hover,
 .hover-reset:focus {
+  border-bottom: none;
   font-weight: inherit;
 }
 
