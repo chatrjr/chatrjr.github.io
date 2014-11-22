@@ -239,7 +239,7 @@ Outside of the IIFE, we set the actual behavior of our app. Our `#start` and `#s
 All that done, we get the finished app.
 
 > %post-body_src%
-Moment.js Stopwatch: [{{ page.src }}]({{ post.src }})
+Moment.js Stopwatch: [{{ page.src }}]({{ page.src }})
 
 ## Extra
 

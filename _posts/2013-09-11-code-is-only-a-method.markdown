@@ -5,7 +5,7 @@ id: 004
 date: 2013-09-11
 tags:
     - technology
-    - phiolosophy
+    - philosophy
     - growth
     - opinion
 description: "As much as we love tooling our workflows to be more efficient, it's easy to forget sometimes that they are just tools. This includes the code itself."
