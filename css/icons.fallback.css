@@ -1,24 +1,156 @@
+ 
+.icon-architecture {
+	background-image: url('png/architecture.png');
+	background-repeat: no-repeat;
+}
+
+ 
+.icon-architecture-alt {
+	background-image: url('png/architecture-alt.png');
+	background-repeat: no-repeat;
+}
+
+ 
 .icon-codepen {
 	background-image: url('png/codepen.png');
 	background-repeat: no-repeat;
 }
+
+ 
+.icon-codepen-alt {
+	background-image: url('png/codepen-alt.png');
+	background-repeat: no-repeat;
+}
+
+ 
+.icon-experiment {
+	background-image: url('png/experiment.png');
+	background-repeat: no-repeat;
+}
+
+ 
+.icon-experiment-alt {
+	background-image: url('png/experiment-alt.png');
+	background-repeat: no-repeat;
+}
+
+ 
 .icon-feed {
 	background-image: url('png/feed.png');
 	background-repeat: no-repeat;
 }
+
+ 
+.icon-feed-alt {
+	background-image: url('png/feed-alt.png');
+	background-repeat: no-repeat;
+}
+
+ 
 .icon-github {
 	background-image: url('png/github.png');
 	background-repeat: no-repeat;
 }
+
+ 
+.icon-github-alt {
+	background-image: url('png/github-alt.png');
+	background-repeat: no-repeat;
+}
+
+ 
 .icon-jsfiddle {
 	background-image: url('png/jsfiddle.png');
 	background-repeat: no-repeat;
 }
+
+ 
+.icon-jsfiddle-alt {
+	background-image: url('png/jsfiddle-alt.png');
+	background-repeat: no-repeat;
+}
+
+ 
 .icon-logo {
 	background-image: url('png/logo.png');
 	background-repeat: no-repeat;
 }
+
+ 
+.icon-logo-alt {
+	background-image: url('png/logo-alt.png');
+	background-repeat: no-repeat;
+}
+
+ 
+.icon-personal {
+	background-image: url('png/personal.png');
+	background-repeat: no-repeat;
+}
+
+ 
+.icon-personal-alt {
+	background-image: url('png/personal-alt.png');
+	background-repeat: no-repeat;
+}
+
+ 
+.icon-project {
+	background-image: url('png/project.png');
+	background-repeat: no-repeat;
+}
+
+ 
+.icon-project-alt {
+	background-image: url('png/project-alt.png');
+	background-repeat: no-repeat;
+}
+
+ 
+.icon-system {
+	background-image: url('png/system.png');
+	background-repeat: no-repeat;
+}
+
+ 
+.icon-system-alt {
+	background-image: url('png/system-alt.png');
+	background-repeat: no-repeat;
+}
+
+ 
+.icon-tooling {
+	background-image: url('png/tooling.png');
+	background-repeat: no-repeat;
+}
+
+ 
+.icon-tooling-alt {
+	background-image: url('png/tooling-alt.png');
+	background-repeat: no-repeat;
+}
+
+ 
 .icon-twitter {
 	background-image: url('png/twitter.png');
 	background-repeat: no-repeat;
 }
+
+ 
+.icon-twitter-alt {
+	background-image: url('png/twitter-alt.png');
+	background-repeat: no-repeat;
+}
+
+ 
+.icon-web {
+	background-image: url('png/web.png');
+	background-repeat: no-repeat;
+}
+
+ 
+.icon-web-alt {
+	background-image: url('png/web-alt.png');
+	background-repeat: no-repeat;
+}
+
