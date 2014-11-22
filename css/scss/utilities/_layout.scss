@@ -29,6 +29,11 @@
   margin-bottom: 1em;
 }
 
+.inner-grid {
+  @extend %clearfix;
+  margin: 0;
+}
+
 .node {
   @extend .grid;
   float: left;
