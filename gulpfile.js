@@ -34,7 +34,7 @@ gulp.task('images', function() {
     .pipe(livereload(server));
 });
 
-gulp.task('default', ['css', 'images', 'server'], function() {
+gulp.task('default', ['css', 'images'], function() {
 });
 
 // Watch
