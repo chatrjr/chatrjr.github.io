@@ -3,8 +3,7 @@
 \*------------------*/
 
 .hero {
-  box-shadow: 0 0.4em darken($color-text-fill, 10),
-              0 0.8em $color-base;
+  border-bottom: $border-thin $border-type $color-base;
   color: $color-base;
   text-rendering: optimizeLegibility;
   font-feature-settings: "kern" 1;
@@ -14,6 +13,7 @@
 
 .hero-headline {
   border-bottom: $border-hairline $border-type darken($color-text-fill, 5);
+  margin-top: 0;
   text-transform: uppercase;
   .kern-1 {
     margin: 0 0 0 .04em;
