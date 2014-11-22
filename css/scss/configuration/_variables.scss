@@ -7,15 +7,9 @@
 /////////////
 
 $color-base: rgb(81, 74, 184);
-$color-bg: rgb(255, 255, 255);
-$color-text: rgb(15, 10, 30);
-$color-text-fill: rgb(240, 240, 255);
-
-$brand-codepen: #000000;
-$brand-github: #999999;
-$brand-twitter: #35CCFF;
-$brand-jsfiddle: #2795EE;
-
+$color-bg: lighten($color-base, 50);
+$color-text: darken($color-base, 37);
+$color-text-fill: lighten($color-base, 45);
 ////////////////
 // Typography //
 ////////////////
