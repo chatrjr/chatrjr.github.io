@@ -1,0 +1,33 @@
+/*------------------*\
+   $HERO
+\*------------------*/
+
+.hero {
+  box-shadow: 0 0.4em darken($color-text-fill, 10),
+              0 0.8em $color-base;
+  color: $color-base;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1;
+  font-kerning: normal;
+  margin: 2em 0;
+}
+
+.hero-headline {
+  border-bottom: $border-hairline $border-type darken($color-text-fill, 5);
+  text-transform: uppercase;
+  .kern-1 {
+    margin: 0 0 0 .04em;
+  }
+  .kern-2 {
+    margin: 0 0 0 -.08em;
+  }
+  .kern-3 {
+    margin: 0 0 0 -.085em;
+  }
+}
+
+.hero-subhead {
+  font-family: $font-body;
+  font-weight: 900;
+  padding: 0.2em 0;
+}

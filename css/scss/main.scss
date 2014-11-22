@@ -22,6 +22,7 @@
  *      LINKS
  *      MEDIA
  *    COMPONENTS ======================== Modules, unique
+ *      HERO
  *      ARTICLES
  *      POST
  *      GLYPH 404
@@ -61,6 +62,7 @@
    $COMPONENTS
 \*==================*/
 
+@import 'components/hero';
 @import 'components/articles';
 @import 'components/post';
 @import 'components/glyph-404';
