@@ -1,0 +1,29 @@
+/*------------------*\
+   $ABOUT CONTENT
+\*------------------*/
+
+.about-title {
+  margin-bottom: 0.5em;
+}
+
+// Grid Override
+.sliced .node.about-content {
+  @include media(tiny) {
+    width: 100%;
+  }
+}
+
+.about-content-img {
+  border: $border-hairline $border-type $color-base;
+  margin: 0.5em 1em 0.5em 0;
+  width: 33%;
+  @include media(tiny) {
+    width: 37%;
+  }
+  @include media(small) {
+    width: 100%;
+  }
+  @include media(medium) {
+    width: 35%;
+  }
+}

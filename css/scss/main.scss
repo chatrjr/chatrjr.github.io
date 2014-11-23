@@ -25,11 +25,13 @@
  *      HERO
  *      ARTICLES
  *      POST
+ *      ABOUT CONTENT
  *      GLYPH 404
  *    STRUCTURES ======================== Main site fixtures
  *      HEADER
  *      MAIN MENU
  *      BLOGREEL
+ *      ABOUT SIDEBAR
  **/
 
 ////////////////////
@@ -66,6 +68,7 @@
 @import 'components/hero';
 @import 'components/articles';
 @import 'components/post';
+@import 'components/about-content';
 @import 'components/glyph-404';
 
 /*==================*\
@@ -75,3 +78,4 @@
 @import 'structures/header';
 @import 'structures/main-menu';
 @import 'structures/blogreel';
+@import 'structures/about-sidebar';
