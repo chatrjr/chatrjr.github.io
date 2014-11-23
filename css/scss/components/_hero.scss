@@ -14,6 +14,7 @@
 .hero-headline {
   border-bottom: $border-hairline $border-type darken($color-text-fill, 5);
   margin-top: 0;
+  padding: 0 0 0.1em 0;
   text-transform: uppercase;
   .kern-1 {
     margin: 0 0 0 .06em;
