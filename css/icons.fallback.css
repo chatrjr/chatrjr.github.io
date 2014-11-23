@@ -5,12 +5,6 @@
 }
 
  
-.icon-about-alt {
-	background-image: url('png/about-alt.png');
-	background-repeat: no-repeat;
-}
-
- 
 .icon-architecture {
 	background-image: url('png/architecture.png');
 	background-repeat: no-repeat;
@@ -71,6 +65,12 @@
 }
 
  
+.icon-home {
+	background-image: url('png/home.png');
+	background-repeat: no-repeat;
+}
+
+ 
 .icon-jsfiddle {
 	background-image: url('png/jsfiddle.png');
 	background-repeat: no-repeat;
@@ -83,26 +83,8 @@
 }
 
  
-.icon-logo {
-	background-image: url('png/logo.png');
-	background-repeat: no-repeat;
-}
-
- 
-.icon-logo-alt {
-	background-image: url('png/logo-alt.png');
-	background-repeat: no-repeat;
-}
-
- 
 .icon-personal {
 	background-image: url('png/personal.png');
-	background-repeat: no-repeat;
-}
-
- 
-.icon-personal-alt {
-	background-image: url('png/personal-alt.png');
 	background-repeat: no-repeat;
 }
 
@@ -121,12 +103,6 @@
  
 .icon-system {
 	background-image: url('png/system.png');
-	background-repeat: no-repeat;
-}
-
- 
-.icon-system-alt {
-	background-image: url('png/system-alt.png');
 	background-repeat: no-repeat;
 }
 
@@ -157,12 +133,6 @@
  
 .icon-web {
 	background-image: url('png/web.png');
-	background-repeat: no-repeat;
-}
-
- 
-.icon-web-alt {
-	background-image: url('png/web-alt.png');
 	background-repeat: no-repeat;
 }
 
