@@ -72,9 +72,10 @@
 
 .quarters {
   .node {
-    width: 25%;
-    @include media(tiny) {
-      width: 100%;
+    margin: 0 1% 0 0;
+    width: 24%;
+    &:last-child {
+      margin-right: 0;
     }
   }
 }
