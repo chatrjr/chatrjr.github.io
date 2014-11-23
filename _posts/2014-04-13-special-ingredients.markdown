@@ -3,6 +3,7 @@ layout: post
 title: "Special Ingredients"
 id: 009
 date: 2014-04-13
+category: personal
 tags:
     - opinion
     - response

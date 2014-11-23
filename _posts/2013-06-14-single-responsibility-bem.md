@@ -3,6 +3,7 @@ layout: post
 title: SRBEM (Single Responsibility BEM)
 id: 002
 date: 2013-06-14
+category: web
 tags:
     - BEM
     - OOCSS

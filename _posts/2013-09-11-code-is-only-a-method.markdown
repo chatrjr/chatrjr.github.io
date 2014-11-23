@@ -3,6 +3,7 @@ layout: post
 title: Code is Only a Method
 id: 004
 date: 2013-09-11
+category: personal
 tags:
     - technology
     - philosophy

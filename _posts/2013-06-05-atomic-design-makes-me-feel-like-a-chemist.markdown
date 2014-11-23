@@ -3,6 +3,7 @@ layout: post
 title: "Atomic Design Makes Me Feel Like a Chemist"
 id: 001
 date: 2013-06-05
+category: web
 tags:
     - atomic design
     - style tiles

@@ -3,6 +3,7 @@ layout: post
 title: "YACSSA (Yet Another CSS Architecture)"
 id: 007
 date: 2013-12-22
+category: web
 tags:
     - CSS architecture
     - workflow

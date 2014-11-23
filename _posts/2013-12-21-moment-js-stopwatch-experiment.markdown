@@ -3,6 +3,7 @@ layout: post
 title: "Moment.js Stopwatch"
 id: 006
 date: 2013-12-21
+category: web
 tags:
     - Moment.js
     - JavaScript
