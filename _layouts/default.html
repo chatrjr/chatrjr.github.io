@@ -48,16 +48,22 @@
     </head>
     <body>
         <div class="container">
-          <header class="main-head grid full">
-            <a href="/" class="logo icon-logo hover-reset"><div class="hide-text">{{ site.name }}</div></a>
+          <header class="main-head grid sliced">
+            <a href="/" class="logo icon-logo node col-1 hover-reset"><div class="hide-text">{{ site.name }}</div></a>
+            <nav class="main-menu inner-grid quarters node col-4">
+                <li class="main-menu-item node"><a href="/web" class="main-menu-link"><i class="main-menu-icon icon-web span-block"></i>Web</a></li>
+                <li class="main-menu-item node"><a href="/systems" class="main-menu-link"><i class="main-menu-icon icon-system span-block"></i>Systems</a></li>
+                <li class="main-menu-item node"><a href="/personal" class="main-menu-link"><i class="main-menu-icon icon-personal span-block"></i>Personal</a></li>
+                <li class="main-menu-item node"><a href="/about" class="main-menu-link"><i class="main-menu-icon icon-about span-block"></i>About</a></li>
+            </nav>
           </header>
           {{ content }}
         </div>
       {% if page.home %}
       <script src="/js/vendor/fittextjs/vanilla-fittext.js"></script>
       <script>
-        window.fitText( document.getElementById("line-1"), 0.5);
-        window.fitText( document.getElementById("line-2"), 1.5);
+        window.fitText( document.getElementById("line-1"), 0.85);
+        window.fitText( document.getElementById("line-2"), 2.6);
       </script>
       {% else %}
       <script src="/js/vendor/prismjs/prism.js"></script>
