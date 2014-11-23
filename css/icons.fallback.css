@@ -1,4 +1,16 @@
  
+.icon-about {
+	background-image: url('png/about.png');
+	background-repeat: no-repeat;
+}
+
+ 
+.icon-about-alt {
+	background-image: url('png/about-alt.png');
+	background-repeat: no-repeat;
+}
+
+ 
 .icon-architecture {
 	background-image: url('png/architecture.png');
 	background-repeat: no-repeat;
