@@ -1,0 +1,30 @@
+/*------------------*\
+   $MAIN MENU
+\*------------------*/
+
+.main-menu {
+}
+
+.main-menu-item {
+  display: inline-block;
+  font-family: $font-body;
+}
+
+.main-menu-link {
+  color: $color-base;
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  // Override link styling
+  &:visited {
+    color: $color-base;
+  }
+}
+
+.main-menu-icon {
+  background-size: contain;
+  margin: 0 auto;
+  width: 2em;
+  height: 2em;
+}
