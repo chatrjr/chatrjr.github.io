@@ -4,7 +4,7 @@
 
 .post {
   margin: 0 auto;
-  width: 70%;
+  width: 75%;
   @include media(tiny) {
     width: 100%;
   }
@@ -52,7 +52,7 @@
 }
 
 .post-body {
-  @include typecsset-font-size($typecsset-base-font-size / 1.05);
+  @include typecsset-font-size($typecsset-base-font-size * 1.075);
   @include media(tiny) {
     @include typecsset-font-size($typecsset-base-font-size * 1.15);
   }
