@@ -3,7 +3,6 @@ layout: post
 title: The New Reality of Digital Design
 id: 005
 date: 2013-09-21
-category: personal
 tags:
     - opinion
     - CSS

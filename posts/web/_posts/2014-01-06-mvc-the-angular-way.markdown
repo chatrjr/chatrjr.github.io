@@ -3,7 +3,6 @@ layout: post
 title: "MVC: The Angular Way"
 id: 008
 date: 2014-01-06
-category: web
 tags:
     - AngularJS
     - MVC

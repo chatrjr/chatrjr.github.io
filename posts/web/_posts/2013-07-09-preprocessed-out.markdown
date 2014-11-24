@@ -3,7 +3,6 @@ layout: post
 title: Preprocessed Out
 id: 003
 date: 2013-07-09
-category: web
 tags:
     - Sass
     - tooling

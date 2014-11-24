@@ -9,6 +9,6 @@ rdiscount:
 highlighter: null
 exclude: ['.*', 'node_modules', '*.json', 'README.md', 'gulpfile.js', 'css/scss']
 paginate: 5
-permalink: /:year/:month/:categories/:title/
+permalink: /:categories/:title/
 production_url: http://chatrjr.name
 excerpt_separator: "d596aa409dbcf4bf9d9d57252304a921bd02e3fc"
