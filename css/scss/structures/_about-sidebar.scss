@@ -3,8 +3,16 @@
 \*------------------*/
 
 .about-sidebar {
-  background: lighten($color-text-fill, 2);
+  background: $color-text-fill;
   padding: 1em;
+  a {
+    color: desaturate(lighten($color-text, 35), 20);
+    padding: 0 0 0.05em 0;
+    text-decoration: none;
+    &:visited {
+      color: desaturate(lighten($color-text, 42), 40);
+    }
+  }
   p {
     @include typecsset-font-size($typecsset-base-font-size / 1.3);
     @include media(tiny) {
