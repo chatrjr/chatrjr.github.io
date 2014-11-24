@@ -2,29 +2,18 @@
    $ARTICLES
 \*------------------*/
 
-.articles-meta {
-  background: $color-text-fill;
-}
-
-.articles-meta_date {
+.articles-content-date {
   @include scale-to(h3);
+  background: $color-text-fill;
+  border-bottom: $border-thin $border-type darken($color-text-fill, 10);
   color: $color-text;
   font-family: $font-headline;
   font-weight: 300;
-  padding: 0 0.2em;
+  padding: 0;
+  text-align: right;
 }
 
-.articles-meta_tags {
-  @include scale-to(h5);
-  background: $color-text-fill;
-  border-top: $border-hairline $border-type $color-base;
-  border-bottom: $border-med $border-type $color-base;
-  color: $color-text;
-  line-height: 1.5;
-  padding: 0.5em;
-}
-
-.articles-content_title {
+.articles-content-title {
   @include scale-to(h2);
   background: $color-base;
   color: $color-text-fill;
@@ -36,15 +25,5 @@
   text-align: right;
   a {
     color: $color-text-fill;
-  }
-}
-
-.articles-content_excerpt {
-  border-left: $border-thick $border-type $color-base;
-  margin-bottom: 0;
-  padding: 0.5em 0.5em 0 0.8em;
-  @include media(tiny) {
-    border: none;
-    padding: 0;
   }
 }
