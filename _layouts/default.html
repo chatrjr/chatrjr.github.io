@@ -58,7 +58,7 @@
           </header>
           {{ content }}
         </div>
-      {% if page.home %}
+      {% if page.home or page.category-index %}
       <script src="/js/vendor/fittextjs/vanilla-fittext.js"></script>
       <script>
         window.fitText( document.getElementById("line-1"), 0.85);
