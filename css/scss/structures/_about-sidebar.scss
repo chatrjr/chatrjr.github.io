@@ -1,3 +1,27 @@
 /*------------------*\
    $ABOUT SIDEBAR
 \*------------------*/
+
+.about-sidebar {
+  background: lighten($color-text-fill, 2);
+  padding: 1em;
+  p {
+    @include typecsset-font-size($typecsset-base-font-size / 1.3);
+    @include media(tiny) {
+      @include typecsset-font-size($typecsset-base-font-size / 1.05);
+    }
+  }
+}
+
+// Grid Override
+.sliced .node.about-sidebar {
+  @include media(tiny) {
+    width: 100%;
+  }
+}
+
+.about-sidebar-title {
+  @include scale-to(h3);
+  color: $color-base;
+  font-weight: 300;
+}
