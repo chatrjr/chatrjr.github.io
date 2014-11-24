@@ -7,7 +7,7 @@ rdiscount:
         - smart
         - filter_html
 highlighter: null
-exclude: ['.*', 'node_modules', '*.json', 'README.md', 'gulpfile.js', 'css/scss']
+exclude: ['.*', 'node_modules', '*.json', 'README.md', 'gulpfile.js', 'css/scss', 'version-images']
 paginate: 5
 permalink: /:categories/:title/
 production_url: http://chatrjr.name
