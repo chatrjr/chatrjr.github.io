@@ -1,6 +1,0 @@
-              <div class="comm-info node col-1">
-                  <a href="http://twitter.com/ChatRJr" class="icon icon-twitter hover-reset node"><div class="hide-text">@ChatRJr</div></a>
-                  <a href="http://codepen.io/chatrjr" class="icon icon-codepen hover-reset node"><div class="hide-text">chatrjr</div></a>
-                  <a href="http://github.com/chatrjr" class="icon icon-github hover-reset node"><div class="hide-text">chatrjr</div></a>
-                  <a href="http://feeds.feedburner.com/chatrjr" class="icon icon-feed hover-reset node"><div class="hide-text">RSS</div></a>
-              </div>
