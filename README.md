@@ -1,8 +1,12 @@
 # chatrjr.name 
 
-## v1.0 (Seed)
+My personal site. Growing as I need it to grow and organized by version. You can check out the code of previous versions by tag.
 
-My personal site. Version 1 is called Seed as I've planted the foundation to allow the site to grow naturally with my needs. For now, it's just my blog.
+## v1.0.0 (Seed)
+
+Initial design. Intentionally made skeletal. Lacks a navigation bar as it wasn't needed. Just the main page and posts with a few contact links and a link to the feed.
+
+![chatrjr v1 homepage][v1-home]
 
 ## Built with:
 
@@ -12,3 +16,5 @@ My personal site. Version 1 is called Seed as I've planted the foundation to all
 + [Grumpicon](http://grumpicon.com)
 + [Typecsset](https://github.com/csswizardry/typecsset)
 + [Prism.js](http://prismjs.com)
+
+[v1-home]: version-images/v1-home.png
