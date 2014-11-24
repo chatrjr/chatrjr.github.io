@@ -1,5 +1,5 @@
 /**
- * ChatRJr's Desk - Main Template
+ * ChatRJr's Desk - Post Template
  * Author: Chatman Richmond Jr.
  * Copyright: 2014
  * Version: 2.0.0 (Sprout)
@@ -21,14 +21,12 @@
  *      TEXT
  *      LINKS
  *      MEDIA
- *    COMPONENTS ======================== Page content
- *      HERO
- *      ARTICLES
- *      PAGINATION
+ *    COMPONENTS ======================== Modules, unique
+ *      POST
  *    STRUCTURES ======================== Page fixtures
  *      HEADER
  *      MAIN MENU
- *      BLOGREEL
+ *      POST NAV
  **/
 
 ////////////////////
@@ -62,9 +60,7 @@
    $COMPONENTS
 \*==================*/
 
-@import 'components/hero';
-@import 'components/articles';
-@import 'components/pagination';
+@import 'components/post';
 
 /*==================*\
    $STRUCTURES
@@ -72,4 +68,4 @@
 
 @import 'structures/header';
 @import 'structures/main-menu';
-@import 'structures/blogreel';
+@import 'structures/post-nav';
