@@ -1,5 +1,6 @@
 ---
 layout: post
+redirect_from: "/2013/07/preprocessed-out/"
 title: Preprocessed Out
 id: 003
 date: 2013-07-09

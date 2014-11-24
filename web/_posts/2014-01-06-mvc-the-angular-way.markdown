@@ -1,5 +1,6 @@
 ---
 layout: post
+redirect_from: "/2014/01/mvc-the-angular-way/"
 title: "MVC: The Angular Way"
 id: 008
 date: 2014-01-06

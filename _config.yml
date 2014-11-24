@@ -1,6 +1,8 @@
 name: "ChatRJr's Desk"
 tagline: "Words, technology, and tinkering."
 author: "Chatman Richmond Jr."
+gems:
+    - jekyll-redirect-from
 markdown: rdiscount
 rdiscount:
     extensions:
