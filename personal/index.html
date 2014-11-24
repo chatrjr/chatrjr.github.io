@@ -1,7 +1,7 @@
 ---
+category-index: true
 layout: default
-home: true
-title: "ChatRJr's Desk"
+title: "Posts in: Personal"
 description: "This is the online scratchpad of designer/developer: Chatman Richmond Jr."
 sitemap:
   changefreq: monthly
@@ -9,47 +9,17 @@ sitemap:
 ---
 <div class="hero grid full">
   <h1 class="hero-headline node" id="line-1">Pl<span class="kern-1">a</span><span class="kern-2">y</span><span class="kern-3">,</span> with Process.</h1>
-  <h2 class="hero-subhead node" id="line-2">A log of experiments, projects, and serendipitous discovery.</h2>
+  <h2 class="hero-subhead node" id="line-2">Beyond code.</h2>
 </div>
 <main role="main">
 <ul class="blogreel grid">
-  {% for post in paginator.posts %}
+  {% for post in site.categories.personal %}
     <li class="articles grid full">
-      <div class="articles-content grid golden node">
-        <h1 class="articles-content_title node"><a href="{{ post.url }}" class="hover-reset">{{ post.title }}</a></h1>
-        <div class="articles-meta node sec-col">
-          <span class="articles-meta_date span-block">{{ post.date | date: '%m/%d/%Y' }}</span>
-          <span class="articles-meta_tags span-block"><span class="articles-meta_accent">Topics:</span> {{ post.tags | array_to_sentence_string }}</span>
-        </div>
-        <div class="articles-content_excerpt node prime-col">{{ post.excerpt | markdownify }}</div>
+      <div class="articles-content node">
+        <h1 class="articles-content-title node"><a href="{{ post.url }}" class="hover-reset">{{ post.title }}</a></h1>
+        <span class="articles-content-date span-block">{{ post.date | date: '%m/%d/%Y' }}</span>
       </div>
     </li>
   {% endfor %}
 </ul>
 </main>
-
-{% if paginator.total_pages > 1 %}
-<div class="pagination">
-  {% if paginator.previous_page %}
-    <a class="prev" rel="prev" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
-  {% else %}
-    <span>&laquo; Prev</span>
-  {% endif %}
-
-  {% for page in (1..paginator.total_pages) %}
-    {% if page == paginator.page %}
-      <span class="page_num current">{{ page }}</span>
-    {% elsif page == 1 %}
-      <a class="page_num" href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
-    {% else %}
-      <a class="page_num" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
-    {% endif %}
-  {% endfor %}
-
-  {% if paginator.next_page %}
-    <a class="next" rel="next" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
-  {% else %}
-    <span>Next &raquo;</span>
-  {% endif %}
-</div>
-{% endif %}
