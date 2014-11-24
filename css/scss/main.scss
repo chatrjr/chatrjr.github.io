@@ -24,6 +24,7 @@
  *    COMPONENTS ======================== Modules, unique
  *      HERO
  *      ARTICLES
+ *      PAGINATION
  *      POST
  *      ABOUT CONTENT
  *      GLYPH 404
@@ -67,6 +68,7 @@
 
 @import 'components/hero';
 @import 'components/articles';
+@import 'components/pagination';
 @import 'components/post';
 @import 'components/about-content';
 @import 'components/glyph-404';
