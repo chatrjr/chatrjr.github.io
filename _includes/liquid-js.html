@@ -1,9 +1,9 @@
-      {% if page.template == 'main' %}
-      <script src="/js/vendor/fittextjs/vanilla-fittext.js"></script>
-      <script>
-        window.fitText( document.getElementById("line-1"), 0.85);
-        window.fitText( document.getElementById("line-2"), 1.5);
-      </script>
-      {% elsif page.template == 'post' %}
-      <script src="/js/vendor/prismjs/prism.js"></script>
-      {% endif %}
+{% if page.template == 'main' %}
+<script src="/js/vendor/fittextjs/vanilla-fittext.js"></script>
+<script>
+  window.fitText( document.getElementById("line-1"), 0.85);
+  window.fitText( document.getElementById("line-2"), 1.5);
+</script>
+{% elsif page.template == 'post' %}
+<script src="/js/vendor/prismjs/prism.js"></script>
+{% endif %}
