@@ -80,21 +80,8 @@
   }
 }
 
-// 5 column slices
-.sliced {
-  .node.col-1 {
-    width: $layout-slice;
-  }
-  .node.col-2 {
-    width: $layout-slice * 2;
-  }
-  .node.col-3 {
-    width: $layout-slice * 3;
-  }
-  .node.col-4 {
-    width: $layout-slice * 4;
-  }
-  .node.col-5 {
-    width: $layout-slice * 5;
-  }
+/* For multi-column needs. */
+
+.complex {
+  @include slices($layout-columns);
 }

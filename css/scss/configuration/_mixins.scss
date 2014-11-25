@@ -78,3 +78,21 @@
     }
   }
 }
+
+// slices()
+// -------------------------------------------
+// Custom mixin to create columns for 
+// complex content.
+//   Usage:
+//     .grid-class {
+//       @include slices(5);
+//     }
+
+@mixin slices($columns) {
+  $single: 100% / $columns;
+  @for $col from 1 through $columns {
+    .node.col-#{$col} {
+      width: $single * $col;
+    }
+  }
+}
