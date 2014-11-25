@@ -7,10 +7,7 @@ sitemap:
   changefreq: monthly
   priority: 0.7
 ---
-<div class="hero grid full">
-  <h1 class="hero-headline node" id="line-1">Pl<span class="kern-1">a</span><span class="kern-2">y</span><span class="kern-3">,</span> with Process.</h1>
-  <h2 class="hero-subhead node" id="line-2">What I&rsquo;ve fiddled with on the web.</h2>
-</div>
+{% include hero.html hero_subhead_text="What I&rsquo;ve fiddled with on the web." %}
 <main role="main">
 <ul class="blogreel grid">
   {% for post in site.categories.web %}

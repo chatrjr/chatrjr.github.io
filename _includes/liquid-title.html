@@ -1,0 +1,5 @@
+            {% if page.home %}
+                {{ site.name }}: {{ site.tagline }}
+            {% else %}
+                {{ page.title }} &bull; {{ site.name }}
+            {% endif %}

@@ -1,0 +1,10 @@
+        {% case page.template %}
+        {% when 'about' %}
+        <link rel="stylesheet" href="/css/about.css" />
+        {% when 'error' %}
+        <link rel="stylesheet" href="/css/error.css" />
+        {% when 'main' %}
+        <link rel="stylesheet" href="/css/main.css" />
+        {% when 'post' %}
+        <link rel="stylesheet" href="/css/post.css" />
+        {% endcase %}
