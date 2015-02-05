@@ -12,6 +12,8 @@ description: "A response to Jamie Kosoy's Pastry Box Project post: The Beautiful
 excerpt: "A response to Jamie Kosoy's Pastry Box Project post: The Beautiful Default. Ready-made frameworks and UI libraries are often blamed for the homogeny of modern web design, but I think it has more to do with how they're used."
 ---
 
+_UPDATE: Harry Roberts made an excellent point since this post was written that it's not really frameworks we're discussing here. It's more apt to call them UI Toolkits because they mostly work to give a launch point for user interfaces and layout rather than abstract any function of the codebase. So I'll be referring to them by that name in future posts._
+
 Jamie's post points out [the dynamic of bespoke vs. factory][PBP] within modern web design. While I agree there's an epidemic of sameness, it is---at the very least---beautiful sameness. Twitter Bootstrap, Zurb Foundation, Pure, and the like are gorgeous pieces of design out of the box, but that's not why they exist. Frameworks and libraries are ingredients.
 
 ## Boxed Macaroni & Cheese
