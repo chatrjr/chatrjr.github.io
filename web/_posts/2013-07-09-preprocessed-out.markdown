@@ -218,7 +218,7 @@ My examples show, again, that maintaining duplication and code bloat is the resp
 
 Yes and no. Mixins can pollute your stylesheets with unused vendor prefixes if you have no control over them and they're built incorrectly. However, by curating your own set of mixins to use across projects, you can do some pretty awesome stuff. Especially as mixins can contain other mixins.
 
-UPDATE: If, for some reason you're still writing mixins to handle vendor prefixes, you're making it harder on yourself. There are wonderful tools like [Lea Verou's -prefix-free](http://leaverou.github.io/prefixfree/) and [Andrey Sitnik's Autoprefixer](https://github.com/ai/autoprefixer). They're both absolutely brilliant for that minefield.
+_UPDATE: If, for some reason you're still writing mixins to handle vendor prefixes, you're making it harder on yourself. There are wonderful tools like [Lea Verou's -prefix-free](http://leaverou.github.io/prefixfree/) and [Andrey Sitnik's Autoprefixer](https://github.com/ai/autoprefixer). They're both absolutely brilliant for that minefield._
 
 ### Nesting Hell
 
