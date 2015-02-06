@@ -77,7 +77,7 @@ I mostly create my experiments to cement understanding of the things I learn. Ho
 
 I'll leave the end of the week for experiments that let my brain rest and "just because" things. While I do want to get really damn good as a developer, I also want to keep having fun with it.
 
-#### 5. Confront my Own Assumptions
+#### 5. Confront My Own Assumptions
 
 I'm going to start questioning things about my craft and myself that I've taken for granted. I'll kill my assumptions with the wrath of an angry god, because they haven't done much for my progress as a developer or person.
 
