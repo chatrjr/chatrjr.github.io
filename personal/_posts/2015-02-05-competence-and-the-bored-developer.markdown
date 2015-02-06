@@ -81,6 +81,10 @@ I'll leave the end of the week for experiments that let my brain rest and "just 
 
 I'm going to start questioning things about my craft and myself that I've taken for granted. I'll kill my assumptions with the wrath of an angry god, because they haven't done much for my progress as a developer or person.
 
+#### 6. Record Myself Coding
+
+This will establish a baseline for review. My memory isn't terrible, but by recording my sessions, I'll have ample material to probe later for any obvious or subtle errors. These mini-screencasts will allow me to catch patterns of error before they become habits. And hell, if musicians can do it then why not developers?
+
 ## Conclusion
 > %post-body-cap%
 ![Competence Island](/post-images/island.jpg)
