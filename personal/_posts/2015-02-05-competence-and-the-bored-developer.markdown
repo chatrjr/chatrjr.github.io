@@ -59,7 +59,7 @@ The only way I'm gonna gain confidence in my ability is by tackling tougher proj
 
 ### The Operation
 
-I'm going to assess my skills and then start aiming for more challenge. Not so challenging that I overwhelm myself, but challenging enough that I have to sweat a little. I'm going to chase my discomfort more, because that's where my excitement usually hides. My growth as a developer thrived in turbulence, so it's time for a little storm chasing.
+I'm going to assess my skills and then start aiming for more challenge. Not so challenging that I overwhelm myself, but challenging enough that I have to sweat a little. My growth as a developer thrived in turbulence, so it's time for a little storm chasing.
 
 #### 1. Dive into an Area I Don't Know Well
 
