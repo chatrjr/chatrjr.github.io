@@ -5,8 +5,9 @@
 .hero {
   border-bottom: $border-thin $border-type $color-base;
   color: $color-base;
-  text-rendering: optimizeLegibility;
   margin: 2em 0;
+  text-align: center;
+  text-rendering: optimizeLegibility;
 }
 
 .hero-headline {
