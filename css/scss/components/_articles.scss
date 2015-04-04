@@ -7,7 +7,6 @@
   background: $color-text-fill;
   border-bottom: $border-thin $border-type darken($color-text-fill, 10);
   color: $color-text;
-  font-family: $font-headline;
   font-weight: 300;
   padding: 0;
   text-align: right;
@@ -17,6 +16,7 @@
   @include scale-to(h2);
   background: $color-base;
   color: $color-text-fill;
+  font-family: $font-headline;
   padding: 0.2em 0.2em 0.2em 0.23em;
   @include media(tiny) {
     @include scale-to(h3);

@@ -20,7 +20,6 @@
   @include typecsset-font-size($typecsset-h1-size * 1.3);
   background: $color-base;
   color: $color-text-fill;
-  font-weight: 700;
   margin-bottom: 0;
   padding: 1em 0.5em;
   text-align: center;
@@ -39,7 +38,6 @@
 .post-meta_date {
   @include typecsset-font-size($typecsset-h2-size / 1.5);
   background: $color-text-fill;
-  font-family: $font-headline;
   padding: 0 0 0 0.3em;
 }
 

@@ -4,8 +4,7 @@
 
 .pagination {
   @include scale-to(h4);
-  font-family: $font-headline;
-  font-weight: 300;
+  font-family: $font-body;
   margin: 0 auto;
   text-align: center;
 }
