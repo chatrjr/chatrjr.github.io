@@ -34,9 +34,9 @@ pre[class*="language-"] {
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-  background: $color-text-fill;
+  background: darken($color-bg, 2);
   background-size: 3em 3em;
-  border-left: $border-thick $border-type $color-base;
+  border-left: $border-thin $border-type $color-base;
   border-radius: 0;
   margin-bottom: $typecsset-base-line-height;
 }
@@ -44,9 +44,7 @@ pre[class*="language-"] {
 /* Inline code */
 :not(pre) > code[class*="language-"],
 :not(pre) > code {
-  background: $color-text-fill;
-  border: none;
-  border-radius: 0.3em;
+  background: darken($color-bg, 2);
   padding: .25em 0.5em;
 }
 

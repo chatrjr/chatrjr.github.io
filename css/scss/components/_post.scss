@@ -35,16 +35,22 @@
   text-align: left;
 }
 
+.post-meta_date,
+.post-meta_topics,
+.post-body_src,
+.post-body blockquote,
+.post-body-cap {
+  background: lighten($tetra-three, 42);
+}
+
 .post-meta_date {
   @include typecsset-font-size($typecsset-h2-size / 1.5);
-  background: $color-text-fill;
   padding: 0 0 0 0.3em;
 }
 
 .post-meta_topics {
-  background: $color-text-fill;
-  border-top: $border-hairline $border-type $color-base;
-  border-bottom: $border-med $border-type $color-base;
+  border-top: $border-hairline $border-type lighten($tetra-three, 30);
+  border-bottom: $border-med $border-type lighten($tetra-three, 30);
   color: $color-text;
   padding: 0.5em;
 }
@@ -87,7 +93,6 @@
     @include typecsset-font-size($typecsset-h4-size / 1.3);
   }
   blockquote {
-    background: $color-text-fill;
     color: black;
     font-family: $font-body;
     font-weight: 100;
@@ -133,7 +138,6 @@
 }
 
 .post-body_src {
-  background: $color-text-fill;
   margin: $typecsset-base-line-height 0;
   padding: 0.5em;
   p {
@@ -143,7 +147,6 @@
 
 .post-body-cap {
   @include typecsset-font-size($typecsset-h5-size * 1.15);
-  background: $color-text-fill;
   border-top: $border-thick $border-type $color-base;
   color: $color-text;
   text-align: center;

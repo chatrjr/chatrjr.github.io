@@ -3,7 +3,7 @@
 \*------------------*/
 
 .about-sidebar {
-  background: $color-text-fill;
+  background: lighten($tetra-three, 42);
   padding: 1em;
   a {
     color: desaturate(lighten($color-text, 35), 20);

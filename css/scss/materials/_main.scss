@@ -3,7 +3,7 @@
 \*------------------*/
 
 html, body {
-  background: $color-bg;
+  background: lighten($color-bg, 2);
   @include media(tiny) {
     font-size: 14px;
   }

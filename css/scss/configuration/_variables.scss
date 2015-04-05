@@ -6,10 +6,26 @@
 // Palette //
 /////////////
 
-$color-base: rgb(81, 74, 184);
-$color-bg: lighten($color-base, 50);
-$color-text: darken($color-base, 37);
-$color-text-fill: lighten($color-base, 45);
+// Base Scheme
+$color-base: hsl(244, 44%, 51%);
+$color-accent: hsl(244, 42%, 16%);
+$color-bg: hsl(244, 11%, 95%);
+$color-text: hsl(244, 17%, 19%);
+$color-text-fill: ($color-bg);
+
+// Complement
+$complement: hsl(hue($color-base) + 180, 44%, 51%);
+
+// Split complement
+$complement-split-one: hsl(hue($complement) - 45, 44%, 51%);
+$complement-split-two: hsl(hue($complement) + 45, 44%, 51%);
+
+// Tetradic Accents
+$tetra-one: hsl(hue($color-base) - 45, 44%, 51%);
+$tetra-two: hsl(hue($color-base) + 45, 44%, 51%);
+$tetra-three: $complement-split-one;
+$tetra-four: $complement-split-two;
+
 ////////////////
 // Typography //
 ////////////////

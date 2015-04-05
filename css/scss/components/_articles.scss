@@ -4,11 +4,11 @@
 
 .articles-content-date {
   @include scale-to(h3);
-  background: $color-text-fill;
-  border-bottom: $border-thin $border-type darken($color-text-fill, 10);
+  background: lighten($tetra-three, 42);
+  border-bottom: $border-thin $border-type lighten($tetra-three, 30);
   color: $color-text;
   font-weight: 300;
-  padding: 0;
+  padding: 0 0.3em;
   text-align: right;
 }
 

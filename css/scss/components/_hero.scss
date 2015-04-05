@@ -10,7 +10,7 @@
 }
 
 .hero-headline {
-  border-bottom: $border-hairline $border-type darken($color-text-fill, 5);
+  border-bottom: $border-hairline $border-type lighten($tetra-three, 30);
   font-family: $font-hero;
   margin-top: 0;
   padding: 0 0 0.1em 0;
