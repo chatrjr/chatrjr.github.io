@@ -55,10 +55,8 @@ pagination_dir: page
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
-livereload:
-  port: 35729
 
-theme: landscape
+theme: chatrjr
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
