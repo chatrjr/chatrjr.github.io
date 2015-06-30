@@ -1,0 +1,5 @@
+nav.main-menu
+  each link, slug in site.data.menu
+    li.main-menu-item
+      i(class="icon icon-" + slug class="icon--nav")
+      a.main-menu-link(href=link, title=titlecase(slug))= titlecase(slug)

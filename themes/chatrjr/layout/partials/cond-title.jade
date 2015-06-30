@@ -1,0 +1,8 @@
+//- Title variables
+- var homeTitle = [config.title, config.subtitle].join(': ');
+- var pageTitle = [page.title, config.title].join(' &bull; ');
+
+if is_home()
+  title!= homeTitle
+else
+  title!= pageTitle

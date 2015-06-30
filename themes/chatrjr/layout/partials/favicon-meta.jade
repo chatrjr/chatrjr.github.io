@@ -1,0 +1,28 @@
+- var appleSizes = [57, 114, 72, 144, 60, 76, 152, 180];
+- var webSizes = [192, 160, 96, 16, 32];
+- var ms = { sizes: [144, 150, 310, 70], color: "#ffffff" };
+
+mixin appleIcons(r, sizes)
+  // Apple
+  each s in sizes
+    link(rel=r, sizes="#{s}x#{s}", href="/favicons/#{r}-#{s}x#{s}.png")
+  // END Apple
+
+mixin favicons(r, sizes)
+  // Web
+  each s in sizes
+    link(rel=r, type="image/png", href="/favicons/fav#{r}-#{s}x#{s}.png")
+  // END Web
+
+mixin msTile(sizes, color)
+  // Windows Tile
+  each s in sizes
+    meta(name="msapplication-TileColor", content=color)
+    meta(name="msapplication-TileImage", content="/favicons/mstile-#{s}x#{s}.png")
+  // END Windows Tile
+
+// Device Icons
++appleIcons("apple-touch-icon", appleSizes)
++favicons("icon", webSizes)
++msTile(ms.sizes, ms.color)
+// END Device Icons

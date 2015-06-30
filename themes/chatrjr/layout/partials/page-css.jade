@@ -1,0 +1,17 @@
+-
+  var pageLayouts = {
+    about: 'about',
+    error: 'error',
+    post: 'post',
+    main: 'main'
+  };
+
+case page.template
+  when pageLayouts.about
+    link(rel="stylesheet", href="/css/#{pageLayouts.about}.css")
+  when pageLayouts.error
+    link(rel="stylesheet", href="/css/#{pageLayouts.error}.css")
+  when pageLayouts.post
+    link(rel="stylesheet", href="/css/#{pageLayouts.post}.css")
+  default
+    link(rel="stylesheet", href="/css/#{pageLayouts.main}.css")
