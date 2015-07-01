@@ -1,0 +1,1 @@
+I&rsquo;ve been flitting around the tech world like a mad hummingbird for a while. Most of my work is web related, but I feed a broader interest in programming and systems. A curiosity about what I use every day boiled over into action with an internship as the starting pistol. And hell, I just get a lot of joy out of experimental play.

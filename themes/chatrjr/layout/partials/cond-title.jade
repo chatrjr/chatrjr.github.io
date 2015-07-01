@@ -1,8 +1,14 @@
 //- Title variables
 - var homeTitle = [config.title, config.subtitle].join(': ');
+- var catTitle = ["Posts in: " + page.category, config.title].join(' &bull; ');
+- var tagTitle = ["Posts tagged: " + page.tag, config.title].join(' &bull; ');
 - var pageTitle = [page.title, config.title].join(' &bull; ');
 
 if is_home()
-  title!= homeTitle
+  title= homeTitle
+else if is_category()
+  title!= catTitle
+else if is_tag()
+  title!= tagTitle
 else
   title!= pageTitle

@@ -2,3 +2,11 @@ mixin set-hero(subhead)
   .hero
     h1#line-1.hero-headline Pl#[span.kern-1 a]#[span.kern-2 y]#[span.kern-3 ,] with Process.
     h2#line-2.hero-subhead= subhead
+
+if is_home()
+  +set-hero("A log of functional and frivolous experimentation.")
+
+if page.category == 'web'
+  +set-hero("Dips and dives into the web and technology.")
+else if page.category == 'personal'
+  +set-hero("Thoughts outside of my text editor.")

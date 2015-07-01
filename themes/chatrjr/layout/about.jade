@@ -1,0 +1,11 @@
+extends base/layout
+
+block content
+  .about
+    h1.about-title!= markdown(site.data.about.mainTitle)
+    main.about-content(role="main")
+      img.about-content__img(src="/images/me.jpg" alt="Chatman Richmond Jr.")
+      include:markdown ../content/about-main.md
+    aside.about-sidebar
+      h2.about-sidebar__title!= markdown(site.data.about.sidebarTitle)
+      include:markdown ../content/about-sidebar.md

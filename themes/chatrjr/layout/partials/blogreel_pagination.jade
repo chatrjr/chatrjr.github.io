@@ -1,0 +1,6 @@
+nav.pagination(role="navigation")
+  if page.prev
+    span.pagination__prev: a.pagination__link(href=url_for(page.prev_link), title="Previous Page") &#8612;
+  span.pagination__current  Page #{page.current} of #{page.total} 
+  if page.next
+    span.pagination__next: a.pagination__link(href=url_for(page.next_link), title="Next Page") &#8614;

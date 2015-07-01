@@ -1,15 +1,11 @@
----
-template: post
----
-article.post(role="main")
-  h1.title.title--post= page.title
-  .post-meta
-    span.post-meta__date= page.date
-    span.post-meta__topics= page.tags
-  if page.primary-language
-    .post-body(class="language-#{page.primary-language}")= page.content
-  else
-    .post-body= page.content
-  .post-nav(role="navigation")
-    span.post-nav__prev: a.post-nav__link(href=page.prev, title="Previous Post: #{page.prev}") Prev: #{page.prev}
-    span.post-nav__next: a.post-nav__link(href=page.next, title="Next Post: #{page.next}") Next: #{page.next}
+extends base/layout
+
+block content
+  article.post(role="main")
+    h1.title.title--post= page.title
+    include partials/post-meta
+    if page.primary-language
+      .post-body(class="language-#{page.primary-language}")= page.content
+    else
+      .post-body!= page.content
+  include partials/article_pagination
