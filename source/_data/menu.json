@@ -1,6 +1,6 @@
 {
   "home": "/",
-  "web": "/web",
-  "personal": "/personal",
+  "web": "/categories/web",
+  "personal": "/categories/personal",
   "about": "/about"
 }
