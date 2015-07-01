@@ -37,8 +37,8 @@ future: true
 
 # Category & Tag
 default_category: uncategorized
-category_map: ["code", "personal", "systems", "design"]
-tag_map: ["javascript", "css", "fp", "oop", "experiment", "tutorial", "apps", "craft", "opinion", "tooling", "workflow"]
+category_map:
+tag_map:
 
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date

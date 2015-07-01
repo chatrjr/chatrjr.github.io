@@ -1,0 +1,16 @@
+{
+  "name": "chatrjr-hexotic",
+  "version": "3.0.0",
+  "authors": [
+    "Chatman Richmond Jr. <chatmanrjr@gmail.com>"
+  ],
+  "description": "plugins and such",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
