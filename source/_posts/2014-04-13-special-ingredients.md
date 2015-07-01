@@ -4,6 +4,7 @@ redirect_from: "/2014/04/special-ingredients/"
 title: "Special Ingredients"
 id: 009
 date: 2014-04-13
+categories: personal
 tags:
     - opinion
     - response

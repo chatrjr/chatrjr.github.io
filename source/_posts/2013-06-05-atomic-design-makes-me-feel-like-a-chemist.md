@@ -3,6 +3,7 @@ layout: post
 redirect_from: "/2013/06/atomic-design-makes-me-feel-like-a-chemist/"
 title: "Atomic Design Makes Me Feel Like a Chemist"
 id: 001
+categories: web
 date: 2013-06-05
 tags:
     - atomic design

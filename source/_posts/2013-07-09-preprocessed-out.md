@@ -3,6 +3,7 @@ layout: post
 redirect_from: "/2013/07/preprocessed-out/"
 title: Preprocessed Out
 id: 003
+categories: web
 date: 2013-07-09
 tags:
     - Sass

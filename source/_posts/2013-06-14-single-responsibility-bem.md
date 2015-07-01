@@ -3,6 +3,7 @@ layout: post
 redirect_from: "/2013/06/single-responsibility-bem/"
 title: SRBEM (Single Responsibility BEM)
 id: 002
+categories: web
 date: 2013-06-14
 tags:
     - BEM

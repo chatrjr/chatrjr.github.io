@@ -3,6 +3,7 @@ layout: post
 redirect_from: "/2014/07/zindex-you-wily-bastard/"
 title: "Z-Index, You Wily Bastard"
 id: 010
+categories: web
 date: 2014-07-21
 tags:
     - CSS

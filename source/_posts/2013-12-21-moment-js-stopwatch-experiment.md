@@ -3,6 +3,7 @@ layout: post
 redirect_from: "/2013/12/moment-js-stopwatch-experiment/"
 title: "Moment.js Stopwatch"
 id: 006
+categories: web
 date: 2013-12-21
 tags:
     - Moment.js

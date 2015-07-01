@@ -5,6 +5,7 @@ redirect_from:
     - "/2013/12/yet-another-css-architecture/"
 title: "YACSSA (Yet Another CSS Architecture)"
 id: 007
+categories: web
 date: 2013-12-22
 tags:
     - CSS architecture
