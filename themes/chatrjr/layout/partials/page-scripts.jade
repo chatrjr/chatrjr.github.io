@@ -1,7 +1,7 @@
-if page.template === 'main'
+if is_post()
+  script(src="/js/vendor/prismjs/prism.js")
+else
   script(src="/js/vendor/fittextjs/vanilla-fittext.js")
   script.
     window.fitText( document.getElementById("line-1"), 0.9);
     window.fitText( document.getElementById("line-2"), 2.3);
-else
-  script(src="/js/vendor/prismjs/prism.js")
