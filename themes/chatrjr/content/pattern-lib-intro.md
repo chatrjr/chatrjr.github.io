@@ -1,1 +1,3 @@
-This is the pattern library for my personal site, created for my convenience and reference (and your perusal). It isn't very big, because the site's not very big. However, a pattern library can be an __essential asset__ no matter the size. Discover more about front-end styleguides, pattern libraries, and find some great tools to create your own, at [styleguides.io](http://styleguides.io).
+# Pattern Library
+
+This is the pattern library for my personal site, created for my convenience and reference (and your perusal). It isn't very big, because the site's not very big. However, a pattern library can be an __essential asset__ no matter the size. This one in particular is based on the way I author CSS and may not resemble others in the wild. Discover more about front-end styleguides, pattern libraries, and find some great tools to create your own, at [styleguides.io](http://styleguides.io).

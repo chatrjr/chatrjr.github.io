@@ -1,0 +1,11 @@
+mixin swatch-tree
+    each scheme in site.data.pattern_swatches.schemes
+      h4.pattern-subtitle=titlecase(scheme.id)
+      ul.swatches
+        each color, key in scheme
+          unless key == "id"
+            li.swatches__color(class="#{scheme.id}-#{key}")
+
+.pattern
+  h3.pattern-title= site.data.pattern_swatches.title
+  +swatch-tree

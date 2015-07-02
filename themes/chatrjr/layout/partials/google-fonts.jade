@@ -1,0 +1,5 @@
+each typeface in site.data.pattern_typography.typefaces
+  - var transformFamily = typeface.family.split(" ").join("+");
+  - var transformWeights = typeface.weights.join(",");
+  - var joinedAttrs = [transformFamily, transformWeights].join(":");
+    link(href="http://fonts.googleapis.com/css?family=" + joinedAttrs, type="text/css", rel="stylesheet")

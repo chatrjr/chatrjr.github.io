@@ -2,7 +2,7 @@ mixin display-date(d)
   span.post-meta__date= date(d, 'MM/DD/YYYY')
 
 mixin display-tags(t)
-  .post-meta__tags
+  span.post-meta__tags
     if t.length > 0
       - t.each(function(tag) {
         a.post-meta__link(href=url_for(tag.path))= tag.name

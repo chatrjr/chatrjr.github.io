@@ -1,0 +1,10 @@
+mixin type-tree
+    each typeface in site.data.pattern_typography.typefaces
+      ul.typography
+        - var transform = typeface.family.split(' ').join('-').toLowerCase();
+        - var listWeights = typeface.weights.join(', ');
+        li.typography__font(class="#{transform}") #{titlecase(typeface.id)}: #{typeface.family} #[small #{listWeights}]
+
+.pattern
+  h3.pattern-title= site.data.pattern_typography.title
+  +type-tree
