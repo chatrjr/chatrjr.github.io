@@ -1,0 +1,7 @@
+ul.blogreel
+  - page.posts.each(function(article) {
+    li.articles
+      .articles-content
+        h1.title.title--blogreel: a(href=article.path, title=article.title)= article.title
+        include article_meta
+  - })

@@ -2,12 +2,5 @@ extends base/layout
 
 block content
   include partials/hero
-  ul.blogreel
-    - page.posts.each(function(article) {
-      li.articles
-        .articles-content
-          h1.title.title--blogreel: a(href=article.path, title=article.title)= article.title
-          .post-meta
-            span.post-meta__date= date(article.date, 'MM/DD/YYYY')
-    - })
+  include partials/blogreel
   include partials/blogreel_pagination

@@ -1,11 +1,5 @@
 extends base/layout
 
 block content
-  article.post(role="main")
-    h1.title.title--post= page.title
-    include partials/post-meta
-    if page.primary-language
-      .post-body(class="language-#{page.primary-language}")= page.content
-    else
-      .post-body!= page.content
+  include partials/article
   include partials/article_pagination
