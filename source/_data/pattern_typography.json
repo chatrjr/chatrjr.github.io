@@ -1,0 +1,25 @@
+{
+  "title": "Typography - Google Fonts",
+  "typefaces": [
+    {
+      "id": "body",
+      "family": "Roboto",
+      "weights": ["400", "400italic", "700", "900"]
+    },
+    {
+      "id": "hero",
+      "family": "Oswald",
+      "weights": ["700"]
+    },
+    {
+      "id": "heading",
+      "family": "Roboto Condensed",
+      "weights": ["700"]
+    },
+    {
+      "id":"code",
+      "family": "Fira Mono",
+      "weights": ["400", "700"]
+    }
+  ]
+}
