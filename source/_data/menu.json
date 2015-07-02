@@ -2,5 +2,6 @@
   "home": "/",
   "web": "/categories/web",
   "personal": "/categories/personal",
-  "about": "/about"
+  "about": "/about",
+  "patterns": "/pattern-library"
 }
