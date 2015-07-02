@@ -1,11 +1,21 @@
+//- Separator
+- var sep = ' &bull; ';
+
 //- Title variables
 - var homeTitle = [config.title, config.subtitle].join(': ');
-- var catTitle = ["Posts in: " + page.category, config.title].join(' &bull; ');
-- var tagTitle = ["Posts tagged: " + page.tag, config.title].join(' &bull; ');
-- var pageTitle = [page.title, config.title].join(' &bull; ');
+- var archTitle = ["Archives", config.title].join(sep);
+- var yearTitle = ["Posts written: " + page.year, config.title].join(sep);
+- var catTitle = ["Posts in: " + titlecase(page.category), config.title].join(sep);
+- var tagTitle = ["Posts tagged: " + titlecase(page.tag), config.title].join(sep);
+- var pageTitle = [page.title, config.title].join(sep);
 
 if is_home()
   title= homeTitle
+
+if is_archive()
+  title!= archTitle
+else if is_year()
+  title!= yearTitle
 else if is_category()
   title!= catTitle
 else if is_tag()

@@ -1,16 +1,16 @@
 -
   var pageLayouts = {
     about: 'about',
-    error: 'error',
+    lib: 'pattern-lib',
     post: 'post',
     main: 'main'
   };
 
-case page.template
+case page.layout
   when pageLayouts.about
     link(rel="stylesheet", href="/css/#{pageLayouts.about}.css")
-  when pageLayouts.error
-    link(rel="stylesheet", href="/css/#{pageLayouts.error}.css")
+  when pageLayouts.lib
+    link(rel="stylesheet", href="/css/#{pageLayouts.lib}.css")
   when pageLayouts.post
     link(rel="stylesheet", href="/css/#{pageLayouts.post}.css")
   default

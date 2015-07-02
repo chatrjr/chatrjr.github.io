@@ -1,0 +1,12 @@
+aside.archive.archive--categories
+  h3.archive-title By Category
+  .archive-content
+    != list_categories({class: 'archive-content__list', transform: titlecase})
+aside.archive.archive--tags
+  h3.archive-title By Tag
+  .archive-content
+    != list_tags({class: 'archive-content__list', transform: titlecase})
+aside.archive.archive--years
+  h3.archive-title By Year
+  .archive-content
+    != list_archives({class: 'archive-content__list', transform: titlecase, type: 'yearly'})

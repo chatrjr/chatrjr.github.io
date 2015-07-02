@@ -1,0 +1,8 @@
+extends base/layout
+
+block content
+  include partials/hero
+  if !is_year()
+    include partials/archives
+  else
+    include partials/blogreel
