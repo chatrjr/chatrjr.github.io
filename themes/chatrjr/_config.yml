@@ -1,0 +1,18 @@
+menu:
+  Home: /
+  Web: /categories/web
+  Personal: /categories/personal
+  Archive: /archives
+  About: /about
+
+social:
+  handle: "chatrjr"
+  networks:
+    codepen: "http://codepen.io/chatrjr"
+    jsfiddle: "http://jsfiddle.net/user/chatrjr/fiddles/"
+    github: "http://github.com/chatrjr"
+    twitter: "http://twitter.com/chatrjr"
+
+meta:
+  mail: "chatmanrjr@gmail.com"
+  feed: "http://feeds.feedburner.com/chatrjr"

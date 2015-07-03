@@ -5,7 +5,10 @@ html(lang="en")
   body
     .container
       header.main-head
+        .logo.icon-logo.icon--header
         include ../partials/main-menu
       main(role="main")
         block content
+      footer.main-foot
+        include ../partials/footer-menu
     include ../partials/page-scripts

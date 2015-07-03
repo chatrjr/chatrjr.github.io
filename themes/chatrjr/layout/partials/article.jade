@@ -1,5 +1,6 @@
-article.post(role="main")
-  h1.title.title--post= page.title
+article.post
+  .post-masthead
+    h1.post-masthead__title= page.title
   include post-meta
   if page.primary-language
     .post-body(class="language-#{page.primary-language}")= page.content

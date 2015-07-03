@@ -1,0 +1,6 @@
+- page.posts.each(function(article) {
+  li.articles
+    .articles-content
+      h1.articles-title: a(href=article.path, title=article.title)= article.title
+      include article_meta
+- })

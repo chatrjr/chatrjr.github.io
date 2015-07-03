@@ -8,4 +8,5 @@ block content
       include:markdown ../content/about-main.md
     aside.about-sidebar
       h2.about-sidebar__title!= markdown(site.data.about.sidebarTitle)
-      include:markdown ../content/about-sidebar.md
+      .about-sidebar__content
+        include:markdown ../content/about-sidebar.md

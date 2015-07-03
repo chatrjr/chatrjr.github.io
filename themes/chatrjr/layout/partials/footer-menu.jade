@@ -1,0 +1,17 @@
+nav.footer-menu
+  li: a(href="/pattern-library") Styleguide
+  ul.footer-menu-section
+    h5.footer-menu-title Social
+    li chatrjr:
+      each network, name in theme.social.networks
+        a.footer-menu__link(href=network, title=titlecase(name))
+          i(class="icon icon-#{name} icon--footer")
+  ul.footer-menu-section
+    h5.footer-menu-title Typography
+    each typeface in site.data.pattern_typography.typefaces
+      - var transformFamily = typeface.family.split(" ").join("+");
+      li: a.footer-menu__link(href="https://www.google.com/fonts/specimen/#{transformFamily}")= typeface.family
+  ul.footer-menu-section
+    h5.footer-menu-title Meta
+    each link, key in theme.meta
+      li: a.footer-menu__link(href=link, title="My #{titlecase(key)}")= key

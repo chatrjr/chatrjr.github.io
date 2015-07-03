@@ -1,7 +1,7 @@
 extends base/layout
 
 block content
-  .intro.u-highlighted
+  .pattern-lib-info.u-highlighted
     include:markdown ../content/pattern-lib-intro.md
   section.level
     h2.section.title Configuration
@@ -15,3 +15,8 @@ block content
   section.level
     h2.level.title Components
     include patterns/components
+  section.level
+    h2.level.title Structures
+    include patterns/structures
+  .pattern-lib-info.u-highlighted
+    include:markdown ../content/pattern-lib-outro.md

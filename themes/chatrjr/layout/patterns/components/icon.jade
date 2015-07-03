@@ -1,0 +1,7 @@
+.pattern
+  h3.pattern-title .icon
+  ul.icons
+    - var icons = ["about", "architecture", "codepen", "experiment", "feed", "github", "home", "jsfiddle", "logo", "mail", "personal", "project", "system", "tooling", "twitter", "web"];
+    each icon in icons
+      li.icons-id= "icon-" + icon
+        i.icon(class="icon-#{icon}")

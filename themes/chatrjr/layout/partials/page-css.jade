@@ -1,17 +1,11 @@
--
-  var pageLayouts = {
-    about: 'about',
-    lib: 'pattern-lib',
-    post: 'post',
-    main: 'main'
-  };
-
 case page.layout
-  when pageLayouts.about
-    link(rel="stylesheet", href="/css/#{pageLayouts.about}.css")
-  when pageLayouts.lib
-    link(rel="stylesheet", href="/css/#{pageLayouts.lib}.css")
-  when pageLayouts.post
-    link(rel="stylesheet", href="/css/#{pageLayouts.post}.css")
+  when 'about'
+    link(rel="stylesheet", href="/css/about.css")
+  when 'archive'
+    link(rel="stylesheet", href="/css/archive.css")
+  when 'pattern-lib'
+    link(rel="stylesheet", href="/css/pattern-lib.css")
+  when 'post'
+    link(rel="stylesheet", href="/css/post.css")
   default
-    link(rel="stylesheet", href="/css/#{pageLayouts.main}.css")
+    link(rel="stylesheet", href="/css/main.css")
