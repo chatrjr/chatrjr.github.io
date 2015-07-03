@@ -1,0 +1,61 @@
+*,
+*:before,
+*:after
+  box-sizing: border-box
+
+.container
+  max-width: layout-container-width
+  margin: 0 auto
+  padding: 0 0.5em 0.5em 0.5em
+
+$clearfix
+  content: ""
+  clear: both
+  display: table
+
+.grid
+  @extends $clearfix
+  margin-bottom: 1em
+
+.grid:after
+  @extends $clearfix
+
+.inner-grid
+  @extends $clearfix
+  margin: 0
+
+.inner-grid:after
+  @extends $clearfix
+
+.node
+  @extends .grid
+  float: left
+  margin-bottom: 0
+
+.full
+  .node
+    width: 100%
+
+.golden
+  .node.sec-col 
+    width: 100% - 61.804697157%
+
+  .node.prime-col
+    width: 61.804697157%
+
+.halves
+  .node
+    width: 50%
+
+.quarters
+  .node
+    margin: 0 1% 0 0
+    width: 24%
+    &:last-child
+      margin-right: 0
+
+
+/* For multi-column needs. */
+
+.complex
+  slices(layout-columns)

@@ -3,22 +3,22 @@
   "typefaces": [
     {
       "id": "body",
-      "family": "Roboto",
-      "weights": ["400", "400italic", "700", "900"]
+      "family": "Noticia Text",
+      "weights": ["400", "400italic", "700"]
     },
     {
       "id": "hero",
-      "family": "Oswald",
-      "weights": ["700"]
+      "family": "Alegreya SC",
+      "weights": ["400", "900"]
     },
     {
-      "id": "heading",
-      "family": "Roboto Condensed",
-      "weights": ["700"]
+      "id": "headings",
+      "family": "Alegreya Sans",
+      "weights": ["100", "400", "900"]
     },
     {
       "id":"code",
-      "family": "Fira Mono",
+      "family": "Roboto Mono",
       "weights": ["400", "700"]
     }
   ]

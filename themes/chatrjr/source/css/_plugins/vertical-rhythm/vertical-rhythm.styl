@@ -9,8 +9,8 @@
  * and add your own for vertical rhythm
  */
 
-$font-size-base =       14px;
-$line-height-base =     20px;
+$font-size-base =       1rem;
+$line-height-base =     1.667rem;
 
 
 /* TYPOGRAPHY BASE
@@ -28,7 +28,7 @@ $line-height-base =     20px;
  * this block if you use Twitter Bootstrap
  */
 
-h1, h2, h3, h4, h5, h6 {
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   margin: ($line-height-base / 2) 0;
   line-height: $line-height-base;
   small {
@@ -36,22 +36,22 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-h1, h2 {
+h1, .h1, h2, .h2 {
   margin-top: $line-height-base;
   margin-bottom: ($line-height-base / 2);
   line-height: ($line-height-base * 2);
 }
-h3, h4, h5, h6 {
+h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   margin-top: ($line-height-base / 2);
   margin-bottom: ($line-height-base / 2);
 }
 
-h1 { font-size: $font-size-base * 2.75; font-size: 4rem; } // ~38px
-h2 { font-size: $font-size-base * 2.25; font-size: 3rem; } // ~32px
-h3 { font-size: $font-size-base * 1.75; font-size: 2.5rem; } // ~24px
-h4 { font-size: $font-size-base * 1.25; font-size: 2rem; } // ~18px
-h5 { font-size: $font-size-base; font-size: 1.6rem; }
-h6 { font-size: $font-size-base * 0.85; font-size: 1.2rem; } // ~12px
+h1, .h1 { font-size: $font-size-base * 2.75; } // ~38px
+h2, .h2 { font-size: $font-size-base * 2.25; } // ~32px
+h3, .h3 { font-size: $font-size-base * 1.75; } // ~24px
+h4, .h4 { font-size: $font-size-base * 1.25; } // ~18px
+h5, .h5 { font-size: $font-size-base; }
+h6, .h6 { font-size: $font-size-base * 0.85; } // ~12px
 
 h1 small { font-size: $font-size-base * 1.75; } // ~24px
 h2 small { font-size: $font-size-base * 1.25; } // ~18px

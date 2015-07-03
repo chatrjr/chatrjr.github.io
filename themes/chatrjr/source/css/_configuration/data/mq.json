@@ -1,0 +1,5 @@
+{
+  "tiny": "@media screen and (max-width: 33em)",
+  "small": "screen and (min-width: 33.1em) and (max-width: 40em)",
+  "medium": "screen and (min-width: 40.1em) and (max-width: 48em)"
+}

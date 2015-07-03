@@ -6,34 +6,98 @@
  * --------------------------------------------------------------
  *
  * TABLE OF CONTENTS
- *    PLUGINS ==================== Helper Libs
+ *    PLUGINS ==================== Libs
  *       NORMALIZE
  *       VERTICAL RHYTHM
- *       PRISM
  *    CONFIGURATION ===================== Settings
  *      VARIABLES
  *      FUNCTIONS
  *      MIXINS
+ *      SYNTAX (Prism.js)
  *    UTILITIES ========================= Basic plumbing
  *      GRID
- *       HELPERS
+ *      HELPERS
  *    MATERIALS ========================= Global styling
  *      MAIN
  *      TEXT
  *      LINKS
  *      MEDIA
- *    COMPONENTS ======================== Page content
+ *    COMPONENTS ======================== Page content (Patterns)
+ *      SPECIFIC TO PATTERN LIBRARY
+ *          SWATCHES
+ *          TYPOGRAPHY
+ *      LOGO
+ *      ICONS
  *      HERO
+ *      MENUS
  *      ARTICLES
  *      PAGINATION
+ *      ARCHIVE
+ *      POST
  *    STRUCTURES ======================== Page fixtures
- *      HEADER
- *      MAIN MENU
+ *      MAIN HEAD
  *      ARCHIVES
  *      BLOGREEL
  *      MAIN FOOT
  **/
 
+/*==================*\
+   #PLUGINS
+\*==================*/
+
 @require "_plugins/normalize/normalize"
 @require "_plugins/vertical-rhythm/vertical-rhythm"
-@require "_plugins/prism/prism"
+
+////////////////////
+// #CONFIGURATION //
+////////////////////
+
+@require "_configuration/variables"
+@require "_configuration/functions"
+@require "_configuration/mixins"
+@require "_configuration/syntax"
+
+/*==================*\
+   #UTILITIES
+\*==================*/
+
+@require "_utilities/grid"
+@require "_utilities/helpers"
+
+/*==================*\
+   #MATERIALS
+\*==================*/
+
+@require "_materials/main"
+@require "_materials/text"
+@require "_materials/links"
+@require "_materials/media"
+
+/*==================*\
+   #COMPONENTS
+\*==================*/
+
+// Only for Pattern Library
+@require "_components/pattern-library/swatches"
+@require "_components/pattern-library/typography"
+
+@require "_components/logo"
+@require "_components/icons"
+@require "_components/hero"
+@require "_components/menus"
+@require "_components/articles"
+@require "_components/pagination"
+@require "_components/archive"
+@require "_components/post"
+
+/*==================*\
+   #STRUCTURES
+\*==================*/
+
+// Only for Pattern Library
+@require "_structures/pattern-library/pattern"
+
+@require "_structures/main-head"
+@require "_structures/archives"
+@require "_structures/blogreel"
+@require "_structures/main-foot"

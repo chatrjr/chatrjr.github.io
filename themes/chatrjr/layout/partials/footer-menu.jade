@@ -15,3 +15,8 @@ nav.footer-menu
     h5.footer-menu-title Meta
     each link, key in theme.meta
       li: a.footer-menu__link(href=link, title="My #{titlecase(key)}")= key
+  ul.footer-menu-section
+    h5.footer-menu-title Misc
+    li Generated with #[a(href="http://hexo.io") Hexo]
+    li Coded in #[a(href="http://sublimetext.com") Sublime Text]
+    li Icons served with #[a(href="http://grumpicon.com") Grumpicon] and #[a(href="http://icomoon.io") Icomoon]

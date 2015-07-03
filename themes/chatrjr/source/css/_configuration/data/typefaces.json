@@ -1,0 +1,23 @@
+{
+  "title": "Typography - Google Fonts",
+  "body": {
+    "id": "body",
+    "family": "Noticia Text",
+    "weights": ["400", "400italic", "700"]
+  },
+  "hero": {
+    "id": "hero",
+    "family": "Alegreya SC",
+    "weights": ["400"]
+  },
+  "headings": {
+    "id": "heading",
+    "family": "Alegreya Sans",
+    "weights": ["100", "400", "900"]
+  },
+  "code": {
+    "id":"code",
+    "family": "Roboto Mono",
+    "weights": ["400", "700"]
+  }
+}

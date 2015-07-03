@@ -1,0 +1,13 @@
+// slices()
+// -------------------------------------------
+// Custom mixin to create columns for 
+// complex content.
+//   Usage:
+//     .grid-class
+//       slices(5)
+
+slices(columns)
+  single = 100% / columns
+  for col in (1..columns)
+    .node.col-{col}
+      width single * col

@@ -5,9 +5,9 @@
 
 code[class*="language-"],
 pre[class*="language-"] {
-  color: black;
+  color: colors-main-text;
   text-shadow: 0 1px white;
-  font-family: Consolas, Monaco, 'Andale Mono', monospace;
+  font-family: code-family, monospace;
   direction: ltr;
   text-align: left;
   white-space: pre;
@@ -28,13 +28,13 @@ pre[class*="language-"] {
 pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
 code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
   text-shadow: none;
-  background: #b3d4fc;
+  background: colors-main-bg;
 }
 
 pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
 code[class*="language-"]::selection, code[class*="language-"] ::selection {
   text-shadow: none;
-  background: #b3d4fc;
+  background: colors-main-bg;
 }
 
 @media print {
@@ -46,14 +46,15 @@ code[class*="language-"]::selection, code[class*="language-"] ::selection {
 
 /* Code blocks */
 pre[class*="language-"] {
-  padding: 1em;
+  padding: 0.5em;
   margin: .5em 0;
   overflow: auto;
 }
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-  background: #f5f2f0;
+  border: border-thin border-type colors-split-accent-0;
+  background: colors-split-bg-0;
 }
 
 /* Inline code */
@@ -84,7 +85,7 @@ pre[class*="language-"] {
 .token.constant,
 .token.symbol,
 .token.deleted {
-  color: #905;
+  color: colors-clashes-accent-0;
 }
 
 .token.selector,
