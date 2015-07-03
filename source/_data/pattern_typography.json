@@ -13,13 +13,13 @@
     },
     {
       "id": "headings",
-      "family": "Alegreya Sans",
-      "weights": ["100", "400", "900"]
+      "family": "Abril Fatface",
+      "weights": ["400"]
     },
     {
       "id":"code",
       "family": "Roboto Mono",
-      "weights": ["400", "700"]
+      "weights": ["400"]
     }
   ]
 }

@@ -6,7 +6,6 @@
 code[class*="language-"],
 pre[class*="language-"] {
   color: colors-main-text;
-  text-shadow: 0 1px white;
   font-family: code-family, monospace;
   direction: ltr;
   text-align: left;
@@ -46,15 +45,15 @@ code[class*="language-"]::selection, code[class*="language-"] ::selection {
 
 /* Code blocks */
 pre[class*="language-"] {
-  padding: 0.5em;
+  padding: 1em;
   margin: .5em 0;
   overflow: auto;
 }
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-  border: border-thin border-type colors-split-accent-0;
-  background: colors-split-bg-0;
+  border: border-hairline border-type colors-clashes-accent-1;
+  background: colors-clashes-bg-1;
 }
 
 /* Inline code */
