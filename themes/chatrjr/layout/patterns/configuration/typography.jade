@@ -5,6 +5,6 @@ mixin type-tree
           - var listWeights = typeface.weights.join(', ');
           li.typography__font(class="#{typeface.id}") #{titlecase(typeface.id)}: #{typeface.family} #[small #{listWeights}]
 
-.pattern
+.pattern.node
   h3.pattern-title= site.data.pattern_typography.title
   +type-tree

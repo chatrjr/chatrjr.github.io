@@ -1,7 +1,7 @@
-.pattern
+.pattern.node
   h3.pattern-title .icon
-  ul.icons
-    - var icons = ["about", "architecture", "codepen", "experiment", "feed", "github", "home", "jsfiddle", "logo", "mail", "personal", "project", "system", "tooling", "twitter", "web"];
+  ul.icons.u-null-list-stylegrid.quarters
+    - var icons = ["about", "architecture", "archives", "category", "codepen", "experiment", "feed", "github", "jsfiddle", "mail", "personal", "project", "system", "tag", "tooling", "twitter", "web", "year"];
     each icon in icons
-      li.icons-id= "icon-" + icon
+      li.icons-id.node icon-#{icon}
         i.icon(class="icon-#{icon}")

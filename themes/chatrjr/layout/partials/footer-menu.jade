@@ -1,22 +1,21 @@
-nav.footer-menu
-  li: a(href="/pattern-library") Patterns
-  ul.footer-menu-section
-    h5.footer-menu-title Social
-    li chatrjr:
+nav.footer-menu.grid.quarters
+  ul.footer-menu-section.node.u-null-list-style
+    h5.footer-menu__title Social
+    li.footer-menu__item
       each network, name in theme.social.networks
         a.footer-menu__link(href=network, title=titlecase(name))
-          i(class="icon icon-#{name} icon--footer")
-  ul.footer-menu-section
-    h5.footer-menu-title Typography
+          i.footer-menu__icon(class="icon icon-#{name}")
+  ul.footer-menu-section.node.u-null-list-style
+    h5.footer-menu__title Typography
     each typeface in site.data.pattern_typography.typefaces
       - var transformFamily = typeface.family.split(" ").join("+");
-      li: a.footer-menu__link(href="https://www.google.com/fonts/specimen/#{transformFamily}")= typeface.family
-  ul.footer-menu-section
-    h5.footer-menu-title Meta
+      li.footer-menu__item: a.footer-menu__link(href="https://www.google.com/fonts/specimen/#{transformFamily}")= typeface.family
+  ul.footer-menu-section.node.u-null-list-style
+    h5.footer-menu__title Meta
     each link, key in theme.meta
-      li: a.footer-menu__link(href=link, title="My #{titlecase(key)}")= key
-  ul.footer-menu-section
-    h5.footer-menu-title Misc
-    li Generated with #[a(href="http://hexo.io") Hexo]
-    li Coded in #[a(href="http://sublimetext.com") Sublime Text]
-    li Icons served with #[a(href="http://grumpicon.com") Grumpicon] and #[a(href="http://icomoon.io") Icomoon]
+      li.footer-menu__item: a.footer-menu__link(href=link, title="My #{titlecase(key)}")= key
+  ul.footer-menu-section.node.u-null-list-style
+    h5.footer-menu__title Misc
+    li.footer-menu__item Generated with #[a.footer-menu__link(href="http://hexo.io") Hexo]
+    li.footer-menu__item Coded in #[a.footer-menu__link(href="http://sublimetext.com") Sublime Text]
+    li.footer-menu__item Icons served with #[a.footer-menu__link(href="http://grumpicon.com") Grumpicon] and #[a.footer-menu__link(href="http://icomoon.io") Icomoon]

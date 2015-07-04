@@ -1,10 +1,9 @@
-.pattern
+.pattern.node
   h3.pattern-title .archive
   aside.archive
     .h3.archive-title My Archive
     .archive-content
-      ul.archive-list
-        - for (var i = 1; i <= 10; i++)
+      ul.archive-list.u-null-list-style
           li.archive-list-item
             a.archive-list-link(href="#") item
-            span.archive-list-count #{i}
+            span.archive-list-count 2

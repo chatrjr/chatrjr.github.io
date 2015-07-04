@@ -1,5 +1,5 @@
-nav.main-menu.grid.eighths.u-null-list-style
+nav.main-menu.node.minor.grid.halves.u-null-list-style
   each link, slug in theme.menu
-    li.main-menu-item.node
-      a.main-menu__link(href=link, title=slug)= slug
+    li.main-menu-item
+      a.main-menu__link.node(href=link, title=slug)= slug
         i.main-menu__icon(class="icon icon-#{slug.toLowerCase()}")

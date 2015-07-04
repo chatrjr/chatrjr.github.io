@@ -1,19 +1,19 @@
-.pattern
+.pattern.node
   h3.pattern-title .archives
   .archives
     aside.archive
       .h3.archive-title My Archive
       .archive-content
-        ul.archive-list
-          - for (var i = 1; i <= 10; i++)
+        ul.archive-list.u-null-list-style
+          each archiveCount in [1, 2, 3, 4, 5, 6]
             li.archive-list-item
               a.archive-list-link(href="#") item
-              span.archive-list-count #{i}
+              span.archive-list-count= archiveCount
     aside.archive
       .h3.archive-title My Other Archive
       .archive-content
-        ul.archive-list
-          - for (var i = 1; i <= 5; i++)
+        ul.archive-list.u-null-list-style
+          each archiveCount in [1, 2]
             li.archive-list-item
               a.archive-list-link(href="#") item
-              span.archive-list-count #{i}
+              span.archive-list-count= archiveCount

@@ -6,7 +6,7 @@
 .container
   max-width: layout-container-width
   margin: 0 auto
-  padding: 0 0.5em 0.5em 0.5em
+  padding: padding-small
 
 $clearfix
   content: ""
@@ -19,7 +19,7 @@ $clearfix
 .grid:after
   @extends $clearfix
 
-.inner-grid
+.component-grid
   margin: 0
 
 .inner-grid:after
@@ -27,6 +27,7 @@ $clearfix
 
 .node
   @extends .grid
+  // border: 2px solid #555
   float: left
   margin-bottom: 0
 
@@ -44,6 +45,10 @@ $clearfix
 .halves
   .node
     width: (100% / 2)
+
+.thirds
+  .node
+    width: (100% / 3)
 
 .quarters
   .node
