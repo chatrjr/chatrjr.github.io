@@ -8,11 +8,11 @@
   "headings": {
     "id": "heading",
     "family": "Abril Fatface",
-    "weights": ["100", "400", "900"]
+    "weights": ["400"]
   },
   "code": {
     "id":"code",
     "family": "Roboto Mono",
-    "weights": ["400"]
+    "weights": ["400", "700"]
   }
 }

@@ -1,0 +1,42 @@
+.post-masthead__title
+  @extends .articles-title
+  border-width: border-hairline
+  font-size: ($font-size-base * 5)
+  line-height: ($line-height-base * 3)
+.post-meta
+  @extends .articles-meta
+  margin-top: -(padding-small * 4)
+.post-meta__date
+  @extends .articles-meta__date
+  font-size: ($font-size-base * 2)
+  line-height: ($line-height-base * 3)
+.post-meta__tags
+  @extends .articles-meta__tags
+.post-meta__link
+  @extends .articles-meta__link
+
+.rhythm
+  ol
+    list-style-type: none
+    counter-reset: item
+    margin: 0
+    padding: 0
+  ol > li
+    display: table
+    counter-increment: item
+    margin-bottom: 0.6em
+  ol > li:before 
+    content: counters(item, ".") ". "
+    display: table-cell
+    padding-right: 0.6em
+  li ol > li 
+    margin: 0
+  li ol > li:before
+    content: counters(item, ".") " "
+
+.post-src
+  background: colors-clashes-accent-1
+  padding: padding-small
+
+.post-src, .post-src a
+  color: colors-clashes-bg-1

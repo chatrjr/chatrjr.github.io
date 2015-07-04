@@ -14,7 +14,7 @@
     {
       "id":"code",
       "family": "Roboto Mono",
-      "weights": ["400"]
+      "weights": ["400", "700"]
     }
   ]
 }

@@ -58,6 +58,10 @@ pagination_dir: page
 
 stylus:
   compress: true
+
+toc:
+  maxDepth: 3
+
 theme: chatrjr
 
 # Deployment
