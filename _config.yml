@@ -56,11 +56,37 @@ pagination_dir: page
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
 
+# RSS
+feed:
+  type: atom
+  path: atom.xml
+  limit: 10
+
+
+# Stylus
 stylus:
   compress: true
 
+# Auto TOC
 toc:
   maxDepth: 3
+
+# Markdown-it config
+## Docs: https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki
+markdown:
+  render:
+    html: true
+    xhtmlOut: false
+    breaks: false
+    linkify: true
+    typographer: true
+    quotes: '“”‘’'
+  anchors:
+    level: 3
+    collisionSuffix: 'v'
+    permalink: true
+    permalinkClass: header-anchor
+    permalinkSymbol: ¶
 
 theme: chatrjr
 
