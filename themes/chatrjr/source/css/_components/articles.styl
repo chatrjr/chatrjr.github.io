@@ -1,13 +1,37 @@
-// .articles
+
 
 // .articles-content
 
-// .articles-content__title
+.articles-title
+  border-bottom: border-thin border-type[0] colors-clashes-accent-0
+  color: colors-main-text
+  display: block
+  padding-bottom: (padding-small / 2)
 
-// .articles-meta
+.articles-meta
+  margin-top: -(padding-small * 1.05)
 
-// .articles-meta__date
+.articles-meta__date
+  background: colors-clashes-accent-0
+  color: colors-clashes-bg-0
+  font-size: ($font-size-base * 1.25)
+  padding: (padding-small / 2)
 
-// .articles-meta__tags
+.articles-meta__tags
+  font-family: code-family
+
+.articles-meta__link
+  padding: padding-small
+  position: relative
+  &:after
+    content: "\25fe"
+    color: colors-main-text
+    font-size: ($font-size-base / 1.5)
+    display: inline
+    padding: 0 padding-small
+    position: absolute
+    bottom: 0.5em
+  &:last-child:after
+    content: ""
 
 // .articles-meta__link

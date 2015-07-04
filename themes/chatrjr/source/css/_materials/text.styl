@@ -35,20 +35,18 @@ blockquote
   @extends .u-highlighted
   padding-bottom: padding-medium
   position: relative
-
-.rhythm blockquote
-  padding-bottom: padding-medium
-
-blockquote:before
-  content: "\201c" // left double quote
-  display: inline-block
-  font-family: headings-family
-  font-size: ($font-size-base * 3)
-  margin: 0
-  padding: 0
-  position: absolute
-  top: ($line-height-base * 1.5)
-  left: ($line-height-base / 8)
+  .rhythm &
+    padding-bottom: padding-medium
+  &:before
+    content: "\201c" // left double quote
+    display: inline-block
+    font-family: headings-family
+    font-size: ($font-size-base * 3)
+    margin: 0
+    padding: 0
+    position: absolute
+    top: ($line-height-base * 1.5)
+    left: ($line-height-base / 8)
 
 /////////////////////
 // Definition List //
