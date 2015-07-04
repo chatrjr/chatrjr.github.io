@@ -1,10 +1,23 @@
 .u-highlighted
   background: colors-clashes-accent-0
-  border-bottom: border-thick border-type colors-main-accent
-  color: colors-main-bg
+  border-bottom: border-thick border-type[0] colors-clashes-text-0
+  color: colors-clashes-bg-0
   padding: padding-medium
+  a
+    color: hsl(154, 40%, 50%)
+    &:visited
+      color hsl(154, 10%, 50%)
 
 .u-null-list-style
   list-style: none
   margin: 0;
   padding: 0;
+  
+.u-justify-center
+  text-align: center
+
+.u-justify-right
+  text-align: right
+
+.u-blocked
+  display: block

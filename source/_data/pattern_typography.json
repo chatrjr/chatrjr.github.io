@@ -7,11 +7,6 @@
       "weights": ["400", "400italic", "700"]
     },
     {
-      "id": "hero",
-      "family": "Alegreya SC",
-      "weights": ["400", "900"]
-    },
-    {
       "id": "headings",
       "family": "Abril Fatface",
       "weights": ["400"]

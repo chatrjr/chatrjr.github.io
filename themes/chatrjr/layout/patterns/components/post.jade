@@ -39,6 +39,68 @@
       #### Uuummmm, this is a tasty burger!
 
       Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun in American crime. Like they're actually proud of that shit.
+  h4.pattern-subtitle .post-code
+  pre.post-code.language-javascript
+    code.
+        var languages = components.languages;
+
+        for (var id in languages) {
+          if (id === 'meta') {
+            continue;
+          }
+
+          (function (id) {
+            var language = languages[id];
+            var checked = false;
+
+            if (language.option === 'default') {
+              checked = true;
+            }
+
+            language.enabled = checked;
+            language.path = languages.meta.path.replace(/\{id}/g, id) + '.js';
+            language.examplesPath = languages.meta.examplesPath.replace(/\{id}/g, id) + '.html';
+
+            fileExists(language.examplesPath).then(function (exists) {
+              $u.element.create('label', {
+                attributes: {
+                  'data-id': id,
+                  'title': !exists ? 'No examples are available for this language.' : ''
+                },
+                className: !exists ? 'unavailable' : '',
+                contents: [
+                  {
+                    tag: 'input',
+                    properties: {
+                      type: 'checkbox',
+                      name: 'language',
+                      value: id,
+                      checked: checked && exists,
+                      disabled: !exists,
+                      onclick: function () {
+                        $$('input[name="' + this.name + '"]').forEach(function (input) {
+                          languages[input.value].enabled = input.checked;
+                        });
+
+                        update(id);
+                      }
+                    }
+                  },
+                  language.title
+                ],
+                inside: '#languages'
+              });
+              examples[id] = $u.element.create('section', {
+                'id': 'language-' + id,
+                'className': 'language-' + id,
+                inside: '#examples'
+              });
+              if (checked) {
+                update(id);
+              }
+            });
+          }(id));
+        }
   h4.pattern-subtitle .post-src
   figure.post-src
     p Some awesome source code &mdash; #[a(href="#") Link]

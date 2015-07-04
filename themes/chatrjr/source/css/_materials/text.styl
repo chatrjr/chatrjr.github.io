@@ -1,14 +1,62 @@
+//////////////
+// Headings //
+//////////////
+
 .h1, 
-.h2, 
 h1,
-h2
+.h2, 
+h2,
+.h3,
+h3,
+.h4,
+h4,
+.h5,
+h5,
+.h6,
+h6
   font-family: headings-family
   font-weight: headings-weights-0
+  & a
+    font-weight: headings-weights-0
 
 .h2,
 h2
-  border-bottom: border-hairline border-type colors-clashes-accent-1
+  border-bottom: border-thin border-type[0] colors-clashes-accent-1
 
-.h3,
-h3
-  color: colors-main-base
+.h4,
+h4
+  border-bottom: border-hairline border-type[1] colors-main-base
+
+/////////////////
+// Blockquotes //
+/////////////////
+
+blockquote
+  @extends .u-highlighted
+  padding-bottom: padding-medium
+  position: relative
+
+.rhythm blockquote
+  padding-bottom: padding-medium
+
+blockquote:before
+  content: "\201c" // left double quote
+  display: inline-block
+  font-family: headings-family
+  font-size: ($font-size-base * 3)
+  margin: 0
+  padding: 0
+  position: absolute
+  top: ($line-height-base * 1.5)
+  left: ($line-height-base / 8)
+
+/////////////////////
+// Definition List //
+/////////////////////
+
+dl > dt
+  border-left: border-med border-type[0] colors-clashes-text-0
+  background: colors-clashes-accent-0
+  color: colors-main-bg
+  font-weight: body-weights-2
+  padding-left: (padding-small / 3)

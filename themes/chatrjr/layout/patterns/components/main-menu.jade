@@ -1,7 +1,7 @@
 .pattern
   h3.pattern-title .main-menu
-  nav.main-menu
-    - for (var i = 0; i < 5; i++)
-      li.main-menu-item
+  nav.main-menu.grid.eighths.u-null-list-style
+    - for (var i = 0; i < 6; i++)
+      li.main-menu-item.node
         a.main-menu__link(href="#") Link
-          i(class="icon icon-home icon--nav")
+          i(class="icon icon-home main-menu__icon")

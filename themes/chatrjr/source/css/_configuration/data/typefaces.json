@@ -5,11 +5,6 @@
     "family": "Noticia Text",
     "weights": ["400", "400italic", "700"]
   },
-  "hero": {
-    "id": "hero",
-    "family": "Alegreya SC",
-    "weights": ["400"]
-  },
   "headings": {
     "id": "heading",
     "family": "Abril Fatface",

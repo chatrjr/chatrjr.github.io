@@ -1,5 +1,22 @@
-img, 
-video, 
+img,
+video,
 object
   max-width: 100%
   height: auto
+
+////////////
+// Images //
+////////////
+
+:not(figure) > img
+  border: border-thick border-type[0] colors-clashes-accent-1
+
+figure, figcaption
+  background: colors-clashes-text-1
+
+figcaption
+  @extends .u-justify-right
+  background: colors-clashes-accent-1
+  color: colors-clashes-bg-1
+  border-top: border-hairline border-type[0] colors-clashes-text-1
+  padding: 0 padding-small padding-small padding-small

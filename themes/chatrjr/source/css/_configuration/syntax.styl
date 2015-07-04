@@ -26,14 +26,14 @@ pre[class*="language-"] {
 
 pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
 code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+  background: hsl(154, 40%, 80%);
   text-shadow: none;
-  background: colors-main-bg;
 }
 
 pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
 code[class*="language-"]::selection, code[class*="language-"] ::selection {
+  background: hsl(154, 40%, 80%);
   text-shadow: none;
-  background: colors-main-bg;
 }
 
 @media print {
@@ -52,7 +52,7 @@ pre[class*="language-"] {
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-  border: border-hairline border-type colors-clashes-accent-1;
+  border: border-hairline border-type[0] colors-clashes-accent-1;
   background: colors-clashes-bg-1;
 }
 
