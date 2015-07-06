@@ -1,21 +1,22 @@
 /* http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript+bash+erlang+git+haskell+jade+python+ruby+scss+scheme+stylus+yaml&plugins=line-numbers+file-highlight+show-language */
 
-/**
- * custom chatrjr.name prism.js theme adapted from default
- * theme by Lea Verou
- */
+/*
+Name:       Base16 Atelier Lakeside Light
+Author:     Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/lakeside/)
+Prism template by Bram de Haan (http://atelierbram.github.io/syntax-highlighting/prism/)
+Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
+*/
 
 code[class*="language-"],
 pre[class*="language-"] {
-  color: black;
-  text-shadow: 0 1px white;
-  font-family: Consolas, Monaco, 'Andale Mono', monospace;
+  font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace;
+  font-size: ($font-size-base / 1.15);
+  line-height: ($line-height-base / 1.1125);
   direction: ltr;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
   word-break: normal;
-  line-height: 1.5;
 
   -moz-tab-size: 4;
   -o-tab-size: 4;
@@ -25,37 +26,28 @@ pre[class*="language-"] {
   -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
+  background: #ebf8ff;
+  color: #516d7b;
 }
 
 pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
 code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
   text-shadow: none;
-  background: #b3d4fc;
+  background: #c1e4f6;
 }
 
 pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
 code[class*="language-"]::selection, code[class*="language-"] ::selection {
   text-shadow: none;
-  background: #b3d4fc;
-}
-
-@media print {
-  code[class*="language-"],
-  pre[class*="language-"] {
-    text-shadow: none;
-  }
+  background: #c1e4f6;
 }
 
 /* Code blocks */
 pre[class*="language-"] {
+  border: border-med border-type[0] colors-clashes-accent-1
   padding: 1em;
   margin: .5em 0;
   overflow: auto;
-}
-
-:not(pre) > code[class*="language-"],
-pre[class*="language-"] {
-  background: #f5f2f0;
 }
 
 /* Inline code */
@@ -68,67 +60,84 @@ pre[class*="language-"] {
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: slategray;
+  color: #7195a8;
 }
 
 .token.punctuation {
-  color: #999;
+  color: #516d7b;
 }
 
-.namespace {
+.token.namespace {
   opacity: .7;
 }
 
-.token.property,
-.token.tag,
-.token.boolean,
-.token.number,
-.token.constant,
-.token.symbol,
-.token.deleted {
-  color: #905;
-}
-
-.token.selector,
-.token.attr-name,
-.token.string,
-.token.char,
-.token.builtin,
-.token.inserted {
-  color: #690;
-}
-
 .token.operator,
+.token.boolean,
+.token.number {
+  color: #935c25;
+}
+.token.property {
+  color: #8a8a0f;
+}
+.token.tag {
+  color: #257fad;
+}
+.token.string {
+  color: #2d8f6f;
+}
+.token.selector {
+  color: #6b6bb8;
+}
+.token.attr-name {
+  color: #935c25;
+}
 .token.entity,
 .token.url,
 .language-css .token.string,
 .style .token.string {
-  color: #a67f59;
-  background: hsla(0, 0%, 100%, .5);
+  color: #2d8f6f;
 }
 
-.token.atrule,
 .token.attr-value,
-.token.keyword {
-  color: #07a;
+.token.keyword,
+.token.control,
+.token.directive,
+.token.unit {
+  font-weight: code-weights-2
+  color: #568c3b;
 }
 
-.token.function {
-  color: #DD4A68;
-}
-
+.token.statement,
 .token.regex,
-.token.important,
+.token.atrule {
+  color: #2d8f6f;
+}
+
+.token.placeholder,
 .token.variable {
-  color: #e90;
+  color: #257fad;
+}
+
+.token.deleted {
+  text-decoration: line-through;
+}
+
+.token.inserted {
+  border-bottom: 1px dotted #161b1d;
+  text-decoration: none;
+}
+
+.token.italic {
+  font-style: italic;
 }
 
 .token.important,
 .token.bold {
   font-weight: bold;
 }
-.token.italic {
-  font-style: italic;
+
+.token.important {
+  color: #d22d72;
 }
 
 .token.entity {
@@ -180,14 +189,16 @@ pre[class*='language-'] {
 }
 pre[class*='language-'][data-language]::before {
   content: attr(data-language);
-  color: black;
-  background-color: #CFCFCF;
+  color: colors-clashes-bg-1;
+  background-color: colors-clashes-accent-1;
   display: inline-block;
+  font-family: code-family
+  font-weight: code-weights-2
   position: absolute;
   top: 0;
   right: 0;
-  font-size: 0.9em;
-  border-radius: 0 0 0 5px;
-  padding: 0 0.5em;
+  font-size: $font-size-base;
+  border-radius: none
+  padding: padding-small;
   text-shadow: none;
 }

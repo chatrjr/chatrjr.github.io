@@ -5,7 +5,7 @@
   line-height: ($line-height-base * 3)
 .post-meta
   @extends .articles-meta
-  margin-top: -(padding-small * 4)
+  margin-top: -(padding-small * 3)
 .post-meta__date
   @extends .articles-meta__date
   font-size: ($font-size-base * 2)
@@ -14,6 +14,10 @@
   @extends .articles-meta__tags
 .post-meta__link
   @extends .articles-meta__link
+  font-size: ($font-size-base * 1.2)
+  line-height: ($line-height-base * 3)
+  &:after
+    bottom: -1.5em
 
 .rhythm
   ol
