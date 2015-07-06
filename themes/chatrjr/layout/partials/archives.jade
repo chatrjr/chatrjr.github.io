@@ -1,13 +1,16 @@
-.archives
-  aside.archive.archive--categories
-    h3.archive-title By Category
+.archives.grid.thirds
+  aside.archive.node
+    .h3.archive-title My Archive
+      i.archive-title__icon.icon.icon-category
     .archive-content
       != list_categories({class: 'archive', transform: titlecase})
-  aside.archive.archive--tags
+  aside.archive.node.archive--tags
     h3.archive-title By Tag
+      i.archive-title__icon.icon.icon-tag
     .archive-content
       != list_tags({class: 'archive', transform: titlecase})
-  aside.archive.archive--years
+  aside.archive.node.archive--years
     h3.archive-title By Year
+      i.archive-title__icon.icon.icon-year
     .archive-content
       != list_archives({class: 'archive', transform: titlecase, type: 'yearly'})

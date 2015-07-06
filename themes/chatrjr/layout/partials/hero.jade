@@ -1,13 +1,13 @@
 mixin set-hero(type, subhead)
-  .hero(class="hero--#{type}")
-    h1#line-1.hero-headline!= markdown(config.title)
-    h2#line-2.hero-subhead= subhead
+  .hero.grid.full(class="hero--#{type}")
+    h1#line-1.hero-headline.node!= markdown(config.title)
+    h2#line-2.hero-subhead.node= subhead
 
 if is_home()
   +set-hero("home", config.subtitle)
 
 if page.category == 'web'
-  +set-hero("web", "The wonderful, wonderful web")
+  +set-hero("web", "The wonderful, wonderful web.")
 else if page.category == 'personal'
   +set-hero("personal", "Thoughts outside of my text editor.")
 

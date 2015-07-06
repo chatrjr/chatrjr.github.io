@@ -1,4 +1,4 @@
-nav.pagination(role="navigation")
+nav.pagination.grid.full.u-justify-center(role="navigation")
   if page.prev
     span.pagination__prev: a.pagination__link(href=url_for(page.prev.path), title=page.prev.title) &#8612; #{page.prev.title}
   span.pagination__sep  &mdash; 
