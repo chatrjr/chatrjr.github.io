@@ -36,66 +36,74 @@
 
       #### Uuummmm, this is a tasty burger!
 
-      Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun in American crime. Like they're actually proud of that shit.
+      Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book that comes with it: ```the most popular gun in American crime```. Like they're actually proud of that shit.
   h4.pattern-subtitle .post-code
-  pre
-    code.language-javascript.
-        var languages = components.languages;
-
-        for (var id in languages) {
-          if (id === 'meta') {
-            continue;
-          }
-
-          (function (id) {
-            var language = languages[id];
-            var checked = false;
-
-            if (language.option === 'default') {
-              checked = true;
-            }
-
-            language.enabled = checked;
-            language.path = languages.meta.path.replace(/\{id}/g, id) + '.js';
-            language.examplesPath = languages.meta.examplesPath.replace(/\{id}/g, id) + '.html';
-
-            fileExists(language.examplesPath).then(function (exists) {
-              $u.element.create('label', {
-                attributes: {
-                  'data-id': id,
-                  'title': !exists ? 'No examples are available for this language.' : ''
-                },
-                className: !exists ? 'unavailable' : '',
-                contents: [
-                  {
-                    tag: 'input',
-                    properties: {
-                      type: 'checkbox',
-                      name: 'language',
-                      value: id,
-                      checked: checked && exists,
-                      disabled: !exists,
-                      onclick: function () {
-                        $$('input[name="' + this.name + '"]').forEach(function (input) {
-                          languages[input.value].enabled = input.checked;
-                        });
-
-                        update(id);
-                      }
-                    }
-                  },
-                  language.title
-                ],
-                inside: '#languages'
-              });
-              examples[id] = $u.element.create('section', {
-                'id': 'language-' + id,
-                'className': 'language-' + id,
-                inside: '#examples'
-              });
-              if (checked) {
-                update(id);
-              }
-            });
-          }(id));
-        }
+  pre.line-numbers
+    code.language-python.
+      # test python (sample from offlineimap)
+       
+      class ExitNotifyThread(Thread):
+          """This class is designed to alert a "monitor" to the fact that a thread has
+          exited and to provide for the ability for it to find out why."""
+          def run(self):
+              global exitthreads, profiledir
+              self.threadid = thread.get_ident()
+              try:
+                  if not profiledir:          # normal case
+                      Thread.run(self)
+                  else:
+                      try:
+                          import cProfile as profile
+                      except ImportError:
+                          import profile
+                      prof = profile.Profile()
+                      try:
+                          prof = prof.runctx("Thread.run(self)", globals(), locals())
+                      except SystemExit:
+                          pass
+                      prof.dump_stats( \
+                                  profiledir + "/" + str(self.threadid) + "_" + \
+                                  self.getName() + ".prof")
+              except:
+                  self.setExitCause('EXCEPTION')
+                  if sys:
+                      self.setExitException(sys.exc_info()[1])
+                      tb = traceback.format_exc()
+                      self.setExitStackTrace(tb)
+              else:
+                  self.setExitCause('NORMAL')
+              if not hasattr(self, 'exitmessage'):
+                  self.setExitMessage(None)
+       
+              if exitthreads:
+                  exitthreads.put(self, True)
+       
+          def setExitCause(self, cause):
+              self.exitcause = cause
+          def getExitCause(self):
+              """Returns the cause of the exit, one of:
+              'EXCEPTION' -- the thread aborted because of an exception
+              'NORMAL' -- normal termination."""
+              return self.exitcause
+          def setExitException(self, exc):
+              self.exitexception = exc
+          def getExitException(self):
+              """If getExitCause() is 'EXCEPTION', holds the value from
+              sys.exc_info()[1] for this exception."""
+              return self.exitexception
+          def setExitStackTrace(self, st):
+              self.exitstacktrace = st
+          def getExitStackTrace(self):
+              """If getExitCause() is 'EXCEPTION', returns a string representing
+              the stack trace for this exception."""
+              return self.exitstacktrace
+          def setExitMessage(self, msg):
+              """Sets the exit message to be fetched by a subsequent call to
+              getExitMessage.  This message may be any object or type except
+              None."""
+              self.exitmessage = msg
+          def getExitMessage(self):
+              """For any exit cause, returns the message previously set by
+              a call to setExitMessage(), or None if there was no such message
+              set."""
+              return self.exitmessage
