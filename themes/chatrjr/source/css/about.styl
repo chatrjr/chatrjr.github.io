@@ -1,0 +1,91 @@
+/**
+ * Chatman's Desk - Pattern Library
+ * Author: Chatman Richmond Jr.
+ * Copyright: 2015
+ * Version: 3.0.0 (Flower)
+ * --------------------------------------------------------------
+ *
+ * TABLE OF CONTENTS
+ *    PLUGINS ==================== Libs
+ *       NORMALIZE
+ *       VERTICAL RHYTHM
+ *    CONFIGURATION ===================== Settings
+ *      VARIABLES
+ *      FUNCTIONS
+ *      MIXINS
+ *    UTILITIES ========================= Basic plumbing
+ *      GRID
+ *      HELPERS
+ *    MATERIALS ========================= Global styling
+ *      MAIN
+ *      TEXT
+ *      LINKS
+ *      MEDIA
+ *    COMPONENTS ======================== Page content (Patterns)
+ *      ICONS
+ *      LOGO
+ *      MENUS
+ *    STRUCTURES ======================== Page fixtures
+ *      MAIN HEAD
+ *      MAIN FOOT
+ **/
+
+/*==================*\
+   #PLUGINS
+\*==================*/
+
+@require "_plugins/normalize/normalize"
+@require "_plugins/vertical-rhythm/vertical-rhythm"
+
+////////////////////
+// #CONFIGURATION //
+////////////////////
+
+@require "_configuration/variables"
+@require "_configuration/functions"
+@require "_configuration/mixins"
+
+/*==================*\
+   #UTILITIES
+\*==================*/
+
+@require "_utilities/grid"
+@require "_utilities/helpers"
+
+/*==================*\
+   #MATERIALS
+\*==================*/
+
+@require "_materials/main"
+@require "_materials/text"
+@require "_materials/links"
+@require "_materials/media"
+
+/*==================*\
+   #COMPONENTS
+\*==================*/
+
+@require "_components/icons"
+@require "_components/logo"
+@require "_components/menus"
+
+/*==================*\
+   #STRUCTURES
+\*==================*/
+
+@require "_structures/main-head"
+@require "_structures/main-foot"
+
+// Too little content to justify a component.
+.about-title p,
+.about-sidebar p
+  margin-top: 0
+.about-content
+  padding-right: 2%;
+.about-content__img
+  float: left
+  margin: $line-height-base 0.5em 0.5em 0.5em
+  width: 25%;
+
+.about-sidebar
+  font-size: ($font-size-base / 1.2)

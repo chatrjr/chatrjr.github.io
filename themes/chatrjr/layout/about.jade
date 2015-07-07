@@ -1,12 +1,12 @@
 extends base/layout
 
 block content
-  .about
+  .about.grid.golden
     h1.about-title!= markdown(site.data.about.mainTitle)
-    main.about-content(role="main")
+    main.about-content.node.major(role="main")
       img.about-content__img(src="/images/me.jpg" alt="Chatman Richmond Jr.")
       include:markdown ../content/about-main.md
-    aside.about-sidebar
+    aside.about-sidebar.node.minor.u-highlighted
       h2.about-sidebar__title!= markdown(site.data.about.sidebarTitle)
       .about-sidebar__content
         include:markdown ../content/about-sidebar.md
