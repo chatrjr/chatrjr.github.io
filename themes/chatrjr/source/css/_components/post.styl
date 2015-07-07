@@ -3,6 +3,7 @@
   border-width: border-hairline
   font-size: ($font-size-base * 5)
   line-height: ($line-height-base * 3.5)
+
 .post-meta
   @extends .articles-meta
   margin-top: -(padding-small * 3)
@@ -19,24 +20,43 @@
   &:after
     bottom: -1.5em
 
-.rhythm
-  ol
-    list-style-type: none
-    counter-reset: item
-    margin: 0
-    padding: 0
-  ol > li
-    display: table
-    counter-increment: item
-    margin-bottom: 0.6em
-  ol > li:before 
-    content: counters(item, ".") ". "
-    display: table-cell
-    padding-right: 0.6em
-  li ol > li 
-    margin: 0
-  li ol > li:before
-    content: counters(item, ".") " "
+// Table of contents
+.post-body > ul:first-child
+  list-style: none
+  margin: $line-height-base 0
+
+.post-body > ul:first-child > li > ul
+  background: hsl(154, 10%, 90%)
+  border-left: border-thick border-type[0] colors-main-media
+  list-style: none
+  margin: 0
+  padding: $line-height-base
+
+.post-body > ul:first-child > li > ul > li
+  border-bottom: border-thin border-type[0] hsl(154, 10%, 70%)
+  padding-bottom: (padding-small / 2)
+
+.post-body > ul:first-child > li > ul > li > ul > li
+  border-bottom: border-hairline border-type[1] hsl(154, 10%, 70%)
+  list-style: none
+  margin: ($line-height-base / 2.3) 0
+  padding-bottom: (padding-small / 4)
+
+.post-body > ul:first-child > li > a
+  background: colors-main-media
+  border-bottom: border-med border-type[0] hsl(154, 40%, 20%)
+  color: colors-clashes-bg-1
+  display: block
+  padding: padding-small
+
+.post-body > blockquote > p
+  margin: 0
+
+.post-body__note
+  background: hsl(334, 10%, 90%)
+  font-style: italic
+  margin: $line-height-base 0
+  padding: padding-small
 
 .post-src
   background: colors-clashes-accent-1
@@ -46,7 +66,17 @@
   color: colors-clashes-bg-1
 
 .post-body > img,
+.post-body > p > img,
 .post-body > figure
   display: block
   margin: $line-height-base auto
   width: (100% / 1.618)
+
+.post-body > figure > img
+  width: 100%
+
+.post-body > pre
+  margin: $line-height-base 0
+
+.header-anchor
+  margin-right: (padding-small / 2.5)

@@ -1,8 +1,8 @@
 article.post.rhythm
   .post-masthead
-    h1.post-masthead__title= page.title
+    h1.post-masthead__title.u-justify-right= page.title
   include post-meta
-  if page.primary-language
-    .post-body(class="language-#{page.primary-language}")= page.content
+  if page.language
+    .post-body(class="language-#{page.language}")!= page.content
   else
     .post-body!= page.content

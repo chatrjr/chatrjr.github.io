@@ -2,27 +2,13 @@
   h3.pattern-title .post Components
   h4.pattern-subtitle .post-masthead
   .post-masthead
-    .h1.post-masthead__title A Post About Some Topic or Another
+    .h1.post-masthead__title.u-justify-right A Post About Some Topic or Another
     .post-meta
       span.post-meta__date 05/12/1876
       span.post-meta__tags
         a.post-meta__link(href="#") some tag
         a.post-meta__link(href="#") other tag
         a.post-meta__link(href="#") different tag
-  h4.pattern-subtitle .post-toc
-  .post-toc
-    ol.post-toc-wrap
-      li.post-toc__level-1: a(href="#") Heading Level 1
-        ol
-          li Heading Level 2
-          li Heading Level 2
-            ol
-              li Heading Level 3
-          li Heading Level 2
-      li.post-toc__level-1: a(href="#") Heading Level 1
-        ol
-          li Heading Level 2
-          li Heading Level 2
   h4.pattern-subtitle .post-body
   .post-body
     :markdown
@@ -38,7 +24,7 @@
 
       Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book that comes with it: ```the most popular gun in American crime```. Like they're actually proud of that shit.
   h4.pattern-subtitle .post-code
-  pre.line-numbers
+  pre(data-line="3-10")
     code.language-python.
       # test python (sample from offlineimap)
        
