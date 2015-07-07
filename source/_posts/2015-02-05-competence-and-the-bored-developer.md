@@ -2,7 +2,7 @@
 layout: post
 title: "Competence and the Bored Developer"
 id: 011
-categories: personal
+categories: "personal"
 date: 2015-02-05
 tags:
     - mastery
@@ -12,11 +12,13 @@ description: "There's always been one reason I've pulled away from my keyboard: 
 excerpt: "There's always been one reason I've pulled away from my keyboard: I was bored. I'm beginning to learn that challenge keeps me interested in what I do, and I decided to share my plan for embracing it."
 ---
 
-I'm what you would call a self-taught developer. I'm educated in information systems, but I barely even touched design or web development until I had to learn, __quickly__, during a job. The resulting website didn't satisfy me. However, my curiosity button had been firmly pushed and my next move was to learn how to build a website properly.
+<!-- toc -->
+
+I'm what you would call a self-taught developer. I'm educated in information systems, but I barely even touched design or web development until I had to learn, **quickly**, during a job. The resulting website didn't satisfy me. However, my curiosity button had been firmly pushed and my next move was to learn how to build a website properly.
 
 That was a few years ago.
 
-It's not accurate to say my entry into building on the web complemented a natural passion for programming and computer science. My passion for programming and computer science was slowly nurtured and fed by an almost consuming desire to get __really damn good__ at this new thing that was difficult and intriguing to me.
+It's not accurate to say my entry into building on the web complemented a natural passion for programming and computer science. My passion for programming and computer science was slowly nurtured and fed by an almost consuming desire to get **really damn good** at this new thing that was difficult and intriguing to me.
 
 That brings us to now.
 
@@ -24,7 +26,7 @@ That brings us to now.
 
 Jump ahead and I'm somewhat bored. I realize that's partially my fault as I've had a lot of self-doubt about what I can handle. Sticking to things I know I can build helped me refine that portion of my ability, but it also meant I was slowly losing the challenge. And the challenge is what had me cracking open my text editor at 2 AM just to try something.
 
-The things I've built recently were... not terribly difficult for me, because I now have the knowledge and capability of a competent web developer, but unless I get over my fears and inject difficulty back into my passion for learning the craft, it __will__ dessicate.
+The things I've built recently were... not terribly difficult for me, because I now have the knowledge and capability of a competent web developer, but unless I get over my fears and inject difficulty back into my passion for learning the craft, it **will** dessicate.
 
 For a while, I left web development alone to explore and dabble in other avenues. This led me to do things like trying to pick up Haskell for fun, and the more ridiculous project of trying to code in an assembly language before I knew anything about memory allocation or garbage collection.
 
@@ -54,9 +56,9 @@ I didn't have this concern while I was fiddling with systems. I didn't have to w
 
 ## What Happens Now?
 
-Now I find the challenge again. I'm ready to cut down the trees on Competence Island, build a raft, and paddle back out to sea. I've always been __terrible__ at following that "fake it until you make it" advice. That's hardly satisfying for me. 
+Now I find the challenge again. I'm ready to cut down the trees on Competence Island, build a raft, and paddle back out to sea. I've always been **terrible** at following that "fake it until you make it" advice. That's hardly satisfying for me. 
 
-The only way I'm gonna gain confidence in my ability is by tackling tougher projects and proving to myself that I can handle them. I won't feel as much of a need to question my confidence or competence, because then I'll have the data; __the evidence__ that I belong here.
+The only way I'm gonna gain confidence in my ability is by tackling tougher projects and proving to myself that I can handle them. I won't feel as much of a need to question my confidence or competence, because then I'll have the data; **the evidence** that I belong here.
 
 ### The Operation
 
@@ -64,7 +66,7 @@ I'm going to assess my skills and then start aiming for more challenge. Not so c
 
 #### 1. Dive into an Area I Don't Know Well
 
-In my case, that would be working with SVG and canvas. I'm also not that familiar with AngularJS [other than a quick experiment]({% post_url 2014-01-06-mvc-the-angular-way %}). There are many areas I can explore to stretch my competence and see improvement.
+In my case, that would be working with SVG and canvas. I'm also not that familiar with AngularJS [other than a quick experiment](/web/mvc-the-angular-way). There are many areas I can explore to stretch my competence and see improvement.
 
 #### 2. Deliberate Practice of the Skills I Know
 
@@ -87,6 +89,7 @@ I'm going to start questioning things about my craft and myself that I've taken 
 This will establish a baseline for review. My memory isn't terrible, but by recording my sessions, I'll have ample material to probe later for any obvious or subtle errors. These mini-screencasts will allow me to catch patterns of error before they become habits. And hell, if musicians can do it then why not developers?
 
 ## Conclusion
-> %post-body-cap%
-![Competence Island](/post-images/island.jpg)
-Game on, you stupid island.
+<figure>
+    <img src="/post-images/island.jpg" alt="Competence Island">
+    <figcaption>Game on, you stupid island.</figcaption>
+</figure>

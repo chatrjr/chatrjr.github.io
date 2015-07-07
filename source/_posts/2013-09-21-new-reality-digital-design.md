@@ -13,6 +13,8 @@ description: "At CSSConf.eu, Harry Roberts gave a talk about normalizing designs
 excerpt: "The winds of change are blowing at hurricane force. At CSSConf.eu, Harry Roberts gave a talk about normalizing designs for better CSS. Despite the bold title, this is just my perspective on that talk and the bigger picture."
 ---
 
+<!-- toc -->
+
 [Harry Roberts of CSS Wizardry](http://csswizardry.com) gave a talk at CSSConf.eu. You really should [give that a look](http://www.youtube.com/watch?v=ldx4ZFxMEeo) first. It's about normalizing designs for better CSS. As someone who straddles the line between design & development, I can identify with both perspectives. I ended up agreeing more with him.
 
 ## The Fastest Code is Unwritten Code

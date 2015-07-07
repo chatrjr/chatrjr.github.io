@@ -5,26 +5,30 @@ redirect_from:
     - "/2013/12/yet-another-css-architecture/"
 title: "YACSSA (Yet Another CSS Architecture)"
 id: 007
+language: bash
 categories: web
 date: 2013-12-22
 tags:
     - CSS architecture
     - workflow
     - Sass
-primary-language: bash
 description: "This time, I'll share the way I've been structuring my CSS. Because we absolutely need another of those articles. :P"
 excerpt: "This time, I'll share the way I've been structuring my CSS. Because we absolutely need another of those articles. :P This is YACSSA. Enjoy."
 ---
 
-## Credit Where Credit is Due
+<!-- toc -->
 
-UPDATE: The code in this post actually references my old blog's source, which I've archived. You can check out [Expletive Deleted's source on GitHub](http://github.com/chatrjr/expletive-deleted).
+<div class="post-body__note">
+UPDATE: This post references the source of my last website, which is no longer active or archived.
+</div>
+
+## Credit Where Credit is Due
 
 First off, I wouldn't have thought of this without [Robin Rendle's article on Smashing Magazine](http://coding.smashingmagazine.com/2013/08/02/other-interface-atomic-design-sass/). Additionally, I have to credit [Brad Frost's Atomic Design methodology](http://bradfrostweb.com/blog/post/atomic-web-design/), Yandex's BEM class syntax as well as Harry Roberts for [making it digestible](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/), and [Nicole Sullivan's OOCSS](https://github.com/stubbornella/oocss/wiki) along with [Jonathan Snook's SMACSS](http://smacss.com/). They made me think differently about structure, CSS, and transformed the way I build on the web. You should definitely check out those links.
 
 ## What is YACSSA?
 
-[YACSSA](abbr:Yet Another CSS Architecture) is a mashup of the lessons I took from the above approaches. I call it YACSSA because there are already a lot of ways to structure CSS, and I'm just adding to the pool. There's nothing especially new here, the core of YACSSA is in its file structure. It's made of a few set directories with their own job. To illustrate how YACSSA works, I'm going to use this very blog's CSS.
+YACSSA is a mashup of the lessons I took from the above approaches. I call it YACSSA because there are already a lot of ways to structure CSS, and I'm just adding to the pool. There's nothing especially new here, the core of YACSSA is in its file structure. It's made of a few set directories with their own job. To illustrate how YACSSA works, I'm going to use this very blog's CSS.
 
 ## Benefits of YACSSA
 
@@ -50,7 +54,7 @@ YACSSA is fragmented by design. It's made to let you add and remove parts at wil
 
 As I said, I'm going to explain the idea behind YACSSA through this site's CSS. Let's look at the whole directory tree first, and then break it down.
 
-```language-bash
+```
 ..
 ├── main.css
 ├── post.css
@@ -88,7 +92,7 @@ The first thing you'll notice is a shitton of partials. These are globbed into S
 
 ### Configuration
 
-```language-bash
+```
 configuration
 ├── _grid.scss
 ├── _mixins.scss
@@ -98,11 +102,11 @@ configuration
 0 directories, 4 files
 ```
 
-The `configuration` directory contains all of the general properties and third-party styling that your site relies on. You define your variables, mixins, custom syntax for pygments (if you're using Jekyll), Prism.js or whatever. This site also uses the Singularity grid system, so I've also included that. This directory holds the __uniform settings for your project__.
+The `configuration` directory contains all of the general properties and third-party styling that your site relies on. You define your variables, mixins, custom syntax for pygments (if you're using Jekyll), Prism.js or whatever. This site also uses the Singularity grid system, so I've also included that. This directory holds the **uniform settings for your project**.
 
 ### Utilities
 
-```language-bash
+```
 utilities
 ├── _layout.scss
 ├── _normalize.scss
@@ -115,7 +119,7 @@ The `utilities` directory contains the basic plumbing of your site. That is, lay
 
 ### Materials
 
-```language-bash
+```
 materials
 ├── _links.scss
 ├── _main.scss
@@ -129,7 +133,7 @@ The most general styling for your project goes in the `materials` directory. Her
 
 ### Components
 
-```language-bash
+```
 components
 ├── _blog.scss
 ├── _pagination.scss
@@ -142,7 +146,7 @@ Components are the bread and butter of many modern CSS architecture frameworks, 
 
 ### Structures
 
-```language-bash
+```
 structures
 ├── _article.scss
 ├── _blogreel.scss
@@ -162,7 +166,7 @@ Missing from this project is the `augments` directory, because I didn't need it.
 
 These are what will be delivered to the browser. They have a table of contents, and then the import statements for all the other parts, going from general to specific. Here are the Sass files for the main and post templates for example.
 
-```language-scss
+```scss
 /**
  * Expletive Deleted - Main
  * Author: Chatman Richmond Jr.
@@ -233,7 +237,7 @@ These are what will be delivered to the browser. They have a table of contents, 
 @import 'structures/footer';
 ```
 
-```language-scss
+```scss
 /**
  * Expletive Deleted - Post
  * Author: Chatman Richmond Jr.

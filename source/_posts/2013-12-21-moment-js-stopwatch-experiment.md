@@ -3,28 +3,23 @@ layout: post
 redirect_from: "/2013/12/moment-js-stopwatch-experiment/"
 title: "Moment.js Stopwatch"
 id: 006
+language: javascript
 categories: web
 date: 2013-12-21
 tags:
     - Moment.js
     - JavaScript
     - experiments
-primary-language: css
-src: "http://jsfiddle.net/chatrjr/LaAzg/embedded/result/"
 description: "Here we go. Yet another JavaScript stopwatch. This one has a bit of a twist though."
 excerpt: "Here we go. Yet another JavaScript stopwatch. This one has a bit of a twist though. It's a very quick and dirty app that I made to possibly use within a larger one."
 ---
-> %post-body_toc%
-+ [Markup (HTML)](#html)
-+ [Style (CSS)](#css)
-+ [Behavior (JS)](#js)
-+ [Example](#sample)
+<!-- toc -->
 
 You might know [Moment.js](http://momentjs.com) as a widely used library for formatting and parsing dates. I found another novel use for its time setting features: a really simple stopwatch. Here's how I put it together.
 
-## [First Ingredient: Markup](id:html)
+## First Ingredient: Markup
 
-```language-markup
+```markup
 <div class="stopwatch" id="stopwatch">
     <div id="time-container" class="container"></div>
     <button class="button" id="start">Start</button>
@@ -34,9 +29,9 @@ You might know [Moment.js](http://momentjs.com) as a widely used library for for
 
 There's nothing crazy here, so I won't dwell on it. Just wrapping the whole app with a `.stopwatch` class, setting a container for the time, and simple `#start` and `#stop` controls.
 
-## [Second Ingredient: Style](id:css)
+## Second Ingredient: Style
 
-```language-css
+```css
 *,
 *:before,
 *:after, {
@@ -102,13 +97,13 @@ body {
 }
 ```
 
-_Note: The CSS is unprefixed for convenience. Naturally, you would want to use them where needed, but I recommend checking out [Autoprefixer](https://github.com/ai/autoprefixer) or [-prefix-free](http://leaverou.github.io/prefixfree/) if you'd rather not worry about that. Especially if you use a preprocessor._
+Note: The CSS is unprefixed for convenience. Naturally, you would want to use them where needed, but I recommend checking out [Autoprefixer](https://github.com/ai/autoprefixer) or [-prefix-free](http://leaverou.github.io/prefixfree/) if you'd rather not worry about that. Especially if you use a preprocessor.
 
 Nothing here to write home about. Just a simple layout.
 
-## [Third Ingredient: Behavior](id:js)
+## Third Ingredient: Behavior
 
-```language-javascript
+```
 var AppStopwatch = (function () {
     var counter = 0,
         $stopwatch = {
@@ -147,13 +142,13 @@ AppStopwatch.$stop.addEventListener('click', AppStopwatch.stopClock, false);
 
 There's the whole shebang, now let's dissect it.
 
-### [IIFE](abbr:Immediately Invoked Function Expression)
+### IIFE (Immediately Invoked Function Expression)
 
 The very first thing we do is set one global namespace `AppStopwatch` and assign an IIFE. This will contain configuration for the app.
 
-```language-javascript
+```
 // Wraps our app and prevents pollution of the 
-// hosting environment. That is, the browser in this case.
+// host environment. That is, the browser in this case.
 
 var AppStopwatch = (function () {
 })() // Called immediately;
@@ -161,7 +156,7 @@ var AppStopwatch = (function () {
 
 ### Set Variables
 
-```language-javascript
+```
     var counter = 0, // to be incremented
         // collection of DOM elements
         $stopwatch = {
@@ -178,17 +173,15 @@ Now what we want to do is set a `counter` to increment and wrap a collection of 
 
 ### displayTime()
 
-```language-javascript
+```
     function displayTime() {
         $stopwatch.container.innerHTML = moment().hour(0).minute(0).second(counter++).format('HH : mm : ss');
     }
 ```
 
-All we really do here is modify the `#time-container` element's contents (currently nothing) to display our stopwatch. The contents are a call to `moment()` which gets Moment.js going, and then we set the `hour()` and `minute()` to zero. The beauty comes from the second to last method in the chain: `second()`. The Moment.js documentation says
+All we really do here is modify the `#time-container` element's contents (currently nothing) to display our stopwatch. The contents are a call to `moment()` which gets Moment.js going, and then we set the `hour()` and `minute()` to zero. The beauty comes from the second to last method in the chain: `second()`. The Moment.js documentation says:
 
-> Gets or sets the seconds.
-> 
-Accepts numbers from 0 to 59. If the range is exceeded, it will bubble up to the minutes.
+> Gets or sets the seconds. Accepts numbers from 0 to 59. If the range is exceeded, it will bubble up to the minutes.
 
 That bubbling is what makes the stopwatch work and applies to the other chained methods as well. On every call, `counter` is incremented. It means when the counter is at 60, our stop watch will display 00:01:00. When the counter is at 3600, our display will show 01:00:00. `second()` will bubble up to `minute()`, which bubbles into `hour()`. It's that simple.
 
@@ -196,7 +189,7 @@ Finally, the last method sets the formatting of our display.
 
 ### startWatch()
 
-```language-javascript
+```
     function startWatch() {
         runClock = setInterval(displayTime, 1000);
     }
@@ -206,7 +199,7 @@ All this function does is set our `runClock` variable to set an interval which r
 
 ### stopWatch()
 
-```language-javascript
+```
     function stopWatch() {
         clearInterval(runClock);
     }
@@ -216,7 +209,7 @@ Clearing our `runClock` interval stops the watch.
 
 ### return
 
-```language-javascript
+```
     return {
         startClock: startWatch,
         stopClock: stopWatch,
@@ -229,19 +222,18 @@ Now we want to return an object to expose to the environment. The properties are
 
 ### Events
 
-```language-javascript
+```
 AppStopwatch.$start.addEventListener('click', AppStopwatch.startClock, false);
 AppStopwatch.$stop.addEventListener('click', AppStopwatch.stopClock, false);
 ```
 
 Outside of the IIFE, we set the actual behavior of our app. Our `#start` and `#stop` buttons are tied to event listeners that we execute when clicked.
 
-## [Result](id:sample)
+## Result
 
 All that done, we get the finished app.
 
-> %post-body_src%
-Moment.js Stopwatch: [{{ page.src }}]({{ page.src }})
+<div class="post-src">Moment.js Stopwatch: <a href="http://jsfiddle.net/chatrjr/LaAzg/embedded/result/">http://jsfiddle.net/chatrjr/LaAzg/embedded/result/</a></div>
 
 ## Extra
 

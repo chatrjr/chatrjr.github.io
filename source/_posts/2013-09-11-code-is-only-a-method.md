@@ -14,6 +14,8 @@ description: "As much as we love tooling our workflows to be more efficient, it'
 excerpt: "As much as we love tooling our workflows to be more efficient, it's easy to forget sometimes that they are just tools. This includes the code itself."
 ---
 
+<!-- toc -->
+
 I know it has been said hundreds of times already by people much smarter than me, but it's still weird to see posts about vanilla JS vs. CoffeeScript vs. Dart. It's equally strange to see holy wars over pure CSS vs. LESS vs. Sass vs. whatever. It feels a bit petty. Though, I've been petty about that myself.
 
 I completely understand that we can get attached to our tools. I know we can forget that the majority of them are more convenient than essential. It needs to be said again. Over and over until it dissolves in our heads: code is the means, not an end. Whether your app uses Backbone, Angular, or Ember is irrelevant to the majority of its users. **They only care that it works**.

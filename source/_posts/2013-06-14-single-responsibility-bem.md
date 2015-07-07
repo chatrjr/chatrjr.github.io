@@ -4,6 +4,7 @@ redirect_from: "/2013/06/single-responsibility-bem/"
 title: SRBEM (Single Responsibility BEM)
 id: 002
 categories: web
+language: scss
 date: 2013-06-14
 tags:
     - BEM
@@ -14,9 +15,11 @@ description: "Modular CSS is making waves in the community (excuse the cliche). 
 excerpt: "Modular CSS is making waves in the community (excuse the cliche). I ended up gravitating toward the BEM class syntax for Object-Oriented CSS. In this post, I attempt to make it more complicated."
 ---
 
+<!-- toc -->
+
 You may already be familiar with Yandex's BEM method of authoring CSS. If not, it looks a little like the following code.
 
-```language-markup
+```markup
 <div class="block">
     <div class="block__element"></div>
     <div class="block__element"></div>
@@ -50,7 +53,7 @@ Single Responsibility BEM: [{{ page.src }}]({{ page.src }})
 
 The block's job, the module, is to encapsulate all of its elements for a single role. All of the elements are tied to a block, so there's no reason to make that explicit by repeating the block when there's a better way.
 
-```language-scss
+```
 .block {
     @include transition(all 0.3s linear);
     background: $white-translucent;
@@ -66,7 +69,7 @@ As you can see, the block is only referenced once and given some base styles. Ou
 
 The elements in your block are what give it form and purpose. They're the content of your module, and that's all they need to be, so we're going to nest them within our block like so:
 
-```language-scss
+```
 .block {
     @include transition(all 0.3s linear);
     background: $white-translucent;
@@ -118,7 +121,7 @@ The modifier's only responsibility is to augment the block or element we pass to
 
 #### Method #1: Class Chaining to Tie the Modifier Directly to the Element
 
-```language-scss
+```
 .__headline {
   @include scale('ginormous');
   background: $ocean-blue-dark;
@@ -138,7 +141,7 @@ The modifier's only responsibility is to augment the block or element we pass to
 
 As you can see the modifier, `._--shrinkHeadline`, is nested in the `.__headline` element. The modifier is chained to the element is via Sass' [parent reference selector](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#referencing_parent_selectors). This means it will only affect elements with **both** classes. As the markup shows:
 
-```langauge-markup
+```markup
 <section class="block">
   <h2 class="__headline _--shrinkHeadline">Three Kittens</h2>
   <img src="http://placekitten.com/500/305" class="__image"></img>
@@ -150,7 +153,7 @@ As you can see the modifier, `._--shrinkHeadline`, is nested in the `.__headline
 
 When I first tried this method, it was almost like wizardry. The `.augment` is an umbrella class for our modifiers, and we use [placeholder selectors](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#placeholders) to modify its behavior before attaching it to a block or element. Here's how it works:
 
-```language-scss
+```
 .augment%_--shrinkText {
     /* Referencing %_--shrinkText */
     @include scale('s');
@@ -177,7 +180,7 @@ When I first tried this method, it was almost like wizardry. The `.augment` is a
 
 Modifiers are placed near the bottom of our file to leverage the cascade. And then we prefix every modifier with our `.augment` class. The way placeholder selectors work is that you give them an identifier like `%_--imageBorder`. They're like a class, except the CSS within the brackets is **the only thing compiled by Sass**. The identifier never shows up in the output, but our `.augment` class does. In the context of Object-Oriented Programming, this method is a lot like the Facade Pattern: it exposes a simple hook for not so simple actions, masking the underlying complexity for easy use through a single class. Now let's use one.
 
-```language-scss
+```
 .__image {
   width: 100%;
   & {
@@ -189,7 +192,7 @@ Modifiers are placed near the bottom of our file to leverage the cascade. And th
 
 We've attached the modifier by extending the `%_--imageBorder` placeholder to the parent selector. What this will do is expose the CSS of our placeholder and attach it to our element under the `.augment` class. Here's the output:
 
-```language-css
+```css
 /* line 258, style.scss */
 .block .augment.__image {
   /* Referencing %_--imageBorder */
@@ -199,7 +202,7 @@ We've attached the modifier by extending the `%_--imageBorder` placeholder to th
 
 Our augmenting class in the output is tied to our modifier which is attached to the element it references. `.augment` exposes the modifier to its element and **only** its element. This means we can have its behavior change when it references a different modifier. Check it:
 
-```language-scss
+```css
 /* line 258, style.scss */
 .block .augment.__content {
   /* Referencing %_--shrinkText */
@@ -211,7 +214,7 @@ Our augmenting class in the output is tied to our modifier which is attached to 
 
 Same class, **completely different behavior**. Now, how simple is it to use within our markup? This simple.
 
-```language-markup
+```markup
 <section class="block griddler-slice-by4">
   <h2 class="__headline augment">Four Kittens</h2>
   <img src="http://placekitten.com/400/200" class="__image"></img>

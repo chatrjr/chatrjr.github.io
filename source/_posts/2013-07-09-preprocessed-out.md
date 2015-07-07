@@ -3,16 +3,18 @@ layout: post
 redirect_from: "/2013/07/preprocessed-out/"
 title: Preprocessed Out
 id: 003
+language: scss
 categories: web
 date: 2013-07-09
 tags:
     - Sass
     - tooling
     - methodologies
-primary-language: scss
 description: "CSS preprocessors have gained some serious headway among designers, with Sass leading the pack. However, we should remember not everyone uses them or wants to use them. Understanding why they don't is critical in understanding why you do."
 excerpt: "CSS preprocessors have gained some serious headway among designers, with Sass leading the pack. However, we should remember not everyone uses them or wants to use them. Understanding why they don't is critical in understanding why you do."
 ---
+
+<!-- toc -->
 
 I recently got into a debate with a developer who doesn't see the point in using CSS preprocessors. I have to admit I got really defensive. As much as I love Sass, once I cooled down, I did what any conscientious developer would do: research. I came out the other side with a better understanding of both sides of the argument, as well as a deeper understanding of exactly why I use a tool like Sass.
 
@@ -74,7 +76,7 @@ I understand that in some work environments--and especially with a team, this wo
 
 I'm not going to spend too much time on this argument, because it reeks of the kind of elitism that's endemic in our field. The reason you can't have a Rails and Django developer in the same room sometimes. It's the same reason I didn't handle the argument with that developer as well as I'd have liked. I read "not real CSS" and just lost my shit. That kind of "enlightened" attitude doesn't do anything for anyone. Bottom line: don't call someone an idiot for not working the way you do. We're all trying to create a better web. The dynamic nature of our industry means the answer to "should I do this?" is usually "It depends."
 
-## [The Sass Way](id:sass-way)
+## The Sass Way
 
 Sass is designed to help you write more efficient CSS with a wealth of tools that, admittedly, seem counterproductive at first. It's really worth repeating: a CSS preprocessor is **only** as good as your understanding of CSS. And at this point, I'd consider my understanding to be pretty damn good. The rest of this post will be a "put up or shut up" demonstration of using effective Sass, and by extension, outputting leaner CSS. The best advice I can give about using Sass is being mindful how you use it until you're more comfortable, and monitor your output to ensure it looks the same as you would write your CSS by hand. Never make your output dependent on Sass for updating.
 
@@ -85,7 +87,7 @@ Sass is designed to help you write more efficient CSS with a wealth of tools tha
 They do when the output isn't monitored. One of the most misused features of Sass are [mixins](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#mixins), which work much like functions. The duplication problem comes when developers try to use them as glorified copy/paste vehicles. Tell me if this looks familiar:
 
 
-```language-scss
+```
 @mixin border-main() {
   border: 3px solid #f90;
 }
@@ -108,7 +110,7 @@ form {
 
 Code like this perfectly illustrates the duplication problem. The sinister thing is that within Sass it **appears** DRY. This is not so much the case in the output.
 
-```language-css
+```css
 /* line 5, duplication.scss */
 .photo {
   border: 3px solid #f90;
@@ -127,7 +129,7 @@ form .field {
 
 Contrived as the example may be, consider it on a larger scale, and that would be a TON of bloat. Authoring lightweight CSS is in part a matter of recognizing patterns within your code. The OOCSS method would suggest making a separate class for that border, but then our markup would be polluted with presentational classes. If I knew certain styles of my design would be used across modules, I might group the declaration under multiple selectors and leverage the cascade to define more specific modifications for the individual parts. Here's the handwritten way and the Sass way.
 
-```language-scss
+```
 /*------------------------------------*\
     $MODULARITY
 \*------------------------------------*/
@@ -154,7 +156,7 @@ Contrived as the example may be, consider it on a larger scale, and that would b
 // }
 ```
 
-```language-scss
+```
 // Placeholder selector, the great and powerful.
 // What it does is very similar to a class.
 // You define rules within it, and then it applies
@@ -188,7 +190,7 @@ form {
 
 Look ma, no bloat!
 
-```language-css
+```css
 /*------------------------------------*\
     $MODULARITY
 \*------------------------------------*/
@@ -219,13 +221,15 @@ My examples show, again, that maintaining duplication and code bloat is the resp
 
 Yes and no. Mixins can pollute your stylesheets with unused vendor prefixes if you have no control over them and they're built incorrectly. However, by curating your own set of mixins to use across projects, you can do some pretty awesome stuff. Especially as mixins can contain other mixins.
 
-_UPDATE: If, for some reason you're still writing mixins to handle vendor prefixes, you're making it harder on yourself. There are wonderful tools like [Lea Verou's -prefix-free](http://leaverou.github.io/prefixfree/) and [Andrey Sitnik's Autoprefixer](https://github.com/ai/autoprefixer). They're both absolutely brilliant for that minefield._
+<div class="post-body__note">
+UPDATE: If, for some reason you're still writing mixins to handle vendor prefixes, you're making it harder on yourself. There are wonderful tools like <a href="http://leaverou.github.io/prefixfree/">Lea Verou's prefix-free</a> and <a href="https://github.com/postcss/autoprefixer">Autoprefixer</a>. They're both absolutely brilliant for that minefield.
+</div>
 
 ### Nesting Hell
 
 The key to using the features of any preprocessor is **moderation**. The rule of "just because you can do something" very much applies here. Nesting in particular can quickly snowball with an inexperienced CSS author. Let's get one thing straight: this is awful.
 
-```language-scss
+```
 /*------------------------------------*\
     $NESTING HELL
 \*------------------------------------*/
@@ -277,7 +281,7 @@ section {
 
 The output is even worse.
 
-```language-css
+```css
 /*------------------------------------*\
     $NESTING HELL
 \*------------------------------------*/
@@ -333,7 +337,9 @@ section .blog .post .content .definition-list {
 
 If you're thinking there's nothing particular wrong with this, it's a misconception that your CSS should reflect your markup structure. This is a terrible idea because of the way browser engines actually read CSS. Exactly why they read selectors from right to left is beyond the scope of this post, but [this is a great explanation](http://stackoverflow.com/questions/5797014/why-do-browsers-match-css-selectors-from-right-to-left/5813672#5813672). Either way, this is a specificity nuke, and more often than not encourages abuse of IDs and `!important` in stylesheets. Well-structured CSS, formed with or without a preprocessor, should not require either for styling. My personal rule is to save IDs as general hooks for components I intend to inject with JavaScript behavior and events.
 
+<div class="post-body__note">
 UPDATE: The performance of modern browser engines is such that optimizing selectors for performance isn't as huge a deal. However, minimal nesting still has a maintenance advantage.
+</div>
 
 A great rule for Sass (and programming in general), be mindful of your structure. When nesting selectors, try not to go more than one level deep. It's not as hard as you might think. Efficient classes, use of global styling, and leveraging the cascade will be enough to keep your CSS maintainable and lean.
 
@@ -343,7 +349,7 @@ Variables are another point of division between preprocessor advocates and detra
 
 The lack of variables in CSS might not be a problem when you're by yourself (and let's be honest, they aren't), but a team would benefit from intelligently named variables. They slightly reduce the potential for human error, especially if you or your team uses an editor with code-hinting. For many capable of well-structured CSS, variables become more of a convenience than the necessity. As I said it would probably be a bad idea to make updating your stylesheets dependent on Sass, I'd recommend something like the following:
 
-```language-scss
+```
 /*------------------------------------*\
     $VARIABLES
 \*------------------------------------*/

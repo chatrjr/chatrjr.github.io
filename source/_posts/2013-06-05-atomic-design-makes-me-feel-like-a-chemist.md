@@ -13,7 +13,12 @@ description: "Time to brush up on your chemistry with Atomic Design. This post i
 excerpt: "Time to brush up on your chemistry with Atomic Design. This post introduces Brad Frost's methodology and Pattern Lab. I explain why it's an awesome approach going forward."
 ---
 
+<!-- toc -->
+<div class="post-body__note">
 UPDATE: This post existed on my old site, which I unceremoniously scrapped a few months ago. I'm sorry, I didn't think it was still in use. Hope you get something from it.
+</div>
+
+
 
 At this year's Beyond Tellerand conference, Brad Frost unveiled a new design system methodology: [Atomic Design](http://www.besquare.me/session/atomic-design/). You should probably watch that if you haven't already. Design systems allow us to build through a recurrent process that we can use across projects. They can be customized to fit a client's, or your own, needs. Design systems represented a shift in workflow as more designers stopped fighting the fluid nature of the web. Before we talk about Atomic Design, we need some background on existing systems.
 
@@ -54,7 +59,7 @@ Now let's dive into the code.
 
 First of all, take note of Pattern Lab's directory tree. This is rather important.
 
-```language-bash
+```bash
 /var/www/patternlab
 ├── css
 │   ├── scss
@@ -248,7 +253,7 @@ Now let's have a look at `functions.php`. If you're planning on setting up Patte
 
 I guess the way my dev environment is configured made `$root` lack the trailing backslash, which is why I had to include it in the latter two variables before Pattern Lab would work properly. You may not have to do that, just be aware of it. If you don't know much PHP, don't worry. The most relevant part is this function:
 
-```language-clike
+```php id="func"
 <?php 
 
 $root = $_SERVER['DOCUMENT_ROOT']; 
@@ -297,12 +302,12 @@ function inc($type,$name) {
         if ($pos) {
             include($objName); //Include the fragment if the file is found
             break;
-        } 
+        }
     }
 }
 ```
 
-Lines 22-32 look through the `patterns` directory for the components called through the `inc()` function based on type. It's called like this: `inc([type], [component]);`. Before we extend Pattern Lab with a few extras, we still have to go through what those parts mean. You know them if you watched Brad's talk or remember chemistry class, but we're going to go over them in a practical sense.
+[Lines 16-28](#func-php.16-28) look through the `patterns` directory for the components called through the `inc()` function based on type. It's called like this: `inc([type], [component]);`. Before we extend Pattern Lab with a few extras, we still have to go through what those parts mean. You know them if you watched Brad's talk or remember chemistry class, but we're going to go over them in a practical sense.
 
 ### 00-Atoms
 
@@ -312,7 +317,7 @@ Atoms are the building blocks of our universe. On the web they are individual HT
 
 Molecules are essentially bonded atoms that create a new substance. On the web this can be an unordered list that has bonded with a element to become a menu. In playing around with Pattern Lab, I built two additional molecules. All you have to do is create a file in the category you think is most relevant. In my case that was `02-Blocks`. This is what's in `06-Block-Project.php`:
 
-```language-markup
+```markup
 <div class="block block-project">
     <h2>New Project</h2>
     <p>A description of the project would go here, of course.</p>
@@ -321,7 +326,7 @@ Molecules are essentially bonded atoms that create a new substance. On the web t
 
 I've bound an image, a heading, and a paragraph to a project molecule. I also created a featured project molecule from bonding them in a different way, such as this:
 
-```languge-markup
+```markup
 <div class="block block-featured">
     <div class="b-text">
         <h2 class="headline">Featured Project</h2>
@@ -338,7 +343,7 @@ Organisms are created from a complex system of molecules bonding into even more 
 
 Notice how the chemistry terms end here. That's because we're getting into the parts that the client will see. In the `03-Templates` folder, I created `03-Portfolio.php`, and that looks like this:
 
-```language-markup
+```markup
 <div class="g g-5up">
     <div class="gi"></div>
 </div>
