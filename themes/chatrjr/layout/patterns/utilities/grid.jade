@@ -2,24 +2,27 @@
   h3.pattern-title Grid - 8 Columns
   h4.pattern-subtitle .grid.full
   .example-g.grid.full
-    - for (var i = 0; i < 2; i++)
       .example-n.node .node
   h4.pattern-subtitle .grid.halves
   .example-g.grid.halves
-    - for (var i = 0; i < 4; i++)
+    - for (var i = 0; i < 2; i++)
       .example-n.node .node
   h4.pattern-subtitle .grid.quarters
   .example-g.grid.quarters
-    - for (var i = 0; i < 8; i++)
+    - for (var i = 0; i < 4; i++)
       .example-n.node .node
   h4.pattern-subtitle .grid.eighths
   .example-g.grid.eighths
-    - for (var i = 0; i < 16; i++)
+    - for (var i = 0; i < 8; i++)
       .example-n.node .node
   h4.pattern-subtitle .grid.golden
   .example-g.grid.golden
     .example-n.node.major .node.major
     .example-n.node.minor .node.minor
+  h4.pattern-subtitle .grid.golden
+  .example-g.grid.golden
+    .example-n.node.minor .node.minor
+    .example-n.node.major .node.major
   h4.pattern-subtitle .grid.complex
   .example-g.grid.complex
     .example-n.node.col-5 .node.col-5
@@ -30,5 +33,6 @@
     .example-n.node.col-6 .node.col-6
   h4.pattern-subtitle .grid.complex
   .example-g.grid.complex
-    .example-n.node.col-6 .node.col-6
+    .example-n.node.col-2 .node.col-2
+    .example-n.node.col-4 .node.col-4
     .example-n.node.col-2 .node.col-2
