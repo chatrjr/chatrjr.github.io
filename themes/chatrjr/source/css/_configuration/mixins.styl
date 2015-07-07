@@ -1,13 +1,55 @@
-// slices()
-// -------------------------------------------
-// Custom mixin to create columns for 
-// complex content.
+// grid-generator()
+// ------------------------------------------------
+// Custom mixin to generate %-based column grids or
+// matrices for gallery-like displays.
 //   Usage:
 //     .grid-class
-//       slices(5)
+//       grid-generator(columnal, 5, [margin])
+//
+//   OR
+//     .grid-class
+//       grid-generator(segmented, 2)
+//
+//   OR
+//     .grid-class
+//       grid-generator(golden)
+//
 
-slices(columns)
-  single = 100% / columns
+grid-generator(type, context = 1, margin = 1%)
+  if type == 'full'
+    width: 100%
+    &:last-child
+      margin-bottom: 0
+
+  if type == 'segmented'
+    single = (100% / context)
+    width: single
+    &:nth-child({context}n)
+      margin-right: 0
+    &:nth-last-child(-n+{context})
+      margin-bottom: 0
+
+  if type == 'golden'
+    golden-section = (100% / 1.618)
+    &.major
+      width: golden-section
+    &.minor
+      width: (100% - golden-section)
+
+  if type == 'columnal'
+    slice(context, margin)
+
+
+
+
+
+// slices()
+// -------------------------------------------
+// Helper mixin to create columns for 
+// complex content.
+
+slice(columns, margin)
+  single = (100% / columns)
   for col in (1..columns)
     .node.col-{col}
-      width single * col
+      width: (single * col)
