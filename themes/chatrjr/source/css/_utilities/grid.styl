@@ -19,46 +19,48 @@ $clearfix
 .grid:after
   @extends $clearfix
 
-.component-grid
-  margin: 0
-
-.inner-grid:after
-  @extends $clearfix
-
 .node
-  @extends .grid
   // border: 2px solid #555
   float: left
-  margin-bottom: 0
 
-.full
+.node:after
+  @extends $clearfix
+
+.grid.full
   .node
-    width: 100%
+    grid-generator(full)
 
-.golden
-  .node.minor
-    width: 100% - 61.804697157%
-
-  .node.major
-    width: 61.804697157%
-
-.halves
+.grid.golden
   .node
-    width: (100% / 2)
+    grid-generator(golden)
 
-.thirds
-  .node
-    width: (100% / 3)
+// Collapsing grids
 
-.quarters
+.grid.halves
   .node
-    width: (100% / 4)
+    grid-generator(segmented, 2)
 
-.eighths
+.grid.thirds
   .node
-    width: (100% / 8)
+    grid-generator(segmented, 3)
+
+.grid.quarters
+  .node
+    grid-generator(segmented, 4)
+    @media mini
+      grid-generator(full)
+    @media small
+      grid-generator(segmented, 2)
+
+.grid.eighths
+  .node
+    grid-generator(segmented, 8)
+    @media mini
+      grid-generator(segmented, 2)
+    @media small
+      grid-generator(segmented, 4)
 
 /* For multi-column needs. */
 
-.complex
-  slices(layout-columns)
+.grid.complex
+  grid-generator(columnal, layout-columns)
