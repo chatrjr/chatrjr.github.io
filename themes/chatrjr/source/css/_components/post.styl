@@ -2,7 +2,7 @@
   @extends .articles-title
   border-width: border-hairline
   font-size: ($font-size-base * 5)
-  line-height: ($line-height-base * 3)
+  line-height: ($line-height-base * 3.5)
 .post-meta
   @extends .articles-meta
   margin-top: -(padding-small * 3)
@@ -44,3 +44,9 @@
 
 .post-src, .post-src a
   color: colors-clashes-bg-1
+
+.post-body > img,
+.post-body > figure
+  display: block
+  margin: $line-height-base auto
+  width: (100% / 1.618)
