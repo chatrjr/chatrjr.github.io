@@ -1,3 +1,3 @@
-# Style Guide/Pattern Library
+# Style Guide
 
-This is both the style guide and pattern library for my personal site, created for my convenience and reference (and your perusal). It isn't very big, because the site's not very big. However, it's an __essential asset__ no matter the size. This one in particular is based on the way I author CSS and may not resemble others in the wild. Discover more about front-end styleguides, pattern libraries, and find some great tools to create your own, at [styleguides.io](http://styleguides.io).
+This is the style guide for my personal site, created for my convenience and reference (and your perusal). It isn't very big, because the site's not very big. However, it's an __essential asset__ no matter the size. This one in particular is based on the way I author CSS and may not resemble others in the wild. Discover more about style guides, pattern libraries, and find some great tools to create your own, at [styleguides.io](http://styleguides.io).
