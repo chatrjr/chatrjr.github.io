@@ -95,6 +95,6 @@ theme: chatrjr
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
-  type: github
+  type: git
   repository: https://github.com/chatrjr/chatrjr.github.io.git
   branch: master
