@@ -1,0 +1,269 @@
+<!DOCTYPE html><html lang="en"><head><title>MVC: The Angular Way &bull; Chatman’s Desk</title><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="description" content="The online scratchpad and lab of Chatman Richmond Jr."><meta name="author" content="Chatman Richmond Jr."><!-- Device Icons--><!-- Apple--><link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png"><link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png"><link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png"><link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png"><link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png"><link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png"><link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png"><!-- END Apple--><!-- Web--><link rel="icon" type="image/png" href="/favicons/favicon-192x192.png"><link rel="icon" type="image/png" href="/favicons/favicon-160x160.png"><link rel="icon" type="image/png" href="/favicons/favicon-96x96.png"><link rel="icon" type="image/png" href="/favicons/favicon-16x16.png"><link rel="icon" type="image/png" href="/favicons/favicon-32x32.png"><!-- END Web--><!-- Windows Tile--><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png"><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="/favicons/mstile-150x150.png"><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="/favicons/mstile-310x310.png"><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="/favicons/mstile-70x70.png"><!-- END Windows Tile--><!-- END Device Icons--><meta name="viewport" content="width=device-width"><link href="http://fonts.googleapis.com/css?family=Noticia+Text:400,400italic,700" type="text/css" rel="stylesheet"><link href="http://fonts.googleapis.com/css?family=Abril+Fatface:400" type="text/css" rel="stylesheet"><link href="http://fonts.googleapis.com/css?family=Roboto+Mono:400,700" type="text/css" rel="stylesheet"><link rel="stylesheet" href="/css/post.css"><!-- Grumpicon--><script>/* grunticon Stylesheet Loader | https://github.com/filamentgroup/grunticon | (c) 2012 Scott Jehl, Filament Group, Inc. | MIT license. */
+window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!!t.document.createElementNS&&!!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect&&!!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1"),A=function(A){var o=t.document.createElement("link"),r=t.document.getElementsByTagName("script")[0];o.rel="stylesheet",o.href=e[A&&n?0:A?1:2],r.parentNode.insertBefore(o,r)},o=new t.Image;o.onerror=function(){A(!1)},o.onload=function(){A(1===o.width&&1===o.height)},o.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+grunticon( [ "/css/icons.data.svg.css", "/css/icons.data.png.css", "/css/icons.fallback.css" ] );</script><noscript><link href="/css/icons.fallback.css" rel="stylesheet"></noscript></head><body><div class="container rhythm"><header class="masthead grid complex"><div class="logo node col-1"><a href="/" title="Chatman's Desk" class="logo__link icon icon-logo"></a></div><nav class="main-menu node col-7 grid quarters u-null-list-style"><li class="main-menu-item"><a href="/categories/web" title="Web" class="main-menu__link node">Web<i class="main-menu__icon icon icon-web"></i></a></li><li class="main-menu-item"><a href="/categories/personal" title="Personal" class="main-menu__link node">Personal<i class="main-menu__icon icon icon-personal"></i></a></li><li class="main-menu-item"><a href="/archives" title="Archives" class="main-menu__link node">Archives<i class="main-menu__icon icon icon-archives"></i></a></li><li class="main-menu-item"><a href="/about" title="About" class="main-menu__link node">About<i class="main-menu__icon icon icon-about"></i></a></li></nav></header><main role="main" class="rhythm"><article class="post rhythm"><div class="post-masthead"><h1 class="post-masthead__title u-justify-right">MVC: The Angular Way</h1></div><div class="post-meta"><span class="post-meta__date">01/06/2014</span><span class="post-meta__tags"><a href="/tags/AngularJS/" class="post-meta__link">AngularJS</a><a href="/tags/MVC/" class="post-meta__link">MVC</a><a href="/tags/experiments/" class="post-meta__link">experiments</a><a href="/tags/learning/" class="post-meta__link">learning</a></span></div><div class="post-body language-javascript"><!-- toc -->
+<ul>
+<li><a href="#obligatory-explanation-of-mvc">Obligatory Explanation of MVC</a>
+<ul>
+<li><a href="#mvc-philosophy">MVC Philosophy</a></li>
+</ul>
+</li>
+<li><a href="#a-rough-sketch-of-mvc">A Rough Sketch of MVC</a>
+<ul>
+<li><a href="#model">Model</a></li>
+<li><a href="#view">View</a></li>
+<li><a href="#controller">Controller</a></li>
+</ul>
+</li>
+<li><a href="#angularjs-a-very-different-animal">AngularJS: A Very Different Animal</a></li>
+<li><a href="#the-angular-view">The Angular View</a></li>
+<li><a href="#augmented-markup">Augmented Markup</a>
+<ul>
+<li><a href="#ng-app">ng-app</a></li>
+<li><a href="#ng-controller">ng-controller</a></li>
+<li><a href="#ng-model">ng-model</a></li>
+<li><a href="#ng-event">ng-event</a></li>
+<li><a href="#ng-repeat">ng-repeat</a></li>
+<li><a href="#ng-class">ng-class</a></li>
+</ul>
+</li>
+<li><a href="#the-missing-ingredient-routes">The Missing Ingredient: Routes</a></li>
+<li><a href="#the-result">The Result</a></li>
+<li><a href="#bonus">Bonus</a></li>
+</ul>
+<!-- tocstop -->
+<h2 id="obligatory-explanation-of-mvc"><a class="header-anchor" href="#obligatory-explanation-of-mvc">&#xA7;</a>Obligatory Explanation of MVC</h2>
+<p>That&#x2019;s probably the the first thing you&#x2019;re wondering (if you didn&#x2019;t know already). MVC is a software pattern for building user interfaces that emerged from Smalltalk. It&#x2019;s a proven architecture for robust UIs that finally found its way to the web in the explosion of application frameworks that embody its principles along with a few offshoots. I&#x2019;m talking about Backbone, Ember, Knockout, and the star of today&#x2019;s post: <a href="http://angularjs.org/" target="_blank" rel="external">AngularJS</a>. Of course, that&#x2019;s just scratching the surface. Before we dive in with Angular, let&#x2019;s have a look at the ideas behind MVC and the problems it was intended to solve.</p>
+<h3 id="mvc-philosophy"><a class="header-anchor" href="#mvc-philosophy">&#xA7;</a>MVC Philosophy</h3>
+<p>MVC is critical for building modern applications because it works on the idea that there should be a separation of concerns between the data the application accepts (Model), how the data is shown (View), and how it&#x2019;s changed (Controller). This approach would allow apps to easily grow with feature requests and bug fixes in ways that they couldn&#x2019;t if all those parts were intertwined.</p>
+<h2 id="a-rough-sketch-of-mvc"><a class="header-anchor" href="#a-rough-sketch-of-mvc">&#xA7;</a>A Rough Sketch of MVC</h2>
+<p>It&#x2019;s a bit more complicated than that, so it&#x2019;s example time! The following code is not representative of any MVC framework out there right now, it&#x2019;s only meant to illustrate the general structure.</p>
+<h3 id="model"><a class="header-anchor" href="#model">&#xA7;</a>Model</h3>
+<p>Let&#x2019;s say we have a database full of people that we want to use for a &#x201C;Facebook-killer&#x201D; social network. We don&#x2019;t need to use all of their data for the model, only the most relevant parts. The following is a model we might use for a profile page.</p>
+<pre><code>// Let&apos;s assume there&apos;s an App namespace and that
+// a Person has already been attached as a Model.
+var App = App || {};
+
+App.Model.Person = (function(data) {
+
+  this.id = data.id;
+  this.firstName = data.firstName;
+  this.lastName = data.lastName;
+  this.age = data.age;
+  this.birthday = data.birthday;
+
+  // Parse data somehow
+
+  return data;
+
+})(&apos;people.json&apos;);
+</code></pre>
+<h3 id="view"><a class="header-anchor" href="#view">&#xA7;</a>View</h3>
+<p>A view is usually represented through a templating engine (either client or server side). Here is where you plug in your data. For the purpose of our example, let&#x2019;s say the template is written like this.</p>
+<pre><code class="language-markup">&lt;!&gt; Mock templating language
+&lt;&gt;html
+  &lt;&gt;head
+    &lt;&gt;title Profile of #{getFullName} &amp;bull; FBKiller
+    &lt;name=&quot;description&quot; content=&quot;This is the profile of #{getFullName}&quot;/&gt;meta
+    &lt;name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;/&gt;meta
+    &lt;rel=&quot;stylesheet&quot; href=&quot;style.css&quot;/&gt;link
+    &lt;src=&quot;engine.js&quot;&gt;script
+  &lt;&gt;body
+    &lt;role=&quot;banner&quot;&gt;header.main-head
+      &lt;&gt;h1 Profile of #{getFullName}
+      &lt;role=&quot;navigation&quot;&gt;nav.main-nav
+        &lt;&gt;ul.main-nav-wrap
+          &lt;@for [1..4]&gt;
+            &lt;&gt;li
+              &lt;href=&quot;#&quot;&gt;a
+          &lt;/@for&gt;
+    &lt;&gt;.stats
+      &lt;&gt;ul.stat-wrap
+        &lt;@each $context : prop&gt;
+          &lt;&gt;li.stat-item
+            &lt;&gt;h2 #{prop}
+            &lt;&gt;p #{$context.prop}
+        &lt;/@each&gt;
+    &lt;role=&quot;contentinfo&quot;&gt;footer.main-foot &amp;copy; 2014 FBKiller
+</code></pre>
+<p>When the template is parsed, you end up with something like this.</p>
+<pre><code class="language-markup">&lt;!-- Mock templating language --&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt; Profile of Dirk Gently &amp;bull; FBKiller&lt;/title&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;This is the profile of Dirk Gently&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot; /&gt;
+    &lt;script src=&quot;engine.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;header class=&quot;main-head&quot; role=&quot;banner&quot;&gt;
+      &lt;h1&gt;Profile of Dirk Gently&lt;/h1&gt;
+      &lt;nav class=&quot;main-nav&quot; role=&quot;navigation&quot;&gt;
+        &lt;ul class=&quot;main-nav-wrap&quot;&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/nav&gt;
+    &lt;/header&gt;
+    &lt;div class=&quot;stats&quot;&gt;
+      &lt;ul class=&quot;stat-wrap&quot;&gt;
+        &lt;li class=&quot;stat-item&quot;&gt;
+          &lt;h2&gt;First Name&lt;/h2&gt;
+          &lt;p&gt;Dirk&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;stat-item&quot;&gt;
+          &lt;h2&gt;Last Name&lt;/h2&gt;
+          &lt;p&gt;Gently&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;stat-item&quot;&gt;
+          &lt;h2&gt;Age&lt;/h2&gt;
+          &lt;p&gt;Unknown&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;stat-item&quot;&gt;
+          &lt;h2&gt;Birthday&lt;/h2&gt;
+          &lt;p&gt;Unknown&lt;/p&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;footer class=&quot;main-foot&quot; role=&quot;contentinfo&quot;&gt;&amp;copy; 2014 FBKiller&lt;/footer&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3 id="controller"><a class="header-anchor" href="#controller">&#xA7;</a>Controller</h3>
+<p>A controller is responsible for application logic and data manipulation. As such, they are usually bound to the view they affect and are responsible only for that view. In our mock MVC framework, a controller might be written this way.</p>
+<pre><code>App.Controller.UserProfile = (function(Person, ProfileView) {
+
+  // Let&apos;s say App.Controller has a bind() method
+  // to attach views.
+  var $context = App.Controller.bind(this, ProfileView);
+
+  // From this context, we can attach additional manipulators
+  // to be shown in the view.
+  $context.getFullName = function() {
+    return this.firstName + &apos; &apos; + this.lastName;
+  }
+
+})(App.Model.Person, App.View.Profile);
+</code></pre>
+<p>That&#x2019;s enough theory. Let&#x2019;s see how a real framework does it.</p>
+<h2 id="angularjs-a-very-different-animal"><a class="header-anchor" href="#angularjs-a-very-different-animal">&#xA7;</a>AngularJS: A Very Different Animal</h2>
+<p>Of all that I&#x2019;ve read about MVC and its derivatives, Angular is quite unique in its approach. It&#x2019;s a completely different architecture from &#x201C;traditional&#x201D; MVC like Backbone. The Angular team marks it as a MVM (Model-View-Mapper) framework, and it shows. The rest of this post will be about the silly thing I mentioned in the excerpt, as it helps show exactly how different yet <strong>familiar</strong> it is to do things the Angular way.</p>
+<h2 id="the-angular-view"><a class="header-anchor" href="#the-angular-view">&#xA7;</a>The Angular View</h2>
+<p>The first thing I should mention: if you&#x2019;ve ever written HTML, then you already know how to build an Angular view. The framework extends natural markup with a ton of useful attributes. Angular has grown surprisingly hardy since its creation, trusted to power apps large and small despite its deceptively simple structure. Here&#x2019;s the view for my <a href="http://jsfiddle.net/chatrjr/neCH7/" target="_blank" rel="external">Multiples Listing experiment</a>.</p>
+<pre><code class="language-markup">&lt;div ng-app=&quot;App&quot;&gt;
+  &lt;div ng-controller=&quot;MainCtrl&quot;&gt;
+    &lt;h1&gt;AngularJS Multiples Experiment.&lt;/h1&gt;
+    &lt;p&gt;This is just something I built while learning AngularJS, so I can prepare to use it on a larger project I&apos;m working on. Feel free to comb through the code, and let me know if I messed up something.&lt;/p&gt;
+    &lt;form&gt;
+      &lt;div class=&quot;field-wrap&quot;&gt;
+        &lt;label for=&quot;mult&quot;&gt;Set your multiple. &lt;small&gt;Change to update table.&lt;/small&gt;&lt;/label&gt;
+        &lt;input id=&quot;mult&quot; class=&quot;field&quot; type=&quot;number&quot; ng-model=&quot;num.multiple&quot;&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;field-wrap&quot;&gt;
+        &lt;label for=&quot;limit&quot;&gt;Set your limit. &lt;small&gt;Number of items to show.&lt;/small&gt;&lt;/label&gt;
+        &lt;input id=&quot;limit&quot; class=&quot;field&quot; type=&quot;number&quot; min=&quot;0&quot; max=&quot;10000&quot; ng-model=&quot;num.limit&quot;&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;controls&quot;&gt;
+        &lt;button ng-click=&quot;populate()&quot;&gt;Create my table&lt;/button&gt;
+        &lt;button ng-click=&quot;flush()&quot;&gt;Reset&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+    &lt;ul&gt;
+      &lt;li class=&quot;boxes&quot; ng-class=&quot;{divisible: (numbers[$index] % num.multiple === 0) ? true : false}&quot; ng-repeat=&quot;number in numbers&quot;&gt;
+        {{ number }}
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>See? An Angular view is an augmented HTML document. Nothing else. Let&#x2019;s have a look at some of these augments.</p>
+<h2 id="augmented-markup"><a class="header-anchor" href="#augmented-markup">&#xA7;</a>Augmented Markup</h2>
+<h3 id="ng-app"><a class="header-anchor" href="#ng-app">&#xA7;</a>ng-app</h3>
+<p>The first notable change is the <code>ng-app</code> attribute. This lets Angular know where the app rests on your page. When you set it as an attribute of <code>&lt;html&gt;</code>, like I am, you&#x2019;re telling Angular the entire page is your app. Wrapping part of your page with <code>ng-app</code> is ideal if your website or app is managed by something else. This means you can have a dash of Angular with your Rails, for example.</p>
+<h3 id="ng-controller"><a class="header-anchor" href="#ng-controller">&#xA7;</a>ng-controller</h3>
+<p>The <code>&lt;body&gt;</code> element has the <code>ng-controller</code> attribute. Angular uses this to assign a controller&#x2019;s scope on the page to wrap its logic. My experiment only has one controller, <code>MainCtrl</code>, because it doesn&#x2019;t need to do too much. Building a controller in Angular isn&#x2019;t a chore either, especially if you&#x2019;re well-versed in the module pattern.</p>
+<pre><code>// Best Practice: Set namespace of your app to
+// avoid pollution of the global scope.
+var App = angular.module(&apos;App&apos;, []);
+
+// $scope is the current context of MainCtrl,
+// that is, the entire page.
+App.controller(&apos;MainCtrl&apos;, function($scope) {
+  var i,
+      numArr;
+
+  // An Angular model with defaults set.
+  // Keep in mind that models usually aren&apos;t static
+  // and work with persistent data from the server.
+  $scope.num = {
+    multiple: 2,
+    limit: 24
+  };
+  
+  $scope.numbers = [];
+  
+  numArr = Array($scope.num.limit);
+  
+  for (i = 0, len = numArr.length; i &lt;= len; i++) {
+    $scope.numbers.push(i);
+  }
+
+  $scope.populate = function() {
+    $scope.numbers.length = 0;
+    
+    var list = $scope.num.limit;
+    
+    for(i = 0; i &lt;= list; i++) {
+      $scope.numbers.push(i);
+    }
+  };
+  
+
+  $scope.flush = function() {
+    $scope.numbers.length = 0;
+  };
+  
+});
+</code></pre>
+<h3 id="ng-model"><a class="header-anchor" href="#ng-model">&#xA7;</a>ng-model</h3>
+<p>This attribute allows you to bind values to elements in real-time. Angular maintains persistent state through two way binding. The <code>&lt;input&gt;</code> element in our view with <code>ng-model=&quot;num.multiple&quot;</code> will update the list as you change it, while the one with <code>ng-model=&quot;num.limit&quot;</code> attached will modify the size of your list.</p>
+<h3 id="ng-event"><a class="header-anchor" href="#ng-event">&#xA7;</a>ng-event</h3>
+<p>What&#x2019;s old is new again. Angular binds events in a way that will look very familiar and worrisome, but there&#x2019;s nothing to fear. My little experiment has buttons that create and reset the table, respectively. The first button is bound to the <code>populate()</code> method defined in the controller, while the second is bound to <code>flush()</code>.</p>
+<p>Here&#x2019;s the view.</p>
+<pre><code class="language-markup">&lt;button ng-click=&quot;populate()&quot;&gt;Create my table&lt;/button&gt;
+&lt;button ng-click=&quot;flush()&quot;&gt;Reset&lt;/button&gt;
+</code></pre>
+<p>And the associated methods.</p>
+<pre><code>$scope.populate = function() {
+  $scope.numbers.length = 0;
+  
+  var list = $scope.num.limit;
+  
+  for (i = 0; i &lt;= list; i++) {
+    $scope.numbers.push(i);
+  }
+};
+
+$scope.flush = function() {
+  $scope.numbers.length = 0;
+};
+</code></pre>
+<h3 id="ng-repeat"><a class="header-anchor" href="#ng-repeat">&#xA7;</a>ng-repeat</h3>
+<p>This attribute allows Angular to loop through items in the list once it has been populated. And this will update every time we create a new list. It doesn&#x2019;t just work with arrays, it allows any collection of objects that can be iterated through. And then you can output the value with either <code>ng-bind=value</code> or the double bracket syntax.</p>
+<h3 id="ng-class"><a class="header-anchor" href="#ng-class">&#xA7;</a>ng-class</h3>
+<p>The final ingredient was to figure out a way to update an item with a special class. Angular supplies the <code>ng-class</code> for conditional application of classes. In this case, I wanted to highlight the numbers that are multiples of the first input, that is, by checking that the modulus of that number equals 0.</p>
+<pre><code class="language-markup">&lt;li class=&quot;boxes&quot; ng-class=&quot;{divisible: (numbers[$index] % num.multiple === 0) ? true : false}&quot; ng-repeat=&quot;number in numbers&quot;&gt;
+  {{number}}
+&lt;/li&gt;
+</code></pre>
+<p>When it does, the <code>.divisible</code> class is applied to that item and highlights it as a multiple.</p>
+<h2 id="the-missing-ingredient-routes"><a class="header-anchor" href="#the-missing-ingredient-routes">&#xA7;</a>The Missing Ingredient: Routes</h2>
+<p>When MVC came to the web, another special ingredient was added to leverage the power of links. As a result, web apps have shareable URLs that preserve state. This routing allows a web app to apply certain functionality across views in a simple, readable way. And this is arguably their biggest advantage over native apps. My experiment was way too simple to need routing, but don&#x2019;t underestimate the power of this valuable tool.</p>
+<h2 id="the-result"><a class="header-anchor" href="#the-result">&#xA7;</a>The Result</h2>
+<p>This was a really long post, and I might have tried to do too much. Here&#x2019;s the finished app, if you want to play with it. Also, my understanding of MVC isn&#x2019;t complete, so I urge you to let me know if I&#x2019;ve made some mistakes in explaining it. And especially if I got it completely wrong. See ya later, web people!</p>
+<div class="post-src">Multiples Experiment: <a href="http://jsfiddle.net/chatrjr/neCH7/" target="_blank" rel="external">http://jsfiddle.net/chatrjr/neCH7/</a></div>
+<h2 id="bonus"><a class="header-anchor" href="#bonus">&#xA7;</a>Bonus</h2>
+<p>This is another implementation of the multiples list that live updates from inputs. No buttons necessary. You&#x2019;re welcome to compare performance.</p>
+<div class="post-src">Multiples Experiment: <a href="http://jsfiddle.net/chatrjr/Xz3hp/" target="_blank" rel="external">http://jsfiddle.net/chatrjr/Xz3hp/</a></div></div></article><nav role="navigation" class="pagination grid full u-justify-center"><span class="pagination__prev"><a href="/personal/special-ingredients/" title="Special Ingredients" class="pagination__link">&#8612; Special Ingredients</a></span><span class="pagination__sep"> &mdash; </span><span class="pagination__next"><a href="/web/yet-another-css-architecture/" title="YACSSA (Yet Another CSS Architecture)" class="pagination__link">YACSSA (Yet Another CSS Architecture) &#8614;</a></span></nav></main><footer class="main-foot"><nav class="footer-menu grid quarters"><ul class="footer-menu-section node u-null-list-style"><h5 class="footer-menu__title">Social</h5><li class="footer-menu__item"><a href="http://codepen.io/chatrjr" title="Codepen" class="footer-menu__link"><i class="footer-menu__icon icon icon-codepen"></i></a><a href="http://jsfiddle.net/user/chatrjr/fiddles/" title="Jsfiddle" class="footer-menu__link"><i class="footer-menu__icon icon icon-jsfiddle"></i></a><a href="http://github.com/chatrjr" title="Github" class="footer-menu__link"><i class="footer-menu__icon icon icon-github"></i></a><a href="http://twitter.com/chatrjr" title="Twitter" class="footer-menu__link"><i class="footer-menu__icon icon icon-twitter"></i></a></li></ul><ul class="footer-menu-section node u-null-list-style"><h5 class="footer-menu__title">Typography</h5><li class="footer-menu__item"><a href="https://www.google.com/fonts/specimen/Noticia+Text" class="footer-menu__link">Noticia Text</a></li><li class="footer-menu__item"><a href="https://www.google.com/fonts/specimen/Abril+Fatface" class="footer-menu__link">Abril Fatface</a></li><li class="footer-menu__item"><a href="https://www.google.com/fonts/specimen/Roboto+Mono" class="footer-menu__link">Roboto Mono</a></li></ul><ul class="footer-menu-section node u-null-list-style"><h5 class="footer-menu__title">Meta</h5><li class="footer-menu__item"><a href="/pattern-library" title="My Style Guide" class="footer-menu__link">Style Guide</a></li><li class="footer-menu__item"><a href="chatmanrjr@gmail.com" title="My Email" class="footer-menu__link">Email</a></li><li class="footer-menu__item"><a href="http://feeds.feedburner.com/chatrjr" title="My RSS/Atom Feed" class="footer-menu__link">RSS/Atom Feed</a></li></ul><ul class="footer-menu-section node u-null-list-style"><h5 class="footer-menu__title">Misc</h5><li class="footer-menu__item">Generated with <a href="http://hexo.io" class="footer-menu__link">Hexo</a></li><li class="footer-menu__item">Coded in <a href="http://sublimetext.com" class="footer-menu__link">Sublime Text</a></li><li class="footer-menu__item">Icons served with <a href="http://grumpicon.com" class="footer-menu__link">Grumpicon</a> and <a href="http://icomoon.io" class="footer-menu__link">Icomoon</a></li></ul></nav></footer></div><script src="/js/vendor/prismjs/prism.js"></script></body></html>

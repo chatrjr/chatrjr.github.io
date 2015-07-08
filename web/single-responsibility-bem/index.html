@@ -1,0 +1,193 @@
+<!DOCTYPE html><html lang="en"><head><title>SRBEM (Single Responsibility BEM) &bull; Chatman’s Desk</title><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="description" content="The online scratchpad and lab of Chatman Richmond Jr."><meta name="author" content="Chatman Richmond Jr."><!-- Device Icons--><!-- Apple--><link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png"><link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png"><link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png"><link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png"><link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png"><link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png"><link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png"><!-- END Apple--><!-- Web--><link rel="icon" type="image/png" href="/favicons/favicon-192x192.png"><link rel="icon" type="image/png" href="/favicons/favicon-160x160.png"><link rel="icon" type="image/png" href="/favicons/favicon-96x96.png"><link rel="icon" type="image/png" href="/favicons/favicon-16x16.png"><link rel="icon" type="image/png" href="/favicons/favicon-32x32.png"><!-- END Web--><!-- Windows Tile--><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png"><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="/favicons/mstile-150x150.png"><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="/favicons/mstile-310x310.png"><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="/favicons/mstile-70x70.png"><!-- END Windows Tile--><!-- END Device Icons--><meta name="viewport" content="width=device-width"><link href="http://fonts.googleapis.com/css?family=Noticia+Text:400,400italic,700" type="text/css" rel="stylesheet"><link href="http://fonts.googleapis.com/css?family=Abril+Fatface:400" type="text/css" rel="stylesheet"><link href="http://fonts.googleapis.com/css?family=Roboto+Mono:400,700" type="text/css" rel="stylesheet"><link rel="stylesheet" href="/css/post.css"><!-- Grumpicon--><script>/* grunticon Stylesheet Loader | https://github.com/filamentgroup/grunticon | (c) 2012 Scott Jehl, Filament Group, Inc. | MIT license. */
+window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!!t.document.createElementNS&&!!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect&&!!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1"),A=function(A){var o=t.document.createElement("link"),r=t.document.getElementsByTagName("script")[0];o.rel="stylesheet",o.href=e[A&&n?0:A?1:2],r.parentNode.insertBefore(o,r)},o=new t.Image;o.onerror=function(){A(!1)},o.onload=function(){A(1===o.width&&1===o.height)},o.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+grunticon( [ "/css/icons.data.svg.css", "/css/icons.data.png.css", "/css/icons.fallback.css" ] );</script><noscript><link href="/css/icons.fallback.css" rel="stylesheet"></noscript></head><body><div class="container rhythm"><header class="masthead grid complex"><div class="logo node col-1"><a href="/" title="Chatman's Desk" class="logo__link icon icon-logo"></a></div><nav class="main-menu node col-7 grid quarters u-null-list-style"><li class="main-menu-item"><a href="/categories/web" title="Web" class="main-menu__link node">Web<i class="main-menu__icon icon icon-web"></i></a></li><li class="main-menu-item"><a href="/categories/personal" title="Personal" class="main-menu__link node">Personal<i class="main-menu__icon icon icon-personal"></i></a></li><li class="main-menu-item"><a href="/archives" title="Archives" class="main-menu__link node">Archives<i class="main-menu__icon icon icon-archives"></i></a></li><li class="main-menu-item"><a href="/about" title="About" class="main-menu__link node">About<i class="main-menu__icon icon icon-about"></i></a></li></nav></header><main role="main" class="rhythm"><article class="post rhythm"><div class="post-masthead"><h1 class="post-masthead__title u-justify-right">SRBEM (Single Responsibility BEM)</h1></div><div class="post-meta"><span class="post-meta__date">06/14/2013</span><span class="post-meta__tags"><a href="/tags/BEM/" class="post-meta__link">BEM</a><a href="/tags/CSS-architecture/" class="post-meta__link">CSS architecture</a><a href="/tags/OOCSS/" class="post-meta__link">OOCSS</a></span></div><div class="post-body language-scss"><!-- toc -->
+<ul>
+<li><a href="#breaking-bem">Breaking BEM</a></li>
+<li><a href="#single-responsibility-bem">Single Responsibility BEM</a>
+<ul>
+<li><a href="#responsibility-of-the-block">Responsibility of the Block</a></li>
+<li><a href="#responsibility-of-the-element">Responsibility of the Element</a></li>
+<li><a href="#responsibility-of-the-modifier">Responsibility of the Modifier</a>
+<ul>
+<li><a href="#method-1-class-chaining-to-tie-the-modifier-directly-to-the-element">Method #1: Class Chaining to Tie the Modifier Directly to the Element</a></li>
+<li><a href="#method-2-the-augment-class">Method #2: The <code>.augment</code> Class</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#caveats">Caveats</a></li>
+</ul>
+<!-- tocstop -->
+<p>You may already be familiar with Yandex&#x2019;s BEM method of authoring CSS. If not, it looks a little like the following code.</p>
+<pre><code class="language-markup">&lt;div class=&quot;block&quot;&gt;
+    &lt;div class=&quot;block__element&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;block__element&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;block__element block__element--modifier&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;block__element&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h2 id="breaking-bem"><a class="header-anchor" href="#breaking-bem">&#xA7;</a>Breaking BEM</h2>
+<p>BEM-style CSS has three major parts:</p>
+<ul>
+<li>The <code>.block</code> is your containing element, your module. It&#x2019;s a component with its own structure and purpose. Within the context of Atomic Design, it would be your molecule.</li>
+<li>Elements are the internal parts of your block, responsible for holding the structure together and defining its purpose. An example would be <code>.widget</code> as your block and <code>.widget__content</code> as an element. In the context of Atomic Design, they&#x2019;re your atoms.</li>
+<li>Modifiers are special classes that you add when you want to modify your block. Let&#x2019;s say you want to make your <code>.widget__title</code> bigger. You could do that through a modifier. Example: <code>.widget__title--emphasize</code>.</li>
+</ul>
+<p>As you can see, there is quite a lot of repeating involved, and that drives me nuts. Even with a tool like Emmet, it can extremely tedious to repeat the block when using BEM-style CSS. However, I think I&#x2019;ve found a fix that I will demonstrate through the always awesome Codepen. I think it will be rather effective in reducing the redundancy in BEM-style CSS. Also, it&#x2019;s pretty sweet.</p>
+<h2 id="single-responsibility-bem"><a class="header-anchor" href="#single-responsibility-bem">&#xA7;</a>Single Responsibility BEM</h2>
+<p>If you&#x2019;re a developer of any kind&#x2013;software or web, you&#x2019;ll have heard of the Single Responsibility Principle. For those who don&#x2019;t know:</p>
+<blockquote>
+<p>In object-oriented programming, the single responsibility principle states that every class should have a single responsibility, and that responsibility should be entirely encapsulated by the class. All its services should be narrowly aligned with that responsibility. &#x2013; <a href="http://en.wikipedia.org/wiki/Single_responsibility_principle" target="_blank" rel="external">Wikipedia</a></p>
+</blockquote>
+<p>It&#x2019;s also called Curly&#x2019;s Law. It just means that each class should do one thing and not interfere with anything outside of its purpose. I think you can see where we&#x2019;re going with this. The pen is below. The rest of the post will break it down under Single Responsibility BEM. This will take a while to explain, but I hope it will spark something as it did for me. Also note, that Sass makes this much easier to pull off, so that&#x2019;s what I&#x2019;ll be using.</p>
+<blockquote>
+<p>%post-body_src%
+Single Responsibility BEM: <a href="!--%EF%BF%BC1--"></a></p>
+</blockquote>
+<h3 id="responsibility-of-the-block"><a class="header-anchor" href="#responsibility-of-the-block">&#xA7;</a>Responsibility of the Block</h3>
+<p>The block&#x2019;s job, the module, is to encapsulate all of its elements for a single role. All of the elements are tied to a block, so there&#x2019;s no reason to make that explicit by repeating the block when there&#x2019;s a better way.</p>
+<pre><code>.block {
+    @include transition(all 0.3s linear);
+    background: $white-translucent;
+    display: inline-block;
+    padding: 0.8em;
+    position: relative;
+}
+</code></pre>
+<p>As you can see, the block is only referenced once and given some base styles. Our elements will live inside the block and have their own <strong>contained</strong> styling. The block will encapsulate its element and not expose them to anything outside of the block, which means you can move the module around as you want. The block basically gives your module its own scope.</p>
+<h3 id="responsibility-of-the-element"><a class="header-anchor" href="#responsibility-of-the-element">&#xA7;</a>Responsibility of the Element</h3>
+<p>The elements in your block are what give it form and purpose. They&#x2019;re the content of your module, and that&#x2019;s all they need to be, so we&#x2019;re going to nest them within our block like so:</p>
+<pre><code>.block {
+    @include transition(all 0.3s linear);
+    background: $white-translucent;
+    display: inline-block;
+    padding: 0.8em;
+    position: relative;
+    .__headline {
+      @include scale(&apos;ginormous&apos;);
+      background: $ocean-blue-dark;
+      border-radius: 0;
+      color: $white;
+      padding: 0.2em;
+      text-align: center;
+      width: 100%;
+    }
+    
+    .__image {
+      width: 100%;
+    }
+    
+    .__content {
+      @include scale(&apos;xl&apos;);
+      @include adjust-leading-to(0.95);
+      background: rgba($ocean-blue-dark, 0.8);
+      color: $white;
+      padding: 0.4em;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+}
+</code></pre>
+<p>You see we have three elements: <code>.__headline</code>, <code>.__image</code>, and <code>.__content</code>. We know they&#x2019;re contained by our block, and they have their own styling. We don&#x2019;t have to repeat <code>.block</code> as a prefix to recognize this within our Sass. Now it gets a little interesting. Before that, here&#x2019;s what our unmodified module looks like:</p>
+<pre><code class="language-markup">&lt;section class=&quot;block&quot;&gt;
+  &lt;h2 class=&quot;__headline&quot;&gt;One Kitten&lt;/h2&gt;
+  &lt;img src=&quot;http://placekitten.com/1200/580&quot; class=&quot;__image&quot;&gt;&lt;/img&gt;
+  &lt;div class=&quot;__content&quot;&gt;One kitten in the snow.&lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+<p>Very simple, eh?</p>
+<h3 id="responsibility-of-the-modifier"><a class="header-anchor" href="#responsibility-of-the-modifier">&#xA7;</a>Responsibility of the Modifier</h3>
+<p>The modifier&#x2019;s only responsibility is to augment the block or element we pass to it. It doesn&#x2019;t need to do anything else. We&#x2019;re taking advantage of the cascade, so our modifiers will be nested inside its context. As for defining modifiers, I came up with two different methods.</p>
+<h4 id="method-1-class-chaining-to-tie-the-modifier-directly-to-the-element"><a class="header-anchor" href="#method-1-class-chaining-to-tie-the-modifier-directly-to-the-element">&#xA7;</a>Method #1: Class Chaining to Tie the Modifier Directly to the Element</h4>
+<pre><code>.__headline {
+  @include scale(&apos;ginormous&apos;);
+  background: $ocean-blue-dark;
+  border-radius: 0;
+  color: $white;
+  padding: 0.2em;
+  text-align: center;
+  width: 100%;
+  &amp;._--shrinkHeadline {
+    @include scale(&apos;xl&apos;);
+  }
+  &amp; {
+    @extend %_--shrinkHeadline;
+  }
+}
+</code></pre>
+<p>As you can see the modifier, <code>._--shrinkHeadline</code>, is nested in the <code>.__headline</code> element. The modifier is chained to the element is via Sass&#x2019; <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#referencing_parent_selectors" target="_blank" rel="external">parent reference selector</a>. This means it will only affect elements with <strong>both</strong> classes. As the markup shows:</p>
+<pre><code class="language-markup">&lt;section class=&quot;block&quot;&gt;
+  &lt;h2 class=&quot;__headline _--shrinkHeadline&quot;&gt;Three Kittens&lt;/h2&gt;
+  &lt;img src=&quot;http://placekitten.com/500/305&quot; class=&quot;__image&quot;&gt;&lt;/img&gt;
+  &lt;div class=&quot;__content&quot;&gt;Three kittens with a mirror.&lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+<h4 id="method-2-the-augment-class"><a class="header-anchor" href="#method-2-the-augment-class">&#xA7;</a>Method #2: The <code>.augment</code> Class</h4>
+<p>When I first tried this method, it was almost like wizardry. The <code>.augment</code> is an umbrella class for our modifiers, and we use <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#placeholders" target="_blank" rel="external">placeholder selectors</a> to modify its behavior before attaching it to a block or element. Here&#x2019;s how it works:</p>
+<pre><code>.augment%_--shrinkText {
+    /* Referencing %_--shrinkText */
+    @include scale(&apos;s&apos;);
+    @include adjust-leading-to(0.98);
+}
+
+.augment%_--shrinkHeadline {
+    /* Referencing %_--shrinkHeadline */
+    @include scale(&apos;xl&apos;);
+}
+
+.augment%_--shiftHeadline {
+  /* Referencing %_--shiftHeadline */
+  @include scale(&apos;m&apos;);
+  @include transition(all 0.3s linear);
+  border-radius: 2em;
+}
+
+.augment%_--imageBorder {
+    /* Referencing %_--imageBorder */
+    border: 0.5em solid $sky-blue;
+}
+</code></pre>
+<p>Modifiers are placed near the bottom of our file to leverage the cascade. And then we prefix every modifier with our <code>.augment</code> class. The way placeholder selectors work is that you give them an identifier like <code>%_--imageBorder</code>. They&#x2019;re like a class, except the CSS within the brackets is <strong>the only thing compiled by Sass</strong>. The identifier never shows up in the output, but our <code>.augment</code> class does. In the context of Object-Oriented Programming, this method is a lot like the Facade Pattern: it exposes a simple hook for not so simple actions, masking the underlying complexity for easy use through a single class. Now let&#x2019;s use one.</p>
+<pre><code>.__image {
+  width: 100%;
+  &amp; {
+    /* Referencing %_--imageBorder */
+    @extend %_--imageBorder;
+  }
+}
+</code></pre>
+<p>We&#x2019;ve attached the modifier by extending the <code>%_--imageBorder</code> placeholder to the parent selector. What this will do is expose the CSS of our placeholder and attach it to our element under the <code>.augment</code> class. Here&#x2019;s the output:</p>
+<pre><code class="language-css">/* line 258, style.scss */
+.block .augment.__image {
+  /* Referencing %_--imageBorder */
+  border: 0.5em solid #009bff;
+}
+</code></pre>
+<p>Our augmenting class in the output is tied to our modifier which is attached to the element it references. <code>.augment</code> exposes the modifier to its element and <strong>only</strong> its element. This means we can have its behavior change when it references a different modifier. Check it:</p>
+<pre><code class="language-css">/* line 258, style.scss */
+.block .augment.__content {
+  /* Referencing %_--shrinkText */
+  font-size: 1.3125em;
+  line-height: 2em;
+  line-height: 1.28625em;
+}
+</code></pre>
+<p>Same class, <strong>completely different behavior</strong>. Now, how simple is it to use within our markup? This simple.</p>
+<pre><code class="language-markup">&lt;section class=&quot;block griddler-slice-by4&quot;&gt;
+  &lt;h2 class=&quot;__headline augment&quot;&gt;Four Kittens&lt;/h2&gt;
+  &lt;img src=&quot;http://placekitten.com/400/200&quot; class=&quot;__image&quot;&gt;&lt;/img&gt;
+  &lt;div class=&quot;__content augment&quot;&gt;Four kittens exploring.&lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+<p>I had to lift my jaw from the floor.</p>
+<h2 id="caveats"><a class="header-anchor" href="#caveats">&#xA7;</a>Caveats</h2>
+<p>As always, no method is perfect. Here are some roadblocks associated with this one which may or may not be a problem depending on your work environment.</p>
+<ul>
+<li>All of this can be hard to pull off easily without Sass.</li>
+<li>Both modifier methods rely on adjoining classes, which aren&#x2019;t exactly supported in IE6.</li>
+<li>They may require some degree of education within your team</li>
+<li>The <code>@extend</code> directive can&#x2019;t be used within media queries, last I checked.</li>
+</ul>
+<p>Let me know what you think of this approach below. And as always, let me know if I missed something.</p>
+</div></article><nav role="navigation" class="pagination grid full u-justify-center"><span class="pagination__prev"><a href="/web/preprocessed-out/" title="Preprocessed Out" class="pagination__link">&#8612; Preprocessed Out</a></span><span class="pagination__sep"> &mdash; </span><span class="pagination__next"><a href="/web/atomic-design-makes-me-feel-like-a-chemist/" title="Atomic Design Makes Me Feel Like a Chemist" class="pagination__link">Atomic Design Makes Me Feel Like a Chemist &#8614;</a></span></nav></main><footer class="main-foot"><nav class="footer-menu grid quarters"><ul class="footer-menu-section node u-null-list-style"><h5 class="footer-menu__title">Social</h5><li class="footer-menu__item"><a href="http://codepen.io/chatrjr" title="Codepen" class="footer-menu__link"><i class="footer-menu__icon icon icon-codepen"></i></a><a href="http://jsfiddle.net/user/chatrjr/fiddles/" title="Jsfiddle" class="footer-menu__link"><i class="footer-menu__icon icon icon-jsfiddle"></i></a><a href="http://github.com/chatrjr" title="Github" class="footer-menu__link"><i class="footer-menu__icon icon icon-github"></i></a><a href="http://twitter.com/chatrjr" title="Twitter" class="footer-menu__link"><i class="footer-menu__icon icon icon-twitter"></i></a></li></ul><ul class="footer-menu-section node u-null-list-style"><h5 class="footer-menu__title">Typography</h5><li class="footer-menu__item"><a href="https://www.google.com/fonts/specimen/Noticia+Text" class="footer-menu__link">Noticia Text</a></li><li class="footer-menu__item"><a href="https://www.google.com/fonts/specimen/Abril+Fatface" class="footer-menu__link">Abril Fatface</a></li><li class="footer-menu__item"><a href="https://www.google.com/fonts/specimen/Roboto+Mono" class="footer-menu__link">Roboto Mono</a></li></ul><ul class="footer-menu-section node u-null-list-style"><h5 class="footer-menu__title">Meta</h5><li class="footer-menu__item"><a href="/pattern-library" title="My Style Guide" class="footer-menu__link">Style Guide</a></li><li class="footer-menu__item"><a href="chatmanrjr@gmail.com" title="My Email" class="footer-menu__link">Email</a></li><li class="footer-menu__item"><a href="http://feeds.feedburner.com/chatrjr" title="My RSS/Atom Feed" class="footer-menu__link">RSS/Atom Feed</a></li></ul><ul class="footer-menu-section node u-null-list-style"><h5 class="footer-menu__title">Misc</h5><li class="footer-menu__item">Generated with <a href="http://hexo.io" class="footer-menu__link">Hexo</a></li><li class="footer-menu__item">Coded in <a href="http://sublimetext.com" class="footer-menu__link">Sublime Text</a></li><li class="footer-menu__item">Icons served with <a href="http://grumpicon.com" class="footer-menu__link">Grumpicon</a> and <a href="http://icomoon.io" class="footer-menu__link">Icomoon</a></li></ul></nav></footer></div><script src="/js/vendor/prismjs/prism.js"></script></body></html>

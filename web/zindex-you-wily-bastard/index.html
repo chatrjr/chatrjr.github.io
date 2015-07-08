@@ -1,0 +1,321 @@
+<!DOCTYPE html><html lang="en"><head><title>Z-Index, You Wily Bastard &bull; Chatman’s Desk</title><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="description" content="The online scratchpad and lab of Chatman Richmond Jr."><meta name="author" content="Chatman Richmond Jr."><!-- Device Icons--><!-- Apple--><link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png"><link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png"><link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png"><link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png"><link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png"><link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png"><link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png"><!-- END Apple--><!-- Web--><link rel="icon" type="image/png" href="/favicons/favicon-192x192.png"><link rel="icon" type="image/png" href="/favicons/favicon-160x160.png"><link rel="icon" type="image/png" href="/favicons/favicon-96x96.png"><link rel="icon" type="image/png" href="/favicons/favicon-16x16.png"><link rel="icon" type="image/png" href="/favicons/favicon-32x32.png"><!-- END Web--><!-- Windows Tile--><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png"><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="/favicons/mstile-150x150.png"><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="/favicons/mstile-310x310.png"><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="/favicons/mstile-70x70.png"><!-- END Windows Tile--><!-- END Device Icons--><meta name="viewport" content="width=device-width"><link href="http://fonts.googleapis.com/css?family=Noticia+Text:400,400italic,700" type="text/css" rel="stylesheet"><link href="http://fonts.googleapis.com/css?family=Abril+Fatface:400" type="text/css" rel="stylesheet"><link href="http://fonts.googleapis.com/css?family=Roboto+Mono:400,700" type="text/css" rel="stylesheet"><link rel="stylesheet" href="/css/post.css"><!-- Grumpicon--><script>/* grunticon Stylesheet Loader | https://github.com/filamentgroup/grunticon | (c) 2012 Scott Jehl, Filament Group, Inc. | MIT license. */
+window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!!t.document.createElementNS&&!!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect&&!!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1"),A=function(A){var o=t.document.createElement("link"),r=t.document.getElementsByTagName("script")[0];o.rel="stylesheet",o.href=e[A&&n?0:A?1:2],r.parentNode.insertBefore(o,r)},o=new t.Image;o.onerror=function(){A(!1)},o.onload=function(){A(1===o.width&&1===o.height)},o.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+grunticon( [ "/css/icons.data.svg.css", "/css/icons.data.png.css", "/css/icons.fallback.css" ] );</script><noscript><link href="/css/icons.fallback.css" rel="stylesheet"></noscript></head><body><div class="container rhythm"><header class="masthead grid complex"><div class="logo node col-1"><a href="/" title="Chatman's Desk" class="logo__link icon icon-logo"></a></div><nav class="main-menu node col-7 grid quarters u-null-list-style"><li class="main-menu-item"><a href="/categories/web" title="Web" class="main-menu__link node">Web<i class="main-menu__icon icon icon-web"></i></a></li><li class="main-menu-item"><a href="/categories/personal" title="Personal" class="main-menu__link node">Personal<i class="main-menu__icon icon icon-personal"></i></a></li><li class="main-menu-item"><a href="/archives" title="Archives" class="main-menu__link node">Archives<i class="main-menu__icon icon icon-archives"></i></a></li><li class="main-menu-item"><a href="/about" title="About" class="main-menu__link node">About<i class="main-menu__icon icon icon-about"></i></a></li></nav></header><main role="main" class="rhythm"><article class="post rhythm"><div class="post-masthead"><h1 class="post-masthead__title u-justify-right">Z-Index, You Wily Bastard</h1></div><div class="post-meta"><span class="post-meta__date">07/21/2014</span><span class="post-meta__tags"><a href="/tags/CSS/" class="post-meta__link">CSS</a><a href="/tags/methodology/" class="post-meta__link">methodology</a><a href="/tags/sass-lib/" class="post-meta__link">sass lib</a><a href="/tags/z-index/" class="post-meta__link">z-index</a></span></div><div class="post-body language-scss"><!-- toc -->
+<ul>
+<li><a href="#the-problem">The Problem</a>
+<ul>
+<li><a href="#losing-the-stack-context">Losing the Stack Context</a></li>
+<li><a href="#collision">Collision</a></li>
+<li><a href="#organization-issues">Organization Issues</a></li>
+</ul>
+</li>
+<li><a href="#the-potential-solution">The Potential Solution</a>
+<ul>
+<li><a href="#stepping">Stepping</a></li>
+</ul>
+</li>
+<li><a href="#this-is-zindex">This is Zindex</a>
+<ul>
+<li><a href="#zindex-set-stack-for">zindex-set-stack-for</a></li>
+<li><a href="#zindex-generate-stack">zindex-generate-stack</a></li>
+</ul>
+</li>
+<li><a href="#using-zindex">Using Zindex</a>
+<ul>
+<li><a href="#basic-use-case">Basic Use Case</a></li>
+<li><a href="#manipulating-child-elements">Manipulating Child Elements</a></li>
+</ul>
+</li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+<!-- tocstop -->
+<div class="post-body__note">
+I recommend you read <a href="http://www.smashingmagazine.com/2014/06/12/sassy-z-index-management-for-complex-layouts/" title="Sassy Z-Index Management for Complex Layouts" target="_blank" rel="external">Jackie Balzer&apos;s excellent article</a> about z-index and stacking context management. I&apos;ll explain best as I can, but it helps to have her ideas in mind.
+<p>Also, this is one of my longer posts.</p>
+</div>
+<h2 id="the-problem"><a class="header-anchor" href="#the-problem">&#xA7;</a>The Problem</h2>
+<p>Z-index has proven itself to be one the trickier aspects of CSS even among the <strong>many</strong> tricky parts of it. Stacking context can get hairy if you lose track of it. Layer collisions are all too common and irritating in their frequency. Before I show you my solution, we need to dive a little deeper into the main issues.</p>
+<h3 id="losing-the-stack-context"><a class="header-anchor" href="#losing-the-stack-context">&#xA7;</a>Losing the Stack Context</h3>
+<p>This is the well from which many z-index woes spring, full-formed and terrible.</p>
+<p>As Jackie mentions in her post, it most often plagues complex layouts where you have to keep track of the way multiple elements stack. It isn&#x2019;t as simple as monitoring z-index, though. This is even further complicated&#x2014;as CSS often is&#x2014;by teams. Without a way to track the stack context, you will collide with already occupied indexes like Green Lantern collides with this skyscraper.</p>
+<figure>
+  <img src="/post-images/hal-jordan-catching-a-beating.gif" alt="Hal Jordan catching a beating.">
+  <figcaption>Aaand there&apos;s your layout.</figcaption>
+</figure>
+<h3 id="collision"><a class="header-anchor" href="#collision">&#xA7;</a>Collision</h3>
+<p>If two elements occupy the same z-index, the one that appears later in the document flow will take precedence. Have a look at the following markup.</p>
+<pre><code class="language-markup">&lt;div class=&quot;ctx-a&quot;&gt;
+  &lt;div class=&quot;title&quot;&gt;
+    &lt;h1 class=&quot;title-main&quot;&gt;1 &amp; 3 Collide Z-indexes&lt;/h1&gt;
+    &lt;p class=&quot;title-sub&quot;&gt;3 overtakes 1 because it renders later in the document.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;layers-a&quot;&gt;
+    &lt;div class=&quot;layer a-layer-1&quot;&gt;Layer 1&lt;/div&gt;
+    &lt;div class=&quot;layer a-layer-2&quot;&gt;Layer 2&lt;/div&gt;
+    &lt;div class=&quot;layer a-layer-3&quot;&gt;Layer 3&lt;/div&gt;
+    &lt;div class=&quot;layer a-layer-4&quot;&gt;Layer 4&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>It&#x2019;s pretty straightforward, but this is the part that&#x2019;s important. Say we have four classes to manage z-index on four different levels. Let&#x2019;s also have an element already occupying an index.</p>
+<pre><code class="language-css">.zindex-level-4 {
+  z-index: 4;
+}
+
+.zindex-level-3, 
+.a-layer-1 {
+  z-index: 3;
+}
+
+.zindex-level-2 {
+  z-index: 2;
+}
+
+.zindex-level-1 {
+  z-index: 1;
+}
+</code></pre>
+<p>Now let&#x2019;s say someone, maybe even you or me, forgets that these classes exist and hard codes the value into a selector.</p>
+<pre><code class="language-css">.a-layer-3 {
+  z-index: 3; /* What happens now? */
+}
+</code></pre>
+<p>This will cause the element that renders later in the document to overtake its sibling. I&#x2019;ll say this again: <strong>source order matters</strong>.</p>
+<p><img src="/post-images/z-index-collision.png" alt="Z-index collision between two elements."></p>
+<p>Here&#x2019;s a test case where we switch the source so Layer 1 comes after Layer 3. Now it&#x2019;s Layer 1 that holds the rendering advantage.</p>
+<p><img src="/post-images/z-index-collision_source-order.png" alt="Z-index collision between two elements."></p>
+<p>How do you keep z-index collisions from further complicating this irritating CSS property? Reading the spec helps, but <a href="http://philipwalton.com/articles/what-no-one-told-you-about-z-index/" title="What No One Told You About Z-Index" target="_blank" rel="external">this article from Philip Walton</a> is a great place to start on the subtle ways the stack is affected that have nothing to do with z-index.</p>
+<h3 id="organization-issues"><a class="header-anchor" href="#organization-issues">&#xA7;</a>Organization Issues</h3>
+<p>The &#x201C;z-index: 99999&#x201D; hack is to z-index what <code>!important</code> is to specificity: it&#x2019;s the nuclear option. The <strong>last resort</strong> when we&#x2019;re frustrated. The remedy is awareness of our habits and knowledge of how things work under the browser hood. We know we want to avoid index collision, because it makes things harder when we get tripped up by the other hidden qualities of the the stack context.</p>
+<h2 id="the-potential-solution"><a class="header-anchor" href="#the-potential-solution">&#xA7;</a>The Potential Solution</h2>
+<p>The answer is that we need better z-index organization, but how? One way is to set aside classes to manage z-index, but that can potentially lead to bloat. <a href="http://css-tricks.com/handling-z-index/" title="Handling z-index" target="_blank" rel="external">Chris Coyier already has an idea to use grouping</a> as they do in games programming, and it&#x2019;s a pretty sound solution.</p>
+<p>Human error is unavoidable, so a solution will never be perfect. Our best bet is minimize the chance of error.</p>
+<h3 id="stepping"><a class="header-anchor" href="#stepping">&#xA7;</a>Stepping</h3>
+<p>So what is stepping? It&#x2019;s simply setting your z-indexes at an interval to reduce the chance of colliding with occupied indexes. What I do in my usual workflow is set up classes for a different level of the stacking context and step over indexes by an interval of 2&#x2013;5, something to allow breathing room without pushing the big, red button.</p>
+<pre><code class="language-css">.zindex-sublevel-4 {
+  z-index: -8;
+}
+
+.zindex-sublevel-3 {
+  z-index: -6;
+}
+
+.zindex-sublevel-2 {
+  z-index: -4;
+}
+
+.zindex-sublevel-1 {
+  z-index: -2;
+}
+
+.zindex-level-1 {
+  z-index: 2;
+}
+
+.zindex-level-2 {
+  z-index: 4;
+}
+
+.zindex-level-3 {
+  z-index: 6;
+}
+
+.zindex-level-4 {
+  z-index: 8;
+}
+</code></pre>
+<p>I cover the upper and lower levels by a range of (usually) 4 levels. Most of time, I barely break double digits let alone drop &#x201C;z-index: 99999.&#x201D; That said, I&#x2019;m just a lone developer who usually builds simple things. Systems and methodology aren&#x2019;t difficult to maintain when you don&#x2019;t have to deal with anyone&#x2019;s idiosyncrasies but your own.</p>
+<p>That&#x2019;s why I spent the weekend trying to develop a solution that <strong>might</strong> scale with teams and works as a shortcut for my usual methods. For this, I turned to the magic of Sass.</p>
+<h2 id="this-is-zindex"><a class="header-anchor" href="#this-is-zindex">&#xA7;</a>This is Zindex</h2>
+<p>Zindex uses the stepping method, and my budding understanding of how the stack context works, to serve as a relatively painless tool for managing z-index. I&#x2019;m not entirely sure it counts as a library, because it&#x2019;s so damn tiny.</p>
+<h3 id="zindex-set-stack-for"><a class="header-anchor" href="#zindex-set-stack-for">&#xA7;</a>zindex-set-stack-for</h3>
+<p>This function creates a map from a <code>$root</code> (usually the parent element) and establishes indexes to be applied to it. The <code>$depth-limit</code> sets how deep you want the indexes to go, while <code>$step</code> is your z-index interval.</p>
+<pre><code>@function zindex-set-stack-for($root, $depth-limit, $step) {
+  $root-id: (context: $root);
+  $map: ();
+  // Negative z-index
+  @for $enum from $depth-limit through 1 {
+    @if $root == body {
+      $map: map-merge($map ,(&quot;zindex-sublevel-#{$enum}&quot;: -($step * $enum)));
+    } @else {
+      $map: map-merge($map ,(&quot;#{$root}-sublevel-#{$enum}&quot;: -($step * $enum)));
+    }
+  }
+  // Positive z-index
+  @for $enum from 1 through $depth-limit {
+    @if $root == body {
+      $map: map-merge($map ,(&quot;zindex-level-#{$enum}&quot;: $step * $enum));
+    } @else {
+      $map: map-merge($map ,(&quot;#{$root}-level-#{$enum}&quot;: $step * $enum));
+    }
+  }
+  $map: map-merge($root-id, $map);
+  @return $map;
+}
+</code></pre>
+<p>Internally, it generates a map from your context using your <code>$root</code> as its namespace unless you pass in <code>body</code>. If you do, then the function will create a generic namespace on the assumption that your context is document-wide.</p>
+<h3 id="zindex-generate-stack"><a class="header-anchor" href="#zindex-generate-stack">&#xA7;</a>zindex-generate-stack</h3>
+<p>This mixin takes a <code>$zindex-map</code> (though you could pass in a map directly) and outputs the range of z-indexes. By default, it creates classes unless you set <code>$placehold</code> to <code>true</code>. Then it will create the range as a set of placeholders you can extend into your elements.</p>
+<pre><code>@mixin zindex-generate-stack($zindex-map, $placehold: false) {
+  @each $level, $depth in $zindex-map {
+    @if $level  == context {
+      /*=====================\
+      |  #{map-get($zindex-map, $level)} z-index map 
+      \*====================*/
+    } @else {
+      @if $placehold {
+        %#{$level} {
+          z-index: $depth;
+        }
+      } @else {
+        .#{$level} {
+          z-index: $depth;
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<h2 id="using-zindex"><a class="header-anchor" href="#using-zindex">&#xA7;</a>Using Zindex</h2>
+<p>Let&#x2019;s wrap this up with a quick primer on using Zindex. There&#x2019;s an <a href="https://github.com/chatrjr/sass-zindex/blob/master/zindex-example.scss" target="_blank" rel="external">example file bundled with the repo</a>, and if that&#x2019;s not enough, check out my test cases.</p>
+<div class="post-src">
+  Zindex Test Cases: <a href="http://codepen.io/chatrjr/pen/JrLIt" target="_blank" rel="external">http://codepen.io/chatrjr/pen/JrLIt</a>
+</div>
+<h3 id="basic-use-case"><a class="header-anchor" href="#basic-use-case">&#xA7;</a>Basic Use Case</h3>
+<p>The demo is closer to real-world use cases, so we&#x2019;ll work from that. Assume we have the following markup.</p>
+<pre><code class="language-markup">&lt;div class=&quot;ctx-b&quot;&gt;
+  &lt;div class=&quot;title&quot;&gt;
+    &lt;h2 class=&quot;title-main&quot;&gt;2 &amp; 4 Z-index Set&lt;/h1&gt;
+    &lt;p class=&quot;title-sub&quot;&gt;Confirm that 2 has a greater z-index than 4.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;layers-b&quot;&gt;
+    &lt;div class=&quot;layer b-layer-1&quot;&gt;Layer 1&lt;/div&gt;
+    &lt;div class=&quot;layer b-layer-2&quot;&gt;Layer 2&lt;/div&gt;
+    &lt;div class=&quot;layer b-layer-3&quot;&gt;Layer 3&lt;/div&gt;
+    &lt;div class=&quot;layer b-layer-4&quot;&gt;Layer 4&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Now, we set up a stack with Zindex. Let&#x2019;s set a variable and create a stack context with a <code>$root</code> of layers-b, a <code>$depth</code> of 4, and step over 3 indexes at a time. Here&#x2019;s how it&#x2019;s set in the demo.</p>
+<pre><code>$stack-ctx-b: zindex-set-stack-for(layers-b, 4, 3);
+</code></pre>
+<p>The map is created, but we can&#x2019;t do anything with it until we pass it to the mixin to generate our classes.</p>
+<pre><code>@include zindex-generate-stack($stack-ctx-b);
+</code></pre>
+<p>Now we have our classes, attached to a convenient namespace, that we can use as we see fit.</p>
+<pre><code class="language-css">/*=====================\
+|  layers-b z-index map 
+\*====================*/
+.layers-b-sublevel-4 {
+  z-index: -12;
+}
+
+.layers-b-sublevel-3 {
+  z-index: -9;
+}
+
+.layers-b-sublevel-2 {
+  z-index: -6;
+}
+
+.layers-b-sublevel-1 {
+  z-index: -3;
+}
+
+.layers-b-level-1 {
+  z-index: 3;
+}
+
+.layers-b-level-2 {
+  z-index: 6;
+}
+
+.layers-b-level-3, .b-layer-4 {
+  z-index: 9;
+}
+
+.layers-b-level-4, .b-layer-2 {
+  z-index: 12;
+}
+</code></pre>
+<p>Finally, we can extend our classes to the elements whose z-index we want to change. Which you see I&#x2019;ve already done.</p>
+<pre><code>.b-layer-2 {
+  @extend .layers-b-level-4;
+  &amp;:after {
+    content: &quot;z-index: 12&quot;;
+  }
+}
+
+.b-layer-4 {
+  @extend .layers-b-level-3;
+  &amp;:after {
+    content: &quot;z-index: 9&quot;;
+  }
+}
+</code></pre>
+<p>And this is our result.</p>
+<p><img src="/post-images/zindex-demo-layers-b.png" alt="Zindex Demo: Layers B"></p>
+<p>The advantage here is that you can use these classes to avoid setting hard values. The namespace also means you&#x2019;ll remember which context you&#x2019;re working within and won&#x2019;t have to guess. If Zindex was made for one thing, it&#x2019;s better organization.</p>
+<h3 id="manipulating-child-elements"><a class="header-anchor" href="#manipulating-child-elements">&#xA7;</a>Manipulating Child Elements</h3>
+<p>The demo also shows how you can work with elements that have children. Specifically by setting one context on the parents, and another on the children, we can minimize any headaches that might come of setting their z-indexes. Let&#x2019;s say we&#x2019;re working with this markup.</p>
+<pre><code class="language-markup">&lt;div class=&quot;ctx-d&quot;&gt;
+  &lt;div class=&quot;title&quot;&gt;
+    &lt;h2 class=&quot;title-main&quot;&gt;Set Context on Parents 1 &amp; 4&lt;/h1&gt;
+    &lt;p class=&quot;title-sub&quot;&gt;Change it on children 3 &amp; 4.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;layers-d&quot;&gt;
+    &lt;div class=&quot;layer d-layer-1&quot;&gt;Layer 1
+      &lt;div class=&quot;layer child-d-layer-1&quot;&gt;Child Layer 1&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;layer d-layer-2&quot;&gt;Layer 2
+      &lt;div class=&quot;layer child-d-layer-2&quot;&gt;Child Layer 2&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;layer d-layer-3&quot;&gt;Layer 3
+      &lt;div class=&quot;layer child-d-layer-3&quot;&gt;Child Layer 3&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;layer d-layer-4&quot;&gt;Layer 4
+      &lt;div class=&quot;layer child-d-layer-4&quot;&gt;Child Layer 4&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Using Zindex, we would set the parent and child contexts like this. By giving the child a step interval of 6, we make it even more unlikely we&#x2019;ll see a collision.</p>
+<pre><code>$stack-ctx-d: zindex-set-stack-for(layers-d, 4, 5);
+$stack-ctx-d-child: zindex-set-stack-for(layers-d-child, 4, 6);
+</code></pre>
+<p>This time, I ended up generating the stack with placeholders. A parent and child stack might be too much for the class method.</p>
+<pre><code>// Placeholder method 
+@include zindex-generate-stack($stack-ctx-d, true);
+@include zindex-generate-stack($stack-ctx-d-child, true);
+</code></pre>
+<p>For the demo, I changed the z-indexes of 1 and 4 based on the parent context. Then, the indexes of child elements 3 and 4.</p>
+<pre><code>.d-layer-1 {
+  @extend %layers-d-level-4;
+  &amp;:after {
+    content: &quot;z-index: 20&quot;;
+  }
+}
+
+.d-layer-4 {
+  @extend %layers-d-level-2;
+  &amp;:after {
+    content: &quot;z-index: 10&quot;;
+  }
+}
+
+.child-d-layer-3 {
+  @extend %layers-d-child-level-4;
+  &amp;:after {
+    content: &quot;z-index: 24&quot;;
+  }
+}
+</code></pre>
+<p>The result: we end up with child element 3 stacked highest, then parent element 1 carrying its child with it, and finally parent element 4 below them.</p>
+<p><img src="/post-images/zindex-demo-layers-d.png" alt="Zindex Demo: Layers D"></p>
+<p>I&#x2019;ll admit a weekend was probably too long to spend fighting one CSS property, but if this little tool helps someone throw out &#x201C;z-index: 99999&#x201D; for good, it&#x2019;s completely worth it.</p>
+<h2 id="conclusion"><a class="header-anchor" href="#conclusion">&#xA7;</a>Conclusion</h2>
+<figure>
+  <img src="/post-images/vegeta.jpg" alt="Vegeta: Prince of Saiyans">
+  <figcaption>No more z-index values over 9000</figcaption>
+</figure>
+</div></article><nav role="navigation" class="pagination grid full u-justify-center"><span class="pagination__prev"><a href="/personal/competence-and-the-bored-developer/" title="Competence and the Bored Developer" class="pagination__link">&#8612; Competence and the Bored Developer</a></span><span class="pagination__sep"> &mdash; </span><span class="pagination__next"><a href="/personal/special-ingredients/" title="Special Ingredients" class="pagination__link">Special Ingredients &#8614;</a></span></nav></main><footer class="main-foot"><nav class="footer-menu grid quarters"><ul class="footer-menu-section node u-null-list-style"><h5 class="footer-menu__title">Social</h5><li class="footer-menu__item"><a href="http://codepen.io/chatrjr" title="Codepen" class="footer-menu__link"><i class="footer-menu__icon icon icon-codepen"></i></a><a href="http://jsfiddle.net/user/chatrjr/fiddles/" title="Jsfiddle" class="footer-menu__link"><i class="footer-menu__icon icon icon-jsfiddle"></i></a><a href="http://github.com/chatrjr" title="Github" class="footer-menu__link"><i class="footer-menu__icon icon icon-github"></i></a><a href="http://twitter.com/chatrjr" title="Twitter" class="footer-menu__link"><i class="footer-menu__icon icon icon-twitter"></i></a></li></ul><ul class="footer-menu-section node u-null-list-style"><h5 class="footer-menu__title">Typography</h5><li class="footer-menu__item"><a href="https://www.google.com/fonts/specimen/Noticia+Text" class="footer-menu__link">Noticia Text</a></li><li class="footer-menu__item"><a href="https://www.google.com/fonts/specimen/Abril+Fatface" class="footer-menu__link">Abril Fatface</a></li><li class="footer-menu__item"><a href="https://www.google.com/fonts/specimen/Roboto+Mono" class="footer-menu__link">Roboto Mono</a></li></ul><ul class="footer-menu-section node u-null-list-style"><h5 class="footer-menu__title">Meta</h5><li class="footer-menu__item"><a href="/pattern-library" title="My Style Guide" class="footer-menu__link">Style Guide</a></li><li class="footer-menu__item"><a href="chatmanrjr@gmail.com" title="My Email" class="footer-menu__link">Email</a></li><li class="footer-menu__item"><a href="http://feeds.feedburner.com/chatrjr" title="My RSS/Atom Feed" class="footer-menu__link">RSS/Atom Feed</a></li></ul><ul class="footer-menu-section node u-null-list-style"><h5 class="footer-menu__title">Misc</h5><li class="footer-menu__item">Generated with <a href="http://hexo.io" class="footer-menu__link">Hexo</a></li><li class="footer-menu__item">Coded in <a href="http://sublimetext.com" class="footer-menu__link">Sublime Text</a></li><li class="footer-menu__item">Icons served with <a href="http://grumpicon.com" class="footer-menu__link">Grumpicon</a> and <a href="http://icomoon.io" class="footer-menu__link">Icomoon</a></li></ul></nav></footer></div><script src="/js/vendor/prismjs/prism.js"></script></body></html>

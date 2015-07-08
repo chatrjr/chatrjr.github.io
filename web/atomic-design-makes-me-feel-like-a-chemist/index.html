@@ -1,0 +1,336 @@
+<!DOCTYPE html><html lang="en"><head><title>Atomic Design Makes Me Feel Like a Chemist &bull; Chatman’s Desk</title><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="description" content="The online scratchpad and lab of Chatman Richmond Jr."><meta name="author" content="Chatman Richmond Jr."><!-- Device Icons--><!-- Apple--><link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png"><link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png"><link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png"><link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png"><link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png"><link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png"><link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png"><!-- END Apple--><!-- Web--><link rel="icon" type="image/png" href="/favicons/favicon-192x192.png"><link rel="icon" type="image/png" href="/favicons/favicon-160x160.png"><link rel="icon" type="image/png" href="/favicons/favicon-96x96.png"><link rel="icon" type="image/png" href="/favicons/favicon-16x16.png"><link rel="icon" type="image/png" href="/favicons/favicon-32x32.png"><!-- END Web--><!-- Windows Tile--><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png"><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="/favicons/mstile-150x150.png"><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="/favicons/mstile-310x310.png"><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="/favicons/mstile-70x70.png"><!-- END Windows Tile--><!-- END Device Icons--><meta name="viewport" content="width=device-width"><link href="http://fonts.googleapis.com/css?family=Noticia+Text:400,400italic,700" type="text/css" rel="stylesheet"><link href="http://fonts.googleapis.com/css?family=Abril+Fatface:400" type="text/css" rel="stylesheet"><link href="http://fonts.googleapis.com/css?family=Roboto+Mono:400,700" type="text/css" rel="stylesheet"><link rel="stylesheet" href="/css/post.css"><!-- Grumpicon--><script>/* grunticon Stylesheet Loader | https://github.com/filamentgroup/grunticon | (c) 2012 Scott Jehl, Filament Group, Inc. | MIT license. */
+window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!!t.document.createElementNS&&!!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect&&!!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1"),A=function(A){var o=t.document.createElement("link"),r=t.document.getElementsByTagName("script")[0];o.rel="stylesheet",o.href=e[A&&n?0:A?1:2],r.parentNode.insertBefore(o,r)},o=new t.Image;o.onerror=function(){A(!1)},o.onload=function(){A(1===o.width&&1===o.height)},o.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+grunticon( [ "/css/icons.data.svg.css", "/css/icons.data.png.css", "/css/icons.fallback.css" ] );</script><noscript><link href="/css/icons.fallback.css" rel="stylesheet"></noscript></head><body><div class="container rhythm"><header class="masthead grid complex"><div class="logo node col-1"><a href="/" title="Chatman's Desk" class="logo__link icon icon-logo"></a></div><nav class="main-menu node col-7 grid quarters u-null-list-style"><li class="main-menu-item"><a href="/categories/web" title="Web" class="main-menu__link node">Web<i class="main-menu__icon icon icon-web"></i></a></li><li class="main-menu-item"><a href="/categories/personal" title="Personal" class="main-menu__link node">Personal<i class="main-menu__icon icon icon-personal"></i></a></li><li class="main-menu-item"><a href="/archives" title="Archives" class="main-menu__link node">Archives<i class="main-menu__icon icon icon-archives"></i></a></li><li class="main-menu-item"><a href="/about" title="About" class="main-menu__link node">About<i class="main-menu__icon icon icon-about"></i></a></li></nav></header><main role="main" class="rhythm"><article class="post rhythm"><div class="post-masthead"><h1 class="post-masthead__title u-justify-right">Atomic Design Makes Me Feel Like a Chemist</h1></div><div class="post-meta"><span class="post-meta__date">06/05/2013</span><span class="post-meta__tags"><a href="/tags/atomic-design/" class="post-meta__link">atomic design</a><a href="/tags/front-end-architecture/" class="post-meta__link">front-end architecture</a><a href="/tags/style-tiles/" class="post-meta__link">style tiles</a></span></div><div class="post-body"><!-- toc -->
+<ul>
+<li><a href="#design-systems-in-the-wild">Design Systems in the Wild</a>
+<ul>
+<li><a href="#style-tiles">Style Tiles</a></li>
+<li><a href="#element-collages">Element Collages</a></li>
+<li><a href="#front-end-style-guides">Front-End Style Guides</a></li>
+</ul>
+</li>
+<li><a href="#enter-atomic-design">Enter Atomic Design</a>
+<ul>
+<li><a href="#setting-up">Setting Up</a></li>
+<li><a href="#00-atoms">00-Atoms</a></li>
+<li><a href="#01-molecules">01-Molecules</a></li>
+<li><a href="#02-organisms">02-Organisms</a></li>
+<li><a href="#03-templates">03-Templates</a></li>
+<li><a href="#04-pages">04-Pages</a></li>
+</ul>
+</li>
+<li><a href="#the-potential-of-atomic-design">The Potential of Atomic Design</a></li>
+</ul>
+<!-- tocstop -->
+<div class="post-body__note">
+UPDATE: This post existed on my old site, which I unceremoniously scrapped a few months ago. I&apos;m sorry, I didn&apos;t think it was still in use. Hope you get something from it.
+</div>
+<p>At this year&#x2019;s Beyond Tellerand conference, Brad Frost unveiled a new design system methodology: <a href="http://www.besquare.me/session/atomic-design/" target="_blank" rel="external">Atomic Design</a>. You should probably watch that if you haven&#x2019;t already. Design systems allow us to build through a recurrent process that we can use across projects. They can be customized to fit a client&#x2019;s, or your own, needs. Design systems represented a shift in workflow as more designers stopped fighting the fluid nature of the web. Before we talk about Atomic Design, we need some background on existing systems.</p>
+<h2 id="design-systems-in-the-wild"><a class="header-anchor" href="#design-systems-in-the-wild">&#xA7;</a>Design Systems in the Wild</h2>
+<h3 id="style-tiles"><a class="header-anchor" href="#style-tiles">&#xA7;</a>Style Tiles</h3>
+<p><a href="http://styletil.es" target="_blank" rel="external">Style Tiles</a> were proposed by Samantha Warren as a new design deliverable and template that could show design direction without implying layout. It was to be used when moodboards were too vague and mockups too rigid. Of course, I had already embraced designing in the browser and made a very loose approximation of a Style Tile from a template I&#x2019;ve used across projects. Very bare bones, but through CSS I could get the general look and feel across to those I asked for feedback. The advantage of building them within the browser allowed a direct translation of styles to the final site. I also lost my mind and made them responsive. You can see the one for this brand and my old one below.</p>
+<p><img src="/post-images/np-interactive-style-tile.png" alt="N&amp;amp;P Style Tile"></p>
+<p><img src="/post-images/otc-v4-interactive-style-tile.png" alt="OTC v4 Style Tile"></p>
+<h3 id="element-collages"><a class="header-anchor" href="#element-collages">&#xA7;</a>Element Collages</h3>
+<p><a href="http://danielmall.com/articles/rif-element-collages/" target="_blank" rel="external">Element Collages</a> were proposed by Daniel Mall as an expansion of Style Tiles. Rather than an abstraction of design, element collages are more focused. They&#x2019;re a collection of elements that will actually live on the site that convey the look, feel, and functionality through snapshots of them in use. They&#x2019;re meant to be a complement to Style Tiles (but they can stand alone), and they emphasize having conversations with clients rather than presenting to them. That is, not just telling them where everything is but why it&#x2019;s there. Element Collages can be great aids for that.</p>
+<h3 id="front-end-style-guides"><a class="header-anchor" href="#front-end-style-guides">&#xA7;</a>Front-End Style Guides</h3>
+<p>Anna Debenham, whom I greatly respect, expanded on <a href="http://24ways.org/2011/front-end-style-guides/" target="_blank" rel="external">the idea of having style guides for front-end developers</a>. This means a hub for developers to work from and test within the context it&#x2019;s going to be used: the web. The benefits are:</p>
+<ul>
+<li>An easy reference to elements as they exist on a template.</li>
+<li>A lovely playground for testing and applying different ideas.</li>
+<li>A shared language among your team while building out the product.</li>
+<li>An emphasis on building from components and reusable styles.</li>
+</ul>
+<p>Of course, the client probably won&#x2019;t be able to make much of it, but it can be a great help to any designers or developers who come in to maintain the project after you.</p>
+<h2 id="enter-atomic-design"><a class="header-anchor" href="#enter-atomic-design">&#xA7;</a>Enter Atomic Design</h2>
+<p>Atomic Design is a realization of designing from components. The methodology has five distinct parts and combines a few of the design systems we&#x2019;ve talked about. These parts go from general to the most specific. All under the context of chemistry. We&#x2019;re going to go through pattern lab, a tool released to complement the Atomic Design methodology. <a href="https://github.com/bradfrost/patternlab" target="_blank" rel="external">Pattern Lab</a> is an intentionally incomplete hub for your projects. It has a ton of stuff already in it, but Brad wanted it to be easy to extend. It&#x2019;s not a framework, rather it&#x2019;s a launchpad for getting started with Atomic Design systems. It&#x2019;s non-prescriptive and doesn&#x2019;t come with much preset styling. As Brad said in the talk:</p>
+<blockquote>
+<p>Do that shit yourself.</p>
+</blockquote>
+<p>Now let&#x2019;s dive into the code.</p>
+<h3 id="setting-up"><a class="header-anchor" href="#setting-up">&#xA7;</a>Setting Up</h3>
+<p>First of all, take note of Pattern Lab&#x2019;s directory tree. This is rather important.</p>
+<pre><code class="language-bash">/var/www/patternlab
+&#x251C;&#x2500;&#x2500; css
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; scss
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; base
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; _animation.scss
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; _forms.scss
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; _global-classes.scss
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; _headings.scss
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; _links.scss
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; _lists.scss
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; _main.scss
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; _media.scss
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; _tables.scss
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; _text.scss
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; generic
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; _mixins.scss
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; _reset.scss
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; _variables.scss
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; objects
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0;     &#x251C;&#x2500;&#x2500; _accordion.scss
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0;     &#x251C;&#x2500;&#x2500; _ads.scss
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0;     &#x251C;&#x2500;&#x2500; _article.scss
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0;     &#x251C;&#x2500;&#x2500; _blocks.scss
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0;     &#x251C;&#x2500;&#x2500; _buttons.scss
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0;     &#x251C;&#x2500;&#x2500; _carousels.scss
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0;     &#x251C;&#x2500;&#x2500; _comments.scss
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0;     &#x251C;&#x2500;&#x2500; _footer.scss
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0;     &#x251C;&#x2500;&#x2500; _header.scss
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0;     &#x251C;&#x2500;&#x2500; _icons.scss
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0;     &#x251C;&#x2500;&#x2500; _layout.scss
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0;     &#x251C;&#x2500;&#x2500; _lists.scss
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0;     &#x251C;&#x2500;&#x2500; _main.scss
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0;     &#x251C;&#x2500;&#x2500; _nav.scss
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0;     &#x251C;&#x2500;&#x2500; _sections.scss
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0;     &#x251C;&#x2500;&#x2500; _tabs.scss
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0;     &#x251C;&#x2500;&#x2500; _text.scss
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0;     &#x2514;&#x2500;&#x2500; _tooltip.scss
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; static.css
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; style.css
+&#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; style.scss
+&#x251C;&#x2500;&#x2500; data
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; annotations-ck.js
+&#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; annotations.js
+&#x251C;&#x2500;&#x2500; fonts
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; icons.dev.svg
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; icons.eot
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; icons.svg
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; icons.ttf
+&#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; icons.woff
+&#x251C;&#x2500;&#x2500; functions.php
+&#x251C;&#x2500;&#x2500; images
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; ajax-loader.gif
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; fpo_16x9.png
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; fpo_4x3.png
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; fpo_avatar.png
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; fpo_landscape.png
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; fpo_portrait.png
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; fpo_square.png
+&#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; logo.png
+&#x251C;&#x2500;&#x2500; index.php
+&#x251C;&#x2500;&#x2500; js
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; init-ck.js
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; init.js
+&#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; responsive-nav.min.js
+&#x251C;&#x2500;&#x2500; patterns
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 00-Atoms
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 00-Global
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 00-Colors.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 01-Fonts.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 02-Animations.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; 03-Visibility.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 00-Text
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 00-Headings.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 00-Subheadings.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 00-With-Links-Headings.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 01-Headings-With-Small-Text.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 01-Paragraph.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 02-Blockquote.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 03-Inline-Text-Elements.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 04-Address.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 05-Preformatted-Text.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 06-Time.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; 07-HR.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 01-Lists
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 04-unordered-list.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 05-ordered-list.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; 06-definition-list.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 02-Images
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 00-logo.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 01-Landscape-16x9.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 02-Landscape-4x3.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 03-Square.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 07-Avatar.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 09-Loading-Icon.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; 10-Social-Icons.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 03-Forms
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 00-Text-Fields.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 01-Select-Menu.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 02-Checkboxes.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 03-Radio-Buttons.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; 04-HTML5-Inputs.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 04-Buttons
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; 00-Buttons.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 05-Table
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; 00-Table.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 06-Media
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 01-Video-Embed.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; 02-Audio.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; 07-Unsed
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0;     &#x2514;&#x2500;&#x2500; 00-Text
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 01-Molecules
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 00-Text
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 01-byline-author-only.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 02-byline-author-time.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 03-Caption.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 04-Blockquote-With-Citation.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 04-Pullquote.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 05-Heading-Group.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 06-Intro-Text.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; 07-Emphasis-Colors.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 01-Layout
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 00-1-up.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 01-2-up.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 02-3-up.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; 03-4-up.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 02-Blocks
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 00-Block-Hero.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 01-Block-Thumb-Headline.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 02-Block-Headline-Byline.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 04-Block-Inset.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 05-Block-Headline-Only.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 06-Block-Project.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 07-Block-Featured-Project.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; 08-Block-Large-Inset.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 03-Media
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 00-Image-With-Caption.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; 03-Map.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 04-Navigation
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 00-Primary-Nav.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 01-Footer-Nav.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 02-Pagination.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; 03-Tabs.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 05-Forms
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 00-Search.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 01-Newsletter-Form.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; 05-Comment-Form.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; 06-Components
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0;     &#x251C;&#x2500;&#x2500; 00-Single-Comment.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0;     &#x251C;&#x2500;&#x2500; 02-Accordion.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0;     &#x2514;&#x2500;&#x2500; 03-Social-Share.php
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 02-Organisms
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 00-Global
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 00-Header.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; 01-Footer.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 03-Article
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; 00-Article-Body.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 03-Comments
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; 00-Comment-Thread.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; 04-Components
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; 00-Carousel-List.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; 05-Sections
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0;     &#x251C;&#x2500;&#x2500; 00-Related-Posts.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0;     &#x251C;&#x2500;&#x2500; 01-Recent-Tweets.php
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0;     &#x2514;&#x2500;&#x2500; 02-Latest-Posts.php
+&#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; 03-Templates
+&#x2502;&#xA0;&#xA0;     &#x251C;&#x2500;&#x2500; 00-Homepage.php
+&#x2502;&#xA0;&#xA0;     &#x251C;&#x2500;&#x2500; 01-Blog.php
+&#x2502;&#xA0;&#xA0;     &#x251C;&#x2500;&#x2500; 02-Article.php
+&#x2502;&#xA0;&#xA0;     &#x2514;&#x2500;&#x2500; 03-Portfolio.php
+&#x251C;&#x2500;&#x2500; README.md
+&#x251C;&#x2500;&#x2500; styleguide
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; css
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; annotations.css
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; styleguide.css
+&#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; styleguide.scss
+&#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; js
+&#x2502;&#xA0;&#xA0;     &#x251C;&#x2500;&#x2500; annotations-pattern.js
+&#x2502;&#xA0;&#xA0;     &#x251C;&#x2500;&#x2500; annotations-viewer-ck.js
+&#x2502;&#xA0;&#xA0;     &#x251C;&#x2500;&#x2500; annotations-viewer.js
+&#x2502;&#xA0;&#xA0;     &#x251C;&#x2500;&#x2500; data-saver.js
+&#x2502;&#xA0;&#xA0;     &#x251C;&#x2500;&#x2500; jquery.js
+&#x2502;&#xA0;&#xA0;     &#x251C;&#x2500;&#x2500; styleguide-ck.js
+&#x2502;&#xA0;&#xA0;     &#x2514;&#x2500;&#x2500; styleguide.js
+&#x251C;&#x2500;&#x2500; styleguide.php
+&#x2514;&#x2500;&#x2500; view.php
+
+39 directories, 145 files
+</code></pre>
+<p>Now let&#x2019;s have a look at <code>functions.php</code>. If you&#x2019;re planning on setting up Pattern Lab in your development environment (and you should play with it at least once), you may need to tweak this a little.</p>
+<p>I guess the way my dev environment is configured made <code>$root</code> lack the trailing backslash, which is why I had to include it in the latter two variables before Pattern Lab would work properly. You may not have to do that, just be aware of it. If you don&#x2019;t know much PHP, don&#x2019;t worry. The most relevant part is this function:</p>
+<pre><code class="language-php">&lt;?php 
+
+$root = $_SERVER[&apos;DOCUMENT_ROOT&apos;]; 
+
+//This changes the root path of the project. It might live at the root or at a subdirectory like /styleguide
+$absolutePath = &apos;/patternlab/&apos;;
+
+$patternsPath = $root.$absolutePath.&apos;patterns/&apos;;
+
+/************** 
+Include Function 
+Make including files easier. Simply declare the type of fragment you&apos;re looking for (atom, molecule, organism, or page) and the name of the file (with no extention)
+
+Takes two variables:
+Type: the type of pattern you&apos;re looking to include. Options are: atom, molecule, organism, or page
+Name: the name of the file
+    
+************** */
+
+function inc($type,$name) {
+    global $patternsPath; 
+    global $absolutePath;
+    
+    $filePath = $patternsPath;
+
+    //Determine which directory to look in based on type: atom, molecule, organism or page
+    if($type==&apos;atom&apos;) {
+        $filePath = $filePath.&apos;00-Atoms&apos;;
+    } elseif($type==&apos;molecule&apos;) {
+        $filePath = $filePath.&apos;01-Molecules&apos;;
+    } elseif($type==&apos;organism&apos;) {
+        $filePath = $filePath.&apos;02-Organisms&apos;;
+    } elseif($type==&apos;page&apos;) {
+        $filePath = $filePath.&apos;03-Pages&apos;;
+    } else {
+        $filePath = $filePath;
+    }
+    
+    
+    //Iterate over the appropriate path
+    $objects = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($filePath));
+    foreach($objects as $objName =&gt; $object){
+    
+        $pos = stripos($objName, $name);
+        
+        if ($pos) {
+            include($objName); //Include the fragment if the file is found
+            break;
+        }
+    }
+}
+</code></pre>
+<p><a href="#func-php.16-28">Lines 16-28</a> look through the <code>patterns</code> directory for the components called through the <code>inc()</code> function based on type. It&#x2019;s called like this: <code>inc([type], [component]);</code>. Before we extend Pattern Lab with a few extras, we still have to go through what those parts mean. You know them if you watched Brad&#x2019;s talk or remember chemistry class, but we&#x2019;re going to go over them in a practical sense.</p>
+<h3 id="00-atoms"><a class="header-anchor" href="#00-atoms">&#xA7;</a>00-Atoms</h3>
+<p>Atoms are the building blocks of our universe. On the web they are individual HTML tags like <code>Link</code>. They can&#x2019;t be broken down any more without losing meaning. In the Atomic Design chain, they are a point of reference as well as the toolbox from which all other parts of the system are built. I suppose you can think of the collection of atoms as the primordial soup from which a webpage begins to grow.</p>
+<h3 id="01-molecules"><a class="header-anchor" href="#01-molecules">&#xA7;</a>01-Molecules</h3>
+<p>Molecules are essentially bonded atoms that create a new substance. On the web this can be an unordered list that has bonded with a element to become a menu. In playing around with Pattern Lab, I built two additional molecules. All you have to do is create a file in the category you think is most relevant. In my case that was <code>02-Blocks</code>. This is what&#x2019;s in <code>06-Block-Project.php</code>:</p>
+<pre><code class="language-markup">&lt;div class=&quot;block block-project&quot;&gt;
+    &lt;h2&gt;New Project&lt;/h2&gt;
+    &lt;p&gt;A description of the project would go here, of course.&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<p>I&#x2019;ve bound an image, a heading, and a paragraph to a project molecule. I also created a featured project molecule from bonding them in a different way, such as this:</p>
+<pre><code class="language-markup">&lt;div class=&quot;block block-featured&quot;&gt;
+    &lt;div class=&quot;b-text&quot;&gt;
+        &lt;h2 class=&quot;headline&quot;&gt;Featured Project&lt;/h2&gt;
+        &lt;p class=&quot;excerpt&quot;&gt;A description of the project would go here, of course.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h3 id="02-organisms"><a class="header-anchor" href="#02-organisms">&#xA7;</a>02-Organisms</h3>
+<p>Organisms are created from a complex system of molecules bonding into even more complex structures through a continuous cycle of chemical reactions, such as the human body. In the context of the web, organism are molecules combined into meaningful structure, like a page header. In that case, you have a logo, navigation, and search form in most cases bonding. Other blocks might combine to create a footer, and different blocks combine to make other sections.</p>
+<h3 id="03-templates"><a class="header-anchor" href="#03-templates">&#xA7;</a>03-Templates</h3>
+<p>Notice how the chemistry terms end here. That&#x2019;s because we&#x2019;re getting into the parts that the client will see. In the <code>03-Templates</code> folder, I created <code>03-Portfolio.php</code>, and that looks like this:</p>
+<pre><code class="language-markup">&lt;div class=&quot;g g-5up&quot;&gt;
+    &lt;div class=&quot;gi&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;g g-3up&quot;&gt;
+    &lt;div class=&quot;gi&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;gi&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;gi&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;gi&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;gi&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;gi&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p><img src="/post-images/pattern-lab-project-template.png" alt="Portfolio Template"></p>
+<p>From different components I built that portfolio template. The beauty of Pattern Lab is that you&#x2019;re not limited to what&#x2019;s in the box. The box is as large or small as you want to make it. I built this template in about 5 minutes thanks to the flexibility of Atomic Design. It&#x2019;s not very visually appealing when starting with Pattern Lab, but that&#x2019;s our job. The templates can be presented to the client for immediate feedback before they become pages.</p>
+<h3 id="04-pages"><a class="header-anchor" href="#04-pages">&#xA7;</a>04-Pages</h3>
+<p>Pages are self-explanatory: they are the templates given context. In other words, they&#x2019;re the website in all its glory. I had to create the folder myself in Pattern Lab, but that was likely the expectation. There&#x2019;s still a lot to play with here, and I&#x2019;m going to dive into it over the weekend. Also, if you&#x2019;re curious, this is the result of my screwing around.</p>
+<p><img src="/post-images/pattern-lab-project-page.jpg" alt="Pattern Lab Page"></p>
+<h2 id="the-potential-of-atomic-design"><a class="header-anchor" href="#the-potential-of-atomic-design">&#xA7;</a>The Potential of Atomic Design</h2>
+<p>Building from components is a lot like working with LEGO bricks. The very idea of Atomic Design takes this further than I could have ever thought. Just the little I was able to do with this in an afternoon has me excited about yet another design system. I hope my stupid little experiment with it inspires you to play with Pattern Lab and put it to good use. Brad Frost, Dave Olsen, and everyone involved in its creation are awesome. I can&#x2019;t wait to see what everyone does with it. What do you think about the potential here? Will you be using it? As always, let me know if I made a mistake.</p>
+</div></article><nav role="navigation" class="pagination grid full u-justify-center"><span class="pagination__prev"><a href="/web/single-responsibility-bem/" title="SRBEM (Single Responsibility BEM)" class="pagination__link">&#8612; SRBEM (Single Responsibility BEM)</a></span><span class="pagination__sep"> &mdash; </span></nav></main><footer class="main-foot"><nav class="footer-menu grid quarters"><ul class="footer-menu-section node u-null-list-style"><h5 class="footer-menu__title">Social</h5><li class="footer-menu__item"><a href="http://codepen.io/chatrjr" title="Codepen" class="footer-menu__link"><i class="footer-menu__icon icon icon-codepen"></i></a><a href="http://jsfiddle.net/user/chatrjr/fiddles/" title="Jsfiddle" class="footer-menu__link"><i class="footer-menu__icon icon icon-jsfiddle"></i></a><a href="http://github.com/chatrjr" title="Github" class="footer-menu__link"><i class="footer-menu__icon icon icon-github"></i></a><a href="http://twitter.com/chatrjr" title="Twitter" class="footer-menu__link"><i class="footer-menu__icon icon icon-twitter"></i></a></li></ul><ul class="footer-menu-section node u-null-list-style"><h5 class="footer-menu__title">Typography</h5><li class="footer-menu__item"><a href="https://www.google.com/fonts/specimen/Noticia+Text" class="footer-menu__link">Noticia Text</a></li><li class="footer-menu__item"><a href="https://www.google.com/fonts/specimen/Abril+Fatface" class="footer-menu__link">Abril Fatface</a></li><li class="footer-menu__item"><a href="https://www.google.com/fonts/specimen/Roboto+Mono" class="footer-menu__link">Roboto Mono</a></li></ul><ul class="footer-menu-section node u-null-list-style"><h5 class="footer-menu__title">Meta</h5><li class="footer-menu__item"><a href="/pattern-library" title="My Style Guide" class="footer-menu__link">Style Guide</a></li><li class="footer-menu__item"><a href="chatmanrjr@gmail.com" title="My Email" class="footer-menu__link">Email</a></li><li class="footer-menu__item"><a href="http://feeds.feedburner.com/chatrjr" title="My RSS/Atom Feed" class="footer-menu__link">RSS/Atom Feed</a></li></ul><ul class="footer-menu-section node u-null-list-style"><h5 class="footer-menu__title">Misc</h5><li class="footer-menu__item">Generated with <a href="http://hexo.io" class="footer-menu__link">Hexo</a></li><li class="footer-menu__item">Coded in <a href="http://sublimetext.com" class="footer-menu__link">Sublime Text</a></li><li class="footer-menu__item">Icons served with <a href="http://grumpicon.com" class="footer-menu__link">Grumpicon</a> and <a href="http://icomoon.io" class="footer-menu__link">Icomoon</a></li></ul></nav></footer></div><script src="/js/vendor/prismjs/prism.js"></script></body></html>

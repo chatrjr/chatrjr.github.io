@@ -1,0 +1,275 @@
+<!DOCTYPE html><html lang="en"><head><title>YACSSA (Yet Another CSS Architecture) &bull; Chatman’s Desk</title><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="description" content="The online scratchpad and lab of Chatman Richmond Jr."><meta name="author" content="Chatman Richmond Jr."><!-- Device Icons--><!-- Apple--><link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png"><link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png"><link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png"><link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png"><link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png"><link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png"><link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png"><!-- END Apple--><!-- Web--><link rel="icon" type="image/png" href="/favicons/favicon-192x192.png"><link rel="icon" type="image/png" href="/favicons/favicon-160x160.png"><link rel="icon" type="image/png" href="/favicons/favicon-96x96.png"><link rel="icon" type="image/png" href="/favicons/favicon-16x16.png"><link rel="icon" type="image/png" href="/favicons/favicon-32x32.png"><!-- END Web--><!-- Windows Tile--><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png"><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="/favicons/mstile-150x150.png"><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="/favicons/mstile-310x310.png"><meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="/favicons/mstile-70x70.png"><!-- END Windows Tile--><!-- END Device Icons--><meta name="viewport" content="width=device-width"><link href="http://fonts.googleapis.com/css?family=Noticia+Text:400,400italic,700" type="text/css" rel="stylesheet"><link href="http://fonts.googleapis.com/css?family=Abril+Fatface:400" type="text/css" rel="stylesheet"><link href="http://fonts.googleapis.com/css?family=Roboto+Mono:400,700" type="text/css" rel="stylesheet"><link rel="stylesheet" href="/css/post.css"><!-- Grumpicon--><script>/* grunticon Stylesheet Loader | https://github.com/filamentgroup/grunticon | (c) 2012 Scott Jehl, Filament Group, Inc. | MIT license. */
+window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!!t.document.createElementNS&&!!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect&&!!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1"),A=function(A){var o=t.document.createElement("link"),r=t.document.getElementsByTagName("script")[0];o.rel="stylesheet",o.href=e[A&&n?0:A?1:2],r.parentNode.insertBefore(o,r)},o=new t.Image;o.onerror=function(){A(!1)},o.onload=function(){A(1===o.width&&1===o.height)},o.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+grunticon( [ "/css/icons.data.svg.css", "/css/icons.data.png.css", "/css/icons.fallback.css" ] );</script><noscript><link href="/css/icons.fallback.css" rel="stylesheet"></noscript></head><body><div class="container rhythm"><header class="masthead grid complex"><div class="logo node col-1"><a href="/" title="Chatman's Desk" class="logo__link icon icon-logo"></a></div><nav class="main-menu node col-7 grid quarters u-null-list-style"><li class="main-menu-item"><a href="/categories/web" title="Web" class="main-menu__link node">Web<i class="main-menu__icon icon icon-web"></i></a></li><li class="main-menu-item"><a href="/categories/personal" title="Personal" class="main-menu__link node">Personal<i class="main-menu__icon icon icon-personal"></i></a></li><li class="main-menu-item"><a href="/archives" title="Archives" class="main-menu__link node">Archives<i class="main-menu__icon icon icon-archives"></i></a></li><li class="main-menu-item"><a href="/about" title="About" class="main-menu__link node">About<i class="main-menu__icon icon icon-about"></i></a></li></nav></header><main role="main" class="rhythm"><article class="post rhythm"><div class="post-masthead"><h1 class="post-masthead__title u-justify-right">YACSSA (Yet Another CSS Architecture)</h1></div><div class="post-meta"><span class="post-meta__date">12/22/2013</span><span class="post-meta__tags"><a href="/tags/CSS-architecture/" class="post-meta__link">CSS architecture</a><a href="/tags/Sass/" class="post-meta__link">Sass</a><a href="/tags/workflow/" class="post-meta__link">workflow</a></span></div><div class="post-body language-bash"><!-- toc -->
+<ul>
+<li><a href="#credit-where-credit-is-due">Credit Where Credit is Due</a></li>
+<li><a href="#what-is-yacssa">What is YACSSA?</a></li>
+<li><a href="#benefits-of-yacssa">Benefits of YACSSA</a>
+<ul>
+<li><a href="#reusable">Reusable</a></li>
+<li><a href="#scalable">Scalable</a></li>
+<li><a href="#adaptive">Adaptive</a></li>
+<li><a href="#modular">Modular</a></li>
+</ul>
+</li>
+<li><a href="#anatomy-of-yacssa">Anatomy of YACSSA</a>
+<ul>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#utilities">Utilities</a></li>
+<li><a href="#materials">Materials</a></li>
+<li><a href="#components">Components</a></li>
+<li><a href="#structures">Structures</a></li>
+<li><a href="#augments">Augments?</a></li>
+</ul>
+</li>
+<li><a href="#page-files">Page Files</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+<!-- tocstop -->
+<div class="post-body__note">
+UPDATE: This post references the source of my last website, which is no longer active or archived.
+</div>
+<h2 id="credit-where-credit-is-due"><a class="header-anchor" href="#credit-where-credit-is-due">&#xA7;</a>Credit Where Credit is Due</h2>
+<p>First off, I wouldn&#x2019;t have thought of this without <a href="http://coding.smashingmagazine.com/2013/08/02/other-interface-atomic-design-sass/" target="_blank" rel="external">Robin Rendle&#x2019;s article on Smashing Magazine</a>. Additionally, I have to credit <a href="http://bradfrostweb.com/blog/post/atomic-web-design/" target="_blank" rel="external">Brad Frost&#x2019;s Atomic Design methodology</a>, Yandex&#x2019;s BEM class syntax as well as Harry Roberts for <a href="http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/" target="_blank" rel="external">making it digestible</a>, and <a href="https://github.com/stubbornella/oocss/wiki" target="_blank" rel="external">Nicole Sullivan&#x2019;s OOCSS</a> along with <a href="http://smacss.com/" target="_blank" rel="external">Jonathan Snook&#x2019;s SMACSS</a>. They made me think differently about structure, CSS, and transformed the way I build on the web. You should definitely check out those links.</p>
+<h2 id="what-is-yacssa"><a class="header-anchor" href="#what-is-yacssa">&#xA7;</a>What is YACSSA?</h2>
+<p>YACSSA is a mashup of the lessons I took from the above approaches. I call it YACSSA because there are already a lot of ways to structure CSS, and I&#x2019;m just adding to the pool. There&#x2019;s nothing especially new here, the core of YACSSA is in its file structure. It&#x2019;s made of a few set directories with their own job. To illustrate how YACSSA works, I&#x2019;m going to use this very blog&#x2019;s CSS.</p>
+<h2 id="benefits-of-yacssa"><a class="header-anchor" href="#benefits-of-yacssa">&#xA7;</a>Benefits of YACSSA</h2>
+<p>This architecture has a few benefits that apply no matter the size of your site, and a few that would mostly help larger ones.</p>
+<h3 id="reusable"><a class="header-anchor" href="#reusable">&#xA7;</a>Reusable</h3>
+<p>Like most developers, I&#x2019;m pretty lazy. Since YACSSA works by defining general to specific styling &#xE0; la SMACSS with Atomic Design&#x2019;s file structure, there are quite a few constructs you can use across projects.</p>
+<h3 id="scalable"><a class="header-anchor" href="#scalable">&#xA7;</a>Scalable</h3>
+<p>YACSSA is designed to help inform a site&#x2019;s growth from small to large, if need be. Styling can be added at the same pace as new components and sections of your site. The architecture is made to be used long term. It&#x2019;s way too much to set up for one-off projects.</p>
+<h3 id="adaptive"><a class="header-anchor" href="#adaptive">&#xA7;</a>Adaptive</h3>
+<p>YACSSA should be made your own. The parts of its anatomy are optional. Even the directory names are optional. Just be wary of getting too clever. Like Atomic Design, it isn&#x2019;t meant to prescribe a single way to do things.</p>
+<h3 id="modular"><a class="header-anchor" href="#modular">&#xA7;</a>Modular</h3>
+<p>YACSSA is fragmented by design. It&#x2019;s made to let you add and remove parts at will. This means you can add the styles that apply to a certain template and <strong>only</strong> that template. This will cut the size of your CSS tremendously and prevent unused styling.</p>
+<h2 id="anatomy-of-yacssa"><a class="header-anchor" href="#anatomy-of-yacssa">&#xA7;</a>Anatomy of YACSSA</h2>
+<p>As I said, I&#x2019;m going to explain the idea behind YACSSA through this site&#x2019;s CSS. Let&#x2019;s look at the whole directory tree first, and then break it down.</p>
+<pre><code>..
+&#x251C;&#x2500;&#x2500; main.css
+&#x251C;&#x2500;&#x2500; post.css
+&#x2514;&#x2500;&#x2500; scss
+    &#x251C;&#x2500;&#x2500; components
+    &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; _blog.scss
+    &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; _pagination.scss
+    &#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; _post.scss
+    &#x251C;&#x2500;&#x2500; configuration
+    &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; _grid.scss
+    &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; _mixins.scss
+    &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; _syntax.scss
+    &#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; _variables.scss
+    &#x251C;&#x2500;&#x2500; main.scss
+    &#x251C;&#x2500;&#x2500; materials
+    &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; _links.scss
+    &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; _main.scss
+    &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; _media.scss
+    &#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; _text.scss
+    &#x251C;&#x2500;&#x2500; post.scss
+    &#x251C;&#x2500;&#x2500; structures
+    &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; _article.scss
+    &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; _blogreel.scss
+    &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; _footer.scss
+    &#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; _header.scss
+    &#x2514;&#x2500;&#x2500; utilities
+        &#x251C;&#x2500;&#x2500; _layout.scss
+        &#x251C;&#x2500;&#x2500; _normalize.scss
+        &#x2514;&#x2500;&#x2500; _tweaks.scss
+
+6 directories, 22 files
+</code></pre>
+<p>The first thing you&#x2019;ll notice is a shitton of partials. These are globbed into Sass files that compile into the CSS that is actually called. Now, let&#x2019;s have a look at those directories.</p>
+<h3 id="configuration"><a class="header-anchor" href="#configuration">&#xA7;</a>Configuration</h3>
+<pre><code>configuration
+&#x251C;&#x2500;&#x2500; _grid.scss
+&#x251C;&#x2500;&#x2500; _mixins.scss
+&#x251C;&#x2500;&#x2500; _syntax.scss
+&#x2514;&#x2500;&#x2500; _variables.scss
+
+0 directories, 4 files
+</code></pre>
+<p>The <code>configuration</code> directory contains all of the general properties and third-party styling that your site relies on. You define your variables, mixins, custom syntax for pygments (if you&#x2019;re using Jekyll), Prism.js or whatever. This site also uses the Singularity grid system, so I&#x2019;ve also included that. This directory holds the <strong>uniform settings for your project</strong>.</p>
+<h3 id="utilities"><a class="header-anchor" href="#utilities">&#xA7;</a>Utilities</h3>
+<pre><code>utilities
+&#x251C;&#x2500;&#x2500; _layout.scss
+&#x251C;&#x2500;&#x2500; _normalize.scss
+&#x2514;&#x2500;&#x2500; _tweaks.scss
+
+0 directories, 3 files
+</code></pre>
+<p>The <code>utilities</code> directory contains the basic plumbing of your site. That is, layout and structure, resets (though you could put that in configuration, too), other general classes, and hotfixes that come up during a project&#x2019;s lifetime. Unlike configuration, these files aren&#x2019;t likely to be removed or changed across pages.</p>
+<h3 id="materials"><a class="header-anchor" href="#materials">&#xA7;</a>Materials</h3>
+<pre><code>materials
+&#x251C;&#x2500;&#x2500; _links.scss
+&#x251C;&#x2500;&#x2500; _main.scss
+&#x251C;&#x2500;&#x2500; _media.scss
+&#x2514;&#x2500;&#x2500; _text.scss
+
+0 directories, 4 files
+</code></pre>
+<p>The most general styling for your project goes in the <code>materials</code> directory. Here&#x2019;s where your defaults for text, media (images and video, <strong>not</strong> the media object), link styling, etc. would go. Basically, any CSS that <strong>uses tag selectors goes here</strong>.</p>
+<h3 id="components"><a class="header-anchor" href="#components">&#xA7;</a>Components</h3>
+<pre><code>components
+&#x251C;&#x2500;&#x2500; _blog.scss
+&#x251C;&#x2500;&#x2500; _pagination.scss
+&#x2514;&#x2500;&#x2500; _post.scss
+
+0 directories, 3 files
+</code></pre>
+<p>Components are the bread and butter of many modern CSS architecture frameworks, and this one is no different (though it also isn&#x2019;t a framework). These are the modules that may be needed across pages. They are your post listings, image galleries, carousels, buttons, and comments. The pieces of <strong>semantic content you mix and match across pages</strong> are components. It might help to paste the markup in a comment to help new developers.</p>
+<h3 id="structures"><a class="header-anchor" href="#structures">&#xA7;</a>Structures</h3>
+<pre><code>structures
+&#x251C;&#x2500;&#x2500; _article.scss
+&#x251C;&#x2500;&#x2500; _blogreel.scss
+&#x251C;&#x2500;&#x2500; _footer.scss
+&#x2514;&#x2500;&#x2500; _header.scss
+
+0 directories, 4 files
+</code></pre>
+<p>The <code>structures</code> directory is for styling the sections of your pages that glue your components together and categorize them. That is, your headers, footers, sidebars, and wrapping classes. Basically, if you have a structure that <strong>wraps or groups components</strong>, the CSS would go here.</p>
+<h3 id="augments"><a class="header-anchor" href="#augments">&#xA7;</a>Augments?</h3>
+<p>Missing from this project is the <code>augments</code> directory, because I didn&#x2019;t need it. This directory is responsible for all of your JavaScript specific classes, states, and animations: <strong>enhancements that you apply programmatically</strong>.</p>
+<h2 id="page-files"><a class="header-anchor" href="#page-files">&#xA7;</a>Page Files</h2>
+<p>These are what will be delivered to the browser. They have a table of contents, and then the import statements for all the other parts, going from general to specific. Here are the Sass files for the main and post templates for example.</p>
+<pre><code class="language-scss">/**
+ * Expletive Deleted - Main
+ * Author: Chatman Richmond Jr.
+ * Copyright: 2013
+ * Version: 2.0.0
+ *--------------------------------------------------------------
+ *
+ * TABLE OF CONTENTS
+ *    CONFIGURATION ===================== Configurable guidelines
+ *      VARIABLES
+ *      MIXINS
+ *      GRID........................Singularity
+ *    UTILITIES ========================= Basic plumbing
+ *      NORMALIZE...................Consistent default styling
+ *      TWEAKS......................Clearfixes, hidden text, etc.
+ *      LAYOUT......................Grid structure
+ *    MATERIALS ========================= Global styling
+ *      MAIN
+ *      TEXT
+ *      LINKS
+ *      MEDIA
+ *    COMPONENTS ======================== Modules, unique
+ *      BLOG
+ *      PAGINATION
+ *    STRUCTURES ======================== Main site fixtures
+ *      HEADER
+ *      BLOGREEL
+ *      FOOTER
+ **/
+
+////////////////////
+// $CONFIGURATION //
+////////////////////
+
+@import &apos;configuration/variables&apos;;
+@import &apos;configuration/mixins&apos;;
+@import &apos;configuration/grid&apos;;
+
+/*==================*\
+   $UTILITIES
+\*==================*/
+
+@import &apos;utilities/normalize&apos;;
+@import &apos;utilities/layout&apos;;
+
+/*==================*\
+   $MATERIALS
+\*==================*/
+
+@import &apos;materials/main&apos;;
+@import &apos;materials/text&apos;;
+@import &apos;materials/links&apos;;
+@import &apos;materials/media&apos;;
+
+/*==================*\
+   $COMPONENTS
+\*==================*/
+
+@import &apos;components/blog&apos;;
+@import &apos;components/pagination&apos;;
+
+/*==================*\
+   $STRUCTURES
+\*==================*/
+
+@import &apos;structures/header&apos;;
+@import &apos;structures/blogreel&apos;;
+@import &apos;structures/footer&apos;;
+</code></pre>
+<pre><code class="language-scss">/**
+ * Expletive Deleted - Post
+ * Author: Chatman Richmond Jr.
+ * Copyright: 2013
+ * Version: 2.0.0
+ *--------------------------------------------------------------
+ *
+ * TABLE OF CONTENTS
+ *    CONFIGURATION ===================== Configurable guidelines
+ *      VARIABLES
+ *      MIXINS
+ *      GRID........................Singularity
+ *      SYNTAX......................Pygments syntax highlighter
+ *    UTILITIES ========================= Basic plumbing
+ *      NORMALIZE...................Consistent default styling
+ *      TWEAKS......................Clearfixes, hidden text, etc.
+ *      LAYOUT......................Grid structure
+ *    MATERIALS ========================= Global styling
+ *      MAIN
+ *      TEXT
+ *      LINKS
+ *      MEDIA
+ *    COMPONENTS ======================== Modules, unique
+ *      POST
+ *    STRUCTURES ======================== Main site fixtures
+ *      HEADER
+ *      ARTICLE
+ *      FOOTER
+ **/
+
+////////////////////
+// $CONFIGURATION //
+////////////////////
+
+@import &apos;configuration/variables&apos;;
+@import &apos;configuration/mixins&apos;;
+@import &apos;configuration/grid&apos;;
+@import &apos;configuration/syntax&apos;;
+
+/*==================*\
+   $UTILITIES
+\*==================*/
+
+@import &apos;utilities/normalize&apos;;
+@import &apos;utilities/layout&apos;;
+
+/*==================*\
+   $MATERIALS
+\*==================*/
+
+@import &apos;materials/main&apos;;
+@import &apos;materials/text&apos;;
+@import &apos;materials/links&apos;;
+@import &apos;materials/media&apos;;
+
+/*==================*\
+   $COMPONENTS
+\*==================*/
+
+@import &apos;components/post&apos;;
+
+/*==================*\
+   $STRUCTURES
+\*==================*/
+
+@import &apos;structures/header&apos;;
+@import &apos;structures/article&apos;;
+@import &apos;structures/footer&apos;;
+</code></pre>
+<p>Notice that they only import the files they actually need which, again, prevents unused CSS and keeps the file size down.</p>
+<h2 id="conclusion"><a class="header-anchor" href="#conclusion">&#xA7;</a>Conclusion</h2>
+<p>The way YACSSA is designed means that it will benefit those who use content management systems, or otherwise conditionally load stylesheets the most. The architecture is made to grow with your project and make it easy for others and yourself to maintain it. I hope you got something from reading this, whether you decide to use it or not.</p>
+<p><a href="http://twitter.com/ChatRJr" target="_blank" rel="external">Hit me up on Twitter</a> if you want to talk about it some more, especially if you noticed an oversight on my part.</p>
+</div></article><nav role="navigation" class="pagination grid full u-justify-center"><span class="pagination__prev"><a href="/web/mvc-the-angular-way/" title="MVC: The Angular Way" class="pagination__link">&#8612; MVC: The Angular Way</a></span><span class="pagination__sep"> &mdash; </span><span class="pagination__next"><a href="/web/moment-js-stopwatch-experiment/" title="Moment.js Stopwatch" class="pagination__link">Moment.js Stopwatch &#8614;</a></span></nav></main><footer class="main-foot"><nav class="footer-menu grid quarters"><ul class="footer-menu-section node u-null-list-style"><h5 class="footer-menu__title">Social</h5><li class="footer-menu__item"><a href="http://codepen.io/chatrjr" title="Codepen" class="footer-menu__link"><i class="footer-menu__icon icon icon-codepen"></i></a><a href="http://jsfiddle.net/user/chatrjr/fiddles/" title="Jsfiddle" class="footer-menu__link"><i class="footer-menu__icon icon icon-jsfiddle"></i></a><a href="http://github.com/chatrjr" title="Github" class="footer-menu__link"><i class="footer-menu__icon icon icon-github"></i></a><a href="http://twitter.com/chatrjr" title="Twitter" class="footer-menu__link"><i class="footer-menu__icon icon icon-twitter"></i></a></li></ul><ul class="footer-menu-section node u-null-list-style"><h5 class="footer-menu__title">Typography</h5><li class="footer-menu__item"><a href="https://www.google.com/fonts/specimen/Noticia+Text" class="footer-menu__link">Noticia Text</a></li><li class="footer-menu__item"><a href="https://www.google.com/fonts/specimen/Abril+Fatface" class="footer-menu__link">Abril Fatface</a></li><li class="footer-menu__item"><a href="https://www.google.com/fonts/specimen/Roboto+Mono" class="footer-menu__link">Roboto Mono</a></li></ul><ul class="footer-menu-section node u-null-list-style"><h5 class="footer-menu__title">Meta</h5><li class="footer-menu__item"><a href="/pattern-library" title="My Style Guide" class="footer-menu__link">Style Guide</a></li><li class="footer-menu__item"><a href="chatmanrjr@gmail.com" title="My Email" class="footer-menu__link">Email</a></li><li class="footer-menu__item"><a href="http://feeds.feedburner.com/chatrjr" title="My RSS/Atom Feed" class="footer-menu__link">RSS/Atom Feed</a></li></ul><ul class="footer-menu-section node u-null-list-style"><h5 class="footer-menu__title">Misc</h5><li class="footer-menu__item">Generated with <a href="http://hexo.io" class="footer-menu__link">Hexo</a></li><li class="footer-menu__item">Coded in <a href="http://sublimetext.com" class="footer-menu__link">Sublime Text</a></li><li class="footer-menu__item">Icons served with <a href="http://grumpicon.com" class="footer-menu__link">Grumpicon</a> and <a href="http://icomoon.io" class="footer-menu__link">Icomoon</a></li></ul></nav></footer></div><script src="/js/vendor/prismjs/prism.js"></script></body></html>
