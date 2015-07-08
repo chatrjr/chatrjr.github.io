@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: "Chatman&rsquo;s Desk"
+title: "Chatman’s Desk"
 subtitle: "Words, technology, and tinkering."
 description: "The online scratchpad and lab of Chatman Richmond Jr."
 author: "Chatman Richmond Jr."
@@ -84,11 +84,11 @@ markdown:
     typographer: true
     quotes: '“”‘’'
   anchors:
-    level: 3
+    level: 2
     collisionSuffix: 'v'
     permalink: true
     permalinkClass: header-anchor
-    permalinkSymbol: ¶
+    permalinkSymbol: §
 
 theme: chatrjr
 
