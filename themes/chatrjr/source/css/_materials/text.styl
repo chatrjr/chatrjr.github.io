@@ -19,13 +19,15 @@ h6
   & a
     font-weight: headings-weights-0
 
+h1,
+.h1
+  @media mini
+    font-size: $font-size-base * 2
+    line-height: ($line-height-base * 1.5)
+
 .h2,
 h2
   border-bottom: border-thin border-type[0] colors-clashes-accent-0
-
-.h4,
-h4
-  border-bottom: border-hairline border-type[1] colors-main-base
 
 /////////////////
 // Blockquotes //

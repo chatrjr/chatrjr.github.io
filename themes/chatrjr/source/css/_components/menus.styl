@@ -4,12 +4,16 @@
   font-weight: headings-weights-0
   height: 3em
   padding-top: padding-large
+  @media mini
+    padding: 0
 
 .main-menu__link
   color: colors-main-text
   display: inline-block
   vertical-align: middle
   font-size: ($font-size-base * 1.15)
+  @media mini
+    font-size: ($font-size-base / 1.15)
   &:hover, &:focus
     color: colors-clashes-accent-1
 
@@ -31,3 +35,6 @@
   margin: (padding-small / 4)
   width: 2.5em
   height: 2.5em
+  @media medium
+    width: 2em
+    height: 2em

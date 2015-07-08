@@ -1,5 +1,5 @@
 {
-  "mini": "screen and (max-width: 20em)",
-  "small": "screen and (min-width: 20.1em) and (max-width: 40em)",
+  "mini": "screen and (max-width: 25em)",
+  "small": "screen and (min-width: 25.1em) and (max-width: 40em)",
   "medium": "screen and (min-width: 40.1em) and (max-width: 60em)"
 }

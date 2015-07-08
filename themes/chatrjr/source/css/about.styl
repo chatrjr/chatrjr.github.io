@@ -80,12 +80,28 @@
 .about-title p,
 .about-sidebar p
   margin-top: 0
+
+@media mini
+  .grid.golden
+    .about-content.node.major
+    .about-sidebar.node.minor
+      width: 100%
+
+.about-sidebar__title
+  font-size: ($font-size-base * 1.8)
+
 .about-content
   padding-right: 2%;
+  @media mini
+    margin-bottom: $line-height-base
+    padding: 0
+
 .about-content__img
   float: left
-  margin: $line-height-base 0.5em 0.5em 0.5em
+  margin: $line-height-base 0.5em 0.5em 0
   width: 25%;
+  @media mini
+    width: 42%
 
 .about-sidebar
   font-size: ($font-size-base / 1.2)

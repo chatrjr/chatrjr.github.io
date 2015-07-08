@@ -3,22 +3,52 @@
   border-width: border-hairline
   font-size: ($font-size-base * 5)
   line-height: ($line-height-base * 3.5)
+  @media mini
+    font-size: ($font-size-base * 2)
+    line-height: ($line-height-base * 1.75)
+  @media small
+    font-size: ($font-size-base * 3)
+    line-height: ($line-height-base * 2.25)
+  @media medium
+    font-size: ($font-size-base * 4)
+    line-height: ($line-height-base * 2.75)
 
 .post-meta
   @extends .articles-meta
   margin-top: -(padding-small * 3)
+  @media mini
+    margin-top: -(padding-small * 5)
+
 .post-meta__date
   @extends .articles-meta__date
   font-size: ($font-size-base * 2)
   line-height: ($line-height-base * 3)
+  @media mini
+    font-size: ($font-size-base)
+    line-height: ($line-height-base * 3)
+  @media small
+    font-size: ($font-size-base * 1.5)
+    line-height: ($line-height-base * 3)
+  @media medium
+    font-size: ($font-size-base * 1.75)
+    line-height: ($line-height-base * 3)
+
 .post-meta__tags
   @extends .articles-meta__tags
-.post-meta__link
-  @extends .articles-meta__link
   font-size: ($font-size-base * 1.2)
   line-height: ($line-height-base * 3)
-  &:after
-    bottom: -1.5em
+  @media mini
+    font-size: ($font-size-base / 1.25)
+    line-height: ($line-height-base)
+  @media small
+    font-size: ($font-size-base)
+    line-height: ($line-height-base)
+  @media medium
+    font-size: ($font-size-base * 1.125)
+    line-height: ($line-height-base)
+
+.post-meta__link
+  @extends .articles-meta__link
 
 // Table of contents
 .post-body > ul:first-child
@@ -71,6 +101,13 @@
   display: block
   margin: $line-height-base auto
   width: (100% / 1.618)
+  @media mini
+    width: 100%
+
+@media mini
+  .post-body > h2
+    font-size: $font-size-base * 2.25
+    line-height: $line-height-base * 1.7
 
 .post-body > figure > img
   width: 100%

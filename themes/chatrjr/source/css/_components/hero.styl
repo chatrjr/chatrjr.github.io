@@ -2,15 +2,26 @@
   padding: padding-large 0
 
 .rhythm .hero-headline,
-.rhythm .hero-subhead,
-.rhythm .hero-headline > p
+.rhythm .hero-subhead
   margin: 0
 
 .hero-headline
   line-height: ($line-height-base * 3.8)
-  padding-bottom: 0.5rem
+  padding-bottom: (padding-small / 3)
+  @media mini
+    line-height: ($line-height-base * 2.3)
+    padding-bottom: 0
+  @media small
+    line-height: ($line-height-base * 2.7)
+    padding-bottom: 0
+
+
 .hero-subhead
   border-top: border-med border-type[0] colors-main-base
   border-bottom: none
   font-family: code-family
   line-height: ($line-height-base * 1.8)
+  @media mini
+    line-height: ($line-height-base * 1.2)
+  @media small
+    line-height: ($line-height-base * 1.5)

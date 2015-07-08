@@ -6,6 +6,8 @@
 
 .articles-meta
   margin-top: -(padding-small * 1.05)
+  @media mini
+    font-size: ($font-size-base / 1.25)
 
 .articles-meta__date
   background: colors-clashes-accent-0
@@ -19,13 +21,3 @@
 .articles-meta__link
   padding: padding-small
   position: relative
-  &:after
-    content: "\25fe"
-    color: colors-main-text
-    font-size: ($font-size-base / 1.5)
-    display: inline
-    padding: 0 padding-small
-    position: absolute
-    bottom: 0.5em
-  &:last-child:after
-    content: ""

@@ -33,16 +33,14 @@ $clearfix
 .grid.golden
   .node
     grid-generator(golden)
+    @media mini
+      grid-generator(full)
 
 // Collapsing grids
 
 .grid.halves
   .node
     grid-generator(segmented, 2)
-
-.grid.thirds
-  .node
-    grid-generator(segmented, 3)
 
 .grid.quarters
   .node
