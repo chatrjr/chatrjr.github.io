@@ -1,6 +1,6 @@
 mixin set-hero(type, subhead)
   .hero.grid.full(class="hero--#{type}")
-    h1#line-1.hero-headline.node!= markdown(config.title)
+    h1#line-1.hero-headline.node= config.title
     h2#line-2.hero-subhead.node= subhead
 
 if is_home()
