@@ -1,4 +1,4 @@
 ---
 layout: pattern-lib
-title: "Pattern Library"
+title: "Style Guide"
 ---
