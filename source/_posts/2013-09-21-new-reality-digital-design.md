@@ -1,12 +1,13 @@
 ---
 layout: post
 title: The New Reality of Digital Design
-categories: personal
+categories
+    - personal
+    - design
 date: 2013-09-21
 tags:
     - opinion
     - CSS
-    - design
 description: "At CSSConf.eu, Harry Roberts gave a talk about normalizing designs for better CSS. Despite the bold title, this is just my perspective on that talk and the bigger picture."
 excerpt: "The winds of change are blowing at hurricane force. At CSSConf.eu, Harry Roberts gave a talk about normalizing designs for better CSS. Despite the bold title, this is just my perspective on that talk and the bigger picture."
 ---
