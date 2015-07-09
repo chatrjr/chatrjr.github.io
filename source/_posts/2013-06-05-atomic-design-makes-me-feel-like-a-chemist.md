@@ -1,8 +1,7 @@
 ---
 layout: post
-alias: "/2013/06/atomic-design-makes-me-feel-like-a-chemist/"
 title: "Atomic Design Makes Me Feel Like a Chemist"
-categories: 
+categories:
     - web
     - design
 date: 2013-06-05

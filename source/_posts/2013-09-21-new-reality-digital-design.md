@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The New Reality of Digital Design
-categories
+categories:
     - personal
     - design
 date: 2013-09-21
