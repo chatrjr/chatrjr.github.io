@@ -47,7 +47,6 @@ tag_map:
 ## You can customize the date format as defined in
 ## http://momentjs.com/docs/#/displaying/format/
 date_format: YYYY-MM-DD
-time_format: HH:mm:ss
 
 # Pagination
 ## Set per_page to 0 to disable pagination
@@ -64,6 +63,9 @@ feed:
   path: atom.xml
   limit: 10
 
+archive_generator:
+  yearly: true
+  monthly: false
 
 # Stylus
 stylus:
