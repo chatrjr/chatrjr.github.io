@@ -1,20 +1,15 @@
 {
   "title": "Typography - Google Fonts",
-  "typefaces": [
-    {
-      "id": "body",
-      "family": "Noticia Text",
-      "weights": ["400", "400italic", "700"]
-    },
-    {
-      "id": "headings",
-      "family": "Abril Fatface",
-      "weights": ["400"]
-    },
-    {
-      "id":"code",
-      "family": "Roboto Mono",
-      "weights": ["400", "700"]
-    }
-  ]
+  "body": {
+    "family": "Noticia Text",
+    "weights": ["400", "400italic", "700"]
+  },
+  "headings": {
+    "family": "Abril Fatface",
+    "weights": ["400"]
+  },
+  "code": {
+    "family": "Roboto Mono",
+    "weights": ["400", "400italic", "700"]
+  }
 }

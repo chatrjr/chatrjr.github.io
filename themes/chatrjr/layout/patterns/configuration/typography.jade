@@ -1,9 +1,10 @@
 mixin type-tree
       ul.typography.u-null-list-style
-        each typeface in site.data.pattern_typography.typefaces
-          - var transform = typeface.family.split(' ').join('-').toLowerCase();
-          - var listWeights = typeface.weights.join(', ');
-          li.typography__font(class="#{typeface.id}") #{typeface.family} #[small #{listWeights}]
+        each typeface, key in site.data.pattern_typography
+          if key != "title"
+            - var transform = typeface.family.split(' ').join('-').toLowerCase();
+            - var listWeights = typeface.weights.join(', ');
+            li.typography__font(class="#{key}") #{typeface.family} #[small #{listWeights}]
 
 .pattern.node
   h3.pattern-title= site.data.pattern_typography.title

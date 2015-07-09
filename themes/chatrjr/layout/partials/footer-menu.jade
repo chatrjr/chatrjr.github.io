@@ -7,9 +7,10 @@ nav.footer-menu.grid.quarters
           i.footer-menu__icon(class="icon icon-#{name}")
   ul.footer-menu-section.node.u-null-list-style
     h5.footer-menu__title Typography
-    each typeface in site.data.pattern_typography.typefaces
-      - var transformFamily = typeface.family.split(" ").join("+");
-      li.footer-menu__item: a.footer-menu__link(href="https://www.google.com/fonts/specimen/#{transformFamily}")= typeface.family
+    each typeface, key in site.data.pattern_typography
+      if key != "title"
+        - var transformFamily = typeface.family.split(" ").join("+");
+        li.footer-menu__item: a.footer-menu__link(href="https://www.google.com/fonts/specimen/#{transformFamily}")= typeface.family
   ul.footer-menu-section.node.u-null-list-style
     h5.footer-menu__title Meta
     each link, key in theme.meta
