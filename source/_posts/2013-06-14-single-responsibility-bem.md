@@ -1,8 +1,6 @@
 ---
 layout: post
-redirect_from: "/2013/06/single-responsibility-bem/"
 title: SRBEM (Single Responsibility BEM)
-id: 002
 categories: web
 language: scss
 date: 2013-06-14
@@ -10,7 +8,6 @@ tags:
     - BEM
     - OOCSS
     - CSS architecture
-src: "http://codepen.io/chatrjr/pen/GJIxr"
 description: "Modular CSS is making waves in the community (excuse the cliche). I ended up gravitating toward the BEM class syntax for Object-Oriented CSS. In this post, I attempt to make it more complicated."
 excerpt: "Modular CSS is making waves in the community (excuse the cliche). I ended up gravitating toward the BEM class syntax for Object-Oriented CSS. In this post, I attempt to make it more complicated."
 ---
@@ -46,8 +43,9 @@ If you're a developer of any kind--software or web, you'll have heard of the Sin
 
 It's also called Curly's Law. It just means that each class should do one thing and not interfere with anything outside of its purpose. I think you can see where we're going with this. The pen is below. The rest of the post will break it down under Single Responsibility BEM. This will take a while to explain, but I hope it will spark something as it did for me. Also note, that Sass makes this much easier to pull off, so that's what I'll be using.
 
-> %post-body_src%
-Single Responsibility BEM: [{{ page.src }}]({{ page.src }})
+<div class="post-src">
+Single Responsibility BEM: <a href="http://codepen.io/chatrjr/pen/GJIxr">http://codepen.io/chatrjr/pen/GJIxr</a>
+</div>
 
 ### Responsibility of the Block
 
@@ -233,4 +231,4 @@ As always, no method is perfect. Here are some roadblocks associated with this o
   * They may require some degree of education within your team
   * The `@extend` directive can't be used within media queries, last I checked.
 
-Let me know what you think of this approach below. And as always, let me know if I missed something.
+Let me know what you think of this approach. And as always, let me know if I missed something.

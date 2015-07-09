@@ -1,8 +1,6 @@
 ---
 layout: post
-redirect_from: "/2013/09/new-reality-of-digital-design/"
 title: The New Reality of Digital Design
-id: 005
 categories: personal
 date: 2013-09-21
 tags:

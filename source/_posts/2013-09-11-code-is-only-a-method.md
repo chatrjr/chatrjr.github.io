@@ -1,8 +1,6 @@
 ---
 layout: post
-redirect_from: "/2013/09/code-is-only-a-method/"
 title: Code is Only a Method
-id: 004
 categories: personal
 date: 2013-09-11
 tags:

@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Competence and the Bored Developer"
-id: 011
 categories: "personal"
 date: 2015-02-05
 tags:

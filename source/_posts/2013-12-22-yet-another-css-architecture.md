@@ -1,10 +1,6 @@
 ---
 layout: post
-redirect_from: 
-    - "/2013/12/yet-another-css-archicture/"
-    - "/2013/12/yet-another-css-architecture/"
 title: "YACSSA (Yet Another CSS Architecture)"
-id: 007
 language: bash
 categories: web
 date: 2013-12-22
