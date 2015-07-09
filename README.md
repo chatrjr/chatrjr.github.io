@@ -2,7 +2,7 @@
 
 My personal site. Growing as I need it to grow and organized by version. You can check out the code of previous versions by tag.
 
-## v3.0.0 (Sprout)
+## v3.0.0 (Flower)
 
 + Changed from Jekyll to Hexo.
 + Created a style guide for v3.
