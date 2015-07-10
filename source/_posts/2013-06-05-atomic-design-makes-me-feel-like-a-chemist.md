@@ -253,7 +253,7 @@ Now let's have a look at `functions.php`. If you're planning on setting up Patte
 
 I guess the way my dev environment is configured made `$root` lack the trailing backslash, which is why I had to include it in the latter two variables before Pattern Lab would work properly. You may not have to do that, just be aware of it. If you don't know much PHP, don't worry. The most relevant part is this function:
 
-```php id="func"
+```php
 <?php 
 
 $root = $_SERVER['DOCUMENT_ROOT']; 
@@ -307,7 +307,7 @@ function inc($type,$name) {
 }
 ```
 
-[Lines 16-28](#func-php.16-28) look through the `patterns` directory for the components called through the `inc()` function based on type. It's called like this: `inc([type], [component]);`. Before we extend Pattern Lab with a few extras, we still have to go through what those parts mean. You know them if you watched Brad's talk or remember chemistry class, but we're going to go over them in a practical sense.
+Lines 16-28 look through the `patterns` directory for the components called through the `inc()` function based on type. It's called like this: `inc([type], [component]);`. Before we extend Pattern Lab with a few extras, we still have to go through what those parts mean. You know them if you watched Brad's talk or remember chemistry class, but we're going to go over them in a practical sense.
 
 ### 00-Atoms
 
