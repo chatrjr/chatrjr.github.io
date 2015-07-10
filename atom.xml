@@ -5,7 +5,7 @@
   <subtitle><![CDATA[Words, technology, and tinkering.]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://chatrjr.name//"/>
-  <updated>2015-07-07T19:25:55.398Z</updated>
+  <updated>2015-07-10T17:02:15.894Z</updated>
   <id>http://chatrjr.name//</id>
   
   <author>
@@ -16,11 +16,281 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[From Chemistry to Geometry]]></title>
+    <link href="http://chatrjr.name//systems/web/from-chemistry-to-geometry/"/>
+    <id>http://chatrjr.name//systems/web/from-chemistry-to-geometry/</id>
+    <published>2015-07-10T17:02:15.894Z</published>
+    <updated>2015-07-10T17:02:15.894Z</updated>
+    <content type="html"><![CDATA[<!-- toc -->
+<ul>
+<li><a href="#what-is-hexo">What is Hexo?</a>
+<ul>
+<li><a href="#better-than-jekyll">Better Than Jekyll?</a></li>
+</ul>
+</li>
+<li><a href="#getting-to-know-hexo">Getting to Know Hexo</a>
+<ul>
+<li><a href="#setting-up">Setting Up</a>
+<ul>
+<li><a href="#1-grab-the-hexo-cli">1. Grab the Hexo CLI</a></li>
+<li><a href="#2-initialize-a-new-hexo-site">2. Initialize a New Hexo Site</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#hexos-dimensions">Hexo&#x2019;s Dimensions</a>
+<ul>
+<li><a href="#the-barest-of-minimums-to-blog-with-hexo">The Barest of Minimums to Blog with Hexo</a>
+<ul>
+<li><a href="#writing-a-new-post">Writing a New Post</a></li>
+<li><a href="#installing-a-deploy-plugin">Installing a Deploy Plugin</a></li>
+<li><a href="#hello-world">Hello, World</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#now-for-some-non-euclidean-geometry">Now for Some Non-Euclidean Geometry</a>
+<ul>
+<li><a href="#getting-more-out-of-hexo">Getting More Out of Hexo</a>
+<ul>
+<li><a href="#plugins">Plugins</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<div class="post-body__note">
+Disclaimer: I&apos;m not entirely used to tutorial posts, so if anything is amiss here, drop an issue on GitHub.
+</div>
+<p>Been a while, eh? I spent the last week and a half building version 3 of this humble site. As reliable as Jekyll has been, I wanted to give v3 more than a fresh coat of paint. I&#x2019;d been fidgeting to go back under the hood and replace the engine.</p>
+<h2 id="what-is-hexo"><a class="header-anchor" href="#what-is-hexo">&#xA7;</a>What is Hexo?</h2>
+<p>Hexo is a robust static site generator built on Node.js. Part of the reason I was drawn to it after looking around is that it&#x2019;s <a href="http://hexo.io/docs" title="Hexo Documentation" target="_blank" rel="external">pretty well documented</a>. While clear, a lot of the documentation isn&#x2019;t in context. Part of the reason for this post is to help others get up and running with this platform quickly. Especially because I built my theme from scratch.</p>
+<h3 id="better-than-jekyll"><a class="header-anchor" href="#better-than-jekyll">&#xA7;</a>Better Than Jekyll?</h3>
+<p>That&#x2019;s not the right question to ask. Jekyll is an incredibly well-documented, battle-ready blogging platform that was a breeze to get started with and has a &#x201C;set and forget&#x201D; integration with GitHub Pages. The advantages that pulled me over to Hexo was not a matter of it being objectively better. It just meets <strong>my particular needs</strong> better.</p>
+<h2 id="getting-to-know-hexo"><a class="header-anchor" href="#getting-to-know-hexo">&#xA7;</a>Getting to Know Hexo</h2>
+<p>For the purpose of this post I won&#x2019;t be reviewing this blog&#x2019;s source. As a theme built from scratch, it doesn&#x2019;t follow many of the API features of Hexo. So instead, we&#x2019;ll start from Hexo&#x2019;s defaults. You&#x2019;re still welcome to <a href="https://github.com/chatrjr/chatrjr.github.io/tree/hexo-source" title="Hexo source of Chatman&apos;s Desk" target="_blank" rel="external">view the source</a> after it&#x2019;s clear what we&#x2019;re doing here.</p>
+<h3 id="setting-up"><a class="header-anchor" href="#setting-up">&#xA7;</a>Setting Up</h3>
+<p>I&#x2019;m gonna condense the set up process, because that&#x2019;s not our focus today. Fire up that terminal. Make sure you have <a href="http://nodejs.org" title="Node.js" target="_blank" rel="external">Node.js</a> and <a href="http://git-scm.com" title="Git" target="_blank" rel="external">Git</a> installed before we begin.</p>
+<h4 id="1-grab-the-hexo-cli"><a class="header-anchor" href="#1-grab-the-hexo-cli">&#xA7;</a>1. Grab the Hexo CLI</h4>
+<p>Assuming you&#x2019;ve fulfilled the above conditions, put in your terminal:</p>
+<pre><code>npm install hexo-cli -g
+</code></pre>
+<p>That will install Hexo&#x2019;s command line interface, and then you&#x2019;ll be ready for the next step.</p>
+<h4 id="2-initialize-a-new-hexo-site"><a class="header-anchor" href="#2-initialize-a-new-hexo-site">&#xA7;</a>2. Initialize a New Hexo Site</h4>
+<p>Now, <code>cd</code> to the directory you want to build out your site. Now enter in your terminal:</p>
+<pre><code>hexo init hexo-tutorial
+cd hexo-tutorial
+</code></pre>
+<p>You&#x2019;ll see that Hexo has built out a scaffold that resembles this directory tree:</p>
+<pre><code>.
+&#x251C;&#x2500;&#x2500; scaffolds
+&#x251C;&#x2500;&#x2500; source
+&#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; _posts
+&#x2514;&#x2500;&#x2500; themes
+    &#x2514;&#x2500;&#x2500; landscape
+        &#x251C;&#x2500;&#x2500; layout
+        &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; _partial
+        &#x2502;&#xA0;&#xA0; &#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; post
+        &#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; _widget
+        &#x251C;&#x2500;&#x2500; scripts
+        &#x2514;&#x2500;&#x2500; source
+            &#x251C;&#x2500;&#x2500; css
+            &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; fonts
+            &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; images
+            &#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; _partial
+            &#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; _util
+            &#x251C;&#x2500;&#x2500; fancybox
+            &#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; helpers
+            &#x2514;&#x2500;&#x2500; js
+
+19 directories
+</code></pre>
+<p>We&#x2019;ve made it this far now, so it&#x2019;s time to dig in.</p>
+<h2 id="hexos-dimensions"><a class="header-anchor" href="#hexo-s-dimensions">&#xA7;</a>Hexo&#x2019;s Dimensions</h2>
+<p>Now we&#x2019;re gonna have a look at the files Hexo generated, and this will give us a better idea of how it works. At the root level lives these files:</p>
+<pre><code>.
+&#x251C;&#x2500;&#x2500; _config.yml
+&#x251C;&#x2500;&#x2500; package.json
+&#x251C;&#x2500;&#x2500; scaffolds
+&#x251C;&#x2500;&#x2500; source
+&#x2514;&#x2500;&#x2500; themes
+</code></pre>
+<p>The first file of interest is the <code>package.json</code>. You&#x2019;ll want to enter <code>npm install</code> in your terminal to get all the modules you&#x2019;ll need before anything else.</p>
+<pre><code class="language-javascript">{
+  &quot;name&quot;: &quot;hexo-site&quot;,
+  &quot;version&quot;: &quot;0.0.0&quot;,
+  &quot;private&quot;: true,
+  &quot;hexo&quot;: {
+    &quot;version&quot;: &quot;&quot;
+  },
+  &quot;dependencies&quot;: {
+    &quot;hexo&quot;: &quot;^3.1.0&quot;,
+    &quot;hexo-generator-archive&quot;: &quot;^0.1.2&quot;,
+    &quot;hexo-generator-category&quot;: &quot;^0.1.2&quot;,
+    &quot;hexo-generator-index&quot;: &quot;^0.1.2&quot;,
+    &quot;hexo-generator-tag&quot;: &quot;^0.1.1&quot;,
+    &quot;hexo-renderer-ejs&quot;: &quot;^0.1.0&quot;,
+    &quot;hexo-renderer-stylus&quot;: &quot;^0.2.0&quot;,
+    &quot;hexo-renderer-marked&quot;: &quot;^0.2.4&quot;,
+    &quot;hexo-server&quot;: &quot;^0.1.2&quot;
+  }
+}
+</code></pre>
+<p>The way Hexo is built is that it has a core module that extends to a set of plugins. We&#x2019;re gonna be switching some of these out in a bit. Hexo uses YAML for its main configuration file, which should be familiar to those of you who know Jekyll.</p>
+<pre><code class="language-yaml"># Hexo Configuration
+## Docs: http://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: Hexo
+subtitle:
+description:
+author: John Doe
+language:
+timezone:
+
+# URL
+## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;
+url: http://yoursite.com
+root: /
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link: true # Open external links in new tab
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: true
+  tab_replace:
+
+# Category &amp; Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 10
+pagination_dir: page
+
+# Extensions
+## Plugins: http://hexo.io/plugins/
+## Themes: http://hexo.io/themes/
+theme: landscape
+
+# Deployment
+## Docs: http://hexo.io/docs/deployment.html
+deploy:
+  type:
+</code></pre>
+<h3 id="the-barest-of-minimums-to-blog-with-hexo"><a class="header-anchor" href="#the-barest-of-minimums-to-blog-with-hexo">&#xA7;</a>The Barest of Minimums to Blog with Hexo</h3>
+<h4 id="writing-a-new-post"><a class="header-anchor" href="#writing-a-new-post">&#xA7;</a>Writing a New Post</h4>
+<p>If you want to get down to blogging immediately, you can enter in your terminal at this point:</p>
+<pre><code>hexo new post &quot;Title of Post&quot;
+</code></pre>
+<p>This will create a new post under <code>source/_posts</code> built out from the <code>scaffolds/post.md</code> file and its metadata.</p>
+<p>You can also write drafts by creating <code>source/_drafts</code> and then making a new draft with:</p>
+<pre><code>hexo new draft &quot;Title of Pending Post&quot;
+</code></pre>
+<p>And then publish your post when you&#x2019;re ready.</p>
+<pre><code>hexo publish post &quot;Title of Finished Post&quot;
+</code></pre>
+<h4 id="installing-a-deploy-plugin"><a class="header-anchor" href="#installing-a-deploy-plugin">&#xA7;</a>Installing a Deploy Plugin</h4>
+<p>The lowest friction way for a developer to blog is with GitHub Pages, and Hexo has a convenient deployment method that leverages Git for such an occasion.</p>
+<p>Start by installing the module:</p>
+<pre><code>npm install hexo-deployer-git --save
+</code></pre>
+<p>Now in the configuration where it&#x2019;s marked <code>deploy:</code>, modify it to the following:</p>
+<pre><code class="language-yaml"># Deployment
+## Docs: http://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repo: https://github.com/username/username.github.io.git
+  branch: master
+</code></pre>
+<p>Make sure there&#x2019;s already a <code>.nojekyll</code> file (and optionally place a <code>CNAME</code> file with your custom domain in the <code>source</code> folder) in the target repo before the next step.</p>
+<div class="post-body__note">
+No, really. Don&apos;t neglect this part. If you don&apos;t put that file in the repo, GitHub Pages will attempt to build your site as a Jekyll site even though it isn&apos;t one. This will cause it to build well enough initially, but prevent any updates. Which is... a problem.
+</div>
+<h4 id="hello-world"><a class="header-anchor" href="#hello-world">&#xA7;</a>Hello, World</h4>
+<p>When you&#x2019;re ready to publish your site, crack open your terminal and issue the following commands:</p>
+<pre><code>hexo generate
+hexo deploy
+</code></pre>
+<p>You can also deploy in one command with the <code>-d</code> flag on <code>hexo generate</code>.</p>
+<p>Hexo will ask for your GitHub username and password (unless you have SSH access) and your new site will be live.</p>
+<p>Excellent! Now get to writing, you&#x2019;re done with the hard part. Content rules the web, and landscape is great a default theme, so there&#x2019;s no harm in stopping here.</p>
+<p>However, if you&#x2019;re curious to know how you can bend Hexo to your will, then strap in for the ride.</p>
+<p><img src="/post-images/futurama-into-the-breach.png" alt="Futurama: Into the Breach, Meatbags."></p>
+<h2 id="now-for-some-non-euclidean-geometry"><a class="header-anchor" href="#now-for-some-non-euclidean-geometry">&#xA7;</a>Now for Some Non-Euclidean Geometry</h2>
+<p>If you&#x2019;re still with me, let&#x2019;s start tweaking some settings. First thing: we&#x2019;ll want to configure <code>_config.yml</code> so there are no collisions with Hexo&#x2019;s development server.</p>
+<pre><code class="language-yaml"># Extensions
+## Plugins: http://hexo.io/plugins/
+## Themes: http://hexo.io/themes/
+
+server:
+  port: 3021
+  log: false
+
+theme: landscape
+</code></pre>
+<p>Now with that out of the way, let&#x2019;s start some in-depth customization.</p>
+<h3 id="getting-more-out-of-hexo"><a class="header-anchor" href="#getting-more-out-of-hexo">&#xA7;</a>Getting More Out of Hexo</h3>
+<p>Now that you&#x2019;re set up to use Hexo, I won&#x2019;t be holding your hand throughout this tutorial. I know you&#x2019;re sharp enough to go your own way once I set the foundation, so I won&#x2019;t do this sequentially. Instead, I&#x2019;ll demonstrate some of the key ways you can customize Hexo and then let you attack the frontier.</p>
+<h4 id="plugins"><a class="header-anchor" href="#plugins">&#xA7;</a>Plugins</h4>
+]]></content>
+    <summary type="html">
+    <![CDATA[Ah, here we are. The obligatory 'my blog has moved' post. In this one, you'll learn about Hexo: a static site generator built on Node.js.]]>
+    
+    </summary>
+    
+      <category term="Node.js" scheme="http://chatrjr.name/tags/Node-js/"/>
+    
+      <category term="hexo" scheme="http://chatrjr.name/tags/hexo/"/>
+    
+      <category term="jekyll" scheme="http://chatrjr.name/tags/jekyll/"/>
+    
+      <category term="tutorial" scheme="http://chatrjr.name/tags/tutorial/"/>
+    
+      <category term="systems" scheme="http://chatrjr.name/categories/systems/"/>
+    
+      <category term="web" scheme="http://chatrjr.name/categories/systems/web/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[Competence and the Bored Developer]]></title>
     <link href="http://chatrjr.name//personal/competence-and-the-bored-developer/"/>
     <id>http://chatrjr.name//personal/competence-and-the-bored-developer/</id>
     <published>2015-02-05T05:00:00.000Z</published>
-    <updated>2015-07-07T19:25:55.398Z</updated>
+    <updated>2015-07-09T11:51:33.932Z</updated>
     <content type="html"><![CDATA[<!-- toc -->
 <ul>
 <li><a href="#welcome-to-competence-island">Welcome to Competence Island</a></li>
@@ -105,7 +375,7 @@
     <link href="http://chatrjr.name//web/zindex-you-wily-bastard/"/>
     <id>http://chatrjr.name//web/zindex-you-wily-bastard/</id>
     <published>2014-07-21T04:00:00.000Z</published>
-    <updated>2015-07-07T19:20:32.270Z</updated>
+    <updated>2015-07-09T11:51:33.820Z</updated>
     <content type="html"><![CDATA[<!-- toc -->
 <ul>
 <li><a href="#the-problem">The Problem</a>
@@ -447,7 +717,7 @@ $stack-ctx-d-child: zindex-set-stack-for(layers-d-child, 4, 6);
     <link href="http://chatrjr.name//personal/special-ingredients/"/>
     <id>http://chatrjr.name//personal/special-ingredients/</id>
     <published>2014-04-13T04:00:00.000Z</published>
-    <updated>2015-07-07T18:55:31.886Z</updated>
+    <updated>2015-07-09T11:51:33.732Z</updated>
     <content type="html"><![CDATA[<!-- toc -->
 <ul>
 <li><a href="#boxed-macaroni-cheese">Boxed Macaroni &amp; Cheese</a>
@@ -518,7 +788,7 @@ UPDATE: Harry Roberts made an excellent point since this post was written that i
     <link href="http://chatrjr.name//web/mvc-the-angular-way/"/>
     <id>http://chatrjr.name//web/mvc-the-angular-way/</id>
     <published>2014-01-06T05:00:00.000Z</published>
-    <updated>2015-07-07T18:54:14.710Z</updated>
+    <updated>2015-07-09T11:51:33.632Z</updated>
     <content type="html"><![CDATA[<!-- toc -->
 <ul>
 <li><a href="#obligatory-explanation-of-mvc">Obligatory Explanation of MVC</a>
@@ -808,7 +1078,7 @@ $scope.flush = function() {
     <link href="http://chatrjr.name//web/yet-another-css-architecture/"/>
     <id>http://chatrjr.name//web/yet-another-css-architecture/</id>
     <published>2013-12-22T05:00:00.000Z</published>
-    <updated>2015-07-07T18:42:20.558Z</updated>
+    <updated>2015-07-09T11:51:33.540Z</updated>
     <content type="html"><![CDATA[<!-- toc -->
 <ul>
 <li><a href="#credit-where-credit-is-due">Credit Where Credit is Due</a></li>
@@ -1102,7 +1372,7 @@ UPDATE: This post references the source of my last website, which is no longer a
     <link href="http://chatrjr.name//web/moment-js-stopwatch-experiment/"/>
     <id>http://chatrjr.name//web/moment-js-stopwatch-experiment/</id>
     <published>2013-12-21T05:00:00.000Z</published>
-    <updated>2015-07-07T18:35:54.798Z</updated>
+    <updated>2015-07-09T11:51:33.448Z</updated>
     <content type="html"><![CDATA[<!-- toc -->
 <ul>
 <li><a href="#first-ingredient-markup">First Ingredient: Markup</a></li>
@@ -1317,10 +1587,10 @@ AppStopwatch.$stop.addEventListener(&apos;click&apos;, AppStopwatch.stopClock, f
   
   <entry>
     <title><![CDATA[The New Reality of Digital Design]]></title>
-    <link href="http://chatrjr.name//personal/new-reality-digital-design/"/>
-    <id>http://chatrjr.name//personal/new-reality-digital-design/</id>
+    <link href="http://chatrjr.name//personal/design/new-reality-digital-design/"/>
+    <id>http://chatrjr.name//personal/design/new-reality-digital-design/</id>
     <published>2013-09-21T04:00:00.000Z</published>
-    <updated>2015-07-07T18:14:15.626Z</updated>
+    <updated>2015-07-09T16:48:22.816Z</updated>
     <content type="html"><![CDATA[<!-- toc -->
 <ul>
 <li><a href="#the-fastest-code-is-unwritten-code">The Fastest Code is Unwritten Code</a></li>
@@ -1380,11 +1650,11 @@ AppStopwatch.$stop.addEventListener(&apos;click&apos;, AppStopwatch.stopClock, f
     
       <category term="CSS" scheme="http://chatrjr.name/tags/CSS/"/>
     
-      <category term="design" scheme="http://chatrjr.name/tags/design/"/>
-    
       <category term="opinion" scheme="http://chatrjr.name/tags/opinion/"/>
     
       <category term="personal" scheme="http://chatrjr.name/categories/personal/"/>
+    
+      <category term="design" scheme="http://chatrjr.name/categories/personal/design/"/>
     
   </entry>
   
@@ -1393,7 +1663,7 @@ AppStopwatch.$stop.addEventListener(&apos;click&apos;, AppStopwatch.stopClock, f
     <link href="http://chatrjr.name//personal/code-is-only-a-method/"/>
     <id>http://chatrjr.name//personal/code-is-only-a-method/</id>
     <published>2013-09-11T04:00:00.000Z</published>
-    <updated>2015-07-07T18:13:25.302Z</updated>
+    <updated>2015-07-09T11:51:33.260Z</updated>
     <content type="html"><![CDATA[<!-- toc -->
 <ul>
 <li><a href="#never-say-never">Never Say Never</a></li>
@@ -1454,7 +1724,7 @@ AppStopwatch.$stop.addEventListener(&apos;click&apos;, AppStopwatch.stopClock, f
     <link href="http://chatrjr.name//web/preprocessed-out/"/>
     <id>http://chatrjr.name//web/preprocessed-out/</id>
     <published>2013-07-09T04:00:00.000Z</published>
-    <updated>2015-07-07T18:28:11.582Z</updated>
+    <updated>2015-07-09T11:51:33.100Z</updated>
     <content type="html"><![CDATA[<!-- toc -->
 <ul>
 <li><a href="#css-as-a-language">CSS as a Language</a></li>
@@ -1867,218 +2137,6 @@ ________________________________________________*/
       <category term="methodologies" scheme="http://chatrjr.name/tags/methodologies/"/>
     
       <category term="tooling" scheme="http://chatrjr.name/tags/tooling/"/>
-    
-      <category term="web" scheme="http://chatrjr.name/categories/web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[SRBEM (Single Responsibility BEM)]]></title>
-    <link href="http://chatrjr.name//web/single-responsibility-bem/"/>
-    <id>http://chatrjr.name//web/single-responsibility-bem/</id>
-    <published>2013-06-14T04:00:00.000Z</published>
-    <updated>2015-07-07T17:44:19.114Z</updated>
-    <content type="html"><![CDATA[<!-- toc -->
-<ul>
-<li><a href="#breaking-bem">Breaking BEM</a></li>
-<li><a href="#single-responsibility-bem">Single Responsibility BEM</a>
-<ul>
-<li><a href="#responsibility-of-the-block">Responsibility of the Block</a></li>
-<li><a href="#responsibility-of-the-element">Responsibility of the Element</a></li>
-<li><a href="#responsibility-of-the-modifier">Responsibility of the Modifier</a>
-<ul>
-<li><a href="#method-1-class-chaining-to-tie-the-modifier-directly-to-the-element">Method #1: Class Chaining to Tie the Modifier Directly to the Element</a></li>
-<li><a href="#method-2-the-augment-class">Method #2: The <code>.augment</code> Class</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#caveats">Caveats</a></li>
-</ul>
-<!-- tocstop -->
-<p>You may already be familiar with Yandex&#x2019;s BEM method of authoring CSS. If not, it looks a little like the following code.</p>
-<pre><code class="language-markup">&lt;div class=&quot;block&quot;&gt;
-    &lt;div class=&quot;block__element&quot;&gt;&lt;/div&gt;
-    &lt;div class=&quot;block__element&quot;&gt;&lt;/div&gt;
-    &lt;div class=&quot;block__element block__element--modifier&quot;&gt;&lt;/div&gt;
-    &lt;div class=&quot;block__element&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-<h2 id="breaking-bem"><a class="header-anchor" href="#breaking-bem">&#xA7;</a>Breaking BEM</h2>
-<p>BEM-style CSS has three major parts:</p>
-<ul>
-<li>The <code>.block</code> is your containing element, your module. It&#x2019;s a component with its own structure and purpose. Within the context of Atomic Design, it would be your molecule.</li>
-<li>Elements are the internal parts of your block, responsible for holding the structure together and defining its purpose. An example would be <code>.widget</code> as your block and <code>.widget__content</code> as an element. In the context of Atomic Design, they&#x2019;re your atoms.</li>
-<li>Modifiers are special classes that you add when you want to modify your block. Let&#x2019;s say you want to make your <code>.widget__title</code> bigger. You could do that through a modifier. Example: <code>.widget__title--emphasize</code>.</li>
-</ul>
-<p>As you can see, there is quite a lot of repeating involved, and that drives me nuts. Even with a tool like Emmet, it can extremely tedious to repeat the block when using BEM-style CSS. However, I think I&#x2019;ve found a fix that I will demonstrate through the always awesome Codepen. I think it will be rather effective in reducing the redundancy in BEM-style CSS. Also, it&#x2019;s pretty sweet.</p>
-<h2 id="single-responsibility-bem"><a class="header-anchor" href="#single-responsibility-bem">&#xA7;</a>Single Responsibility BEM</h2>
-<p>If you&#x2019;re a developer of any kind&#x2013;software or web, you&#x2019;ll have heard of the Single Responsibility Principle. For those who don&#x2019;t know:</p>
-<blockquote>
-<p>In object-oriented programming, the single responsibility principle states that every class should have a single responsibility, and that responsibility should be entirely encapsulated by the class. All its services should be narrowly aligned with that responsibility. &#x2013; <a href="http://en.wikipedia.org/wiki/Single_responsibility_principle" target="_blank" rel="external">Wikipedia</a></p>
-</blockquote>
-<p>It&#x2019;s also called Curly&#x2019;s Law. It just means that each class should do one thing and not interfere with anything outside of its purpose. I think you can see where we&#x2019;re going with this. The pen is below. The rest of the post will break it down under Single Responsibility BEM. This will take a while to explain, but I hope it will spark something as it did for me. Also note, that Sass makes this much easier to pull off, so that&#x2019;s what I&#x2019;ll be using.</p>
-<blockquote>
-<p>%post-body_src%
-Single Responsibility BEM: <a href="!--%EF%BF%BC1--"></a></p>
-</blockquote>
-<h3 id="responsibility-of-the-block"><a class="header-anchor" href="#responsibility-of-the-block">&#xA7;</a>Responsibility of the Block</h3>
-<p>The block&#x2019;s job, the module, is to encapsulate all of its elements for a single role. All of the elements are tied to a block, so there&#x2019;s no reason to make that explicit by repeating the block when there&#x2019;s a better way.</p>
-<pre><code>.block {
-    @include transition(all 0.3s linear);
-    background: $white-translucent;
-    display: inline-block;
-    padding: 0.8em;
-    position: relative;
-}
-</code></pre>
-<p>As you can see, the block is only referenced once and given some base styles. Our elements will live inside the block and have their own <strong>contained</strong> styling. The block will encapsulate its element and not expose them to anything outside of the block, which means you can move the module around as you want. The block basically gives your module its own scope.</p>
-<h3 id="responsibility-of-the-element"><a class="header-anchor" href="#responsibility-of-the-element">&#xA7;</a>Responsibility of the Element</h3>
-<p>The elements in your block are what give it form and purpose. They&#x2019;re the content of your module, and that&#x2019;s all they need to be, so we&#x2019;re going to nest them within our block like so:</p>
-<pre><code>.block {
-    @include transition(all 0.3s linear);
-    background: $white-translucent;
-    display: inline-block;
-    padding: 0.8em;
-    position: relative;
-    .__headline {
-      @include scale(&apos;ginormous&apos;);
-      background: $ocean-blue-dark;
-      border-radius: 0;
-      color: $white;
-      padding: 0.2em;
-      text-align: center;
-      width: 100%;
-    }
-    
-    .__image {
-      width: 100%;
-    }
-    
-    .__content {
-      @include scale(&apos;xl&apos;);
-      @include adjust-leading-to(0.95);
-      background: rgba($ocean-blue-dark, 0.8);
-      color: $white;
-      padding: 0.4em;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-    }
-}
-</code></pre>
-<p>You see we have three elements: <code>.__headline</code>, <code>.__image</code>, and <code>.__content</code>. We know they&#x2019;re contained by our block, and they have their own styling. We don&#x2019;t have to repeat <code>.block</code> as a prefix to recognize this within our Sass. Now it gets a little interesting. Before that, here&#x2019;s what our unmodified module looks like:</p>
-<pre><code class="language-markup">&lt;section class=&quot;block&quot;&gt;
-  &lt;h2 class=&quot;__headline&quot;&gt;One Kitten&lt;/h2&gt;
-  &lt;img src=&quot;http://placekitten.com/1200/580&quot; class=&quot;__image&quot;&gt;&lt;/img&gt;
-  &lt;div class=&quot;__content&quot;&gt;One kitten in the snow.&lt;/div&gt;
-&lt;/section&gt;
-</code></pre>
-<p>Very simple, eh?</p>
-<h3 id="responsibility-of-the-modifier"><a class="header-anchor" href="#responsibility-of-the-modifier">&#xA7;</a>Responsibility of the Modifier</h3>
-<p>The modifier&#x2019;s only responsibility is to augment the block or element we pass to it. It doesn&#x2019;t need to do anything else. We&#x2019;re taking advantage of the cascade, so our modifiers will be nested inside its context. As for defining modifiers, I came up with two different methods.</p>
-<h4 id="method-1-class-chaining-to-tie-the-modifier-directly-to-the-element"><a class="header-anchor" href="#method-1-class-chaining-to-tie-the-modifier-directly-to-the-element">&#xA7;</a>Method #1: Class Chaining to Tie the Modifier Directly to the Element</h4>
-<pre><code>.__headline {
-  @include scale(&apos;ginormous&apos;);
-  background: $ocean-blue-dark;
-  border-radius: 0;
-  color: $white;
-  padding: 0.2em;
-  text-align: center;
-  width: 100%;
-  &amp;._--shrinkHeadline {
-    @include scale(&apos;xl&apos;);
-  }
-  &amp; {
-    @extend %_--shrinkHeadline;
-  }
-}
-</code></pre>
-<p>As you can see the modifier, <code>._--shrinkHeadline</code>, is nested in the <code>.__headline</code> element. The modifier is chained to the element is via Sass&#x2019; <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#referencing_parent_selectors" target="_blank" rel="external">parent reference selector</a>. This means it will only affect elements with <strong>both</strong> classes. As the markup shows:</p>
-<pre><code class="language-markup">&lt;section class=&quot;block&quot;&gt;
-  &lt;h2 class=&quot;__headline _--shrinkHeadline&quot;&gt;Three Kittens&lt;/h2&gt;
-  &lt;img src=&quot;http://placekitten.com/500/305&quot; class=&quot;__image&quot;&gt;&lt;/img&gt;
-  &lt;div class=&quot;__content&quot;&gt;Three kittens with a mirror.&lt;/div&gt;
-&lt;/section&gt;
-</code></pre>
-<h4 id="method-2-the-augment-class"><a class="header-anchor" href="#method-2-the-augment-class">&#xA7;</a>Method #2: The <code>.augment</code> Class</h4>
-<p>When I first tried this method, it was almost like wizardry. The <code>.augment</code> is an umbrella class for our modifiers, and we use <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#placeholders" target="_blank" rel="external">placeholder selectors</a> to modify its behavior before attaching it to a block or element. Here&#x2019;s how it works:</p>
-<pre><code>.augment%_--shrinkText {
-    /* Referencing %_--shrinkText */
-    @include scale(&apos;s&apos;);
-    @include adjust-leading-to(0.98);
-}
-
-.augment%_--shrinkHeadline {
-    /* Referencing %_--shrinkHeadline */
-    @include scale(&apos;xl&apos;);
-}
-
-.augment%_--shiftHeadline {
-  /* Referencing %_--shiftHeadline */
-  @include scale(&apos;m&apos;);
-  @include transition(all 0.3s linear);
-  border-radius: 2em;
-}
-
-.augment%_--imageBorder {
-    /* Referencing %_--imageBorder */
-    border: 0.5em solid $sky-blue;
-}
-</code></pre>
-<p>Modifiers are placed near the bottom of our file to leverage the cascade. And then we prefix every modifier with our <code>.augment</code> class. The way placeholder selectors work is that you give them an identifier like <code>%_--imageBorder</code>. They&#x2019;re like a class, except the CSS within the brackets is <strong>the only thing compiled by Sass</strong>. The identifier never shows up in the output, but our <code>.augment</code> class does. In the context of Object-Oriented Programming, this method is a lot like the Facade Pattern: it exposes a simple hook for not so simple actions, masking the underlying complexity for easy use through a single class. Now let&#x2019;s use one.</p>
-<pre><code>.__image {
-  width: 100%;
-  &amp; {
-    /* Referencing %_--imageBorder */
-    @extend %_--imageBorder;
-  }
-}
-</code></pre>
-<p>We&#x2019;ve attached the modifier by extending the <code>%_--imageBorder</code> placeholder to the parent selector. What this will do is expose the CSS of our placeholder and attach it to our element under the <code>.augment</code> class. Here&#x2019;s the output:</p>
-<pre><code class="language-css">/* line 258, style.scss */
-.block .augment.__image {
-  /* Referencing %_--imageBorder */
-  border: 0.5em solid #009bff;
-}
-</code></pre>
-<p>Our augmenting class in the output is tied to our modifier which is attached to the element it references. <code>.augment</code> exposes the modifier to its element and <strong>only</strong> its element. This means we can have its behavior change when it references a different modifier. Check it:</p>
-<pre><code class="language-css">/* line 258, style.scss */
-.block .augment.__content {
-  /* Referencing %_--shrinkText */
-  font-size: 1.3125em;
-  line-height: 2em;
-  line-height: 1.28625em;
-}
-</code></pre>
-<p>Same class, <strong>completely different behavior</strong>. Now, how simple is it to use within our markup? This simple.</p>
-<pre><code class="language-markup">&lt;section class=&quot;block griddler-slice-by4&quot;&gt;
-  &lt;h2 class=&quot;__headline augment&quot;&gt;Four Kittens&lt;/h2&gt;
-  &lt;img src=&quot;http://placekitten.com/400/200&quot; class=&quot;__image&quot;&gt;&lt;/img&gt;
-  &lt;div class=&quot;__content augment&quot;&gt;Four kittens exploring.&lt;/div&gt;
-&lt;/section&gt;
-</code></pre>
-<p>I had to lift my jaw from the floor.</p>
-<h2 id="caveats"><a class="header-anchor" href="#caveats">&#xA7;</a>Caveats</h2>
-<p>As always, no method is perfect. Here are some roadblocks associated with this one which may or may not be a problem depending on your work environment.</p>
-<ul>
-<li>All of this can be hard to pull off easily without Sass.</li>
-<li>Both modifier methods rely on adjoining classes, which aren&#x2019;t exactly supported in IE6.</li>
-<li>They may require some degree of education within your team</li>
-<li>The <code>@extend</code> directive can&#x2019;t be used within media queries, last I checked.</li>
-</ul>
-<p>Let me know what you think of this approach below. And as always, let me know if I missed something.</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[Modular CSS is making waves in the community (excuse the cliche). I ended up gravitating toward the BEM class syntax for Object-Oriented CSS. In this post, I attempt to make it more complicated.]]>
-    
-    </summary>
-    
-      <category term="BEM" scheme="http://chatrjr.name/tags/BEM/"/>
-    
-      <category term="CSS architecture" scheme="http://chatrjr.name/tags/CSS-architecture/"/>
-    
-      <category term="OOCSS" scheme="http://chatrjr.name/tags/OOCSS/"/>
     
       <category term="web" scheme="http://chatrjr.name/categories/web/"/>
     

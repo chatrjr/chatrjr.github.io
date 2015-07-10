@@ -2,63 +2,68 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://chatrjr.name/pattern-library/index.html</loc>
-    <lastmod>2015-07-08T14:20:18.020Z</lastmod>
+    <loc>http://chatrjr.name//systems/web/from-chemistry-to-geometry/</loc>
+    <lastmod>2015-07-10T17:02:15.894Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://chatrjr.name//web/design/atomic-design-makes-me-feel-like-a-chemist/</loc>
+    <lastmod>2015-07-10T00:40:13.135Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://chatrjr.name//personal/design/new-reality-digital-design/</loc>
+    <lastmod>2015-07-09T16:48:22.816Z</lastmod>
   </url>
   
   <url>
     <loc>http://chatrjr.name//personal/competence-and-the-bored-developer/</loc>
-    <lastmod>2015-07-07T19:25:55.398Z</lastmod>
+    <lastmod>2015-07-09T11:51:33.932Z</lastmod>
   </url>
   
   <url>
     <loc>http://chatrjr.name//web/zindex-you-wily-bastard/</loc>
-    <lastmod>2015-07-07T19:20:32.270Z</lastmod>
+    <lastmod>2015-07-09T11:51:33.820Z</lastmod>
   </url>
   
   <url>
     <loc>http://chatrjr.name//personal/special-ingredients/</loc>
-    <lastmod>2015-07-07T18:55:31.886Z</lastmod>
+    <lastmod>2015-07-09T11:51:33.732Z</lastmod>
   </url>
   
   <url>
     <loc>http://chatrjr.name//web/mvc-the-angular-way/</loc>
-    <lastmod>2015-07-07T18:54:14.710Z</lastmod>
+    <lastmod>2015-07-09T11:51:33.632Z</lastmod>
   </url>
   
   <url>
     <loc>http://chatrjr.name//web/yet-another-css-architecture/</loc>
-    <lastmod>2015-07-07T18:42:20.558Z</lastmod>
+    <lastmod>2015-07-09T11:51:33.540Z</lastmod>
   </url>
   
   <url>
     <loc>http://chatrjr.name//web/moment-js-stopwatch-experiment/</loc>
-    <lastmod>2015-07-07T18:35:54.798Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://chatrjr.name//web/preprocessed-out/</loc>
-    <lastmod>2015-07-07T18:28:11.582Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://chatrjr.name//personal/new-reality-digital-design/</loc>
-    <lastmod>2015-07-07T18:14:15.626Z</lastmod>
+    <lastmod>2015-07-09T11:51:33.448Z</lastmod>
   </url>
   
   <url>
     <loc>http://chatrjr.name//personal/code-is-only-a-method/</loc>
-    <lastmod>2015-07-07T18:13:25.302Z</lastmod>
+    <lastmod>2015-07-09T11:51:33.260Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://chatrjr.name//web/preprocessed-out/</loc>
+    <lastmod>2015-07-09T11:51:33.100Z</lastmod>
   </url>
   
   <url>
     <loc>http://chatrjr.name//web/single-responsibility-bem/</loc>
-    <lastmod>2015-07-07T17:44:19.114Z</lastmod>
+    <lastmod>2015-07-09T11:47:35.924Z</lastmod>
   </url>
   
   <url>
-    <loc>http://chatrjr.name//web/atomic-design-makes-me-feel-like-a-chemist/</loc>
-    <lastmod>2015-07-07T16:48:26.166Z</lastmod>
+    <loc>http://chatrjr.name/pattern-library/index.html</loc>
+    <lastmod>2015-07-08T14:20:18.020Z</lastmod>
   </url>
   
   <url>
