@@ -44,7 +44,7 @@ code[class*="language-"]::selection, code[class*="language-"] ::selection {
 
 /* Code blocks */
 pre[class*="language-"] {
-  border: border-med border-type[0] colors-clashes-accent-1
+  border: border-med border-type[0] colors-main-media
   padding: 3.5em 1em 1em 1em;
   margin: .5em 0;
   overflow: auto;
@@ -196,8 +196,8 @@ pre[class*='language-'] {
 
 pre[class*='language-'][data-language]::before {
   content: attr(data-language);
-  color: colors-clashes-bg-1;
-  background-color: colors-clashes-accent-1;
+  color: colors-main-media-fill;
+  background-color: colors-main-media;
   display: inline-block;
   font-family: code-family
   font-weight: code-weights-2
