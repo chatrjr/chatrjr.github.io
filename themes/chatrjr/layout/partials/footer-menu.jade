@@ -7,7 +7,7 @@ nav.footer-menu.grid.quarters
           i.footer-menu__icon(class="icon icon-#{name}")
   ul.footer-menu-section.node.u-null-list-style
     h5.footer-menu__title Typography
-    each typeface, key in site.data.pattern_typography
+    each typeface, key in site.data.typography
       if key != "title"
         - var transformFamily = typeface.family.split(" ").join("+");
         li.footer-menu__item: a.footer-menu__link(href="https://www.google.com/fonts/specimen/#{transformFamily}")= typeface.family

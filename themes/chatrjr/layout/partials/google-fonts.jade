@@ -1,4 +1,4 @@
-each typeface, key in site.data.pattern_typography
+each typeface, key in site.data.typography
   if key !== "title"
     - var transformFamily = typeface.family.split(" ").join("+");
     - var transformWeights = typeface.weights.join(",");

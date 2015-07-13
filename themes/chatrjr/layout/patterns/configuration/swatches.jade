@@ -1,9 +1,9 @@
 mixin swatch-tree
       ul.swatches.u-null-list-style.grid.eighths
-        each color, key in site.data.pattern_swatches.colors
+        each color, key in site.data.swatches.colors
           li.swatches__color.node.u-justify-center(class="color-#{key}")
             span.swatches__name.u-blocked #{key}
 
 .pattern.node
-  h3.pattern-title= site.data.pattern_swatches.title
+  h3.pattern-title= site.data.swatches.title
   +swatch-tree

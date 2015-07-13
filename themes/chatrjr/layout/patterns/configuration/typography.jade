@@ -1,11 +1,11 @@
 mixin type-tree
       ul.typography.u-null-list-style
-        each typeface, key in site.data.pattern_typography
+        each typeface, key in site.data.typography
           if key != "title"
             - var transform = typeface.family.split(' ').join('-').toLowerCase();
             - var listWeights = typeface.weights.join(', ');
             li.typography__font(class="#{key}") #{typeface.family} #[small #{listWeights}]
 
 .pattern.node
-  h3.pattern-title= site.data.pattern_typography.title
+  h3.pattern-title= site.data.typography.title
   +type-tree
