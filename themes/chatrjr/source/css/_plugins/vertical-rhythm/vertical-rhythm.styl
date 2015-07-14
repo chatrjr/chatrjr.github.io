@@ -10,6 +10,7 @@
  */
 
 $font-size-base =       1rem;
+$font-size-scale = 1.125; // major second
 $line-height-base =     1.6rem;
 
 
@@ -46,12 +47,12 @@ h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   margin-bottom: ($line-height-base / 2);
 }
 
-h1, .h1 { font-size: $font-size-base * 2.75; } // ~38px
-h2, .h2 { font-size: $font-size-base * 2.25; } // ~32px
-h3, .h3 { font-size: $font-size-base * 1.75; } // ~24px
-h4, .h4 { font-size: $font-size-base * 1.25; } // ~18px
+h1, .h1 { font-size: $font-size-base * ($font-size-scale * 4); } // ~38px
+h2, .h2 { font-size: $font-size-base * ($font-size-scale * 3); } // ~32px
+h3, .h3 { font-size: $font-size-base * ($font-size-scale * 2); } // ~24px
+h4, .h4 { font-size: $font-size-base * $font-size-scale; } // ~18px
 h5, .h5 { font-size: $font-size-base; }
-h6, .h6 { font-size: $font-size-base * 0.85; } // ~12px
+h6, .h6 { font-size: ($font-size-base / $font-size-scale); } // ~12px
 
 h1 small { font-size: $font-size-base * 1.75; } // ~24px
 h2 small { font-size: $font-size-base * 1.25; } // ~18px
