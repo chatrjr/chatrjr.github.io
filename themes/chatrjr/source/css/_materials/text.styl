@@ -21,13 +21,65 @@ h6
 
 h1,
 .h1
+  line-height: ($line-height-base * ($font-scale * 2.8))
   @media mini
-    font-size: $font-size-base * 2
-    line-height: ($line-height-base * 1.5)
+    font-size: $font-size-base * ($font-scale * 2)
+    line-height: ($line-height-base * ($font-scale * 1.4))
+  @media small
+    font-size: $font-size-base * ($font-scale * 2.5)
+    line-height: ($line-height-base * ($font-scale * 1.9))
+  @media medium
+    font-size: $font-size-base * ($font-scale * 2.75)
+    line-height: ($line-height-base * ($font-scale * 2.15))
 
-.h2,
-h2
-  border-bottom: border-thin border-type[0] colors-main-accent
+h2,
+.h2
+  border-bottom: border-hairline border-type[0] colors-main-accent
+  line-height: ($line-height-base * ($font-scale * 2.25))
+  padding-bottom: (padding-small / ($font-scale * 2))
+  @media mini
+    border-bottom: border-thin border-type[0] colors-main-accent
+    font-size: $font-size-base * ($font-scale * 1.5)
+    line-height: ($line-height-base * ($font-scale * 1.125))
+    padding-bottom: (padding-small / ($font-scale * 4))
+  @media small
+    border-bottom: border-thin border-type[0] colors-main-accent
+    font-size: $font-size-base * ($font-scale * 2)
+    line-height: ($line-height-base * ($font-scale * 1.625))
+    padding-bottom: (padding-small / ($font-scale * 6))
+  @media medium
+    border-bottom: border-thin border-type[0] colors-main-accent
+    font-size: $font-size-base * ($font-scale * 2.25)
+    line-height: ($line-height-base * ($font-scale * 1.875))
+    padding-bottom: (padding-small / ($font-scale * 8))
+
+h3,
+.h3
+  line-height: ($line-height-base * ($font-scale * 1.5))
+  @media mini
+    font-size: $font-size-base * ($font-scale * 1)
+    line-height: ($line-height-base * ($font-scale * 0.75))
+  @media small
+    font-size: $font-size-base * ($font-scale * 1.5)
+    line-height: ($line-height-base * ($font-scale * 1.25))
+  @media medium
+    font-size: $font-size-base * ($font-scale * 1.75)
+    line-height: ($line-height-base * ($font-scale * 1.5))
+
+h4, .h4, h5, .h5
+  line-height: ($line-height-base / $font-scale)
+  @media small
+    line-height: ($line-height-base / ($font-scale * $font-scale))
+
+h4,
+.h4
+  @media mini
+    font-size: $font-size-base
+  @media small
+    font-size: $font-size-base * ($font-scale)
+  @media medium
+    font-size: $font-size-base * ($font-scale * $font-scale)
+    line-height: $line-height-base
 
 /////////////////
 // Blockquotes //
