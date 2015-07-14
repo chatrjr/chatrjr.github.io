@@ -33,7 +33,7 @@ pre[class*="language-"] {
 pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
 code[class*="language-"]::selection, code[class*="language-"] ::selection {
   text-shadow: none;
-  background: #c1e4f6;
+  background: lightness(colors-main-media-muted, 88%);
 }
 
 /* Code blocks */
@@ -41,6 +41,7 @@ pre[class*="language-"] {
   border: border-med border-type[0] colors-main-media
   padding: 3.5em 1em 1em 1em;
   margin: .5em 0;
+  position: relative;
   overflow: auto;
 }
 
@@ -186,20 +187,20 @@ pre[class*='language-'] {
   position: relative;
 }
 
-pre[class*='language-'][data-language]::before {
+pre[class*='language-'][data-language]:before {
   content: attr(data-language);
   color: colors-main-media-fill;
   background-color: colors-main-media;
-  display: inline-block;
+  display: block;
   font-family: code-family
   font-weight: code-weights-2
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 0
+  left: 0
   font-size: ($font-size-base / 1.125);
   border-radius: none
-  width: 100%
+  width: 100%;
   padding: padding-small;
   text-shadow: none;
-  text-align: right
+  text-transform: uppercase
 }
