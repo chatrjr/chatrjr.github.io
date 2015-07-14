@@ -53,25 +53,25 @@
   margin: $line-height-base 0
 
 .post-body > ul:first-child > li > ul
-  background: hsl(154, 10%, 90%)
+  background: lightness(colors-main-media-muted, 90%)
   border-left: border-thick border-type[0] colors-main-media
   list-style: none
   margin: 0
   padding: $line-height-base
 
 .post-body > ul:first-child > li > ul > li
-  border-bottom: border-thin border-type[0] hsl(154, 10%, 70%)
+  border-bottom: border-thin border-type[0] lightness(colors-main-media-muted, 80%)
   padding-bottom: (padding-small / 2)
 
 .post-body > ul:first-child > li > ul > li > ul > li
-  border-bottom: border-hairline border-type[1] hsl(154, 10%, 70%)
+  border-bottom: border-hairline border-type[1] lightness(colors-main-media-muted, 80%)
   list-style: none
   margin: ($line-height-base / 2.3) 0
   padding-bottom: (padding-small / 4)
 
 .post-body > ul:first-child > li > a
   background: colors-main-media
-  border-bottom: border-med border-type[0] hsl(154, 40%, 20%)
+  border-bottom: border-med border-type[0] colors-main-media-shade
   color: colors-main-media-fill
   display: block
   padding: padding-small
@@ -80,7 +80,7 @@
   margin: 0
 
 .post-body__note
-  background: hsl(334, 20%, 90%)
+  background: lightness(colors-main-accent-muted, 90%)
   font-style: italic
   margin: $line-height-base 0
   padding: padding-small

@@ -7,14 +7,16 @@
 /////////////
 
 colors-main-base = hsl(244, 43%, 50%)
-colors-main-accent = hsl(334, 40%, 30%)
-colors-main-accent-fill = hsl(334, 10%, 95%)
-colors-main-accent-shade = hsl(334, 29%, 17%)
-colors-main-media = hsl(154, 40%, 30%)
-colors-main-media-fill = hsl(154, 10%, 95%)
-colors-main-media-shade = hsl(154, 29%, 17%)
-colors-main-text = hsl(244, 29%, 17%)
-colors-main-bg = hsl(244, 10%, 95%)
+colors-main-accent = lightness(hue(colors-main-base, hue(colors-main-base) + 90), 30%)
+colors-main-accent-fill = lightness(colors-main-accent, 97%)
+colors-main-accent-shade = lightness(colors-main-accent, 17%)
+colors-main-accent-muted = lightness(saturation(colors-main-accent, 10%), 60%)
+colors-main-media = lightness(hue(colors-main-base, hue(colors-main-base) - 90), 30%)
+colors-main-media-fill = lightness(colors-main-media, 97%)
+colors-main-media-shade = lightness(colors-main-media, 17%)
+colors-main-media-muted = lightness(saturation(colors-main-media, 10%), 60%)
+colors-main-text = lightness(colors-main-base, 17%)
+colors-main-bg = lightness(colors-main-base, 96%)
 
 ////////////////
 // Typography //

@@ -9,7 +9,7 @@ Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/b
 
 code[class*="language-"],
 pre[class*="language-"] {
-  font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace;
+  font-family: code-family, monospace;
   font-size: ($font-size-base / 1.15);
   line-height: ($line-height-base / 1.1125);
   direction: ltr;
@@ -26,14 +26,8 @@ pre[class*="language-"] {
   -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
-  background: hsl(154, 10%, 90%);
-  color: hsl(154, 10%, 35%);
-}
-
-pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
-code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
-  text-shadow: none;
-  background: #c1e4f6;
+  background: lightness(colors-main-media-muted, 90%);
+  color: lightness(colors-main-media-muted, 35%);
 }
 
 pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
@@ -53,7 +47,7 @@ pre[class*="language-"] {
 /* Inline code */
 :not(pre) > code[class*="language-"] {
   padding: .2em;
-  background:hsl(154, 10%, 87%);
+  background: lightness(colors-main-media-muted, 87%);
   border-bottom: border-thin border-type[0] colors-main-media
   border-radius: none
 }
@@ -158,8 +152,8 @@ pre[data-line] {
   padding: inherit 0;
   margin-top: 1em; /* Same as .prism’s padding-top */
 
-  background: hsla(154, 40%, 40%, .08);
-  background: linear-gradient(left, hsla(154, 40%, 40%, .1) 70%, hsla(154, 40%, 40%, 0));
+  background: alpha(lightness(colors-main-media-muted, 40%), 0.8);
+  background: linear-gradient(left, alpha(lightness(colors-main-media-muted, 75%), 0.25) 70%, alpha(lightness(colors-main-media-muted, 75%), 0));
   pointer-events: none;
   
   line-height: inherit;
@@ -174,14 +168,13 @@ pre[data-line] {
     left: .6em;
     min-width: 1em;
     padding: 0 .5em;
-    background-color: hsla(154, 40%, 40%, .4);
-    color: hsl(154, 20%, 95%);
+    background-color: lightness(colors-main-media-muted, 60%);
+    color: colors-main-media-fill;
     font: bold 65%/1.5 sans-serif;
     text-align: center;
     vertical-align: .3em;
     border-radius: 5em;
     text-shadow: none;
-    box-shadow: 0 1px white;
   }
   
   .line-highlight[data-end]:after {
