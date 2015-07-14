@@ -1,6 +1,17 @@
 .post-masthead__title
   @extends .articles-title
+  font-size: $font-size-base * ($font-scale * 5)
+  line-height: ($line-height-base * 4)
   border-width: border-hairline
+  @media mini
+    font-size: $font-size-base * ($font-scale * 2)
+    line-height: ($line-height-base * 1.8)
+  @media small
+    font-size: $font-size-base * ($font-scale * 3)
+    line-height: ($line-height-base * 2.3)
+  @media medium
+    font-size: $font-size-base * ($font-scale * 3.5)
+    line-height: ($line-height-base * 2.8)
 
 .post-meta
   @extends .articles-meta
