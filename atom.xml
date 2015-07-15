@@ -90,11 +90,11 @@
     
     </summary>
     
-      <category term="craft" scheme="http://chatrjr.name/tags/craft/"/>
+      <category term="craft" scheme="http://chatrjr.name/topics/craft/"/>
     
-      <category term="fear" scheme="http://chatrjr.name/tags/fear/"/>
+      <category term="fear" scheme="http://chatrjr.name/topics/fear/"/>
     
-      <category term="mastery" scheme="http://chatrjr.name/tags/mastery/"/>
+      <category term="mastery" scheme="http://chatrjr.name/topics/mastery/"/>
     
       <category term="personal" scheme="http://chatrjr.name/categories/personal/"/>
     
@@ -430,13 +430,13 @@ $stack-ctx-d-child: zindex-set-stack-for(layers-d-child, 4, 6);
     
     </summary>
     
-      <category term="CSS" scheme="http://chatrjr.name/tags/CSS/"/>
+      <category term="CSS" scheme="http://chatrjr.name/topics/CSS/"/>
     
-      <category term="methodology" scheme="http://chatrjr.name/tags/methodology/"/>
+      <category term="methodology" scheme="http://chatrjr.name/topics/methodology/"/>
     
-      <category term="sass lib" scheme="http://chatrjr.name/tags/sass-lib/"/>
+      <category term="sass lib" scheme="http://chatrjr.name/topics/sass-lib/"/>
     
-      <category term="z-index" scheme="http://chatrjr.name/tags/z-index/"/>
+      <category term="z-index" scheme="http://chatrjr.name/topics/z-index/"/>
     
       <category term="web" scheme="http://chatrjr.name/categories/web/"/>
     
@@ -503,11 +503,11 @@ UPDATE: Harry Roberts made an excellent point since this post was written that i
     
     </summary>
     
-      <category term="opinion" scheme="http://chatrjr.name/tags/opinion/"/>
+      <category term="opinion" scheme="http://chatrjr.name/topics/opinion/"/>
     
-      <category term="response" scheme="http://chatrjr.name/tags/response/"/>
+      <category term="response" scheme="http://chatrjr.name/topics/response/"/>
     
-      <category term="tooling" scheme="http://chatrjr.name/tags/tooling/"/>
+      <category term="tooling" scheme="http://chatrjr.name/topics/tooling/"/>
     
       <category term="personal" scheme="http://chatrjr.name/categories/personal/"/>
     
@@ -791,13 +791,13 @@ $scope.flush = function() {
     
     </summary>
     
-      <category term="AngularJS" scheme="http://chatrjr.name/tags/AngularJS/"/>
+      <category term="AngularJS" scheme="http://chatrjr.name/topics/AngularJS/"/>
     
-      <category term="MVC" scheme="http://chatrjr.name/tags/MVC/"/>
+      <category term="MVC" scheme="http://chatrjr.name/topics/MVC/"/>
     
-      <category term="experiments" scheme="http://chatrjr.name/tags/experiments/"/>
+      <category term="experiments" scheme="http://chatrjr.name/topics/experiments/"/>
     
-      <category term="learning" scheme="http://chatrjr.name/tags/learning/"/>
+      <category term="learning" scheme="http://chatrjr.name/topics/learning/"/>
     
       <category term="web" scheme="http://chatrjr.name/categories/web/"/>
     
@@ -1087,11 +1087,11 @@ UPDATE: This post references the source of my last website, which is no longer a
     
     </summary>
     
-      <category term="CSS architecture" scheme="http://chatrjr.name/tags/CSS-architecture/"/>
+      <category term="CSS architecture" scheme="http://chatrjr.name/topics/CSS-architecture/"/>
     
-      <category term="Sass" scheme="http://chatrjr.name/tags/Sass/"/>
+      <category term="Sass" scheme="http://chatrjr.name/topics/Sass/"/>
     
-      <category term="workflow" scheme="http://chatrjr.name/tags/workflow/"/>
+      <category term="workflow" scheme="http://chatrjr.name/topics/workflow/"/>
     
       <category term="web" scheme="http://chatrjr.name/categories/web/"/>
     
@@ -1305,11 +1305,11 @@ AppStopwatch.$stop.addEventListener(&apos;click&apos;, AppStopwatch.stopClock, f
     
     </summary>
     
-      <category term="JavaScript" scheme="http://chatrjr.name/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="http://chatrjr.name/topics/JavaScript/"/>
     
-      <category term="Moment.js" scheme="http://chatrjr.name/tags/Moment-js/"/>
+      <category term="Moment.js" scheme="http://chatrjr.name/topics/Moment-js/"/>
     
-      <category term="experiments" scheme="http://chatrjr.name/tags/experiments/"/>
+      <category term="experiments" scheme="http://chatrjr.name/topics/experiments/"/>
     
       <category term="web" scheme="http://chatrjr.name/categories/web/"/>
     
@@ -1378,9 +1378,9 @@ AppStopwatch.$stop.addEventListener(&apos;click&apos;, AppStopwatch.stopClock, f
     
     </summary>
     
-      <category term="CSS" scheme="http://chatrjr.name/tags/CSS/"/>
+      <category term="CSS" scheme="http://chatrjr.name/topics/CSS/"/>
     
-      <category term="opinion" scheme="http://chatrjr.name/tags/opinion/"/>
+      <category term="opinion" scheme="http://chatrjr.name/topics/opinion/"/>
     
       <category term="personal" scheme="http://chatrjr.name/categories/personal/"/>
     
@@ -1437,13 +1437,13 @@ AppStopwatch.$stop.addEventListener(&apos;click&apos;, AppStopwatch.stopClock, f
     
     </summary>
     
-      <category term="growth" scheme="http://chatrjr.name/tags/growth/"/>
+      <category term="growth" scheme="http://chatrjr.name/topics/growth/"/>
     
-      <category term="opinion" scheme="http://chatrjr.name/tags/opinion/"/>
+      <category term="opinion" scheme="http://chatrjr.name/topics/opinion/"/>
     
-      <category term="philosophy" scheme="http://chatrjr.name/tags/philosophy/"/>
+      <category term="philosophy" scheme="http://chatrjr.name/topics/philosophy/"/>
     
-      <category term="technology" scheme="http://chatrjr.name/tags/technology/"/>
+      <category term="technology" scheme="http://chatrjr.name/topics/technology/"/>
     
       <category term="personal" scheme="http://chatrjr.name/categories/personal/"/>
     
@@ -1862,11 +1862,11 @@ ________________________________________________*/
     
     </summary>
     
-      <category term="Sass" scheme="http://chatrjr.name/tags/Sass/"/>
+      <category term="Sass" scheme="http://chatrjr.name/topics/Sass/"/>
     
-      <category term="methodologies" scheme="http://chatrjr.name/tags/methodologies/"/>
+      <category term="methodologies" scheme="http://chatrjr.name/topics/methodologies/"/>
     
-      <category term="tooling" scheme="http://chatrjr.name/tags/tooling/"/>
+      <category term="tooling" scheme="http://chatrjr.name/topics/tooling/"/>
     
       <category term="web" scheme="http://chatrjr.name/categories/web/"/>
     
@@ -2073,11 +2073,11 @@ Single Responsibility BEM: <a href="http://codepen.io/chatrjr/pen/GJIxr" target=
     
     </summary>
     
-      <category term="BEM" scheme="http://chatrjr.name/tags/BEM/"/>
+      <category term="BEM" scheme="http://chatrjr.name/topics/BEM/"/>
     
-      <category term="CSS architecture" scheme="http://chatrjr.name/tags/CSS-architecture/"/>
+      <category term="CSS architecture" scheme="http://chatrjr.name/topics/CSS-architecture/"/>
     
-      <category term="OOCSS" scheme="http://chatrjr.name/tags/OOCSS/"/>
+      <category term="OOCSS" scheme="http://chatrjr.name/topics/OOCSS/"/>
     
       <category term="web" scheme="http://chatrjr.name/categories/web/"/>
     
