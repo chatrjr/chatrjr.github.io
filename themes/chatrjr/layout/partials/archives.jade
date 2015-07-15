@@ -1,16 +1,9 @@
 .archives.grid.quarters
-  aside.archive.node
-    .h3.archive-title By Category
-      i.archive-title__icon.icon.icon-category
-    .archive-content
-      != list_categories({class: 'archive', transform: titlecase})
   aside.archive.node.archive--tags
     h3.archive-title By Tag
-      i.archive-title__icon.icon.icon-tag
     .archive-content
-      != list_tags({class: 'archive', transform: titlecase})
+      != list_tags({class: 'archive'})
   aside.archive.node.archive--years
     h3.archive-title By Year
-      i.archive-title__icon.icon.icon-year
     .archive-content
       != list_archives({class: 'archive', transform: titlecase, type: 'yearly'})
