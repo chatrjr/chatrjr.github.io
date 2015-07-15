@@ -4,16 +4,6 @@
 	background-repeat: no-repeat;
 }
 
-.icon-archives {
-	background-image: url('png/archives.png');
-	background-repeat: no-repeat;
-}
-
-.icon-category {
-	background-image: url('png/category.png');
-	background-repeat: no-repeat;
-}
-
 .icon-codepen {
 	background-image: url('png/codepen.png');
 	background-repeat: no-repeat;
@@ -49,11 +39,6 @@
 	background-repeat: no-repeat;
 }
 
-.icon-tag {
-	background-image: url('png/tag.png');
-	background-repeat: no-repeat;
-}
-
 .icon-twitter {
 	background-image: url('png/twitter.png');
 	background-repeat: no-repeat;
@@ -61,10 +46,5 @@
 
 .icon-web {
 	background-image: url('png/web.png');
-	background-repeat: no-repeat;
-}
-
-.icon-year {
-	background-image: url('png/year.png');
 	background-repeat: no-repeat;
 }
