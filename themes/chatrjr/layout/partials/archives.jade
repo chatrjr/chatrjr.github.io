@@ -1,9 +1,9 @@
 .archives.grid.quarters
-  aside.archive.node.archive--tags
-    h3.archive-title By Tag
+  aside.archive.node
+    h3.archive-title By Topic
     .archive-content
       != list_tags({class: 'archive'})
-  aside.archive.node.archive--years
+  aside.archive.node
     h3.archive-title By Year
     .archive-content
       != list_archives({class: 'archive', transform: titlecase, type: 'yearly'})
