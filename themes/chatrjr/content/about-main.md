@@ -1,5 +1,7 @@
-I&rsquo;ve been flitting around the tech world for a while. Most of my work is web related, but I feed a broader interest in programming. An internship was the starting pistol for what would become a deep curiosity in technology. And hell, I just get a lot of joy out of experimental play.
+An internship a few years ago kicked off a deep curiosity in technology. I showed up for the web, stayed for the programming. I develop on Linux Mint, in Sublime Text and Vim, and spend intimate amounts of time with JavaScript on the front and backend.
 
-You&rsquo;ll most often find me reading for knowledge or pleasure. Video games account for a good chunk of my time as well. I&rsquo;ve played probably too many Japanese and western RPGs, enjoy a good puzzle, and I&rsquo;ve been a 2D fighter since the SNES.
+I'm incredibly fascinated by programming languages as tools and have difficulty becoming attached to just one. I've fiddled with Ruby and Python just enough to be dangerous, and now I'm beginning a long dive into the functional programming pool with Haskell and flirting with JavaScript's own functional capabilities.
 
-This is a scratchpad of my rough and finished ideas. Finished in the sense that I&rsquo;ve stopped fiddling with them. Expect tons of works in progress and occasional shotgun blasts to my own feet.
+> My mission: writing code that doesn't suck to maintain. Portable, elegant, correct code others want to use and modify.
+
+This is a scratchpad of my ideas in varied states of completion. Complete in the sense that I&rsquo;ve stopped fiddling with them. You'll find works in progress and occasional shotgun blasts to my own feet. If you want laser focus on just a few topics in technology, this probably won't be your cup of tea. This is my brain, and you're just along for the ride.
