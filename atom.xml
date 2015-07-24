@@ -5,7 +5,7 @@
   <subtitle><![CDATA[Words, technology, and tinkering.]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://chatrjr.name//"/>
-  <updated>2015-07-09T11:51:33.932Z</updated>
+  <updated>2015-07-24T19:23:14.209Z</updated>
   <id>http://chatrjr.name//</id>
   
   <author>
@@ -14,6 +14,120 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[A Field Guide for Your Second Language]]></title>
+    <link href="http://chatrjr.name//personal/a-field-guide-for-your-second-language/"/>
+    <id>http://chatrjr.name//personal/a-field-guide-for-your-second-language/</id>
+    <published>2015-07-24T18:11:49.000Z</published>
+    <updated>2015-07-24T19:23:14.209Z</updated>
+    <content type="html"><![CDATA[<!-- toc -->
+<ul>
+<li><a href="#ready-set-wait">Ready, Set, &#x2026;Wait.</a></li>
+<li><a href="#the-scout-rule">The Scout Rule</a>
+<ul>
+<li><a href="#you-the-enemy">You, the Enemy</a></li>
+</ul>
+</li>
+<li><a href="#your-utility-belt">Your Utility Belt</a>
+<ul>
+<li><a href="#books">Books</a>
+<ul>
+<li><a href="#about-blogs">About Blogs</a></li>
+</ul>
+</li>
+<li><a href="#practice-your-new-language">Practice Your New Language</a>
+<ul>
+<li><a href="#deliberate-practice">Deliberate Practice</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#safety-nets">Safety Nets</a>
+<ul>
+<li><a href="#linters-and-compilers">Linters and Compilers</a></li>
+<li><a href="#version-control">Version Control</a></li>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#community">Community</a></li>
+</ul>
+</li>
+<li><a href="#go-forth">Go Forth</a></li>
+<li><a href="#a-final-note">A Final Note</a></li>
+</ul>
+<!-- tocstop -->
+<h2 id="ready-set-wait"><a class="header-anchor" href="#ready-set-wait">&#xA7;</a>Ready, Set, &#x2026;Wait.</h2>
+<p>Consider this: you&#x2019;re a developer with a bit of experience. You&#x2019;ve learned and explored your first programming language (often Ruby, Python, or&#x2014;for the ballsy&#x2014;C). You know the conventions and idioms, and it feels like second nature.</p>
+<p>Congratulations, learning your next will be hell.</p>
+<p>Your intimate connection with your first language will do its best to sabotage your budding relationship with your second language. You may going from a C-derivative to another one, but you&#x2019;re not safe either.</p>
+<p>As you grow and realize languages are tools for solving problems, learning your third, fourth, and even fifth languages won&#x2019;t be as difficult. Exposing yourself to more methods and paradigms reveals the commonality among them. <strong>Languages themselves become extensions of universal concepts</strong>.</p>
+<p>Today, we&#x2019;re not here for the future. We&#x2019;re here for the present of you being fired up to learn a second language, and the dragons you&#x2019;ll encounter. Especially if you&#x2019;re switching paradigms.</p>
+<h2 id="the-scout-rule"><a class="header-anchor" href="#the-scout-rule">&#xA7;</a>The Scout Rule</h2>
+<p>Preparation is key to your second language (and beyond). As developers, we stand on shoulders that break the forest canopy. We can leverage these resources in our continued learning.</p>
+<h3 id="you-the-enemy"><a class="header-anchor" href="#you-the-enemy">&#xA7;</a>You, the Enemy</h3>
+<p>You may not notice right away, but your first language set the tone for how you relate to programming as a whole. After a while of Ruby, you begin to think about programs like a Rubyist. After a while of JavaScript, you begin thinking in JavaScript. The idioms and conventions of your first language will paint your understanding of the second. Not always for the better.</p>
+<p>You&#x2019;ll be tempted to learn the similarities of your second language and simply port your understanding and methods there. <strong>Fight this urge</strong>: you&#x2019;ll lose out on the richness of going native.</p>
+<p>The impact of learning a second language and a new way of thinking about programs is diminished if you only adapt the way you already think. For maximum benefit, <strong>empty your cup</strong>.</p>
+<h2 id="your-utility-belt"><a class="header-anchor" href="#your-utility-belt">&#xA7;</a>Your Utility Belt</h2>
+<h3 id="books"><a class="header-anchor" href="#books">&#xA7;</a>Books</h3>
+<p>A few good books are invaluable when tilling fresh soil in a new language. Google is a great when looking for reputed books. If you have a colleague skilled in the language you want to learn, even better. That said, treat recommendations with skepticism. Investigate the books for yourself and see if they make sense to you.</p>
+<div class="post-body__note">
+  For example, JS developers usually recommend Javascript: The Good Parts to beginners. A beginner to JS with a solid background in programming? Sure. A beginner to programming as a whole? Nope. Depends on what kind you are.
+</div>
+<p>This mindset tends to inform recommendations:</p>
+<blockquote>
+<p>I wish I had it when I was starting.</p>
+</blockquote>
+<p>Suggestions in this vein come from what we know <em>now</em>, not what we <em>didn&#x2019;t</em> know then.</p>
+<blockquote>
+<p>What do I need to understand a language as a beginner? Will this resource also set a good foundation for using its best features?</p>
+</blockquote>
+<p>Scrutinize all book suggestions under that lens. Think about what you already know, what you want to know, and what you need to know. <strong>Let that guide your search for resources to learn your second language.</strong>.</p>
+<h4 id="about-blogs"><a class="header-anchor" href="#about-blogs">&#xA7;</a>About Blogs</h4>
+<p>Blogs aren&#x2019;t fit (most of the time) for <em>introductory</em> resources. Tutorials don&#x2019;t provide a generalized view. They highlight specific use cases and tools. Bookmark them for later when you understand more about your language.</p>
+<p>Blog posts (including mine) often fall victim to a &#x201C;as you know&#x201D; mode of thought and make certain assumptions. And it&#x2019;s not easy to avoid these since we <em>all</em> form our own mental models as we become more knowledgeable in a topic. Part of being a good teacher is bridging these unconscious gaps so <strong>your students develop their own connections</strong>. Experts in a given field see more because they&#x2019;ve <em>seen</em> more.</p>
+<p>For books and blogs alike: expose yourself to as many forms of the same idea as you can if you don&#x2019;t understand right away. The way one author explains a concept may not click, but I bet there&#x2019;s another author who nails it for you.</p>
+<h3 id="practice-your-new-language"><a class="header-anchor" href="#practice-your-new-language">&#xA7;</a>Practice Your New Language</h3>
+<p>Of course, knowledge that&#x2019;s never used is fruit that rots on the branch. You&#x2019;re skilled with your first language, but your second one demands a bit of unlearning. Again, even C-derivatives are not cut the same way. JavaScript is a great example. You can write it like C if you want, but you&#x2019;d lose out on what makes it JavaScript.</p>
+<p>Switching paradigms from imperative to functional or functional to logic means you have to diligently monitor yourself for your habits creeping into your learning.</p>
+<h4 id="deliberate-practice"><a class="header-anchor" href="#deliberate-practice">&#xA7;</a>Deliberate Practice</h4>
+<p>The best way to solidify new knowledge is to put it on trial. Some excellent services for practicing your skills are <a href="http://exercism.io" title="Exercism" target="_blank" rel="external">Exercism</a> and <a href="http://codewars.com" title="Codewars" target="_blank" rel="external">Codewars</a>. I love these services because they fulfill a crucial requirement for retention of knowledge: repetition and an instant feedback loop through testing your solutions.</p>
+<p>We also can&#x2019;t neglect the celebrated art of just trying shit out. A great way to discover what a language excels at as a tool is to revisit a familiar problem and think about how your second language <em>feels</em> as you work to solve it.</p>
+<p>Using your tools is how you find out if they&#x2019;re suited for the problem at hand. The more tools you explore, the better you can discern which is the right one for the job. The main benefit of continued learning as a developer: you begin to understand that not every problem is a nail and avoid unfortunate scenarios of welding with a hammer.</p>
+<h2 id="safety-nets"><a class="header-anchor" href="#safety-nets">&#xA7;</a>Safety Nets</h2>
+<h3 id="linters-and-compilers"><a class="header-anchor" href="#linters-and-compilers">&#xA7;</a>Linters and Compilers</h3>
+<p>Do research about your second programming language before you learn it. Identify good syntax and style linters and how to enable all compiler warnings. Yes, <em>all</em> of them. <strong>Cultivate good habits before you pick up bad ones</strong>. Learning a language with the right linter and interpreter/compiler configuration is setting the phaser to stun. These guards in place, you&#x2019;ll spend time learning <em>how</em> it works rather than making it work.</p>
+<h3 id="version-control"><a class="header-anchor" href="#version-control">&#xA7;</a>Version Control</h3>
+<p>A version control system isn&#x2019;t just a great way to monitor your progress, it facilitates experimentation and play. Check in your commits often and branch your ideas. The beauty of of Git, SVN, and others: no matter how badly you break something, order is just a <code>reset</code> or <code>revert</code> away. You&#x2019;re only truly screwed if you&#x2019;re <em>not</em> using version control.</p>
+<h3 id="documentation"><a class="header-anchor" href="#documentation">&#xA7;</a>Documentation</h3>
+<p>Your programming language, unless it&#x2019;s esoteric or experimental (sometimes even then), has documentation. See if your wheel has already been invented. <strong>Consult the docs</strong>. When you&#x2019;re not sure what a method does, consult the docs. When you want in-depth information about a given feature of your language, consult the docs.</p>
+<h3 id="community"><a class="header-anchor" href="#community">&#xA7;</a>Community</h3>
+<p>Look into the community. Find project or company coding style guides. It&#x2019;s one more thing to keep in your head as you learn, but seeing how a language is used by its primary users gets you in the mind for writing code <strong>others can read and use</strong>.</p>
+<p>Immerse yourself before you start, and you&#x2019;ll know what to expect. If you want to learn Ruby, <strong>learn to think like a Rubyist</strong>. When you encounter problems, this knowledge will help you find a solution with your language <em>as</em> your language.</p>
+<h2 id="go-forth"><a class="header-anchor" href="#go-forth">&#xA7;</a>Go Forth</h2>
+<p>This guide is an exercise in hindsight. I wish I had it the first time I tried learning Haskell. If I had been able to break the preconceptions about programming that writing JavaScript instilled, I would have had an easier time. If I had practiced Haskell more, read the docs, and observed the community for how Haskellers think and write Haskell, I wouldn&#x2019;t have burned so much rubber while figuring it out.</p>
+<p>Success in learning your second language depends on how willing you are shelve the assumptions your first created about programs. <strong>Dig into the domain you love, but knowing others generates the seismic force that breaks new ground</strong>.</p>
+<h2 id="a-final-note"><a class="header-anchor" href="#a-final-note">&#xA7;</a>A Final Note</h2>
+<p>That said, it&#x2019;s possible you&#x2019;re like me on that first approach and not quite ready for your second language or paradigm. I&#x2019;ll tell you what I should have told myself then: no pressure.</p>
+<p>Acknowledge where you are as a developer right now. <strong>Don&#x2019;t accept it</strong>. Keep learning about programming and the art of code. Expose yourself to more problems. Develop your pattern recognition. Return to the language that burned you, and know you can take the heat.</p>
+<figure>
+  <img src="/post-images/susanoo-no-mikoto-and-orochi.jpg" alt="Susanoo-no-Mikoto Fighting Orochi">
+  <figcaption>Slay your dragons.</figcaption>
+</figure>
+]]></content>
+    <summary type="html">
+    <![CDATA[Learning a second programming language is an exciting time in a developer's growth. However, it's as much a process of unlearning as it is learning.]]>
+    
+    </summary>
+    
+      <category term="craft" scheme="http://chatrjr.name/topics/craft/"/>
+    
+      <category term="growth" scheme="http://chatrjr.name/topics/growth/"/>
+    
+      <category term="learning" scheme="http://chatrjr.name/topics/learning/"/>
+    
+      <category term="personal" scheme="http://chatrjr.name/categories/personal/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Competence and the Bored Developer]]></title>
@@ -447,7 +561,7 @@ $stack-ctx-d-child: zindex-set-stack-for(layers-d-child, 4, 6);
     <link href="http://chatrjr.name//personal/special-ingredients/"/>
     <id>http://chatrjr.name//personal/special-ingredients/</id>
     <published>2014-04-13T04:00:00.000Z</published>
-    <updated>2015-07-09T11:51:33.732Z</updated>
+    <updated>2015-07-23T17:22:54.791Z</updated>
     <content type="html"><![CDATA[<!-- toc -->
 <ul>
 <li><a href="#boxed-macaroni-cheese">Boxed Macaroni &amp; Cheese</a>
@@ -1867,217 +1981,6 @@ ________________________________________________*/
       <category term="methodologies" scheme="http://chatrjr.name/topics/methodologies/"/>
     
       <category term="tooling" scheme="http://chatrjr.name/topics/tooling/"/>
-    
-      <category term="web" scheme="http://chatrjr.name/categories/web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[SRBEM (Single Responsibility BEM)]]></title>
-    <link href="http://chatrjr.name//web/single-responsibility-bem/"/>
-    <id>http://chatrjr.name//web/single-responsibility-bem/</id>
-    <published>2013-06-14T04:00:00.000Z</published>
-    <updated>2015-07-09T11:47:35.924Z</updated>
-    <content type="html"><![CDATA[<!-- toc -->
-<ul>
-<li><a href="#breaking-bem">Breaking BEM</a></li>
-<li><a href="#single-responsibility-bem">Single Responsibility BEM</a>
-<ul>
-<li><a href="#responsibility-of-the-block">Responsibility of the Block</a></li>
-<li><a href="#responsibility-of-the-element">Responsibility of the Element</a></li>
-<li><a href="#responsibility-of-the-modifier">Responsibility of the Modifier</a>
-<ul>
-<li><a href="#method-1-class-chaining-to-tie-the-modifier-directly-to-the-element">Method #1: Class Chaining to Tie the Modifier Directly to the Element</a></li>
-<li><a href="#method-2-the-augment-class">Method #2: The <code>.augment</code> Class</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#caveats">Caveats</a></li>
-</ul>
-<!-- tocstop -->
-<p>You may already be familiar with Yandex&#x2019;s BEM method of authoring CSS. If not, it looks a little like the following code.</p>
-<pre><code class="language-markup">&lt;div class=&quot;block&quot;&gt;
-    &lt;div class=&quot;block__element&quot;&gt;&lt;/div&gt;
-    &lt;div class=&quot;block__element&quot;&gt;&lt;/div&gt;
-    &lt;div class=&quot;block__element block__element--modifier&quot;&gt;&lt;/div&gt;
-    &lt;div class=&quot;block__element&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-<h2 id="breaking-bem"><a class="header-anchor" href="#breaking-bem">&#xA7;</a>Breaking BEM</h2>
-<p>BEM-style CSS has three major parts:</p>
-<ul>
-<li>The <code>.block</code> is your containing element, your module. It&#x2019;s a component with its own structure and purpose. Within the context of Atomic Design, it would be your molecule.</li>
-<li>Elements are the internal parts of your block, responsible for holding the structure together and defining its purpose. An example would be <code>.widget</code> as your block and <code>.widget__content</code> as an element. In the context of Atomic Design, they&#x2019;re your atoms.</li>
-<li>Modifiers are special classes that you add when you want to modify your block. Let&#x2019;s say you want to make your <code>.widget__title</code> bigger. You could do that through a modifier. Example: <code>.widget__title--emphasize</code>.</li>
-</ul>
-<p>As you can see, there is quite a lot of repeating involved, and that drives me nuts. Even with a tool like Emmet, it can extremely tedious to repeat the block when using BEM-style CSS. However, I think I&#x2019;ve found a fix that I will demonstrate through the always awesome Codepen. I think it will be rather effective in reducing the redundancy in BEM-style CSS. Also, it&#x2019;s pretty sweet.</p>
-<h2 id="single-responsibility-bem"><a class="header-anchor" href="#single-responsibility-bem">&#xA7;</a>Single Responsibility BEM</h2>
-<p>If you&#x2019;re a developer of any kind&#x2013;software or web, you&#x2019;ll have heard of the Single Responsibility Principle. For those who don&#x2019;t know:</p>
-<blockquote>
-<p>In object-oriented programming, the single responsibility principle states that every class should have a single responsibility, and that responsibility should be entirely encapsulated by the class. All its services should be narrowly aligned with that responsibility. &#x2013; <a href="http://en.wikipedia.org/wiki/Single_responsibility_principle" target="_blank" rel="external">Wikipedia</a></p>
-</blockquote>
-<p>It&#x2019;s also called Curly&#x2019;s Law. It just means that each class should do one thing and not interfere with anything outside of its purpose. I think you can see where we&#x2019;re going with this. The pen is below. The rest of the post will break it down under Single Responsibility BEM. This will take a while to explain, but I hope it will spark something as it did for me. Also note, that Sass makes this much easier to pull off, so that&#x2019;s what I&#x2019;ll be using.</p>
-<div class="post-src">
-Single Responsibility BEM: <a href="http://codepen.io/chatrjr/pen/GJIxr" target="_blank" rel="external">http://codepen.io/chatrjr/pen/GJIxr</a>
-</div>
-<h3 id="responsibility-of-the-block"><a class="header-anchor" href="#responsibility-of-the-block">&#xA7;</a>Responsibility of the Block</h3>
-<p>The block&#x2019;s job, the module, is to encapsulate all of its elements for a single role. All of the elements are tied to a block, so there&#x2019;s no reason to make that explicit by repeating the block when there&#x2019;s a better way.</p>
-<pre><code>.block {
-    @include transition(all 0.3s linear);
-    background: $white-translucent;
-    display: inline-block;
-    padding: 0.8em;
-    position: relative;
-}
-</code></pre>
-<p>As you can see, the block is only referenced once and given some base styles. Our elements will live inside the block and have their own <strong>contained</strong> styling. The block will encapsulate its element and not expose them to anything outside of the block, which means you can move the module around as you want. The block basically gives your module its own scope.</p>
-<h3 id="responsibility-of-the-element"><a class="header-anchor" href="#responsibility-of-the-element">&#xA7;</a>Responsibility of the Element</h3>
-<p>The elements in your block are what give it form and purpose. They&#x2019;re the content of your module, and that&#x2019;s all they need to be, so we&#x2019;re going to nest them within our block like so:</p>
-<pre><code>.block {
-    @include transition(all 0.3s linear);
-    background: $white-translucent;
-    display: inline-block;
-    padding: 0.8em;
-    position: relative;
-    .__headline {
-      @include scale(&apos;ginormous&apos;);
-      background: $ocean-blue-dark;
-      border-radius: 0;
-      color: $white;
-      padding: 0.2em;
-      text-align: center;
-      width: 100%;
-    }
-    
-    .__image {
-      width: 100%;
-    }
-    
-    .__content {
-      @include scale(&apos;xl&apos;);
-      @include adjust-leading-to(0.95);
-      background: rgba($ocean-blue-dark, 0.8);
-      color: $white;
-      padding: 0.4em;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-    }
-}
-</code></pre>
-<p>You see we have three elements: <code>.__headline</code>, <code>.__image</code>, and <code>.__content</code>. We know they&#x2019;re contained by our block, and they have their own styling. We don&#x2019;t have to repeat <code>.block</code> as a prefix to recognize this within our Sass. Now it gets a little interesting. Before that, here&#x2019;s what our unmodified module looks like:</p>
-<pre><code class="language-markup">&lt;section class=&quot;block&quot;&gt;
-  &lt;h2 class=&quot;__headline&quot;&gt;One Kitten&lt;/h2&gt;
-  &lt;img src=&quot;http://placekitten.com/1200/580&quot; class=&quot;__image&quot;&gt;&lt;/img&gt;
-  &lt;div class=&quot;__content&quot;&gt;One kitten in the snow.&lt;/div&gt;
-&lt;/section&gt;
-</code></pre>
-<p>Very simple, eh?</p>
-<h3 id="responsibility-of-the-modifier"><a class="header-anchor" href="#responsibility-of-the-modifier">&#xA7;</a>Responsibility of the Modifier</h3>
-<p>The modifier&#x2019;s only responsibility is to augment the block or element we pass to it. It doesn&#x2019;t need to do anything else. We&#x2019;re taking advantage of the cascade, so our modifiers will be nested inside its context. As for defining modifiers, I came up with two different methods.</p>
-<h4 id="method-1-class-chaining-to-tie-the-modifier-directly-to-the-element"><a class="header-anchor" href="#method-1-class-chaining-to-tie-the-modifier-directly-to-the-element">&#xA7;</a>Method #1: Class Chaining to Tie the Modifier Directly to the Element</h4>
-<pre><code>.__headline {
-  @include scale(&apos;ginormous&apos;);
-  background: $ocean-blue-dark;
-  border-radius: 0;
-  color: $white;
-  padding: 0.2em;
-  text-align: center;
-  width: 100%;
-  &amp;._--shrinkHeadline {
-    @include scale(&apos;xl&apos;);
-  }
-  &amp; {
-    @extend %_--shrinkHeadline;
-  }
-}
-</code></pre>
-<p>As you can see the modifier, <code>._--shrinkHeadline</code>, is nested in the <code>.__headline</code> element. The modifier is chained to the element is via Sass&#x2019; <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#referencing_parent_selectors" target="_blank" rel="external">parent reference selector</a>. This means it will only affect elements with <strong>both</strong> classes. As the markup shows:</p>
-<pre><code class="language-markup">&lt;section class=&quot;block&quot;&gt;
-  &lt;h2 class=&quot;__headline _--shrinkHeadline&quot;&gt;Three Kittens&lt;/h2&gt;
-  &lt;img src=&quot;http://placekitten.com/500/305&quot; class=&quot;__image&quot;&gt;&lt;/img&gt;
-  &lt;div class=&quot;__content&quot;&gt;Three kittens with a mirror.&lt;/div&gt;
-&lt;/section&gt;
-</code></pre>
-<h4 id="method-2-the-augment-class"><a class="header-anchor" href="#method-2-the-augment-class">&#xA7;</a>Method #2: The <code>.augment</code> Class</h4>
-<p>When I first tried this method, it was almost like wizardry. The <code>.augment</code> is an umbrella class for our modifiers, and we use <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#placeholders" target="_blank" rel="external">placeholder selectors</a> to modify its behavior before attaching it to a block or element. Here&#x2019;s how it works:</p>
-<pre><code>.augment%_--shrinkText {
-    /* Referencing %_--shrinkText */
-    @include scale(&apos;s&apos;);
-    @include adjust-leading-to(0.98);
-}
-
-.augment%_--shrinkHeadline {
-    /* Referencing %_--shrinkHeadline */
-    @include scale(&apos;xl&apos;);
-}
-
-.augment%_--shiftHeadline {
-  /* Referencing %_--shiftHeadline */
-  @include scale(&apos;m&apos;);
-  @include transition(all 0.3s linear);
-  border-radius: 2em;
-}
-
-.augment%_--imageBorder {
-    /* Referencing %_--imageBorder */
-    border: 0.5em solid $sky-blue;
-}
-</code></pre>
-<p>Modifiers are placed near the bottom of our file to leverage the cascade. And then we prefix every modifier with our <code>.augment</code> class. The way placeholder selectors work is that you give them an identifier like <code>%_--imageBorder</code>. They&#x2019;re like a class, except the CSS within the brackets is <strong>the only thing compiled by Sass</strong>. The identifier never shows up in the output, but our <code>.augment</code> class does. In the context of Object-Oriented Programming, this method is a lot like the Facade Pattern: it exposes a simple hook for not so simple actions, masking the underlying complexity for easy use through a single class. Now let&#x2019;s use one.</p>
-<pre><code>.__image {
-  width: 100%;
-  &amp; {
-    /* Referencing %_--imageBorder */
-    @extend %_--imageBorder;
-  }
-}
-</code></pre>
-<p>We&#x2019;ve attached the modifier by extending the <code>%_--imageBorder</code> placeholder to the parent selector. What this will do is expose the CSS of our placeholder and attach it to our element under the <code>.augment</code> class. Here&#x2019;s the output:</p>
-<pre><code class="language-css">/* line 258, style.scss */
-.block .augment.__image {
-  /* Referencing %_--imageBorder */
-  border: 0.5em solid #009bff;
-}
-</code></pre>
-<p>Our augmenting class in the output is tied to our modifier which is attached to the element it references. <code>.augment</code> exposes the modifier to its element and <strong>only</strong> its element. This means we can have its behavior change when it references a different modifier. Check it:</p>
-<pre><code class="language-css">/* line 258, style.scss */
-.block .augment.__content {
-  /* Referencing %_--shrinkText */
-  font-size: 1.3125em;
-  line-height: 2em;
-  line-height: 1.28625em;
-}
-</code></pre>
-<p>Same class, <strong>completely different behavior</strong>. Now, how simple is it to use within our markup? This simple.</p>
-<pre><code class="language-markup">&lt;section class=&quot;block griddler-slice-by4&quot;&gt;
-  &lt;h2 class=&quot;__headline augment&quot;&gt;Four Kittens&lt;/h2&gt;
-  &lt;img src=&quot;http://placekitten.com/400/200&quot; class=&quot;__image&quot;&gt;&lt;/img&gt;
-  &lt;div class=&quot;__content augment&quot;&gt;Four kittens exploring.&lt;/div&gt;
-&lt;/section&gt;
-</code></pre>
-<p>I had to lift my jaw from the floor.</p>
-<h2 id="caveats"><a class="header-anchor" href="#caveats">&#xA7;</a>Caveats</h2>
-<p>As always, no method is perfect. Here are some roadblocks associated with this one which may or may not be a problem depending on your work environment.</p>
-<ul>
-<li>All of this can be hard to pull off easily without Sass.</li>
-<li>Both modifier methods rely on adjoining classes, which aren&#x2019;t exactly supported in IE6.</li>
-<li>They may require some degree of education within your team</li>
-<li>The <code>@extend</code> directive can&#x2019;t be used within media queries, last I checked.</li>
-</ul>
-<p>Let me know what you think of this approach. And as always, let me know if I missed something.</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[Modular CSS is making waves in the community (excuse the cliche). I ended up gravitating toward the BEM class syntax for Object-Oriented CSS. In this post, I attempt to make it more complicated.]]>
-    
-    </summary>
-    
-      <category term="BEM" scheme="http://chatrjr.name/topics/BEM/"/>
-    
-      <category term="CSS architecture" scheme="http://chatrjr.name/topics/CSS-architecture/"/>
-    
-      <category term="OOCSS" scheme="http://chatrjr.name/topics/OOCSS/"/>
     
       <category term="web" scheme="http://chatrjr.name/categories/web/"/>
     
