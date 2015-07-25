@@ -1,3 +1,4 @@
+---
 layout: {{ layout }}
 title: {{ title }}
 date: {{ date }}
@@ -9,5 +10,3 @@ excerpt:
 ---
 
 <!-- toc -->
-
-
