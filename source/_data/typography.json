@@ -10,6 +10,6 @@
   },
   "code": {
     "family": "Roboto Mono",
-    "weights": ["400", "400italic", "700"]
+    "weights": ["400", "700"]
   }
 }
